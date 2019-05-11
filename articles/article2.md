@@ -1,5 +1,4 @@
-![](/images/7DRKb0HRl7uo5SlyjWvTHen9Mm1vBdqq5WQyRvlN.jpeg)![](/images/art-Mihail-Vachaev-5136061.jpeg)![](/images/JiMIZ0LpuTRpT3WzDCa4lIYOPBFSBNya5VXmnya0.jpeg)![](/images/art-Mihail-Vachaev-5136061.jpeg)
-![](/images/коммунальные-службы-снег-вопрос-дня-3251589.png)
+[](/files/Lglw0dVXcco90oT3s690XaRfnD8HjWCe5JMcvK3C.jpeg)
 ***
 **********
 [test](/tags/test.md)
