@@ -3,4 +3,4 @@
 **********
 
 ***
-[LVM2](/tags/LVM2.md)
+[LVM](/tags/LVM.md)
