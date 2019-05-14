@@ -32,7 +32,7 @@ grub2-mkconfig -o /boot/grub2/grub.cfg
 ```
 
 > Generating grub configuration file ...                                          
-> Found linux image: /boot/vmlinuz-3.10.0-862.2.3.el7.x86_64
+> Found linux image: /boot/vmlinuz-3.10.0-862.2.3.el7.x86_64               
 > Found initrd image: /boot/initramfs-3.10.0-862.2.3.el7.x86_64.img
 > done
 
