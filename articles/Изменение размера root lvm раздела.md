@@ -106,6 +106,27 @@ xfsdump -J - /dev/vg_root/lv_root | xfsrestore -J - /mnt
 > xfsrestore: restore complete: 37 seconds elapsed                    
 > xfsrestore: Restore Status: SUCCESS                    
 
+### Так же как в первый раз переконфигурируем grub, за исключением правки /etc/grub2/grub.cfg
+
+```bash
+ for i in /proc/ /sys/ /dev/ /run/ /boot/; do mount --bind $i /mnt/$i; done
+ chroot /mnt/
+ grub2-mkconfig -o /boot/grub2/grub.cfg
+```
+
+> Generating grub configuration file ...                        
+> Found linux image: /boot/vmlinuz-3.10.0-862.2.3.el7.x86_64                        
+> Found initrd image: /boot/initramfs-3.10.0-862.2.3.el7.x86_64.img                
+> done                
+
+```bash
+cd /boot ; for i in `ls initramfs-*img`; do dracut -v $i `echo $i|sed "s/initramfs-//g;
+s/.img//g"` --force; done
+```
+
+> *** Creating image file ***                        
+> *** Creating image file done ***                        
+> *** Creating initramfs image file '/boot/initramfs-3.10.0-862.2.3.el7.x86_64.img' done ***      
 
 **********
 [LVM](/tags/LVM.md)
