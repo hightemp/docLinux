@@ -49,8 +49,8 @@ cd /boot ; for i in `ls initramfs-*img`; do dracut -v $i `echo $i|sed "s/initram
 s/.img//g"` --force; done
 ```
 
-> *** Creating image file *** 
-> *** Creating image file done ***  
+> *** Creating image file ***              
+> *** Creating image file done ***               
 > *** Creating initramfs image file '/boot/initramfs-3.10.0-862.2.3.el7.x86_64.img' done *** 
 
 Ну и для того, чтобы при загрузке был смонтирован нужны root нужно в файле
