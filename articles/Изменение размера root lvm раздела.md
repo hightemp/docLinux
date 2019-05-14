@@ -17,7 +17,7 @@ mount /dev/vg_root/lv_root /mnt
 
 ### Этой командой скопируем все данные с / раздела в /mnt
 
-```bash
+```
 xfsdump -J - /dev/VolGroup00/LogVol00 | xfsrestore -J - /mnt
 ```
 
