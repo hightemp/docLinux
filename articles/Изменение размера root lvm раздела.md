@@ -8,6 +8,10 @@ vgcreate vg_root /dev/sdb
 lvcreate -n lv_root -l +100%FREE /dev/vg_root
 ```
 
+>  Physical volume "/dev/sdb" successfully created.  
+>  Volume group "vg_root" successfully created  
+>  Logical volume "lv_root" created.    
+
 ### Создадим на нем файловую систему и смонтируем его, чтобы перенести туда данные
 
 ```bash
@@ -20,6 +24,8 @@ mount /dev/vg_root/lv_root /mnt
 ```bash
 xfsdump -J - /dev/VolGroup00/LogVol00 | xfsrestore -J - /mnt
 ```
+
+> xfsrestore: Restore Status: SUCCESS
 
 ### Затем переконфигурируем grub для того, чтобы при старте перейти в новый /
 
