@@ -77,7 +77,23 @@ s/.img//g"` --force; done
 > sdd 8:48 0 1G 0 disk                           
 > sde 8:64 0 1G 0 disk                           
 
+### Теперь нам нужно изменить размер старой VG и вернуть на него рут. Для этого удаляем
+### старый LV размеров в 40G и создаем новый на 8G:
 
+```bash
+ lvremove /dev/VolGroup00/LogVol00
+```
+ 
+> Do you really want to remove active logical volume VolGroup00/LogVol00? [y/n]: y     
+>  Logical volume "LogVol00" successfully removed            
+ 
+```bash
+ lvcreate -n VolGroup00/LogVol00 -L 8G /dev/VolGroup00
+```
+
+> WARNING: xfs signature detected on /dev/VolGroup00/LogVol00 at offset 0. Wipe it? [y/n]: y            
+>  Wiping xfs signature on /dev/VolGroup00/LogVol00.            
+>  Logical volume "LogVol00" created.                
 
 
 
