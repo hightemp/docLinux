@@ -42,6 +42,17 @@ grub2-mkconfig -o /boot/grub2/grub.cfg
 > Found initrd image: /boot/initramfs-3.10.0-862.2.3.el7.x86_64.img     
 > done
 
+### Обновим образ initrd. 
+
+```bash
+cd /boot ; for i in `ls initramfs-*img`; do dracut -v $i `echo $i|sed "s/initramfs-//g;
+s/.img//g"` --force; done
+```
+
+> *** Creating image file *** 
+> *** Creating image file done ***  
+> *** Creating initramfs image file '/boot/initramfs-3.10.0-862.2.3.el7.x86_64.img' done *** 
+
 
 **********
 [LVM](/tags/LVM.md)
