@@ -94,7 +94,17 @@ s/.img//g"` --force; done
 >  Wiping xfs signature on /dev/VolGroup00/LogVol00.            
 >  Logical volume "LogVol00" created.                
 
+### Проделываем на нем те же операции, что и в первый раз:
 
+```bash
+mkfs.xfs /dev/VolGroup00/LogVol00
+mount /dev/VolGroup00/LogVol00 /mnt
+xfsdump -J - /dev/vg_root/lv_root | xfsrestore -J - /mnt
+```
+
+> xfsdump: Dump Status: SUCCESS                        
+> xfsrestore: restore complete: 37 seconds elapsed                    
+> xfsrestore: Restore Status: SUCCESS                    
 
 
 **********
