@@ -23,6 +23,13 @@ xfsdump -J - /dev/VolGroup00/LogVol00 | xfsrestore -J - /mnt
 
 ### Затем переконфигурируем grub для того, чтобы при старте перейти в новый /
 
+Сымитируем текущий root -> сделаем в него chroot и обновим grub:
+
+```bash
+for i in /proc/ /sys/ /dev/ /run/ /boot/; do mount --bind $i /mnt/$i; done
+chroot /mnt/
+grub2-mkconfig -o /boot/grub2/grub.cfg
+```
 
 
 **********
