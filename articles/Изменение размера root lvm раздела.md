@@ -25,4 +25,3 @@ xfsdump -J - /dev/VolGroup00/LogVol00 | xfsrestore -J - /mnt
 
 
 **********
-[root](/tags/root.md)
