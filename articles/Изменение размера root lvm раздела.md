@@ -17,8 +17,9 @@ mount /dev/vg_root/lv_root /mnt
 
 ### Этой командой скопируем все данные с / раздела в /mnt
 
-> xfsdump -J - /dev/VolGroup00/LogVol00 | xfsrestore -J - /mnt
-
+```bash
+xfsdump -J - /dev/VolGroup00/LogVol00 | xfsrestore -J - /mnt
+```
 
 ### Затем переконфигурируем grub для того, чтобы при старте перейти в новый /
 
