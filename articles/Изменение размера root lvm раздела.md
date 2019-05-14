@@ -24,6 +24,7 @@ xfsdump -J - /dev/VolGroup00/LogVol00 | xfsrestore -J - /mnt
 ### Затем переконфигурируем grub для того, чтобы при старте перейти в новый /
 
 
+
 **********
 [LVM](/tags/LVM.md)
 [root](/tags/root.md)
