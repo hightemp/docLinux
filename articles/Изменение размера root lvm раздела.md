@@ -54,7 +54,7 @@ s/.img//g"` --force; done
 > *** Creating initramfs image file '/boot/initramfs-3.10.0-862.2.3.el7.x86_64.img' done *** 
 
 Ну и для того, чтобы при загрузке был смонтирован нужны root нужно в файле
-**/boot/grub2/grub.cfg** заменитþ `rd.lvm.lv=VolGroup00/LogVol00` на `rd.lvm.lv=vg_root/lv_root`
+**/boot/grub2/grub.cfg** заменить `rd.lvm.lv=VolGroup00/LogVol00` на `rd.lvm.lv=vg_root/lv_root`
 
 ### Перезагружаемся успешно с новым рут томом.
 
@@ -62,14 +62,14 @@ s/.img//g"` --force; done
  lsblk
 ```
 
-> NAME MAJ:MIN RM SIZE RO TYPE MOUNTPOINT 
-> sda 8:0 0 40G 0 disk 
-> |-sda1 8:1 0 1M 0 part 
-> |-sda2 8:2 0 1G 0 part /boot 
-> `-sda3 8:3 0 39G 0 part 
->  |-VolGroup00-LogVol01 253:1 0 1.5G 0 lvm [SWAP] 
->  `-VolGroup00-LogVol00 253:2 0 37.5G 0 lvm 
-> sdb 8:16 0 10G 0 disk 
+> NAME MAJ:MIN RM SIZE RO TYPE MOUNTPOINT             
+> sda 8:0 0 40G 0 disk                           
+> |-sda1 8:1 0 1M 0 part                           
+> |-sda2 8:2 0 1G 0 part /boot                           
+> `-sda3 8:3 0 39G 0 part                           
+>  |-VolGroup00-LogVol01 253:1 0 1.5G 0 lvm [SWAP]                           
+>  `-VolGroup00-LogVol00 253:2 0 37.5G 0 lvm                           
+> sdb 8:16 0 10G 0 disk                           
 
 
 
