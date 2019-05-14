@@ -2,5 +2,5 @@
 
 ```javascript
 var a = 100;
-vasr s = "123";
+var s = "123";
 ```
