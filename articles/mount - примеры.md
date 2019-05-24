@@ -135,3 +135,5 @@ sudo mount -t smbfs -o username=vasja,password=pupkin //pupkin_v/Video /home/use
 ```
 
 Где username=vasja,password=pupkin — это имя и пароль доступа к удаленному сетевому ресурсу, а **//pupkin_v/Video** — имя сетевого ресурса, **/home/user/video** - точка монтирования
+**********
+[mount](/tags/mount.md)
