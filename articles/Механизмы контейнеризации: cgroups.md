@@ -18,10 +18,10 @@
 
 Механизм cgroups состоит из двух составных частей: ядра (cgroup core) и так называемых подсистем. В ядре версии 4.4.0.21 таких подсистем 12:
 
-* blkio — устанавливает лимиты на чтение и запись с блочных устройств;
-* cpuacct — генерирует отчёты об использовании ресурсов процессора;
-* cpu — обеспечивает доступ процессов в рамках контрольной группы к CPU;
-* cpuset — распределяет задачи в рамках контрольной группы между процессорными ядрами;
+* [blkio](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/tree/block/blk-cgroup.c) — устанавливает лимиты на чтение и запись с блочных устройств;
+* [cpuacct](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/tree/kernel/sched/cpuacct.c) — генерирует отчёты об использовании ресурсов процессора;
+* [cpu](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/tree/kernel/sched/core.c) — обеспечивает доступ процессов в рамках контрольной группы к CPU;
+* [cpuset](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/tree/kernel/cpuset.c) — распределяет задачи в рамках контрольной группы между процессорными ядрами;
 * devices — разрешает или блокирует доступ к устройствам;
 * freezer — приостанавливает и возобновляет выполнение задач в рамках контрольной группы
 * hugetlb — активирует поддержку больших страниц памяти для контрольных групп;
