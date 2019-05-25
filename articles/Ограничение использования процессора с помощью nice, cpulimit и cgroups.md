@@ -116,3 +116,4 @@ Observe how the CPU is still being proportioned in a 2:1 ratio. Now the two math
 [centos](/tags/centos.md)
 [nice](/tags/nice.md)
 [cpulimit](/tags/cpulimit.md)
+[cgroups](/tags/cgroups.md)
