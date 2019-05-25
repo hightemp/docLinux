@@ -67,19 +67,26 @@ sudo cp src/cpulimit /usr/bin
 
 Приведенные выше команды загрузят исходный код из GitHub, распакуют файл архива, соберут двоичный файл и скопируют его в **/usr/bin**.
 
-cpulimit is used in a similar way to nice, however you need to explicitly define the maximum CPU limit for the process using the ‘-l’ parameter. For example:
+**cpulimit** используется аналогично **nice**, однако вам нужно явно определить максимальное ограничение ЦП для процесса, используя параметр «-l». Например:
 
+```bash
 cpulimit -l 50 matho-primes 0 9999999999 > /dev/null &
-top
+```
 
-Note how the matho-primes process is now only using 50% of the available CPU time. On my example system the rest of the time is spent in idle.
+![](/images/ZGPMohnLTFmYshntAepX)
 
-You can also limit a currently running process by specifying its PID using the‘-p’  parameter. For example
+Обратите внимание, что процесс **matho-primes** теперь использует только 50% доступного процессорного времени. В моем примере система все остальное время проводит в режиме ожидания.
 
+Вы также можете ограничить запущенный в данный момент процесс, указав его PID с помощью параметра «-p». Например
+
+```bash
 cpulimit -l 50 -p 1234
-Where 1234 is the PID of the process.
+```
 
-cgroups
+Где 1234 - PID процесса.
+
+### cgroups
+
 Control groups (cgroups) are a Linux kernel feature that allows you to specify how the kernel should allocate specific resources to a group of processes. With cgroups you can specify how much CPU time, system memory, network bandwidth, or combinations of these resources can be used by the processes residing in a certain group.
 
 The advantage of control groups over nice or cpulimit is that the limits are applied to a set of processes, rather than to just one. Also, nice or cpulimit only limit the CPU usage of a process, whereas cgroups can limit other process resources.
