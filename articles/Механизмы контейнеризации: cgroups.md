@@ -330,3 +330,4 @@ $ echo "+memory" > /cgroup2/group1/cgroup.subtree_control,
 * https://events.linuxfoundation.org/sites/events/files/slides/2014-KLF.pdf — презентация доклада о cgroup v2 с подробными разъяснениями всех нововведений и изменений.
 **********
 [cgroups](/tags/cgroups.md)
+[OOM killer](/tags/OOM%20killer.md)
