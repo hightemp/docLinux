@@ -37,7 +37,7 @@
 
 ## Доступные пользователю настройки:
 
-самый простой способ повлиять на OOM Killer — использовать vm.overcommit_memory;
+* самый простой способ повлиять на OOM Killer — использовать vm.overcommit_memory;
 * vm.oom_dump_tasks — делать dump всех процессов за исключением kernel threads, в dump попадает pid, uid, tgid, vm size, rss, cpu и oom_adj. Имеет смысл включать только для отладки OOM Killer;
 * vm.oom_kill_allocating_task — убивать процесс, процесс которому не хватило памяти, без выбора самого плохого;
 * vm.panic_on_oom — считать запуск OOM критической ошибкой.
