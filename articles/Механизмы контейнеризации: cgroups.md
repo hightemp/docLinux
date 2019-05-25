@@ -310,3 +310,5 @@ https://www.kernel.org/doc/Documentation/cgroup-v1/cgroups.txt — докуме�
 https://www.kernel.org/doc/Documentation/cgroup-v2.txt — документация cgroup v2;
 https://www.youtube.com/watch?v=PzpG40WiEfM — лекция Течжена Хе о нововведениях cgroup v2;
 https://events.linuxfoundation.org/sites/events/files/slides/2014-KLF.pdf — презентация доклада о cgroup v2 с подробными разъяснениями всех нововведений и изменений.
+**********
+[cgroups](/tags/cgroups.md)
