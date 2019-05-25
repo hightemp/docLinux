@@ -22,15 +22,18 @@
 
 ### nice
 
-The nice command tweaks the priority level of a process so that it runs less frequently. This is useful when you need to run a CPU intensive task as a background or batch job. The niceness level ranges from -20 (most favorable scheduling) to 19 (least favorable). Processes on Linux are started with a niceness of 0 by default. The nice command (without any additional parameters) will start a process with a niceness of 10. At that level the scheduler will see it as a lower priority task and give it less CPU resources.
+Команда **nice** настраивает уровень приоритета процесса, чтобы он выполнялся реже. Это полезно, когда вам нужно запустить задачу с интенсивным использованием процессора в качестве фонового или пакетного задания. Уровень привлекательности варьируется от -20 (наиболее благоприятный график) до 19 (наименее благоприятный). Процессы в Linux по умолчанию запускаются со значением 0. Команда **nice** (без каких-либо дополнительных параметров) запустит процесс с изящностью 10. На этом уровне планировщик увидит его как задачу с более низким приоритетом и даст ему меньше ресурсов ЦП.
 
-Start two matho-primes tasks, one with nice and one without:
+Запустите две задачи с простыми числами: одно с хорошим и одно без:
 
+```bash
 nice matho-primes 0 9999999999 > /dev/null &
 matho-primes 0 9999999999 > /dev/null &
-Now run top.
+```
 
-top
+Теперь запустите **топ**.
+
+![](/images/noOl6isSjiqS6ImxiLvm)
 
 Observe that the process started without nice (at niceness level 0) gets more processor time, whereas the process with a niceness level of 10 gets less.
 
