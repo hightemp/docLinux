@@ -89,89 +89,99 @@ cpuset.memory_migrate
 $ echo $$ > /sys/fs/cgroup/cpuset/group0/tasks
 ```
 
-Cимволами $$ обозначается PID процесса, выполняемого текущей командной оболочкой.
+Cимволами **$$** обозначается PID процесса, выполняемого текущей командной оболочкой.
 
 Этот процесс не закреплён ни за одним ядром CPU, что подтверждает следующая команда:
 
+```console
 $ cat /proc/$$/status |grep '_allowed'
 Cpus_allowed: 2
 Cpus_allowed_list:  0-1
 Mems_allowed: 00000000,00000001
 Mems_allowed_list:  0
-
+```
 
 Вывод этой команды показывает, что для интересующего нас процесса доступны 2 ядра CPU с номерами 0 и 1.
 
 Попробуем «привязать» этот процесс к ядру с номером 0:
 
+```console
 $ echo 0 >/sys/fs/cgroup/cpuset/group0/cpuset.cpus
-
+```
 
 Проверим, что получилось:
 
+```console
 $ cat /proc/$$/status |grep '_allowed'
 Cpus_allowed: 1
 Cpus_allowed_list:  0
 Mems_allowed: 00000000,00000001
 Mems_allowed_list:  0
+```
 
-
-Пример 2: управление памятью
-
+### Пример 2: управление памятью
 
 Встроим созданную в предыдущем примере группу ещё в одну подсистему:
 
+```console
 $ mkdir /sys/fs/cgroup/memory/group0
-
+```
 
 Далее выполним:
 
+```console
 $ echo $$ > /sys/fs/cgroup/memory/group0/tasks
-
+```
 
 Попробуем ограничить для контрольной группы group0 потребление памяти. Для этого нам понадобится прописать соответствующий лимит в файле memory.limit_in_bytes:
 
+```console
 $ echo 40M > /sys/fs/cgroup/memory/group0/memory.limit_in_bytes
-
+```
 
 Механизм cgroups предоставляет очень обширные возможности управления памятью. Например, с его помощью мы можем оградить критически важные процессы от попадания под горячую руку OOM-killer’a:
 
+```console
 $ echo 1 > /sys/fs/cgroup/memory/group0/memory.oom_control
 $ cat /sys/fs/cgroup/memory/group0/memory.oom_control
 oom_kill_disable 1
 under_oom 0
-
+```
 
 Если мы поместим в отдельную контрольную группу, например, ssh-демон и отключим для этой группы OOM-killer, то мы можем быть уверены в том, что он не будет «убит» при преувеличении потребления памяти.
 
-Пример 3: управление устройствами
-
+### Пример 3: управление устройствами
 
 Добавим нашу контрольную группу ещё в одну иерархию:
 
+```console
 $ mkdir /sys/fs/cgroup/devices/group0
-
+```
 
 По умолчанию у группы нет никаких ограничений доступа к устройствам:
 
+```console
 $ cat /sys/fs/cgroup/devices/group0/devices.list 
 a *:* rwm
-
+```
 
 Попробуем выставить ограничения:
 
+```console
 $ echo 'c 1:3 rmw' > /sys/fs/cgroup/devices/group0/devices.deny
-
+```
 
 Эта команда включит устройство /dev/null в список запрещённых для нашей контрольной группы. Мы записали в управляющий файл строку вида ‘c 1:3 rmw’. Сначала мы указываем тип устройства — в нашем случае это символьное устройство, обозначаемое буквой с (сокращение от character device). Два других типа устройств — это блочные (b) и все возможные устройства (а). Далее следуют мажорный и минорный номера устройства. Узнать номера можно с помощью команды вида:
 
+```console
 $ ls -l  /dev/null
-
+```
 
 Вместо /dev/null, естественно, можно указать любой другой путь. Вывод этой команды выглядит так:
 
+```console
 crw-rw-rw- 1 root root 1, 3 May 30 10:49 /dev/null
-
+```
 
 Первая цифра в выводе — это мажорный, а вторая — минорный номер. 
 
@@ -179,38 +189,42 @@ crw-rw-rw- 1 root root 1, 3 May 30 10:49 /dev/null
 
 Далее выполним:
 
+```console
 $ echo $$ > /sys/fs/cgroup/devices/group0/tasks 
 $ echo "test" > /dev/null
-
+```
 
 При выполнении последней команды система выдаст сообщение об ошибке:
 
+```console
 -bash: /dev/null: Operation not permitted
-
+```
 
 С устройством /dev/null мы никак взаимодействовать не можем, потому что доступ закрыт.
 
 Восстановим доступ:
 
+```console
 $ echo a > /sys/fs/cgroup/devices/group0/devices.allow
-
+```
 
 В результате выполнения этой команды в файл /sys/fs/cgroup/devices/group0/devices.allow будет добавлена запись a *:* rwm, и все ограничения будут сняты.
 
-Cgroups и контейнеры
-
+## Cgroups и контейнеры
 
 Из приведённых примеров понятно, в чём заключается принцип работы cgroups: мы помещаем определённые процессы в группу, которую затем «встраиваем» в подсистемы. Разберём теперь более сложные примеры и рассмотрим, как cgroups используются в современных инструментах контейнеризации на примере LXC.
 
 Установим LXC и создадим контейнер:
 
+```console
 $ sudo apt-get install lxc debootstrap bridge-utils
 $ sudo lxc-create -n ubuntu -t ubuntu -f /usr/share/doc/lxc/examples/lxc-veth.conf
 $ lxc-start -d -n ubuntu 
-
+```
 
 Посмотрим, что изменилось в директории cgroups после создания и запуска контейнера:
 
+```console
 $ ls /sys/fs/cgroup/memory
 
 cgroup.clone_children  memory.limit_in_bytes            memory.swappiness
@@ -220,14 +234,15 @@ cgroup.sane_behavior   memory.numa_stat                 notify_on_release
 lxc                    memory.oom_control               release_agent
 memory.failcnt         memory.pressure_level            tasks
 memory.force_empty     memory.soft_limit_in_bytes
+```
 
-
-Как видим, в каждой иерархии появилась директория lxc, которая в свою очередь содержит поддиректорию Ubuntu. Для каждого нового контейнера в директории lxc будет создаваться отдельная поддиректория. PID всех запускаемых в этом контейнере процессов будут записываться в файл /sys/fs/cgroup/cpu/lxc/[имя контейнера]/tasks 
+Как видим, в каждой иерархии появилась директория lxc, которая в свою очередь содержит поддиректорию Ubuntu. Для каждого нового контейнера в директории lxc будет создаваться отдельная поддиректория. PID всех запускаемых в этом контейнере процессов будут записываться в файл **/sys/fs/cgroup/cpu/lxc/\[имя контейнера\]/tasks** 
 
 Выделять ресурсы для контейнеров можно как с помощью управляющих файлов cgroups, так и с помощью специальных команд lxc, например:
 
+```console
 $ lxc-cgroup -n [имя контейнера] memory.limit_in_bytes 400
-
+```
 
 Аналогичным образом дело обстоит с контейнерами Docker, systemd-nspawn и другими.
 
