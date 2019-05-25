@@ -114,3 +114,4 @@ sudo cgexec -g cpu:cpulimited /usr/local/bin/matho-primes 0 9999999999 > /dev/nu
 Observe how the CPU is still being proportioned in a 2:1 ratio. Now the two matho-primes tasks in the cpulimited group are sharing the CPU equally, while the process in the other group still gets more processor time.
 **********
 [centos](/tags/centos.md)
+[nice](/tags/nice.md)
