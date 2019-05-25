@@ -22,23 +22,24 @@
 * [cpuacct](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/tree/kernel/sched/cpuacct.c) — генерирует отчёты об использовании ресурсов процессора;
 * [cpu](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/tree/kernel/sched/core.c) — обеспечивает доступ процессов в рамках контрольной группы к CPU;
 * [cpuset](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/tree/kernel/cpuset.c) — распределяет задачи в рамках контрольной группы между процессорными ядрами;
-* devices — разрешает или блокирует доступ к устройствам;
-* freezer — приостанавливает и возобновляет выполнение задач в рамках контрольной группы
-* hugetlb — активирует поддержку больших страниц памяти для контрольных групп;
-* memory — управляет выделением памяти для групп процессов;
-* net_cls — помечает сетевые пакеты специальным тэгом, что позволяет идентифицировать пакеты, порождаемые определённой задачей в рамках контрольной группы;
-* netprio — используется для динамической установки приоритетов по трафику;
-* pids — используется для ограничения количества процессов в рамках контрольной группы.
+* [devices](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/tree/security/device_cgroup.c) — разрешает или блокирует доступ к устройствам;
+* [freezer](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/tree/kernel/cgroup_freezer.c) — приостанавливает и возобновляет выполнение задач в рамках контрольной группы
+* [hugetlb](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/tree/mm/hugetlb_cgroup.c) — активирует поддержку больших страниц памяти для контрольных групп;
+* [memory](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/tree/mm/memcontrol.c) — управляет выделением памяти для групп процессов;
+* [net_cls](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/tree/net/core/netclassid_cgroup.c) — помечает сетевые пакеты специальным тэгом, что позволяет идентифицировать пакеты, порождаемые определённой задачей в рамках контрольной группы;
+* [netprio](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/tree/net/core/netprio_cgroup.c) — используется для динамической установки приоритетов по трафику;
+* [pids](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/tree/kernel/cgroup_pids.c) — используется для ограничения количества процессов в рамках контрольной группы.
 
 
 Вывести список подсистем на консоль можно с помощью команды:
 
+```console
 $ ls /sys/fs/cgroup/
 
 blkio    cpu,cpuacct  freezer  net_cls           perf_event
 cpu      cpuset       hugetlb  net_cls,net_prio  pids
 cpuacct  devices      memory   net_prio          systemd
-
+```
 
 Каждая подсистема представляет собой директорию с управляющими файлами, в которых прописываются все настройки. В каждой из этих директорий имеются следующие управляющие файлы:
 cgroup.clone_children — позволяет передавать дочерним контрольным группам свойства родительских;
