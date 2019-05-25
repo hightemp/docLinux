@@ -93,42 +93,56 @@ cpulimit -l 50 -p 1234
 
 Разумно используя **cgroups**, можно управлять ресурсами целых подсистем сервера. Например, в **CoreOS**, минимальном дистрибутиве **Linux**, предназначенном для массовых развертываний серверов, процессы обновления контролируются **cgroup**. Это означает, что загрузка и установка системных обновлений не влияет на производительность системы.
 
-To demonstrate cgroups, we will create two groups with different CPU resources allocated to each group. The groups will be called "cpulimited" and "lesscpulimited"
+Чтобы продемонстрировать **cgroups**, мы создадим две группы с разными ресурсами ЦП, выделенными для каждой группы. Группы будут называться "**cpulimited**" и "**lesscpulimited**"
 
-The groups are created with the cgcreate command like this:
+Группы создаются с помощью команды **cgcreate**:
 
+```bash
 sudo cgcreate -g cpu:/cpulimited
 sudo cgcreate -g cpu:/lesscpulimited
-The â€œ-g cpuâ€ part of the command tell cgroups that the groups can place limits on the amount of CPU resources given to the processes in the group. Other contollers include cpuset, memory, and blkio. The cpuset controller is related to the cpu controller in that it allows the processes in a group to be bound to a specific CPU, or set of cores in a CPU.
+```
 
-The cpu controller has a property known as cpu.shares. It is used by the kernel to determine the share of CPU resources available to each process across the cgroups. The default value is 1024. By leaving one group (lesscpulimited) at the default of 1024 and setting the other (cpulimited) to 512, we are telling the kernel to split the CPU resources using a 2:1 ratio.
+Часть команды **-g cpu** говорит команде, что группы могут устанавливать ограничения на количество ресурсов ЦП, предоставляемых процессам в группа. Другие контроллеры включают в себя **cpuset**, **memory** и **blkio**. Контроллер **cpuset** связан с контроллером cpu в том смысле, что он позволяет процессам в группе связываться с конкретным процессором или набором ядер в процессоре.
 
-To set the cpu.shares to 512 in the cpulimited group, type:
+Контроллер процессора имеет свойство, известное как **cpu.shares**. Оно используется ядром для определения доли ресурсов ЦП, доступных каждому процессу через **cgroups**. Значение по умолчанию - **1024**. Оставляя одну группу (**lesscpulimited**) по умолчанию **1024** и устанавливая другую (**cpulimited**) равной **512**, мы говорим ядру разделить ресурсы ЦП с соотношением **2:1**.
 
+Чтобы установить для **cpu.shares** значение **512** в группе **cpulimited**, введите:
+
+```bash
 sudo cgset -r cpu.shares=512 cpulimited
-To start a task in a particular cgroup you can use the cgexec command. To test the two cgroups, start matho-primes in the cpulimited group, like this:
+```
 
+Чтобы запустить задачу в определенной группе, вы можете использовать команду **cgexec**. Чтобы проверить две **cgroups**, запустите **matho-primes** в группе **cpulimited**, например так:
+
+```bash
 sudo cgexec -g cpu:cpulimited /usr/local/bin/matho-primes 0 9999999999 > /dev/null &
-If you run top you will see that the process is taking all of the available CPU time.
+```
 
-top
+Если вы запустите **top**, вы увидите, что процесс занимает все доступное время процессора.
 
-This is because when a single process is running, it uses as much CPU as necessary, regardless of which cgroup it is placed in. The CPU limitation only comes into effect when two or more processes compete for CPU resources.
+![](/images/sKT7AvBgQiNOQbmQlC3I)
 
-Now start a second matho-primes process, this time in the lesscpulimited group:
+Это связано с тем, что когда выполняется один процесс, он использует столько ЦП, сколько необходимо, независимо от того, в какую **cgroup**. Ограничение ЦП вступает в силу только тогда, когда два или более процесса конкурируют за ресурсы ЦП.
 
+Теперь запустите второй процесс **matho-primes**, на этот раз в группе **lesscpulimited**:
+
+```bash
 sudo cgexec -g cpu:lesscpulimited /usr/local/bin/matho-primes 0 9999999999 > /dev/null &
-The top command shows us that the process in the cgroup with the greater cpu.shares value is getting more CPU time.
+```
 
-top
+Команда **top** показывает, что процесс в **cgroup** с большим значением **cpu.shares** получает больше процессорного времени.
 
-Now start another matho-primes process in the cpulimited group:
+![](/images/WwCWzpYNQ0OkrKavZjO9)
 
+Теперь запустите другой процесс **matho-primes** в группе **cpulimited**:
+
+```bash
 sudo cgexec -g cpu:cpulimited /usr/local/bin/matho-primes 0 9999999999 > /dev/null &
+```
 
-"https://s3-us-west-1.amazonaws.com/scout-blog/cpu<emusageblog/image04.jpg"/>
+![](/images/Zg6HmX74RW9AoyR5N1ac)
 
-Observe how the CPU is still being proportioned in a 2:1 ratio. Now the two matho-primes tasks in the cpulimited group are sharing the CPU equally, while the process in the other group still gets more processor time.
+Обратите внимание на то, как ЦП все еще пропорционален в соотношении **2:1**. Теперь две задачи **matho-primes** в группе **cpulimited** совместно используют центральный процессор, в то время как процесс в другой группе все еще получает больше процессорного времени.
 **********
 [centos](/tags/centos.md)
 [nice](/tags/nice.md)
