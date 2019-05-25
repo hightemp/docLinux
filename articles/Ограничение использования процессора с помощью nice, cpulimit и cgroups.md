@@ -87,11 +87,11 @@ cpulimit -l 50 -p 1234
 
 ### cgroups
 
-Control groups (cgroups) are a Linux kernel feature that allows you to specify how the kernel should allocate specific resources to a group of processes. With cgroups you can specify how much CPU time, system memory, network bandwidth, or combinations of these resources can be used by the processes residing in a certain group.
+Контрольные группы (**cgroups**) - это функция ядра Linux, которая позволяет вам указать, как ядро должно выделять определенные ресурсы группе процессов. С помощью **cgroups** вы можете указать, сколько процессорного времени, системной памяти, пропускной способности сети или комбинаций этих ресурсов может использоваться процессами, находящимися в определенной группе.
 
-The advantage of control groups over nice or cpulimit is that the limits are applied to a set of processes, rather than to just one. Also, nice or cpulimit only limit the CPU usage of a process, whereas cgroups can limit other process resources.
+Преимущество контрольных групп перед **nice** или **cpulimit** заключается в том, что ограничения применяются к набору процессов, а не только к одному. Кроме того, **nice** или **cpulimit** ограничивают использование процессора только процессом, тогда как **cgroups** может ограничивать другие ресурсы процесса.
 
-By judiciously using cgroups the resources of entire subsystems of a server can be controlled. For example in CoreOS, the minimal Linux distribution designed for massive server deployments, the upgrade processes are controlled by a cgroup. This means the downloading and installing of system updates doesn't affect system performance.
+Разумно используя **cgroups**, можно управлять ресурсами целых подсистем сервера. Например, в **CoreOS**, минимальном дистрибутиве **Linux**, предназначенном для массовых развертываний серверов, процессы обновления контролируются **cgroup**. Это означает, что загрузка и установка системных обновлений не влияет на производительность системы.
 
 To demonstrate cgroups, we will create two groups with different CPU resources allocated to each group. The groups will be called "cpulimited" and "lesscpulimited"
 
