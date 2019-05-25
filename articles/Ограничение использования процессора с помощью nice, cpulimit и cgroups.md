@@ -35,30 +35,37 @@ matho-primes 0 9999999999 > /dev/null &
 
 ![](/images/noOl6isSjiqS6ImxiLvm)
 
-Observe that the process started without nice (at niceness level 0) gets more processor time, whereas the process with a niceness level of 10 gets less.
+Заметьте, что процесс, запущенный без **nice** (на уровне 0), получает больше процессорного времени, а процесс с уровнем 10 - меньше.
 
-What this means in real terms is that if you want to run a CPU intensive task you can start it using nice and the scheduler will always ensure that other tasks have priority over it. This means that the server (or desktop) will remain responsive even when under heavy load.
+В реальном выражении это означает, что если вы хотите запустить задачу, интенсивно использующую процессор, вы можете запустить ее, используя команду **nice**, и планировщик всегда будет гарантировать, что другие задачи имеют приоритет над ней. Это означает, что сервер (или настольный компьютер) будет реагировать даже при большой нагрузке.
 
-Nice has an associated command called renice. It changes the niceness level of an already running process. To use it, find out the PID of process hogging all the CPU time (using ps) and then run renice:
+У **nice** есть связанная команда, называемая **renice**. Это изменяет уровень привлекательности уже запущенного процесса. Чтобы его использовать, узнайте PID процесса, занимающего все процессорное время (используя **ps**), а затем запустите renice:
 
+```bash
 renice +10 1234
-Where 1234 is the PID.
+```
 
-Donâ€™t forget to kill the matho-primes processes once you have finished experimenting with the nice and renice commands.
+Где 1234 - это PID.
 
-cpulimit
-The cpulimit tool curbs the CPU usage of a process by pausing the process at different intervals to keep it under the defined ceiling. It does this by sending SIGSTOP and SIGCONT signals to the process. It does not change the nice value of the process, instead it monitors and controls the real-world CPU usage.
+Не забудьте убить процессы **matho-primes**, как только вы закончите экспериментировать с командами **nice** и **renice**.
 
-cpulimit is useful when you want to ensure that a process doesn't use more than a certain portion of the CPU. The disadvantage over nice is that the process can't use all of the available CPU time when the system is idle.
+### cpulimit
 
-To install it on CentOS type:
+Инструмент **cpulimit** ограничивает использование процессором процесса, останавливая процесс через различные интервалы времени, чтобы удерживать его под определенным потолком. Это делается путем отправки сигналов **SIGSTOP** и **SIGCONT** процессу. Он не меняет полезную ценность процесса, он контролирует и контролирует реальное использование процессора.
 
+**cpulimit** полезен, когда вы хотите убедиться, что процесс использует не более определенной части процессора. Недостатком по сравнению с **nice** является то, что процесс не может использовать все доступное время процессора, когда система простаивает.
+
+Чтобы установить его на CentOS типа:
+
+```bash
 wget -O cpulimit.zip https://github.com/opsengine/cpulimit/archive/master.zip
 unzip cpulimit.zip
 cd cpulimit-master
 make
 sudo cp src/cpulimit /usr/bin
-The commands above will download the source code from GitHub, unpack the archive file, build the binary, and copy it to /usr/bin.
+```
+
+Приведенные выше команды загрузят исходный код из GitHub, распакуют файл архива, соберут двоичный файл и скопируют его в **/usr/bin**.
 
 cpulimit is used in a similar way to nice, however you need to explicitly define the maximum CPU limit for the process using the ‘-l’ parameter. For example:
 
