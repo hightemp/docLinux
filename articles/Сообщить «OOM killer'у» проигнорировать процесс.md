@@ -21,7 +21,7 @@ pgrep -f "/usr/sbin/sshd" | while read PID; do echo -17 > /proc/$PID/oom_adj; do
 
 Чтобы автоматизировать это, вы можете регулярно запускать cron для обновления записи **oom_adj**. Это простой способ убедиться, что **sshd** исключен из OOM killer после перезапуска демона или сервера.
 
-```console
+```cron
 # /etc/cron.d/oom_disable
 */1 * * * * root pgrep -f "/usr/sbin/sshd" | while read PID; do echo -17 > /proc/$PID/oom_adj; done
 ```
