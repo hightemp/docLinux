@@ -658,14 +658,15 @@ $ mv /tmp/pello-0.1.1.tar.gz ~/rpmbuild/SOURCES/
 
 #### cello
 
-The cello project implements Hello World in C . The implementation only contains the cello.c and Makefile files, so the resulting tar.gz archive will have only two files apart from the LICENSE file. Let us assume that this is version 1.0 of the program.
+Проект виолончели реализует Hello World на C. Реализация содержит только файлы cello.c и Makefile, поэтому итоговый архив tar.gz будет иметь только два файла, кроме файла LICENSE. Предположим, что это версия 1.0 программы.
 
-Note that the patch file is not distributed in the archive with the program. The RPM Packager applies the patch when the RPM is built. The patch will be placed in the ~/rpmbuild/SOURCES/ directory alongside the .tar.gz.
+Обратите внимание, что файл патча не распространяется в архиве с программой. RPM Packager применяет исправление при сборке RPM. Патч будет помещен в каталог ~/rpmbuild/SOURCES/ рядом с .tar.gz.
 
-Prepare the cello project for distribution:
+Подготовьте проект *cello* для распространения:
 
-Put the files into a single directory:
+1. Поместите файлы в один каталог:
 
+```console
 $ mkdir /tmp/cello-1.0
 
 $ mv ~/cello.c /tmp/cello-1.0/
@@ -673,8 +674,11 @@ $ mv ~/cello.c /tmp/cello-1.0/
 $ mv ~/Makefile /tmp/cello-1.0/
 
 $ cp /tmp/LICENSE /tmp/cello-1.0/
-Create the archive for distribution and move it to ~/rpmbuild/SOURCES/:
+```
 
+2. Создайте архив для распространения и переместите его в ~/rpmbuild/SOURCES/:
+
+```console
 $ cd /tmp/
 
 $ tar -cvzf cello-1.0.tar.gz cello-1.0
@@ -684,25 +688,29 @@ cello-1.0/cello.c
 cello-1.0/LICENSE
 
 $ mv /tmp/cello-1.0.tar.gz ~/rpmbuild/SOURCES/
-Add the patch:
+```
 
+3. Добавьте патч:
+
+```console
 $ mv ~/cello-output-first-patch.patch ~/rpmbuild/SOURCES/
-Now the source code is ready for packaging into an RPM.
+```
 
-Packaging Software
-This tutorial explains packaging RPMs for the Red Hat family of Linux distributions, primarily:
+Теперь исходный код готов к упаковке в RPM.
 
-Fedora
+## Упаковка Программного Обеспечения
 
-CentOS
+В этом руководстве описываются пакеты RPM для дистрибутивов Linux семейства Red Hat, в первую очередь:
 
-Red Hat Enterprise Linux (RHEL)
+* Fedora
+* CentOS
+* Red Hat Enterprise Linux (RHEL)
 
-These distributions use the RPM Packaging Format.
+Эти дистрибутивы используют [RPM Packaging Format](http://rpm.org/).
 
-While these distributions are the target environment, this guide is mostly applicable to all RPM based distributions. However, the instructions need to be adapted for distribution-specific features, such as prerequisite installation items, guidelines, or macros.
+Хотя эти дистрибутивы являются целевой средой, это руководство в основном применимо ко всем [дистрибутивам на основе RPM](https://en.wikipedia.org/wiki/List_of_Linux_distributions#RPM-based). Тем не менее, инструкции должны быть адаптированы для специфических для распространения функций, таких как обязательные элементы установки, рекомендации или макросы.
 
-This tutorial assumes no previous knowledge about packaging software for any Operating System, Linux or otherwise.
+В этом руководстве не предполагается, что вы уже знали о программном обеспечении для любой операционной системы, Linux или других.
 
 NOTE
 If you do not know what a software package or a GNU/Linux distribution is, consider exploring some articles on the topics of Linux and Package Managers.
