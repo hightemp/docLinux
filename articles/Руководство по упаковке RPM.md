@@ -3,30 +3,33 @@ Adam Miller, Maxim Svistunov, Marie Doleželová, et al.
 
 ## Вступление
 
-The RPM Packaging Guide documents:
+Документы RPM Packaging Guide:
 
-How to prepare source code for packaging into an RPM.
-This is for people with no background in software development. See Preparing Software for Packaging.
+Как подготовить исходный код для упаковки в RPM.
+Это для людей, не имеющих опыта в разработке программного обеспечения. См. [Подготовка программного обеспечения к упаковке.](https://rpm-packaging-guide.github.io/#preparing-software-for-packaging)
 
-How to package source code into an RPM.
-This is for software developers who need to package software into RPMs. See Packaging Software.
+Как упаковать исходный код в RPM.
+Это для разработчиков программного обеспечения, которым необходимо упаковать программное обеспечение в RPM. См. [Упаковка программного обеспечения](https://rpm-packaging-guide.github.io/#packaging-software).
 
-Advanced packaging scenarios.
-This is a reference material for RPM packagers dealing with advanced RPM Packaging scenarios. See Advanced Topics.
+Расширенные сценарии упаковки.
+Это справочный материал для упаковщиков RPM, имеющих дело со сложными сценариями RPM Packaging. Смотрите [продвинутые темы](https://rpm-packaging-guide.github.io/#advanced-topics).
 
-PDF Version
-You can also download a PDF version of this document.
+## PDF версия
+Вы также можете скачать [PDF-версию этого документа](https://rpm-packaging-guide.github.io/rpm-packaging-guide.pdf).
 
-Document Conventions
-The document uses the following conventions:
+## Соглашения о документе
+В документе используются следующие условные обозначения:
 
-Command output and contents of text files, including source code, are placed in blocks:
+* Вывод команды и содержимое текстовых файлов, включая исходный код, размещаются в блоках:
 
+```
 $ tree ~/rpmbuild/
 /home/user/rpmbuild/
 |-- BUILD
 |-- RPMS
+```
 
+```
 [command output trimmed]
 Name:           bello
 Version:
@@ -34,12 +37,17 @@ Release:        1%{?dist}
 Summary:
 
 [file contents trimmed]
+```
+
+```
 #!/usr/bin/env python
 
 print("Hello World")
-Topics of interest or vocabulary terms are referred to either as URLs to their respective documentation or website, in bold, or in italics. The first occurrences of some terms link to their respective documentation.
+```
 
-Names of utilities, commands, and things normally found in code are written in monospace font.
+* Темы, представляющие интерес или словарные термины, называются URL-адресами соответствующей документации или веб-сайта, выделены жирным шрифтом или курсивом. Первые вхождения некоторых терминов ссылаются на соответствующую документацию.
+
+* Названия утилит, команд и вещей, обычно встречающихся в коде, написаны моноширинным шрифтом.
 
 Prerequisites
 To follow this tutorial, you need these packages installed:
