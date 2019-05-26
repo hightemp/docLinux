@@ -2430,3 +2430,5 @@ Packaging software with RPM, Part 1, Part 2, Part 3 - IBM RPM packaging guide.
 RPM Documentation - The official RPM documentation.
 
 Fedora Packaging Guidelines - The official packaging guidelines for Fedora, useful for all RPM-based distributions.
+**********
+[rpm](/tags/rpm.md)
