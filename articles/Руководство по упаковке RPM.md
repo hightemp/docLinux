@@ -608,12 +608,15 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 ```console
 $ mkdir /tmp/bello-0.1
+
 $ mv ~/bello /tmp/bello-0.1/
+
 $ cp /tmp/LICENSE /tmp/bello-0.1/
 ```
 
-2. Создайте архив для распространения и переместите его в ~ / rpmbuild / SOURCES /:
+2. Создайте архив для распространения и переместите его в ~/rpmbuild/SOURCES/:
 
+```console
 $ cd /tmp/
 
 $ tar -cvzf bello-0.1.tar.gz bello-0.1
@@ -622,20 +625,27 @@ bello-0.1/LICENSE
 bello-0.1/bello
 
 $ mv /tmp/bello-0.1.tar.gz ~/rpmbuild/SOURCES/
-pello
-The pello project implements Hello World in Python. The implementation only contains the pello.py program, so the resulting tar.gz archive will have only one file apart from the LICENSE file. Let us assume that this is version 0.1.1 of the program.
+```
 
-Prepare the pello project for distribution:
+#### pello
 
-Put the files into a single directory:
+Проект pello реализует Hello World на Python. Реализация содержит только программу pello.py, поэтому полученный архив tar.gz будет иметь только один файл, кроме файла LICENSE. Предположим, что это версия 0.1.1 программы.
 
+Подготовьте проект *pello* для распространения:
+
+1. Поместите файлы в один каталог:
+
+```console
 $ mkdir /tmp/pello-0.1.1
 
 $ mv ~/pello.py /tmp/pello-0.1.1/
 
 $ cp /tmp/LICENSE /tmp/pello-0.1.1/
-Create the archive for distribution and move it to ~/rpmbuild/SOURCES/:
+```
 
+2. Создайте архив для распространения и переместите его в ~/rpmbuild/SOURCES/:
+
+```console
 $ cd /tmp/
 
 $ tar -cvzf pello-0.1.1.tar.gz pello-0.1.1
@@ -644,7 +654,10 @@ pello-0.1.1/LICENSE
 pello-0.1.1/pello.py
 
 $ mv /tmp/pello-0.1.1.tar.gz ~/rpmbuild/SOURCES/
-cello
+```
+
+#### cello
+
 The cello project implements Hello World in C . The implementation only contains the cello.c and Makefile files, so the resulting tar.gz archive will have only two files apart from the LICENSE file. Let us assume that this is version 1.0 of the program.
 
 Note that the patch file is not distributed in the archive with the program. The RPM Packager applies the patch when the RPM is built. The patch will be placed in the ~/rpmbuild/SOURCES/ directory alongside the .tar.gz.
