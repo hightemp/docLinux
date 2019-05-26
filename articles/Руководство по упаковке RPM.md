@@ -54,7 +54,7 @@ print("Hello World")
 Чтобы следовать этому руководству, вам необходимо установить следующие пакеты:
 
 Примечание
-> Some of these packages are installed by default on Fedora, CentOS and RHEL. They are listed explicitly to show which tools are used in this guide.
+> Некоторые из этих пакетов установлены по умолчанию в Fedora, CentOS и RHEL. Они перечислены в явном виде, чтобы показать, какие инструменты используются в этом руководстве.
 
 ```console
 $ dnf install gcc rpm-build rpm-devel rpmlint make python bash coreutils diffutils patch rpmdevtools
@@ -163,7 +163,7 @@ Executing(%clean): /bin/sh -e /var/tmp/rpm-tmp.wgaJzv
 В этом уроке представлены три версии программы Hello World, каждая из которых написана на своем языке программирования. Программы, написанные на этих трех разных языках, упакованы по-разному и охватывают три основных варианта использования упаковщика RPM.
 
 Примечание
-> There are thousands of programming languages. This document features only three of them, but they are enough for a conceptual overview.
+> Есть тысячи языков программирования. В этом документе представлены только три из них, но их достаточно для концептуального обзора.
 
 Hello World, написанный на bash:
 
@@ -272,47 +272,62 @@ Hello World
 
 Это все. Вы создали и запустили исходно скомпилированное программное обеспечение из исходного кода.
 
-#### Automated Building
+#### Автоматизированная сборка
 
-Instead of building the source code manually, you can automate the building. This is a common practice used by large-scale software. Automating building is done by creating a Makefile and then running the GNU make utility.
+Вместо того, чтобы создавать исходный код вручную, вы можете автоматизировать сборку. Это обычная практика, используемая крупномасштабным программным обеспечением. Автоматизация сборки выполняется путем создания Makefile и последующего запуска утилиты make GNU.
 
-To set up automated building, create a file named Makefile in the same directory as cello.c:
+Чтобы настроить автоматическое построение, создайте файл с именем Makefile в том же каталоге, что и cello.c:
 
 Makefile
 
+```make
 cello:
         gcc -g -o cello cello.c
 
 clean:
         rm cello
-Now to build the software, simply run make:
+```
 
+Теперь, чтобы собрать программное обеспечение, просто запустите make:
+
+```console
 $ make
 make: 'cello' is up to date.
-Since there is already a build present, make clean it and run make again:
+```
 
+Поскольку сборка уже существует, выполните make clean и снова запустите make:
+
+```console
 $ make clean
 rm cello
 
 $ make
 gcc -g -o cello cello.c
-Again, trying to build after another build would do nothing:
+```
 
+Опять же, попытка построить после другой сборки ничего не сделает:
+
+```console
 $ make
 make: 'cello' is up to date.
-Finally, execute the program:
+```
 
+Наконец, выполните программу:
+
+```console
 $ ./cello
 Hello World
-You have now compiled a program both manually and using a build tool.
+```
 
-Interpreted Code
-The next two examples showcase byte-compiling a program written in Python and raw-interpreting a program written in bash.
+Теперь вы скомпилировали программу как вручную, так и с помощью инструмента сборки.
 
-NOTE
-In the two examples below, the #! line at the top of the file is known as a shebang and is not part of the programming language source code.
+### Интерпретированный код
 
-The shebang enables using a text file as an executable: the system program loader parses the line containing the shebang to get a path to the binary executable, which is then used as the programming language interpreter.
+Следующие два примера демонстрируют байт-компиляцию программы, написанной на Python, и raw-интерпретацию программы, написанной на bash.
+
+Примечание
+> В двух приведенных ниже примерах #! строка в верхней части файла называется [shebang](https://en.wikipedia.org/wiki/Shebang_%28Unix%29) и не является частью исходного кода языка программирования.
+> Shebang позволяет использовать текстовый файл в качестве исполняемого файла: загрузчик системной программы анализирует строку, содержащую shebang, чтобы найти путь к двоичному исполняемому файлу, который затем используется в качестве интерпретатора языка программирования.
 
 Byte-Compiled Code
 In this example, you will compile the pello.py program written in Python into byte code, which is then executed by the Python language virtual machine. Python source code can also be raw-interpreted, but the byte-compiled version is faster. Hence, RPM Packagers prefer to package the byte-compiled version for distribution to end users.
