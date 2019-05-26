@@ -330,70 +330,99 @@ Hello World
 > 
 > Shebang позволяет использовать текстовый файл в качестве исполняемого файла: загрузчик системной программы анализирует строку, содержащую shebang, чтобы найти путь к двоичному исполняемому файлу, который затем используется в качестве интерпретатора языка программирования.
 
-Byte-Compiled Code
-In this example, you will compile the pello.py program written in Python into byte code, which is then executed by the Python language virtual machine. Python source code can also be raw-interpreted, but the byte-compiled version is faster. Hence, RPM Packagers prefer to package the byte-compiled version for distribution to end users.
+#### Байт-скомпилированный код
+
+В этом примере вы скомпилируете программу pello.py, написанную на Python, в байт-код, который затем выполняется виртуальной машиной языка Python. Исходный код Python также может быть интерпретирован в необработанном виде, но версия с байтовой компиляцией работает быстрее. Следовательно, RPM-упаковщики предпочитают упаковывать байтовую версию для распространения среди конечных пользователей.
 
 pello.py
 
+```python
 #!/usr/bin/env python
 
 print("Hello World")
-Procedure for byte-compiling programs is different for different languages. It depends on the language, the language’s virtual machine, and the tools and processes used with that language.
+```
 
-NOTE
-Python is often byte-compiled, but not in the way described here. The following procedure aims not to conform to the community standards, but to be simple. For real-world Python guidelines, see Software Packaging and Distribution.
-Byte-compile pello.py:
+Процедура для байтовых программ различна для разных языков. Это зависит от языка, виртуальной машины языка и инструментов и процессов, используемых с этим языком.
 
+Примечание
+> Python часто компилируется байтами, но не так, как описано здесь. Следующая процедура нацелена не на соответствие стандартам сообщества, а на простоту. Для реальных рекомендаций Python см. [Упаковка и распространение программного обеспечения](https://docs.python.org/2/library/distribution.html).
+
+Байт-компиляция pello.py:
+
+```console
 $ python -m compileall pello.py
 
 $ file pello.pyc
 pello.pyc: python 2.7 byte-compiled
-Execute the byte code in pello.pyc:
+```
 
+Выполните байт-код в pello.pyc:
+
+```console
 $ python pello.pyc
 Hello World
-Raw Interpreted Code
-In this example, you will raw-interpret the bello program written in the bash shell built-in language.
+```
+
+#### Необработанный интерпретированный код
+
+В этом примере вы будете интерпретировать программу bello, написанную на встроенном языке оболочки bash.
 
 bello
 
+```bash
 #!/bin/bash
 
 printf "Hello World\n"
-Programs written in shell scripting languages, like bash, are raw-interpreted. Hence, you only need to make the file with source code executable and run it:
+```
 
+Программы, написанные на языках сценариев оболочки, таких как bash, интерпретируются в необработанном виде. Следовательно, вам нужно только сделать файл с исходным кодом исполняемым и запустить его:
+
+```console
 $ chmod +x bello
 $ ./bello
 Hello World
-Patching Software
-A patch is source code that updates other source code. It is formatted as a diff, because it represents what is different between two versions of text. A diff is created using the diff utility, which is then applied to the source code using the patch utility.
+```
 
-NOTE
-Software developers often use Version Control Systems such as git to manage their code base. Such tools provide their own methods of creating diffs or patching software.
-In the following example, we create a patch from the originial source code using diff and then apply it using patch. Patching is used in a later section when creating an RPM, Working with SPEC files.
+### Исправление программного обеспечения(Patching Software)
 
-How is patching related to RPM packaging? In packaging, instead of simply modifying the original source code, we keep it, and use patches on it.
+**Патч** - это исходный код, который обновляет другой исходный код. Он отформатирован как *diff*, потому что он представляет различия между двумя версиями текста. Разница создается с помощью утилиты *diff*, которая затем применяется к исходному коду с помощью утилиты [patch](http://savannah.gnu.org/projects/patch/).
 
-To create a patch for cello.c:
+Примечание
+> Разработчики программного обеспечения часто используют системы контроля версий, такие как [git](https://git-scm.com/), для управления своей базой кода. Такие инструменты предоставляют свои собственные методы создания различий или исправлений программного обеспечения.
 
-Preserve the original source code:
+В следующем примере мы создаем патч из исходного кода с использованием **diff**, а затем применяем его с помощью **patch**. Исправление используется в следующем разделе при создании RPM, [Работа с файлами SPEC](https://rpm-packaging-guide.github.io/#working-with-spec-files).
 
+Как исправления связаны с упаковкой RPM? В упаковке вместо простого изменения исходного исходного кода мы сохраняем его и используем для него патчи.
+
+Чтобы создать патч для cello.c:
+
+1. Сохраните исходный код:
+
+```console
 $ cp cello.c cello.c.orig
-This is a common way to preserve the original source code file.
+```
 
-Change cello.c:
+Это распространенный способ сохранить исходный файл исходного кода.
 
+2. Change cello.c:
+
+```c
 #include <stdio.h>
 
 int main(void) {
     printf("Hello World from my very first patch!\n");
     return 0;
 }
-Generate a patch using the diff utility:
+```
 
-NOTE
-We use several common arguments for the diff utility. For more information on them, see the diff manual page.
+Сгенерируйте патч с помощью утилиты diff:
+
+Примечание
+> Мы используем несколько общих аргументов для утилиты diff. Для получения дополнительной информации о них см. Страницу руководства diff.
+
 $ diff -Naur cello.c.orig cello.c
+
+```diff
 --- cello.c.orig        2016-05-26 17:21:30.478523360 -0500
 +++ cello.c     2016-05-27 14:53:20.668588245 -0500
 @@ -1,6 +1,6 @@
@@ -404,6 +433,8 @@ $ diff -Naur cello.c.orig cello.c
 +    printf("Hello World from my very first patch!\n");
      return 0;
  }
+```
+
 Lines starting with a - are removed from the original source code and replaced with the lines that start with +.
 
 Save the patch to a file:
