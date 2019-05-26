@@ -49,47 +49,54 @@ print("Hello World")
 
 * Названия утилит, команд и вещей, обычно встречающихся в коде, написаны моноширинным шрифтом.
 
-Prerequisites
-To follow this tutorial, you need these packages installed:
+## Предпосылки
 
-NOTE
-Some of these packages are installed by default on Fedora, CentOS and RHEL. They are listed explicitly to show which tools are used in this guide.
+Чтобы следовать этому руководству, вам необходимо установить следующие пакеты:
+
+Примечание
+> Some of these packages are installed by default on Fedora, CentOS and RHEL. They are listed explicitly to show which tools are used in this guide.
+
+```console
 $ dnf install gcc rpm-build rpm-devel rpmlint make python bash coreutils diffutils patch rpmdevtools
-
 $ yum install gcc rpm-build rpm-devel rpmlint make python bash coreutils diffutils patch rpmdevtools
-Contributing to this guide
-You can contribute to this guide by submitting an issue or a pull request on the GitHub repository.
+```
 
-Both forms of contribution are greatly appreciated and welcome.
+## Содействие этому руководству
+Вы можете внести свой вклад в это руководство, отправив вопрос или запрос на извлечение в [репозитории GitHub](https://github.com/redhat-developer/rpm-packaging-guide).
 
-Feel free to file an issue ticket with feedback, submit a pull request on GitHub, or both!
+Обе формы вклада высоко ценятся и приветствуются.
 
-Why Package Software with RPM?
-The RPM Package Manager (RPM) is a package management system that runs on Red Hat Enterprise Linux, CentOS, and Fedora. RPM makes it easier for you to distribute, manage, and update software that you create for Red Hat Enterprise Linux, CentOS, and Fedora. Many software vendors distribute their software via a conventional archive file (such as a tarball). However, there are several advantages in packaging software into RPM packages. These advantages are outlined below.
+Не стесняйтесь подавать заявку на выпуск с обратной связью, отправлять запрос [на GitHub](https://github.com/redhat-developer/rpm-packaging-guide) или оба!
 
-With RPM, you can:
+## Почему пакет программного обеспечения с RPM?
 
-Install, reinstall, remove, upgrade and verify packages
-Users can use standard package management tools (for example Yum or PackageKit) to install, reinstall, remove, upgrade and verify your RPM packages.
+RPM Package Manager (RPM) - это система управления пакетами, которая работает в Red Hat Enterprise Linux, CentOS и Fedora. RPM упрощает распространение, управление и обновление программного обеспечения, созданного для Red Hat Enterprise Linux, CentOS и Fedora. Многие поставщики программного обеспечения распространяют свое программное обеспечение через обычный архивный файл (такой как tarball). Тем не менее, есть несколько преимуществ в упаковке программного обеспечения в пакеты RPM. Эти преимущества изложены ниже.
 
-Use a database of installed packages to query and verify packages
-Because RPM maintains a database of installed packages and their files, users can easily query and verify packages on their system.
+С RPM, вы можете:
 
-Use metadata to describe packages, their installation instructions, and so on
-Each RPM package includes metadata that describes the package’s components, version, release, size, project URL, installation instructions, and so on.
+* **Установить, переустановить, удалить, обновить и проверить пакеты**
+Пользователи могут использовать стандартные инструменты управления пакетами (например Yum или PackageKit) установить, переустановить, удалить, обновить и проверить rpm-пакетов.
 
-Package pristine software sources into source and binary packages
-RPM allows you to take pristine software sources and package them into source and binary packages for your users. In source packages, you have the pristine sources along with any patches that were used, plus complete build instructions. This design eases the maintenance of the packages as new versions of your software are released.
+* **Использовать базу данных установленных пакетов запроса и проверка пакетов**
+Поскольку оборотах ведет базу данных установленных пакетов и их файлов, пользователи могут легко запросить и проверить пакеты на своей системе.
 
-Add packages to Yum repositories
-You can add your package to a Yum repository that enables clients to easily find and deploy your software.
+* **Использовать метаданные для описания пакетов, их инструкций по установке и т. д.**
+Каждый пакет RPM включает в себя метаданные, которые описывают компоненты пакета, версию, выпуск, размер, URL проекта, инструкции по установке и так далее.
 
-Digitally sign your packages
-Using a GPG signing key, you can digitally sign your package so that users are able to verify the authenticity of the package.
+* **Упаковать исходные программные источники в исходные и двоичные пакеты**
+RPM позволяет вам брать исходные программные источники и упаковывать их в исходные и двоичные пакеты для ваших пользователей. В пакетах с исходным кодом у вас есть нетронутые исходные коды вместе с любыми использованными исправлениями, а также полные инструкции по сборке. Этот дизайн облегчает обслуживание пакетов по мере выпуска новых версий вашего программного обеспечения.
 
-Your First RPM Package
-Creating an RPM package can be complicated. Here is a complete, working RPM Spec file with several things skipped and simplified.
+* **Добавить пакеты в репозитории Yum**
+Вы можете добавить свой пакет в репозиторий Yum, который позволит клиентам легко находить и развертывать ваше программное обеспечение.
 
+* **В цифровой форме подписать свои пакеты**
+Используя ключ подписи GPG, вы можете подписать пакет цифровой подписью, чтобы пользователи могли проверить подлинность пакета.
+
+## Ваш первый пакет RPM
+
+Создание пакета RPM может быть сложным. Вот полный, рабочий файл спецификации RPM с несколькими пропущенными и упрощенными вещами.
+
+```
 Name:       hello-world
 Version:    1
 Release:    1
@@ -117,16 +124,22 @@ install -m 755 hello-world.sh %{buildroot}/usr/bin/hello-world.sh
 
 %changelog
 # let's skip this for now
-Save this file as hello-world.spec.
+```
 
-Now use these commands:
+Сохраните этот файл как hello-world.spec.
 
+Теперь используйте эти команды:
+
+```
 $ rpmdev-setuptree
 $ rpmbuild -ba hello-world.spec
-The command rpmdev-setuptree creates several working directories. As those directories are stored permanently in $HOME, this command does not need to be used again.
+```
 
-The command rpmbuild creates the actual rpm package. The output of this command can be similar to:
+Команда **rpmdev-setuptree** создает несколько рабочих каталогов. Поскольку эти каталоги постоянно хранятся в $HOME, эту команду больше не нужно использовать.
 
+Команда **rpmbuild** создает реальный пакет rpm. Вывод этой команды может быть похож на:
+
+```
 ... [SNIP]
 Wrote: /home/mirek/rpmbuild/SRPMS/hello-world-1-1.src.rpm
 Wrote: /home/mirek/rpmbuild/RPMS/x86_64/hello-world-1-1.x86_64.rpm
@@ -135,106 +148,132 @@ Executing(%clean): /bin/sh -e /var/tmp/rpm-tmp.wgaJzv
 + cd /home/mirek/rpmbuild/BUILD
 + /usr/bin/rm -rf /home/mirek/rpmbuild/BUILDROOT/hello-world-1-1.x86_64
 + exit 0
-The file /home/mirek/rpmbuild/RPMS/x86_64/hello-world-1-1.x86_64.rpm is your first RPM package. It can be installed in the system and tested.
+```
 
-Preparing Software for Packaging
-This chapter is about source code and creating software, which are a necessary background for an RPM Packager.
+Файл **/home/mirek/rpmbuild/RPMS/x86_64/hello-world-1-1.x86_64.rpm** - это ваш первый пакет RPM. Может быть установлен в системе и протестирован.
 
-What is Source Code?
-Source code is human-readable instructions to the computer, which describe how to perform a computation. Source code is expressed using a programming language .
+## Подготовка программного обеспечения для упаковки
 
-This tutorial features three versions of the Hello World program, each written in a different programming language. Programs written in these three different languages are packaged differently, and cover three major use cases of an RPM packager.
+Эта глава посвящена исходному коду и созданию программного обеспечения, которое является необходимым фоном для RPM Packager.
 
-NOTE
-There are thousands of programming languages. This document features only three of them, but they are enough for a conceptual overview.
-Hello World written in bash:
+### Что такое исходный код?
+
+Исходный код представляет собой понятные человеку инструкции для компьютера, которые описывают, как выполнять вычисления. Исходный код выражается с использованием языка программирования.
+
+В этом уроке представлены три версии программы Hello World, каждая из которых написана на своем языке программирования. Программы, написанные на этих трех разных языках, упакованы по-разному и охватывают три основных варианта использования упаковщика RPM.
+
+Примечание
+> There are thousands of programming languages. This document features only three of them, but they are enough for a conceptual overview.
+
+Hello World, написанный на bash:
 
 bello
-
+```bash
 #!/bin/bash
 
 printf "Hello World\n"
-Hello World written in Python:
+```
+
+Hello World, написанный на Python:
 
 pello.py
-
+```python
 #!/usr/bin/env python
 
 print("Hello World")
-Hello World written in C :
+```
+
+Hello World, написанный на C:
 
 cello.c
-
+```c
 #include <stdio.h>
 
 int main(void) {
     printf("Hello World\n");
     return 0;
 }
-The purpose of every one of the three programs is to output Hello World on the command line.
+```
 
-NOTE
-Knowing how to program is not necessary for a software packager, but is helpful.
-How Programs Are Made
-There are many methods by which human-readable source code becomes machine code - instructions the computer follows to actually execute the program. However, all methods can be reduced to these three:
+Целью каждой из трех программ является вывод Hello World в командной строке.
 
-The program is natively compiled.
+Примечание
+> Knowing how to program is not necessary for a software packager, but is helpful.
 
-The program is interpreted by raw interpreting.
+### Как создаются программы
 
-The program is interpreted by byte compiling.
+Существует много методов, с помощью которых читаемый человеком исходный код становится машинным кодом - инструкции, которые компьютер выполняет для фактического выполнения программы. Однако все методы можно свести к этим трем:
 
-Natively Compiled Code
-Natively compiled software is software written in a programming language that compiles to machine code, with a resulting binary executable file. Such software can be run stand-alone.
+1. Программа изначально скомпилирована.
+2. Программа интерпретируется с помощью необработанного перевода.
+3. Программа интерпретируется байтовой компиляцией.
 
-RPM packages built this way are architecture -specific. This means that if you compile such software on a computer that uses a 64-bit (x86_64) AMD or Intel processor, it will not execute on a 32-bit (x86) AMD or Intel processor. The resulting package will have architecture specified in its name.
+### Скомпилированный Машинный Код
 
-Interpreted Code
-Some programming languages, such as bash or Python, do not compile to machine code. Instead, their programs' source code is executed step by step, without prior transformations, by a Language Interpreter or a Language Virtual Machine.
+Собственно скомпилированное программное обеспечение - это программное обеспечение, написанное на языке программирования, который компилируется в машинный код с полученным двоичным исполняемым файлом. Такое программное обеспечение может работать автономно.
 
-Software written entirely in interpreted programming languages is not architecture -specific. Hence, the resulting RPM Package will have string noarch in its name.
+RPM-пакеты, созданные таким образом, зависят от архитектуры. Это означает, что если вы скомпилируете такое программное обеспечение на компьютере, который использует 64-разрядный (x86_64) процессор AMD или Intel, оно не будет работать на 32-разрядном (x86) процессоре AMD или Intel. Полученный пакет будет иметь архитектуру, указанную в его имени.
 
-Interpreted languages are either byte-compiled or raw-interpreted. These two types differ in program build process and in packaging procedure.
+### Интерпретированный код
 
-Raw-interpreted programs
-Raw-interpreted language programs do not need to be compiled at all, they are directly executed by the interpreter.
+Некоторые языки программирования, такие как bash или Python, не компилируются в машинный код. Вместо этого исходный код их программ выполняется пошагово, без предшествующих преобразований, интерпретатором языка или виртуальной машиной языка.
 
-Byte-compiled programs
-Byte-compiled languages need to be compiled into byte code, which is then executed by the language virtual machine.
+Программное обеспечение, написанное полностью на интерпретируемых языках программирования, не зависит от архитектуры. Следовательно, полученный RPM-пакет будет иметь строку noarch в своем имени.
 
-NOTE
-Some languages give a choice: they can be raw-interpreted or byte-compiled.
-Building Software from Source
-This section explains building software from its source code.
+Интерпретируемые языки либо байтово скомпилированы, либо интерпретируются как необработанные. Эти два типа отличаются в процессе сборки программы и в процедуре упаковки.
 
-For software written in compiled languages, the source code goes through a build process, producing machine code. This process, commonly called compiling or translating, varies for different languages. The resulting built software can be run or "executed", which makes computer perform the task specified by the programmer.
+#### Необработанные программы
+Необработанные языковые программы вообще не нуждаются в компиляции, они выполняются непосредственно интерпретатором.
 
-For software written in raw interpreted languages, the source code is not built, but executed directly.
+#### Байт-скомпилированные программы
+Скомпилированные байты языки должны быть скомпилированы в байтовый код, который затем исполняется языковой виртуальной машиной.
 
-For software written in byte-compiled interpreted languages, the source code is compiled into byte code, which is then executed by the language virtual machine.
+Примечание
+> Некоторые языки предоставляют выбор: они могут быть интерпретированы в необработанном виде или скомпилированы байтами.
 
-Natively Compiled Code
-In this example, you will build the cello.c program written in the C language into an executable.
+## Сборка программного обеспечения из источника
+
+Этот раздел объясняет создание программного обеспечения из его исходного кода.
+
+* Для программного обеспечения, написанного на скомпилированных языках, исходный код проходит процесс сборки, производя машинный код. Этот процесс, обычно называемый **компиляцией** или **трансляцией**, варьируется для разных языков. Полученное встроенное программное обеспечение может быть запущено или «выполнено», что заставляет компьютер выполнять задачу, указанную программистом.
+
+* Для программного обеспечения, написанного на необработанных интерпретируемых языках, исходный код не создается, а выполняется напрямую.
+
+* Для программного обеспечения, написанного на интерпретируемых байтовых языках, исходный код компилируется в байтовый код, который затем исполняется языковой виртуальной машиной.
+
+###  Нативный скомпилированный код
+
+В этом примере вы соберете программу cello.c, написанную на языке C, в исполняемый файл.
 
 cello.c
-
+```c
 #include <stdio.h>
 
 int main(void) {
     printf("Hello World\n");
     return 0;
 }
-Manual Building
-Invoke the C compiler from the GNU Compiler Collection (GCC) to compile the source code into binary:
+```
 
+#### Ручная сборка
+
+Вызовите компилятор C из коллекции компиляторов GNU (GCC), чтобы скомпилировать исходный код в двоичный файл:
+
+```console
 gcc -g -o cello cello.c
-Execute the resulting output binary cello.
+```
 
+Выполнить получившийся двоичный файл *cello*.
+
+```console
 $ ./cello
 Hello World
-That is all. You have built and ran natively compiled software from source code.
+```
 
-Automated Building
+Это все. Вы создали и запустили исходно скомпилированное программное обеспечение из исходного кода.
+
+#### Automated Building
+
 Instead of building the source code manually, you can automate the building. This is a common practice used by large-scale software. Automating building is done by creating a Makefile and then running the GNU make utility.
 
 To set up automated building, create a file named Makefile in the same directory as cello.c:
