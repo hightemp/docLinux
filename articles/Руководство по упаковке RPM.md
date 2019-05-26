@@ -437,22 +437,32 @@ $ diff -Naur cello.c.orig cello.c
  }
 ```
 
-Lines starting with a - are removed from the original source code and replaced with the lines that start with +.
+Строки, начинающиеся с -, удаляются из исходного исходного кода и заменяются строками, начинающимися с +.
 
-Save the patch to a file:
+4. Сохраните патч в файл:
 
+```console
 $ diff -Naur cello.c.orig cello.c > cello-output-first-patch.patch
-Restore the original cello.c:
+```
 
+5. Восстановите оригинальный cello.c:
+
+```console
 $ cp cello.c.orig cello.c
-We retain the original cello.c, because when an RPM is built, the original file is used, not a modified one. For more information, see Working with SPEC files.
+```
 
-To patch cello.c using cello-output-first-patch.patch, redirect the patch file to the patch command:
+Мы сохраняем оригинальный cello.c, потому что при сборке RPM используется оригинальный файл, а не измененный. Для получения дополнительной информации см. [Работа с файлами SPEC](https://rpm-packaging-guide.github.io/#working-with-spec-files).
 
+Чтобы выполнить исправление cello.c с помощью cello-output-first-patch.patch, перенаправьте файл исправления в команду исправления:
+
+```console
 $ patch < cello-output-first-patch.patch
 patching file cello.c
-The contents of cello.c now reflect the patch:
+```
 
+Содержимое cello.c теперь отражает патч:
+
+```console
 $ cat cello.c
 #include<stdio.h>
 
@@ -460,8 +470,11 @@ int main(void){
     printf("Hello World from my very first patch!\n");
     return 0;
 }
-To build and run the patched cello.c:
+```
 
+Для сборки и запуска пропатченного cello.c:
+
+```console
 $ make clean
 rm cello
 
@@ -470,38 +483,51 @@ gcc -g -o cello cello.c
 
 $ ./cello
 Hello World from my very first patch!
-You have created a patch, patched a program, built the patched program, and run it.
+```
 
-Installing Arbitrary Artifacts
-A big advantage of Linux and other Unix-like systems is the Filesystem Hierarchy Standard (FHS). It specifies in which directory which files should be located. Files installed from the RPM packages should be placed according to FHS. For example, an executable file should go into a directory that is in the system PATH variable.
+Вы создали исправление, исправили программу, создали исправленную программу и запустите ее.
 
-In the context of this guide, an Arbitrary Artifact is anything installed from an RPM to the system. For RPM and for the system it can be a script, a binary compiled from the package’s source code, a pre-compiled binary, or any other file.
+### Установка произвольных артефактов
 
-We will explore two popular ways of placing Arbitrary Artifacts in the system: using the install command and using the make install command.
+Большим преимуществом Linux и других Unix-подобных систем является стандарт [иерархии файловых систем (FHS)](https://en.wikipedia.org/wiki/Filesystem_Hierarchy_Standard). Он указывает, в каком каталоге какие файлы должны находиться. Файлы, установленные из пакетов RPM, должны быть размещены в соответствии с FHS. Например, исполняемый файл должен находиться в каталоге, который находится в системной переменной PATH.
 
-Using the install command
-Sometimes using build automation tooling such as GNU make is not optimal - for example, if the packaged program is simple and does not need extra overhead. In these cases, packagers often use the install command (provided to the system by coreutils), which places the artifact to the specified directory in the filesystem with a specified set of permissions.
+В контексте данного руководства, *Произвольный Артефакт* - это что-либо, установленное из RPM в систему. Для RPM и для системы это может быть скрипт, двоичный файл, скомпилированный из исходного кода пакета, предварительно скомпилированный двоичный файл или любой другой файл.
 
-The example below is going to use the bello file that we had previously created as the arbitrary artifact subject to our installation method. Note that you will either need sudo permissions or run this command as root excluding the sudo portion of the command.
+Мы рассмотрим два популярных способа размещения *произвольных артефактов* в системе: с помощью команды install и с помощью команды make install.
 
-In this example, install places the bello file into /usr/bin with permissions common for executable scripts:
+#### Использование команды установки
 
+Иногда использование инструментов автоматизации сборки, таких как GNU make, не оптимально, например, если упакованная программа проста и не требует дополнительных затрат. В этих случаях упаковщики часто используют команду установки (предоставляемую системе [coreutils](http://www.gnu.org/software/coreutils/coreutils.html)), которая помещает артефакт в указанный каталог в файловой системе с указанным набором разрешений.
+
+В приведенном ниже примере будет использоваться файл **bello**, который мы ранее создали, в качестве произвольного артефакта в зависимости от нашего метода установки. Обратите внимание, что вам либо понадобятся разрешения [sudo](http://www.sudo.ws/), либо выполните эту команду от имени пользователя root, за исключением части команды sudo.
+
+В этом примере **install** помещает файл bello в /usr/bin с разрешениями, общими для исполняемых скриптов:
+
+```console
 $ sudo install -m 0755 bello /usr/bin/bello
-Now bello is in a directory that is listed in the $PATH variable. Therefore, you can execute bello from any directory without specifying its full path:
+```
 
+Теперь **bello** находится в каталоге, который указан в переменной [$PATH](https://en.wikipedia.org/wiki/PATH_%28variable%29). Следовательно, вы можете выполнить bello из любого каталога, не указав его полный путь:
+
+```console
 $ cd ~
 
 $ bello
 Hello World
-Using the make install command
-A popular automated way to install built software to the system is to use the make install command. It requires you to specify how to install the arbitrary artifacts to the system in the Makefile.
+```
 
-NOTE
-Usually Makefile is written by the developer and not by the packager.
-Add the install section to the Makefile:
+#### Использование команды make install
+
+Популярный автоматизированный способ установки встроенного программного обеспечения в систему - использование команды make install. Требуется указать, как устанавливать произвольные артефакты в систему в Makefile.
+
+Примечание
+> Обычно файл Makefile написан разработчиком, а не упаковщик.
+
+Добавьте раздел установки в Makefile:
 
 Makefile
 
+```make
 cello:
         gcc -g -o cello cello.c
 
@@ -511,36 +537,48 @@ clean:
 install:
         mkdir -p $(DESTDIR)/usr/bin
         install -m 0755 cello $(DESTDIR)/usr/bin/cello
-The $(DESTDIR) variable is a GNU make built-in and is commonly used to specify installation to a directory different than the root directory.
+```
 
-Now you can use Makefile not only to build software, but also to install it to the target system.
+Переменная [$(DESTDIR)](https://www.gnu.org/software/make/manual/html_node/DESTDIR.html) является встроенной в GNU make и обычно используется для указания установки в каталог, отличный от корневого каталога.
 
-To build and install the cello.c program:
+Теперь вы можете использовать Makefile не только для сборки программного обеспечения, но и для его установки в целевой системе.
 
+Чтобы собрать и установить программу cello.c:
+
+```console
 $ make
 gcc -g -o cello cello.c
 
 $ sudo make install
 install -m 0755 cello /usr/bin/cello
-Now cello is in a directory that is listed in the $PATH variable. Therefore, you can execute cello from any directory without specifying its full path:
+```
 
+Теперь виолончель находится в каталоге, который указан в переменной [$PATH](https://en.wikipedia.org/wiki/PATH_%28variable%29). Следовательно, вы можете выполнить виолончель из любого каталога, не указав его полный путь:
+
+```console
 $ cd ~
 
 $ cello
 Hello World
-You have installed a build artifact into a chosen location on the system.
+```
 
-Preparing Source Code for Packaging
-NOTE
-The code created in this section can be found here.
-Developers often distribute software as compressed archives of source code, which are then used to create packages. In this section, you will create such compressed archives.
+Вы установили артефакт сборки в выбранное место в системе.
 
-NOTE
-Creating source code archives is not normally done by the RPM Packager, but by the developer. The packager works with a ready source code archive.
-Software should be distributed with a software license . For the examples, we will use the GPLv3 license. The license text goes into the LICENSE file for each of the example programs. An RPM packager needs to deal with license files when packaging.
+### Подготовка исходного кода для упаковки
 
-For use with the following examples, create a LICENSE file:
+Примечание
+> Код, созданный в этом разделе, можно найти [здесь](https://github.com/redhat-developer/rpm-packaging-guide/tree/master/example-code).
 
+Разработчики часто распространяют программное обеспечение в виде сжатых архивов исходного кода, которые затем используются для создания пакетов. В этом разделе вы создадите такие сжатые архивы.
+
+Примечание
+> Создание архивов исходного кода обычно выполняется не RPM Packager, а разработчиком. Упаковщик работает с готовым архивом исходного кода.
+
+Программное обеспечение должно распространяться с [лицензией на программное обеспечение](https://en.wikipedia.org/wiki/Software_license). Для примеров мы будем использовать лицензию [GPLv3](https://www.gnu.org/licenses/quick-guide-gplv3.html). Текст лицензии помещается в файл LICENSE для каждой из примеров программ. Упаковщик RPM должен иметь дело с файлами лицензий при упаковке.
+
+Для использования со следующими примерами создайте файл LICENSE:
+
+```console
 $ cat /tmp/LICENSE
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -554,22 +592,27 @@ GNU General Public License for more details.
 
 You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
-Putting Source Code into Tarball
-In the examples below, we put each of the three Hello World programs into a gzip-compressed tarball. Software is often released this way to be later packaged for distribution.
+```
 
-bello
-The bello project implements Hello World in bash. The implementation only contains the bello shell script, so the resulting tar.gz archive will have only one file apart from the LICENSE file. Let us assume that this is version 0.1 of the program.
+### Упаковка исходного кода в Tarball
 
-Prepare the bello project for distribution:
+В приведенных ниже примерах мы поместили каждую из трех программ Hello World в сжатый gzip архив. Программное обеспечение часто выпускается таким образом, чтобы быть позже упакованным для распространения.
 
-Put the files into a single directory:
+#### bello
 
+Проект bello реализует Hello World в bash. Реализация содержит только скрипт оболочки bello, поэтому полученный архив tar.gz будет иметь только один файл, кроме файла LICENSE. Предположим, что это версия 0.1 программы.
+
+Подготовить проект bello для распространения:
+
+1. Поместите файлы в один каталог:
+
+```console
 $ mkdir /tmp/bello-0.1
-
 $ mv ~/bello /tmp/bello-0.1/
-
 $ cp /tmp/LICENSE /tmp/bello-0.1/
-Create the archive for distribution and move it to ~/rpmbuild/SOURCES/:
+```
+
+2. Создайте архив для распространения и переместите его в ~ / rpmbuild / SOURCES /:
 
 $ cd /tmp/
 
