@@ -10,12 +10,12 @@ Cgroups - это гибкая функция ядра Linux, позволяющ�
 
 ## Использование
 
-They can be used in multiple ways
+Их можно использовать несколькими способами
 
-*   By accessing the cgroup _filesystem_ directly.
-*   Using the _cgm_ client (part of the _cgmanager_).
-*   Via _cgcreate_, _cgexec_ and _cgclassify_(part of _cgroup-tools_).
-*   Via _cgconfig.conf_ and _cgrules.conf_(also part of _cgroup-tools_).
+* Получая прямой доступ к файловой системе cgroup.
+* Использование клиента cgm (часть _cgmanager_).
+* Через _cgcreate_, _cgexec_ и _cgclassify_ (часть _cgroup-tools_).
+* Через _cgconfig.conf_ и _cgrules.conf_ (также является частью _cgroup-tools_).
 
 We will use this last option, so install _cgroup-tools_ with
 
