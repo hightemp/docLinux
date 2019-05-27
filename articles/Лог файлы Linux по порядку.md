@@ -139,7 +139,7 @@ $ lnav -r /var/log/Xorg.0.log.old.gz
 
 Показывает гистограмму информативных сообщений, предупреждений и ошибок, если нажать клавишу `<i>`. Это с моего syslog-а.
 
-```syslog
+```
 Mon May 02 20:25:00        123 normal         3 errors         0 warnings         0 marks
 Mon May 02 22:40:00          2 normal         0 errors         0 warnings         0 marks
 Mon May 02 23:25:00         10 normal         0 errors         0 warnings         0 marks
