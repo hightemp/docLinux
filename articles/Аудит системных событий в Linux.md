@@ -382,3 +382,4 @@ tcp_client_max_idle = 0
 *   [статья об использовании возможностей аудита в расследовании атак на ядро](http://magazine.hackinthebox.org/issues/HITB-Ezine-Issue-005.pdf).
 **********
 [auditd](/tags/auditd.md)
+[Ubuntu](/tags/Ubuntu.md)
