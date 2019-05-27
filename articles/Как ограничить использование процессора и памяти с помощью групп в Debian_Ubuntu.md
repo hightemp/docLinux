@@ -23,19 +23,19 @@ Cgroups - это гибкая функция ядра Linux, позволяющ�
 $ sudo apt-get install cgroup-tools
 ```
 
-Debian, by default, disables the memory controller, we can enable it adding the following in`/etc/default/grub`
+Debian по умолчанию отключает контроллер памяти, мы можем включить его, добавив следующее в `/etc/default/grub`
 
 ```
 GRUB_CMDLINE_LINUX_DEFAULT="quiet cgroup_enable=memory swapaccount=1"
-```    
+```
 
-So, update Grub
+Итак, обновите Grub
 
 ```console
 $ sudo update-grub
 ```
 
-Now the environment and tools are ready, we will define some “roles” in`/etc/cgconfig.conf`
+Теперь, когда среда и инструменты готовы, мы определим некоторые «роли» в `/etc/cgconfig.conf`
 
 ```
     group app/editor {
@@ -66,9 +66,9 @@ Now the environment and tools are ready, we will define some “roles” in`/etc
     }
 ```    
 
-The maximum value for`cpu.shares`is 1000, so 300 is setting as 30% the usage limit for an application with this “role”.`memory.limit_in_bytes`is self descriptive.
+Максимальное значение для `cpu.shares` равно 1000, поэтому 300 устанавливает 30% предела использования для приложения с этой «ролью». `memory.limit_in_bytes` является самоописательной.
 
-We will associate these “roles” and the applications in`/etc/cgrules.conf`
+Мы свяжем эти «роли» и приложения в `/etc/cgrules.conf`
 
 ```
     *:emacs         cpu,memory      app/editor/
@@ -78,18 +78,18 @@ We will associate these “roles” and the applications in`/etc/cgrules.conf`
     *:dropbox       cpu,memory      app/util/
 ```   
 
-Now we need apply the rules with the commands
+Теперь нам нужно применить правила с помощью команд
 
 ```console
 $ cgconfigparser -l /etc/cgconfig.conf
 $ cgrulesengd
 ```    
 
-Add them in `/etc/rc.local` for applying on reboot.
+Добавьте их в `/etc/rc.local` для применения при перезагрузке.
 
-That’s it!
+Вот и все!
 
-We can check if our new rules were applied using
+Мы можем проверить, были ли применены наши новые правила, используя
 
 ```console
 $ cat /proc/`pidof dropbox`/cgroup | grep app
@@ -97,7 +97,7 @@ $ cat /proc/`pidof dropbox`/cgroup | grep app
 # 2:cpu,cpuacct:/app/util
 ```
 
-And we can check the memory usage of a process with
+И мы можем проверить использование памяти процесса с
 
 ```console
 smem -P dropbox    
