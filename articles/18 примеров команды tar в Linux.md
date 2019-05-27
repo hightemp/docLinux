@@ -5,7 +5,7 @@
 В приведенном ниже примере команда создаст файл **sedicomm-14-09-12.tar** с каталога **/home/sedicomm** в текущем рабочем каталоге.
 
 ```console
-# tar -cvf sedicomm-14-09-12.tar /home/sedicomm/
+$ tar -cvf sedicomm-14-09-12.tar /home/sedicomm/
 /home/sedicomm/
 /home/sedicomm/cleanfiles.sh
 /home/sedicomm/openvpn-2.1.4.tar.gz
@@ -26,9 +26,9 @@
 **Примечание**: расширения **tar.gz** и **tgz** одинаковы.
 
 ```console
-# tar cvzf MyImages-14-09-12.tar.gz /home/MyImages
+$ tar cvzf MyImages-14-09-12.tar.gz /home/MyImages
 ИЛИ
-# tar cvzf MyImages-14-09-12.tgz /home/MyImages
+$ tar cvzf MyImages-14-09-12.tgz /home/MyImages
 /home/MyImages/
 /home/MyImages/Sara-Khan-and-model-Priyanka-Shah.jpg
 /home/MyImages/RobertKristenviolent101201.jpg
