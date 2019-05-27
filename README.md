@@ -22,7 +22,6 @@
 [bash](/tags/bash.md)
 [OOM killer](/tags/OOM%20killer.md)
 [centos](/tags/centos.md)
-[cgroups](/tags/cgroups.md)
 [cpulimit](/tags/cpulimit.md)
 [kswapd](/tags/kswapd.md)
 [mount](/tags/mount.md)
@@ -39,3 +38,4 @@
 [auditd](/tags/auditd.md)
 [Ubuntu](/tags/Ubuntu.md)
 [аудит](/tags/%D0%B0%D1%83%D0%B4%D0%B8%D1%82.md)
+[cgroups](/tags/cgroups.md)
