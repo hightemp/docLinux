@@ -383,3 +383,4 @@ tcp_client_max_idle = 0
 **********
 [auditd](/tags/auditd.md)
 [Ubuntu](/tags/Ubuntu.md)
+[аудит](/tags/%D0%B0%D1%83%D0%B4%D0%B8%D1%82.md)
