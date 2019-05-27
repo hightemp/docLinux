@@ -100,10 +100,12 @@ $ tar -xvf thumbnails-14-09-12.tar.gz
 /home/public_html/videos/thumbnails/Mileyphoto101203.jpg
 ```
 
-6. Разархивирование архива tar.bz2
-Чтобы разархивировать сжатый файл tar.bz2, просто используйте следующую команду. Приведенная ниже команда распакует все файлы типа .flv из архива.
+## 6. Разархивирование архива tar.bz2
 
-# tar -xvf videos-14-09-12.tar.bz2
+Чтобы разархивировать сжатый файл **tar.bz2**, просто используйте следующую команду. Приведенная ниже команда распакует все файлы типа **.flv** из архива.
+
+```console
+$ tar -xvf videos-14-09-12.tar.bz2
 /home/public_html/videos/flv/katrinabarbiedoll231110.flv
 /home/public_html/videos/flv/BrookmuellerCIA101125.flv
 /home/public_html/videos/flv/dollybackinbb4101125.flv
@@ -112,12 +114,14 @@ $ tar -xvf thumbnails-14-09-12.tar.gz
 /home/public_html/videos/flv/Lakme-Fashion-Week.flv
 /home/public_html/videos/flv/Mileyphoto101203.flv
 /home/public_html/videos/flv/Minissha-Lamba.flv
- 
+```
 
-7. Просмотр содержимого файла архива tar
-Чтобы просмотреть содержимое файла tar, просто запустите команду с опцией t (просмотр содержимого). В приведенной ниже команде будет отображаться содержимое файла uploadprogress.tar.
+## 7. Просмотр содержимого файла архива tar
 
-# tar -tvf uploadprogress.tar
+Чтобы просмотреть содержимое файла **tar**, просто запустите команду с опцией **t** (просмотр содержимого). В приведенной ниже команде будет отображаться содержимое файла **uploadprogress.tar**.
+
+```console
+$ tar -tvf uploadprogress.tar
 -rw-r--r-- chregu/staff 2276 2011-08-15 18:51:10 package2.xml
 -rw-r--r-- chregu/staff 7877 2011-08-15 18:51:10 uploadprogress/examples/index.php
 -rw-r--r-- chregu/staff 1685 2011-08-15 18:51:10 uploadprogress/examples/server.php
@@ -127,12 +131,14 @@ $ tar -xvf thumbnails-14-09-12.tar.gz
 -rw-r--r-- chregu/staff 3563 2011-08-15 18:51:10 uploadprogress/php_uploadprogress.h
 -rw-r--r-- chregu/staff 15433 2011-08-15 18:51:10 uploadprogress/uploadprogress.c
 -rw-r--r-- chregu/staff 1433 2011-08-15 18:51:10 package.xml
- 
+``` 
 
-8. Просмотр содержимого tar.gz
-Используйте следующую команду для отображения содержимого файла tar.gz.
+## 8. Просмотр содержимого tar.gz
 
-# tar -tvf staging.tecmint.com.tar.gz
+Используйте следующую команду для отображения содержимого файла **tar.gz**.
+
+```console
+$ tar -tvf staging.tecmint.com.tar.gz
 -rw-r--r-- root/root 0 2012-08-30 04:03:57 staging.tecmint.com-access_log
 -rw-r--r-- root/root 587 2012-08-29 18:35:12 staging.tecmint.com-access_log.1
 -rw-r--r-- root/root 156 2012-01-21 07:17:56 staging.tecmint.com-access_log.2
@@ -143,7 +149,7 @@ $ tar -xvf thumbnails-14-09-12.tar.gz
 -rw-r--r-- root/root 211 2012-01-21 07:17:56 staging.tecmint.com-error_log.2
 -rw-r--r-- root/root 211 2011-12-21 11:30:56 staging.tecmint.com-error_log.3
 -rw-r--r-- root/root 211 2011-11-20 17:28:24 staging.tecmint.com-error_log.4
- 
+``` 
 
 9. Просмотр содержимого tar.bz2
 Чтобы просмотреть содержимое файла tar.bz2, выполните следующую команду.
