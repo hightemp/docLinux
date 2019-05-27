@@ -17,7 +17,7 @@ Cgroups - это гибкая функция ядра Linux, позволяющ�
 * Через _cgcreate_, _cgexec_ и _cgclassify_ (часть _cgroup-tools_).
 * Через _cgconfig.conf_ и _cgrules.conf_ (также является частью _cgroup-tools_).
 
-We will use this last option, so install _cgroup-tools_ with
+Мы будем использовать этот последний вариант, поэтому установите _cgroup-tools_ с
 
 ```console
 $ sudo apt-get install cgroup-tools
