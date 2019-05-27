@@ -111,3 +111,5 @@ smem -P dropbox
 *   [https://www.kernel.org/doc/Documentation/cgroup-v1/memory.txt](https://www.kernel.org/doc/Documentation/cgroup-v1/memory.txt)
 *   [https://wiki.archlinux.org/index.php/cgroups](https://wiki.archlinux.org/index.php/cgroups)
 *   [https://github.com/docker/docker/issues/396#issuecomment-179470044](https://github.com/docker/docker/issues/396#issuecomment-179470044)
+**********
+[cgroups](/tags/cgroups.md)
