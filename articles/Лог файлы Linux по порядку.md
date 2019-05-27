@@ -56,33 +56,34 @@ $ dmesg -l err
 
 И немного бинарных журналов учета пользовательских сессий.
 
-* **/var/log/lastlog** — Последняя сессия пользователей. Прочитать можно командой last.
-* **/var/log/tallylog** — Аудит неудачных попыток входа в систему. Вывод на экран с помощью утилиты pam_tally2.
+* **/var/log/lastlog** — Последняя сессия пользователей. Прочитать можно командой `last`.
+* **/var/log/tallylog** — Аудит неудачных попыток входа в систему. Вывод на экран с помощью утилиты `pam_tally2`.
 * **/var/log/btmp** — Еже один журнал записи неудачных попыток входа в систему. Просто так, на всякий случай, если вы еще не догадались где следует искать следы активности взломщиков.
 * **/var/log/utmp** — Список входов пользователей в систему на данный момент.
-* **/var/log/wtmp** — Еще один журнал записи входа пользователей в систему. Вывод на экран командой utmpdump.
+* **/var/log/wtmp** — Еще один журнал записи входа пользователей в систему. Вывод на экран командой `utmpdump`.
 
-(5:535)$ sudo utmpdump /var/log/wtmp
+```console
+$ sudo utmpdump /var/log/wtmp
 [5] [02187] [l0  ] [        ] [4.0.5-gentoo     ] [0.0.0.0     ] [Вт авг 11 16:50:07 2015]
 [1] [00000] [~~  ] [shutdown] [4.0.5-gentoo     ] [0.0.0.0     ] [Вт авг 11 16:50:08 2015]
 [2] [00000] [~~  ] [reboot  ] [3.18.12-gentoo   ] [0.0.0.0     ] [Вт авг 11 16:50:57 2015]
 [8] [00368] [rc  ] [        ] [3.18.12-gentoo   ] [0.0.0.0     ] [Вт авг 11 16:50:57 2015]
 [1] [20019] [~~  ] [runlevel] [3.18.12-gentoo   ] [0.0.0.0     ] [Вт авг 11 16:50:57 2015]
+```
 
-И другие журналы
+## И другие журналы
 
 Так как операционная система, даже такая замечательная как Linux, сама по себе никакой ощутимой пользы не несет в себе, то скорее всего на сервере или рабочей станции будет крутится база данных, веб сервер, разнообразные приложения. Каждое приложения или служба может иметь свой собственный файл или каталог журналов событий и ошибок. Всех их естественно невозможно перечислить, лишь некоторые.
 
-
-/var/log/mysql/ — Лог базы данных MySQL.
-/var/log/httpd/ или /var/log/apache2/ — Лог веб сервера Apache, журнал доступа находится в access_log, а ошибки — в error_log.
-/var/log/lighthttpd/ — Лог веб сервера lighttpd.
+* **/var/log/mysql/** — Лог базы данных MySQL.
+* **/var/log/httpd/** или **/var/log/apache2/** — Лог веб сервера Apache, журнал доступа находится в `access_log`, а ошибки — в `error_log`.
+* **/var/log/lighthttpd/** — Лог веб сервера lighttpd.
 
 В домашнем каталоге пользователя могут находится журналы графических приложений, DE.
 
+* **~/.xsession-errors** — Вывод `stderr` графических приложений X11.
 
-~/.xsession-errors — Вывод stderr графических приложений X11.
-
+```
 Initializing  "kcm_input" :  "kcminit_mouse"
 Initializing  "kcm_access" :  "kcminit_access"
 Initializing  "kcm_kgamma" :  "kcminit_kgamma"
@@ -90,54 +91,55 @@ QXcbConnection: XCB error: 3 (BadWindow), sequence: 181, resource id: 10486050, 
 kf5.kcoreaddons.kaboutdata: Could not initialize the equivalent properties of Q*Application: no instance (yet) existing.
 QXcbConnection: XCB error: 3 (BadWindow), sequence: 181, resource id: 10486050, major code: 20 (GetProperty), minor code: 0
 Qt: Session management error: networkIdsList argument is NULL
+```
 
-~/.xfce4-session.verbose-log — Сообщения рабочего стола XFCE4.
+* **~/.xfce4-session.verbose-log** — Сообщения рабочего стола XFCE4.
 
-Чем просматривать — lnav
+## Чем просматривать — lnav
 
-Почти все знают об утилите less и команде tail -f. Также для этих целей сгодится редактор vim и файловый менеджер Midnight Commander. У всех есть свои недостатки: less неважно обрабатывает журналы с длинными строками, принимая их за бинарники. Midnight Commander годится только для беглого просмотра, когда нет необходимости искать по сложному шаблону и переходить помногу взад и вперед между совпадениями. Редактор vim понимает и подсвечивает синтаксис множества форматов, но если журнал часто обновляется, то появляются отвлекающие внимания сообщения об изменениях в файле. Впрочем это легко можно обойти с помощью <:view /path/to/file>.
-
+Почти все знают об утилите `less` и команде `tail -f`. Также для этих целей сгодится редактор `vim` и файловый менеджер Midnight Commander. У всех есть свои недостатки: `less` неважно обрабатывает журналы с длинными строками, принимая их за бинарники. Midnight Commander годится только для беглого просмотра, когда нет необходимости искать по сложному шаблону и переходить помногу взад и вперед между совпадениями. Редактор vim понимает и подсвечивает синтаксис множества форматов, но если журнал часто обновляется, то появляются отвлекающие внимания сообщения об изменениях в файле. Впрочем это легко можно обойти с помощью `<:view /path/to/file>`.
 
 Недавно я обнаружил еще одну годную и многообещающую, но слегка еще сыроватую, утилиту — lnav, в расшифровке Log File Navigator.
 
-
-
+![](/images/9e888d1c78a447deb83451a5e661f381.png)
 
 Установка пакета как обычно одной командой.
 
-
+```console
 $ aptitude install lnav #Debian/Ubuntu/LinuxMint
 $ yum install lnav #RedHat/CentOS
 $ dnf install lnav #Fedora
 $ emerge -av lnav #Gentoo, нужно добавить в файл package.accept_keywords
 $ yaourt -S lnav #Arch
+```
 
-Навигатор журналов lnav понимает ряд форматов файлов.
+Навигатор журналов `lnav` понимает ряд форматов файлов.
 
-
-Access_log веб сервера.
-CUPS page_log
-Syslog
-glog
-dpkg.log
-strace
-Произвольные записи с временными отметками
-gzip, bzip
-Журнал VMWare ESXi/vCenter
+* Access_log веб сервера.
+* CUPS page_log
+* Syslog
+* glog
+* dpkg.log
+* strace
+* Произвольные записи с временными отметками
+* gzip, bzip
+* Журнал VMWare ESXi/vCenter
 
 Что в данном случае означает понимание форматов файлов? Фокус в том, что lnav больше чем утилита для просмотра текстовых файлов. Программа умеет кое что еще. Можно открывать несколько файлов сразу и переключаться между ними.
 
-
-(5:471)$ sudo lnav /var/log/pm-powersave.log /var/log/pm-suspend.log
+```console
+$ sudo lnav /var/log/pm-powersave.log /var/log/pm-suspend.log
+```
 
 Программа умеет напрямую открывать архивный файл.
 
+```console
+$ lnav -r /var/log/Xorg.0.log.old.gz
+```
 
-(5:471)$ lnav -r /var/log/Xorg.0.log.old.gz
+Показывает гистограмму информативных сообщений, предупреждений и ошибок, если нажать клавишу `<i>`. Это с моего syslog-а.
 
-Показывает гистограмму информативных сообщений, предупреждений и ошибок, если нажать клавишу <i>. Это с моего syslog-а.
-
-
+```syslog
 Mon May 02 20:25:00        123 normal         3 errors         0 warnings         0 marks
 Mon May 02 22:40:00          2 normal         0 errors         0 warnings         0 marks
 Mon May 02 23:25:00         10 normal         0 errors         0 warnings         0 marks
@@ -147,12 +149,13 @@ Wed May 04 07:40:00         96 normal         3 errors         0 warnings       
 Wed May 04 08:30:00          2 normal         0 errors         0 warnings         0 marks
 Wed May 04 10:40:00         10 normal         0 errors         0 warnings         0 marks
 Wed May 04 11:50:00        126 normal         2 errors         1 warnings         0 marks
+```
 
 Кроме этого поддерживается подсветка синтаксиса, дополнение по табу и разные полезности в статусной строке. К недостаткам можно отнести нестабильность поведения и зависания. Надеюсь lnav будет активно развиваться, очень полезная программа на мой взгляд.
 
 
 Использованные материалы
 
-lnav — An Advanced Log File viewer for Linux
-What Are Linux Logs? How to View Them, Most Important Directories, and More
-Как посмотреть логи в Linux
+1. [lnav — An Advanced Log File viewer for Linux](http://www.2daygeek.com/install-and-use-advanced-log-file-viewer-navigator-lnav-in-linux/2/)
+2. [What Are Linux Logs? How to View Them, Most Important Directories, and More](https://dzone.com/articles/what-are-linux-logs-how-to-view-them-most-importan)
+3. [Как посмотреть логи в Linux](https://losst.ru/kak-posmotret-logi-v-linux)
