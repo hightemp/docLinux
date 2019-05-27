@@ -161,3 +161,4 @@ Wed May 04 11:50:00        126 normal         2 errors         1 warnings       
 3. [Как посмотреть логи в Linux](https://losst.ru/kak-posmotret-logi-v-linux)
 **********
 [логи](/tags/%D0%BB%D0%BE%D0%B3%D0%B8.md)
+[lnav](/tags/lnav.md)
