@@ -82,10 +82,12 @@ $ tar -xvf public_html-14-09-12.tar -C /home/public_html/videos/
 /home/public_html/videos/feeds.xml
 ```
 
-5. Разархивирование tar.gz
-Чтобы распаковать tar.gz архив, просто запустите следующую команду. Если же вы хотите разархивировать в другой каталог, используйте опцию -C и путь к каталогу, как показано в приведенном выше примере.
+## 5. Разархивирование tar.gz
 
-# tar -xvf thumbnails-14-09-12.tar.gz
+Чтобы распаковать **tar.gz** архив, просто запустите следующую команду. Если же вы хотите разархивировать в другой каталог, используйте опцию **-C** и путь к каталогу, как показано в приведенном выше примере.
+
+```console
+$ tar -xvf thumbnails-14-09-12.tar.gz
 /home/public_html/videos/thumbnails/
 /home/public_html/videos/thumbnails/katdeepika231110.jpg
 /home/public_html/videos/thumbnails/katrinabarbiedoll231110.jpg
@@ -96,7 +98,7 @@ $ tar -xvf public_html-14-09-12.tar -C /home/public_html/videos/
 /home/public_html/videos/thumbnails/Minissha-Lamba.jpg
 /home/public_html/videos/thumbnails/Lindsaydance101201.jpg
 /home/public_html/videos/thumbnails/Mileyphoto101203.jpg
- 
+```
 
 6. Разархивирование архива tar.bz2
 Чтобы разархивировать сжатый файл tar.bz2, просто используйте следующую команду. Приведенная ниже команда распакует все файлы типа .flv из архива.
