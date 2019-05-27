@@ -51,7 +51,7 @@ $ dmesg -l err
 Для каждого дистрибутива будет отдельный журнал менеджера пакетов.
 
 * **/var/log/yum.log** — Для программ установленных с помощью `Yum` в RedHat Linux.
-* **/var/log/emerge.log** — Для `ebuild-ов` установленных из `Portage` с помощью `emerge` в Gentoo Linux.
+* **/var/log/emerge.log** — Для `ebuild`-ов установленных из `Portage` с помощью `emerge` в Gentoo Linux.
 * **/var/log/dpkg.log** — Для программ установленных с помощью `dpkg` в Debian Linux и всем семействе родственных дистрибутивах.
 
 И немного бинарных журналов учета пользовательских сессий.
