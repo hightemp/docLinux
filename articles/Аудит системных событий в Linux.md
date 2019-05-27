@@ -380,3 +380,5 @@ tcp_client_max_idle = 0
 *   [полный перечень типов записей аудита](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Security_Guide/sec-Audit_Record_Types.html);
 *   [полный перечень возможных событий](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Security_Guide/app-Audit_Reference.html#sec-Audit_Events_Fields);
 *   [статья об использовании возможностей аудита в расследовании атак на ядро](http://magazine.hackinthebox.org/issues/HITB-Ezine-Issue-005.pdf).
+**********
+[auditd](/tags/auditd.md)
