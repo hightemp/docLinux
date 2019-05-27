@@ -159,3 +159,5 @@ Wed May 04 11:50:00        126 normal         2 errors         1 warnings       
 1. [lnav — An Advanced Log File viewer for Linux](http://www.2daygeek.com/install-and-use-advanced-log-file-viewer-navigator-lnav-in-linux/2/)
 2. [What Are Linux Logs? How to View Them, Most Important Directories, and More](https://dzone.com/articles/what-are-linux-logs-how-to-view-them-most-importan)
 3. [Как посмотреть логи в Linux](https://losst.ru/kak-posmotret-logi-v-linux)
+**********
+[логи](/tags/%D0%BB%D0%BE%D0%B3%D0%B8.md)
