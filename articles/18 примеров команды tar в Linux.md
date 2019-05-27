@@ -151,10 +151,12 @@ $ tar -tvf staging.tecmint.com.tar.gz
 -rw-r--r-- root/root 211 2011-11-20 17:28:24 staging.tecmint.com-error_log.4
 ``` 
 
-9. Просмотр содержимого tar.bz2
-Чтобы просмотреть содержимое файла tar.bz2, выполните следующую команду.
+## 9. Просмотр содержимого tar.bz2
 
-# tar -tvf Phpfiles-org.tar.bz2
+Чтобы просмотреть содержимое файла **tar.bz2**, выполните следующую команду.
+
+```console
+$ tar -tvf Phpfiles-org.tar.bz2
 drwxr-xr-x root/root 0 2012-09-15 03:06:08 /home/php/
 -rw-r--r-- root/root 1751 2012-09-15 03:06:08 /home/php/iframe_ew.php
 -rw-r--r-- root/root 11220 2012-09-15 03:06:08 /home/php/videos_all.php
@@ -164,49 +166,59 @@ drwxr-xr-x root/root 0 2012-09-15 03:06:08 /home/php/
 -rw-r--r-- root/root 406 2012-09-15 03:06:08 /home/php/video_title.php
 -rw-r--r-- root/root 4116 2012-09-15 03:06:08 /home/php/report.php
 -rw-r--r-- root/root 1273 2012-09-15 03:06:08 /home/php/object.html
- 
+``` 
 
-10. Разархивирование отдельного файла из tar
-К примеру, чтобы извлечь один файл с именем cleanfiles.sh из cleanfiles.sh.tar, используйте следующую команду.
+## 10. Разархивирование отдельного файла из tar
 
-# tar -xvf cleanfiles.sh.tar cleanfiles.sh
+К примеру, чтобы извлечь один файл с именем **cleanfiles.sh** из **cleanfiles.sh.tar**, используйте следующую команду.
+
+```console
+$ tar -xvf cleanfiles.sh.tar cleanfiles.sh
 ИЛИ
-# tar --extract --file=cleanfiles.sh.tar cleanfiles.sh
+$ tar --extract --file=cleanfiles.sh.tar cleanfiles.sh
 cleanfiles.sh
- 
+```
 
-11. Разархивирование отдельного из файла tar.gz
-К примеру, чтобы извлечь один файл tecmintbackup.xml из архива tecmintbackup.tar.gz, используйте команду следующим образом.
+## 11. Разархивирование отдельного из файла tar.gz
 
-# tar -zxvf tecmintbackup.tar.gz tecmintbackup.xml
+К примеру, чтобы извлечь один файл **tecmintbackup.xml** из архива **tecmintbackup.tar.gz**, используйте команду следующим образом.
+
+```console
+$ tar -zxvf tecmintbackup.tar.gz tecmintbackup.xml
 ИЛИ
-# tar --extract --file=tecmintbackup.tar.gz tecmintbackup.xml
+$ tar --extract --file=tecmintbackup.tar.gz tecmintbackup.xml
 tecmintbackup.xml
- 
+```
 
-12. Разархивирование отдельного файл из файла tar.bz2
-Чтобы извлечь один файл index.php из файла Phpfiles-org.tar.bz2, используйте следующий параметр.
+## 12. Разархивирование отдельного файл из файла tar.bz2
 
-# tar -jxvf Phpfiles-org.tar.bz2 home/php/index.php
+Чтобы извлечь один файл **index.php** из файла **Phpfiles-org.tar.bz2**, используйте следующий параметр.
+
+```console
+$ tar -jxvf Phpfiles-org.tar.bz2 home/php/index.php
 ИЛИ
-# tar --extract --file=Phpfiles-org.tar.bz2 /home/php/index.php
+$ tar --extract --file=Phpfiles-org.tar.bz2 /home/php/index.php
 /home/php/index.php
- 
+``` 
 
-13. Разархивирование нескольких файлов из tar, tar.gz и tar.bz2
-Чтобы извлечь несколько файлов из архива tar, tar.gz и tar.bz2 необходимо использовать приведенную ниже команду. Эта команда извлекает из архива «file 1» и «file 2».
+## 13. Разархивирование нескольких файлов из tar, tar.gz и tar.bz2
 
-# tar -xvf sedicomm-14-09-12.tar "file 1" "file 2"
-# tar -zxvf MyImages-14-09-12.tar.gz "file 1" "file 2"
-# tar -jxvf Phpfiles-org.tar.bz2 "file 1" "file 2"
- 
+Чтобы извлечь несколько файлов из архива **tar**, **tar.gz** и **tar.bz2** необходимо использовать приведенную ниже команду. Эта команда извлекает из архива **«file 1»** и **«file 2»**.
 
-14. Извлечение группы файлов с помощью метасимволов
-Чтобы извлечь группу файлов, мы используем метасимволы. Например, чтобы извлечь группу файлов с расширением .php из архива tar, tar.gz и tar.bz2 необходимо использовать следующую команду:
+```console
+$ tar -xvf sedicomm-14-09-12.tar "file 1" "file 2"
+$ tar -zxvf MyImages-14-09-12.tar.gz "file 1" "file 2"
+$ tar -jxvf Phpfiles-org.tar.bz2 "file 1" "file 2"
+``` 
 
-# tar -xvf Phpfiles-org.tar --wildcards '*.php'
-# tar -zxvf Phpfiles-org.tar.gz --wildcards '*.php'
-# tar -jxvf Phpfiles-org.tar.bz2 --wildcards '*.php'
+## 14. Извлечение группы файлов с помощью метасимволов
+
+Чтобы извлечь группу файлов, мы используем метасимволы. Например, чтобы извлечь группу файлов с расширением **.php** из архива **tar**, **tar.gz** и **tar.bz2** необходимо использовать следующую команду:
+
+```console
+$ tar -xvf Phpfiles-org.tar --wildcards '*.php'
+$ tar -zxvf Phpfiles-org.tar.gz --wildcards '*.php'
+$ tar -jxvf Phpfiles-org.tar.bz2 --wildcards '*.php'
 /home/php/iframe_ew.php
 /home/php/videos_all.php
 /home/php/rss.php
@@ -215,13 +227,15 @@ tecmintbackup.xml
 /home/php/video_title.php
 /home/php/report.php
 /home/php/video.php
- 
+``` 
 
-15. Добавление файла или директории в файл архива tar
-Чтобы добавить файлы или каталоги в существующий файл архива tar, мы используем параметр r (присоединить). Например, мы добавляем файл xyz.txt и каталог php в существующий архив tecmint-14-09-12.tar.
+## 15. Добавление файла или директории в файл архива tar
 
-# tar -rvf tecmint-14-09-12.tar xyz.txt
-# tar -rvf tecmint-14-09-12.tar php
+Чтобы добавить файлы или каталоги в существующий файл архива **tar**, мы используем параметр **r** (присоединить). Например, мы добавляем файл **xyz.txt** и каталог **php** в существующий архив **tecmint-14-09-12.tar**.
+
+```console
+$ tar -rvf tecmint-14-09-12.tar xyz.txt
+$ tar -rvf tecmint-14-09-12.tar php
 drwxr-xr-x root/root 0 2012-09-15 02:24:21 home/tecmint/
 -rw-r--r-- root/root 15740615 2012-09-15 02:23:42 home/tecmint/cleanfiles.sh
 -rw-r--r-- root/root 863726 2012-09-15 02:23:41 home/tecmint/openvpn-2.1.4.tar.gz
@@ -236,21 +250,24 @@ drwxr-xr-x root/root 0 2012-09-15 03:06:08 php/
 -rw-r--r-- root/root 3021 2012-09-15 03:06:08 php/index.php
 -rw-r--r-- root/root 2554 2012-09-15 03:06:08 php/vendor.php
 -rw-r--r-- root/root 406 2012-09-15 03:06:08 php/video_title.php
- 
+```
 
-16. Добавление файлов или каталогов в tar.gz и tar.bz2.
-У команды tar нет возможности добавлять файлы или каталоги в существующий сжатый файл tar.gz и tar.bz2. Если мы попытаемся, то получим следующую ошибку:
+## 16. Добавление файлов или каталогов в tar.gz и tar.bz2.
 
-# tar -rvf MyImages-14-09-12.tar.gz xyz.txt
-# tar -rvf Phpfiles-org.tar.bz2 xyz.txt
+У команды **tar** нет возможности добавлять файлы или каталоги в существующий сжатый файл **tar.gz** и **tar.bz2**. Если мы попытаемся, то получим следующую ошибку:
+
+```console
+$ tar -rvf MyImages-14-09-12.tar.gz xyz.txt
+$ tar -rvf Phpfiles-org.tar.bz2 xyz.txt
 tar: This does not look like a tar archive
 tar: Skipping to next header
 xyz.txt
 tar: Error exit delayed from previous errors
- 
+``` 
 
-17. Как проверить архивы tar, tar.gz и tar.bz2
-Для проверки любого tar архива мы используем опцию -W (проверка). Для этого просто используйте приведенные ниже примеры команд.
+## 17. Как проверить архивы tar, tar.gz и tar.bz2
+
+Для проверки любого **tar** архива мы используем опцию **-W** (проверка). Для этого просто используйте приведенные ниже примеры команд.
 
 Примечание. Вы не можете выполнить проверку в сжатом архиве (*.tar.gz, *.tar.bz2).
 
