@@ -41,16 +41,18 @@ $ tar cvzf MyImages-14-09-12.tgz /home/MyImages
 /home/MyImages/yanaguptabaresf231110.jpg
 ```
 
-3. Создание файла архива tar.bz2
-Функция bz2 сжимает и создает файл архива меньшего размера, чем gzip. Сжатие bz2 требует больше времени для сжатия и распаковки файлов по сравнению с gzip. Чтобы создать сжатый файл tar, мы используем параметр j. Следующая команда примера создаст файл Phpfiles-org.tar.bz2 для каталога /home/php.
+## 3. Создание файла архива tar.bz2
 
-Примечание: tar.bz2 и tbz аналогичны tb2.
+Функция **bz2** сжимает и создает файл архива меньшего размера, чем **gzip**. Сжатие **bz2** требует больше времени для сжатия и распаковки файлов по сравнению с **gzip**. Чтобы создать сжатый файл **tar**, мы используем параметр **j**. Следующая команда примера создаст файл **Phpfiles-org.tar.bz2** для каталога **/home/php**.
 
-# tar cvfj Phpfiles-org.tar.bz2 /home/php
+**Примечание**: **tar.bz2** и **tbz** аналогичны **tb2**.
+
+```console
+$ tar cvfj Phpfiles-org.tar.bz2 /home/php
 ИЛИ
-# tar cvfj Phpfiles-org.tar.tbz /home/php
+$ tar cvfj Phpfiles-org.tar.tbz /home/php
 ИЛИ
-# tar cvfj Phpfiles-org.tar.tb2 /home/php
+$ tar cvfj Phpfiles-org.tar.tb2 /home/php
 /home/php/
 /home/php/iframe_ew.php
 /home/php/videos_all.php
@@ -61,22 +63,24 @@ $ tar cvzf MyImages-14-09-12.tgz /home/MyImages
 /home/php/report.php
 /home/php/object.html
 /home/php/video.php
- 
+```
 
-4. Разархивирование архива tar
-Чтобы распаковать или извлечь файл tar, просто выполните следующую команду, используя опцию x (extract). Например, приведенная ниже команда распакует файл public_html-14-09-12.tar в текущий рабочий каталог. Если вы хотите разархивировать файлы в другой каталог, используйте опцию —C (specified directory).
+## 4. Разархивирование архива tar
 
+Чтобы распаковать или извлечь файл **tar**, просто выполните следующую команду, используя опцию **x** (extract). Например, приведенная ниже команда распакует файл **public_html-14-09-12.tar** в текущий рабочий каталог. Если вы хотите разархивировать файлы в другой каталог, используйте опцию — **C** (specified directory).
+
+```console
 ## Untar files in Current Directory ##
-# tar -xvf public_html-14-09-12.tar
+$ tar -xvf public_html-14-09-12.tar
 ## Untar files in specified Directory ##
-# tar -xvf public_html-14-09-12.tar -C /home/public_html/videos/
+$ tar -xvf public_html-14-09-12.tar -C /home/public_html/videos/
 /home/public_html/videos/
 /home/public_html/videos/views.php
 /home/public_html/videos/index.php
 /home/public_html/videos/logout.php
 /home/public_html/videos/all_categories.php
 /home/public_html/videos/feeds.xml
- 
+```
 
 5. Разархивирование tar.gz
 Чтобы распаковать tar.gz архив, просто запустите следующую команду. Если же вы хотите разархивировать в другой каталог, используйте опцию -C и путь к каталогу, как показано в приведенном выше примере.
