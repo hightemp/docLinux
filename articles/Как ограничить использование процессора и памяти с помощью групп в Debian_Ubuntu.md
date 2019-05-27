@@ -1,14 +1,14 @@
-# How to Limit CPU and Memory Usage With Cgroups on Debian/Ubuntu
+# Как ограничить использование процессора и памяти с помощью групп в Debian/Ubuntu
 
-Cgroups is a flexible Linux kernel feature to _limit_, _police_ and _account_ resources usage. A _cgroup_ is a set of _tasks_ for a _subsystems_, that is typically a _resource controller_.
+Cgroups - это гибкая функция ядра Linux, позволяющая ограничивать, контролировать и использовать ресурсы аккаунта. _Cgroup_ - это набор задач для подсистем, обычно это контроллер ресурсов.
 
-A file system of type _cgroup_ is mounted and all operations are run over it.
+Файловая система типа _cgroup_ монтируется и все операции выполняются над ней.
 
-## Installation
+## Установка
 
-The installation can be done using any of _libcgroup_, _cgmanager_ or _systemd_.
+Установка может быть выполнена с использованием любого из _libcgroup_, _cgmanager_ или _systemd_.
 
-## Usage
+## Использование
 
 They can be used in multiple ways
 
