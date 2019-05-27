@@ -6,18 +6,18 @@ A file system of type _cgroup_ is mounted and all operations are run over it.
 
 ## Installation
 
-The installation can be done using any of_libcgroup_,_cgmanager_or_systemd_.
+The installation can be done using any of _libcgroup_, _cgmanager_ or _systemd_.
 
 ## Usage
 
 They can be used in multiple ways
 
-*   By accessing the cgroup_filesystem_directly.
-*   Using the_cgm_client (part of the_cgmanager_).
-*   Via_cgcreate_,_cgexec_and_cgclassify_(part of_cgroup-tools_).
-*   Via_cgconfig.conf_and_cgrules.conf_(also part of_cgroup-tools_).
+*   By accessing the cgroup _filesystem_ directly.
+*   Using the _cgm_ client (part of the _cgmanager_).
+*   Via _cgcreate_, _cgexec_ and _cgclassify_(part of _cgroup-tools_).
+*   Via _cgconfig.conf_ and _cgrules.conf_(also part of _cgroup-tools_).
 
-We will use this last option, so install_cgroup-tools_with
+We will use this last option, so install _cgroup-tools_ with
 
 ```console
 $ sudo apt-get install cgroup-tools
