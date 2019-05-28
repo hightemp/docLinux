@@ -173,7 +173,6 @@ $ perf list pmu hw sw cache
 
 <details>
 	<summary><b>А вот что на ARM</b></summary>
-	<p>
 		
 ```console
 $ perf list pmu hw sw cache
@@ -211,7 +210,6 @@ $ perf list pmu hw sw cache
   branch-load-misses                                 [Hardware cache event]
 ```
 		
-	</p>
 </details>
 
 Видно, что x86 побогаче будет на такие вещи.  
