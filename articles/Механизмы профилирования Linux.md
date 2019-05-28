@@ -254,3 +254,4 @@ Perf timechart
 **********
 [perf](/tags/perf.md)
 [kprobes](/tags/kprobes.md)
+[kernel tracepoints](/tags/kernel%20tracepoints.md)
