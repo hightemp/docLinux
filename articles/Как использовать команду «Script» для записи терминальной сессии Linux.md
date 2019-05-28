@@ -72,13 +72,15 @@ $ script openldap_record
 $ exit
 ```
 
-When you have finished with the first configuration, begin to record the next configuration
+Когда вы закончите с первой конфигурацией, начните записывать следующую конфигурацию
 
-\# script machma\_record
+```console
+$ script machma\_record
     ............
      configuration steps
     .............
-# exit
+$ exit
+```
 
 And so on for the other. Note that if you script command followed by existing filename, the file will be replaced. So you will lost everything.
 
