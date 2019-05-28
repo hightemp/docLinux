@@ -169,12 +169,14 @@ $ perf list pmu hw sw cache
   branch-loads                                       [Hardware cache event]
   branch-load-misses                                 [Hardware cache event]	
 ```
+		
 	</p>
 </details>
 
 <details>
 	<summary><b>А вот что на ARM</b></summary>
 	<p>
+		
 ```console
 $ perf list pmu hw sw cache
 
@@ -210,6 +212,7 @@ $ perf list pmu hw sw cache
   branch-loads                                       [Hardware cache event]
   branch-load-misses                                 [Hardware cache event]
 ```
+		
 	</p>
 </details>
 
