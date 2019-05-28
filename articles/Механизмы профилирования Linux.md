@@ -62,7 +62,7 @@ tail-11005 [000] .... 1127940.937519: kmalloc: call_site=ffffffff81267786 ptr=ff
   
 Заметьте, что traсepoint «kmem:kmalloc», как и все остальные, по умолчанию выключен, так что его надо включить, сказав 1 в его `enable` файл.  
   
-Вы можете сами написать tracepoint для своего модуля ядра. Но, во-первых, это не так уж и просто, потому что tracepoint’ы — не самый удобный и понятный API: смотри примеры в [_samples/trace\_events/_](http://lxr.free-electrons.com/source/samples/trace_events/?v=3.18)(вообще все эти tracepoint’ы — это чёрная магия C-макросов, понять которые если и сильно захочется, то не сразу получится). А во-вторых, скорее всего, они не заработают в вашем модуле, покуда у вас включен `CONFIG_MODULE_SIG` (почти всегда да) и нет закрытого ключа для подписи (он у вендора ядра вашего дистрибутива). Смотри душераздирающие подробности в lkml [[1]](https://lkml.org/lkml/2014/2/13/488), [[2]](https://lkml.org/lkml/2014/3/4/925). 
+Вы можете сами написать tracepoint для своего модуля ядра. Но, во-первых, это не так уж и просто, потому что tracepoint’ы — не самый удобный и понятный API: смотри примеры в [_samples/trace_events/_](http://lxr.free-electrons.com/source/samples/trace_events/?v=3.18)(вообще все эти tracepoint’ы — это чёрная магия C-макросов, понять которые если и сильно захочется, то не сразу получится). А во-вторых, скорее всего, они не заработают в вашем модуле, покуда у вас включен `CONFIG_MODULE_SIG` (почти всегда да) и нет закрытого ключа для подписи (он у вендора ядра вашего дистрибутива). Смотри душераздирающие подробности в lkml [[1]](https://lkml.org/lkml/2014/2/13/488), [[2]](https://lkml.org/lkml/2014/3/4/925). 
 
 Короче говоря, tracepoint’ы простая и легковесная вещь, но пользоваться ей руками неудобно и не рекомендуется — используйте`ftrace`или`perf`.  
   
@@ -114,18 +114,97 @@ Jan  1 00:00:43 etn kernel: [   43.201827] ETN JPROBE: trace_etn_write:23: Writi
   
 Для доступа к этим счётчикам, а также к огромной куче другого добра, была написана программа`perf`. С её помощью можно посмотреть, какие железные события нам доступны.  
   
-
 <details><summary><b>Пример для x86</b></summary>
+```console
+$ perf list pmu hw sw cache
+  branch-instructions OR cpu/branch-instructions/    [Kernel PMU event]
+  branch-misses OR cpu/branch-misses/                [Kernel PMU event]
+  bus-cycles OR cpu/bus-cycles/                      [Kernel PMU event]
+  cache-misses OR cpu/cache-misses/                  [Kernel PMU event]
+  cache-references OR cpu/cache-references/          [Kernel PMU event]
+  cpu-cycles OR cpu/cpu-cycles/                      [Kernel PMU event]
+  instructions OR cpu/instructions/                  [Kernel PMU event]
 
-#### yes, even hidden code blocks!
 
-\`\`\`python
-print("hello world!")
-\`\`\`
+  cpu-cycles OR cycles                               [Hardware event]
+  instructions                                       [Hardware event]
+  cache-references                                   [Hardware event]
+  cache-misses                                       [Hardware event]
+  branch-instructions OR branches                    [Hardware event]
+  branch-misses                                      [Hardware event]
+  bus-cycles                                         [Hardware event]
+  ref-cycles                                         [Hardware event]
 
+  cpu-clock                                          [Software event]
+  task-clock                                         [Software event]
+  page-faults OR faults                              [Software event]
+  context-switches OR cs                             [Software event]
+  cpu-migrations OR migrations                       [Software event]
+  minor-faults                                       [Software event]
+  major-faults                                       [Software event]
+  alignment-faults                                   [Software event]
+  emulation-faults                                   [Software event]
+  dummy                                              [Software event]
+
+  L1-dcache-loads                                    [Hardware cache event]
+  L1-dcache-load-misses                              [Hardware cache event]
+  L1-dcache-stores                                   [Hardware cache event]
+  L1-dcache-store-misses                             [Hardware cache event]
+  L1-dcache-prefetches                               [Hardware cache event]
+  L1-icache-loads                                    [Hardware cache event]
+  L1-icache-load-misses                              [Hardware cache event]
+  LLC-loads                                          [Hardware cache event]
+  LLC-load-misses                                    [Hardware cache event]
+  LLC-stores                                         [Hardware cache event]
+  LLC-store-misses                                   [Hardware cache event]
+  dTLB-loads                                         [Hardware cache event]
+  dTLB-load-misses                                   [Hardware cache event]
+  dTLB-stores                                        [Hardware cache event]
+  dTLB-store-misses                                  [Hardware cache event]
+  iTLB-loads                                         [Hardware cache event]
+  iTLB-load-misses                                   [Hardware cache event]
+  branch-loads                                       [Hardware cache event]
+  branch-load-misses                                 [Hardware cache event]	
+```
 </details>
 
-**А вот что на ARM**
+<details><summary><b>А вот что на ARM</b></summary>
+```console
+$ perf list pmu hw sw cache
+
+  cpu-cycles OR cycles                               [Hardware event]
+  instructions                                       [Hardware event]
+  cache-references                                   [Hardware event]
+  cache-misses                                       [Hardware event]
+  branch-instructions OR branches                    [Hardware event]
+  branch-misses                                      [Hardware event]
+  stalled-cycles-frontend OR idle-cycles-frontend    [Hardware event]
+  stalled-cycles-backend OR idle-cycles-backend      [Hardware event]
+  ref-cycles                                         [Hardware event]
+
+  cpu-clock                                          [Software event]
+  task-clock                                         [Software event]
+  page-faults OR faults                              [Software event]
+  context-switches OR cs                             [Software event]
+  cpu-migrations OR migrations                       [Software event]
+  minor-faults                                       [Software event]
+  major-faults                                       [Software event]
+  alignment-faults                                   [Software event]
+  emulation-faults                                   [Software event]
+  dummy                                              [Software event]
+
+  L1-dcache-loads                                    [Hardware cache event]
+  L1-dcache-load-misses                              [Hardware cache event]
+  L1-dcache-stores                                   [Hardware cache event]
+  L1-dcache-store-misses                             [Hardware cache event]
+  L1-icache-load-misses                              [Hardware cache event]
+  dTLB-load-misses                                   [Hardware cache event]
+  dTLB-store-misses                                  [Hardware cache event]
+  iTLB-load-misses                                   [Hardware cache event]
+  branch-loads                                       [Hardware cache event]
+  branch-load-misses                                 [Hardware cache event]
+```
+</details>
 
 Видно, что x86 побогаче будет на такие вещи.  
   
