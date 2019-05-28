@@ -34,7 +34,7 @@ sar,[perf-tools](https://github.com/brendangregg/perf-tools#contents),[bcc/BPF](
 *   Посты о eBPF, bcc и bpftrace (2015-8):
     [Linux eBPF](http://www.brendangregg.com/blog/2015-05-15/ebpf-one-small-step.html) (2015)
     [bcc: Укрощение Linux 4.3+ Tracing Superpowers](http://www.brendangregg.com/blog/2015-09-22/bcc-linux-4.3-tracing.html)
-    [tcpconnect и tcpaccept для Linux (bcc)] (http://www.brendangregg.com/blog/2015-10-31/tcpconnect-tcpaccept-bcc.html)
+    [tcpconnect и tcpaccept для Linux (bcc)](http://www.brendangregg.com/blog/2015-10-31/tcpconnect-tcpaccept-bcc.html)
     [Отслеживание стека eBPF в Linux (скрытая копия)](http://www.brendangregg.com/blog/2016-01-18/ebpf-stack-trace-hack.html) (2016)
     [График пламени вне процессора CPU Linux (bcc)](http://www.brendangregg.com/blog/2016-01-20/ebpf-offcpu-flame-graph.html)
     [Linux Wakeup и Off-Wake Profiling (bcc)](http://www.brendangregg.com/blog/2016-02-01/linux-wakeup-offwake-profiling.html)
