@@ -116,7 +116,6 @@ Jan  1 00:00:43 etn kernel: [   43.201827] ETN JPROBE: trace_etn_write:23: Writi
   
 <details>
 	<summary><b>Пример для x86</b></summary>
-	<p>
 
 ```console
 $ perf list pmu hw sw cache
@@ -170,7 +169,6 @@ $ perf list pmu hw sw cache
   branch-load-misses                                 [Hardware cache event]	
 ```
 		
-	</p>
 </details>
 
 <details>
