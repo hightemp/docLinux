@@ -58,15 +58,29 @@ sar,[perf-tools](https://github.com/brendangregg/perf-tools#contents),[bcc/BPF](
 	* [Linux bcc/eBPF tcpdrop](http://www.brendangregg.com/blog/2018-05-31/linux-tcpdrop.html)  
 	* [bpftrace (DTrace 2.0) for Linux 2018](http://www.brendangregg.com/blog/2018-10-08/dtrace-for-linux-2018.html)  
     
-*   В моей статье [lwn.net](http://lwn.net/) [Ftrace: скрытый выключатель света](http://lwn.net/Articles/608497/) показан пример использования Linux ftrace (август 2014 г.) ).
-*   Сообщения о Perf-инструментах на основе ftrace (2014-5):
-    [iosnoop для Linux](http://www.brendangregg.com/blog/2014-07-16/iosnoop-for-linux.html), [тепловые карты задержки iosnoop](http://www.brendangregg.com/ blog / 2014-07-23 / linux-iosnoop-latency-heat-maps.html), [opensnoop для Linux](http://www.brendangregg.com/blog/2014-07-25/opensnoop-for-linux .html), [execsnoop для Linux](http://www.brendangregg.com/blog/2014-07-28/execsnoop-for-linux.html), [ftrace: скрытый выключатель света](http: // www.brendangregg.com/blog/2014-08-30/ftrace-the-hidden-light-switch.html), [tcpretrans](http://www.brendangregg.com/blog/2014-09-06/linux -ftrace-ТСР-ретранслировать-tracing.html)
-    [Коэффициент попадания в кэш страниц] (http://www.brendangregg.com/blog/2014-12-31/linux-page-cache-hit-ratio.html), [uprobe: динамическая трассировка на уровне пользователя] (http: //www.brendangregg.com/blog/2015-06-28/linux-ftrace-uprobe.html),[Hacking Linux USDT] (http://www.brendangregg.com/blog/2015-07-03/hacking -linux-USDT-ftrace.html)
-*   Posts about perf-based perf-tools:[perf Hacktogram](http://www.brendangregg.com/blog/2014-07-10/perf-hacktogram.html).
-*   Posts about perf\_events (2014-7):
-    [perf CPU Sampling](http://www.brendangregg.com/blog/2014-06-22/perf-cpu-sample.html),[perf Static Tracepoints](http://www.brendangregg.com/blog/2014-06-29/perf-static-tracepoints.html),[perf Heat Maps](http://www.brendangregg.com/blog/2014-07-01/perf-heat-maps.html),[perf Counting](http://www.brendangregg.com/blog/2014-07-03/perf-counting.html),[perf Kernel Line Tracing](http://www.brendangregg.com/blog/2014-09-11/perf-kernel-line-tracing.html),  
-    [perf Off-CPU Time Flame Graphs](http://www.brendangregg.com/blog/2015-02-26/linux-perf-off-cpu-flame-graph.html),[Linux Profiling at Netflix](http://www.brendangregg.com/blog/2015-02-27/linux-profiling-at-netflix.html),[Java Mixed-Mode Flame Graphs](http://techblog.netflix.com/2015/07/java-in-flames.html)([PDF](http://www.brendangregg.com/Articles/Netflix_Java_in_Flames.pdf)),[Linux 4.5 perf folded format](http://www.brendangregg.com/blog/2016-04-30/linux-perf-folded.html),  
-    [perf sched for Linux CPU scheduler analysis](http://www.brendangregg.com/blog/2017-03-16/perf-sched.html)
+* В моей статье [lwn.net](http://lwn.net/) [Ftrace: скрытый выключатель света](http://lwn.net/Articles/608497/) показан пример использования Linux ftrace (август 2014 г.) ).
+* Сообщения о Perf-инструментах на основе ftrace (2014-5):
+	* [iosnoop для Linux](http://www.brendangregg.com/blog/2014-07-16/iosnoop-for-linux.html)
+	* [тепловые карты задержки iosnoop](http://www.brendangregg.com/ blog / 2014-07-23 / linux-iosnoop-latency-heat-maps.html)
+	* [opensnoop для Linux](http://www.brendangregg.com/blog/2014-07-25/opensnoop-for-linux .html)
+	* [execsnoop для Linux](http://www.brendangregg.com/blog/2014-07-28/execsnoop-for-linux.html)
+	* [ftrace: скрытый выключатель света](http: // www.brendangregg.com/blog/2014-08-30/ftrace-the-hidden-light-switch.html)
+	* [tcpretrans](http://www.brendangregg.com/blog/2014-09-06/linux -ftrace-ТСР-ретранслировать-tracing.html)
+	* [Коэффициент попадания в кэш страниц](http://www.brendangregg.com/blog/2014-12-31/linux-page-cache-hit-ratio.html)
+	* [uprobe: динамическая трассировка на уровне пользователя](http://www.brendangregg.com/blog/2015-06-28/linux-ftrace-uprobe.html)
+	* [Hacking Linux USDT](http://www.brendangregg.com/blog/2015-07-03/hacking -linux-USDT-ftrace.html)
+* Posts about perf-based perf-tools:[perf Hacktogram](http://www.brendangregg.com/blog/2014-07-10/perf-hacktogram.html).
+* Posts about perf\_events (2014-7):
+	* [perf CPU Sampling](http://www.brendangregg.com/blog/2014-06-22/perf-cpu-sample.html)
+	* [perf Static Tracepoints](http://www.brendangregg.com/blog/2014-06-29/perf-static-tracepoints.html)
+	* [perf Heat Maps](http://www.brendangregg.com/blog/2014-07-01/perf-heat-maps.html)
+	* [perf Counting](http://www.brendangregg.com/blog/2014-07-03/perf-counting.html)
+	* [perf Kernel Line Tracing](http://www.brendangregg.com/blog/2014-09-11/perf-kernel-line-tracing.html)
+	* [perf Off-CPU Time Flame Graphs](http://www.brendangregg.com/blog/2015-02-26/linux-perf-off-cpu-flame-graph.html)
+	* [Linux Profiling at Netflix](http://www.brendangregg.com/blog/2015-02-27/linux-profiling-at-netflix.html)
+	* [Java Mixed-Mode Flame Graphs](http://techblog.netflix.com/2015/07/java-in-flames.html) ([PDF](http://www.brendangregg.com/Articles/Netflix_Java_in_Flames.pdf))
+	* [Linux 4.5 perf folded format](http://www.brendangregg.com/blog/2016-04-30/linux-perf-folded.html)
+	* [perf sched for Linux CPU scheduler analysis](http://www.brendangregg.com/blog/2017-03-16/perf-sched.html)
 *   A page on[Working Set Size Estimation](http://www.brendangregg.com/wss.html)for Linux (2018+).
 *   A post on[KPTI/KAISER Meltdown Initial Performance Regressions](http://www.brendangregg.com/blog/2018-02-09/kpti-kaiser-meltdown-performance.html)(2018).
 *   In[The PMCs of EC2: Measuring IPC](http://www.brendangregg.com/blog/2017-05-04/the-pmcs-of-ec2.html)I showed the new Performance Monitoring Counter (PMC) support in the AWS EC2 cloud (2017).
