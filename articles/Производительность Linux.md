@@ -69,7 +69,8 @@ sar,[perf-tools](https://github.com/brendangregg/perf-tools#contents),[bcc/BPF](
 	* [Коэффициент попадания в кэш страниц](http://www.brendangregg.com/blog/2014-12-31/linux-page-cache-hit-ratio.html)
 	* [uprobe: динамическая трассировка на уровне пользователя](http://www.brendangregg.com/blog/2015-06-28/linux-ftrace-uprobe.html)
 	* [Hacking Linux USDT](http://www.brendangregg.com/blog/2015-07-03/hacking-linux-USDT-ftrace.html)
-* Posts about perf-based perf-tools:[perf Hacktogram](http://www.brendangregg.com/blog/2014-07-10/perf-hacktogram.html).
+* Posts about perf-based perf-tools: 
+	* [perf Hacktogram](http://www.brendangregg.com/blog/2014-07-10/perf-hacktogram.html).
 * Posts about perf\_events (2014-7):
 	* [perf CPU Sampling](http://www.brendangregg.com/blog/2014-06-22/perf-cpu-sample.html)
 	* [perf Static Tracepoints](http://www.brendangregg.com/blog/2014-06-29/perf-static-tracepoints.html)
