@@ -270,3 +270,4 @@ $ sudo perf script | ./FlameGraph/stackcollapse-perf.pl > out.perf-folded ./Flam
 _Дополнение:_ Описание того, как строятся флеймграфы при помощи DTrace, вы найдете в заметке [Использование DTrace на примере FreeBSD и Linux](https://eax.me/dtrace/). Аналогичную инструкцию для SystemTap вы найдете в посте [Установка и простые примеры использования SystemTap](https://eax.me/systemtap/), а для bcc/eBPF — в статье [Трассировка и профайлинг в Linux с помощью bcc/eBPF](https://eax.me/bcc-ebpf/). Если же вас интересует профилирование памяти, читайте заметку [Профилируем использование памяти в программах на C/C++ при помощи Heaptrack](https://eax.me/heaptrack/).
 **********
 [perf](/tags/perf.md)
+[профилирование](/tags/%D0%BF%D1%80%D0%BE%D1%84%D0%B8%D0%BB%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5.md)
