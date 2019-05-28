@@ -34,38 +34,43 @@ Script done, file is shell_record1
 
 Вы можете видеть, что скрипт указывает имя файла.
 
-## 2\. Check the content of a recorded terminal session
+## 2\. Проверьте содержимое записанного терминального сеанса
 
-When you use script command, it records everything in a session such as things you type so all your output. As the output is saved into a file, it is possible after to check its content after existing a recorded session. You can simply use a text editor command or a text file command viewer.
+Когда вы используете команду сценария, она записывает все в сеансе, например, что вы набираете, и весь ваш вывод. Поскольку выходные данные сохраняются в файл, после проверки его содержимого возможно после существующего записанного сеанса. Вы можете просто использовать команду текстового редактора или средство просмотра команд текстового файла.
 
-\# cat shell\_record1 
+```console
+$ cat shell_record1 
 Script started on Fri 09 Jun 2017 06:23:41 PM UTC
-\[root@centos-01 ~\]# date
+$ date
 Fri Jun 9 18:23:46 UTC 2017
-\[root@centos-01 ~\]# uname -a
-Linux centos-01 3.10.0-514.16.1.el7.x86\_64 #1 SMP Wed Apr 12 15:04:24 UTC 2017 x86\_64 x86\_64 x86\_64 GNU/Linux
-\[root@centos-01 ~\]# whoami
+$ uname -a
+Linux centos-01 3.10.0-514.16.1.el7.x86_64 #1 SMP Wed Apr 12 15:04:24 UTC 2017 x86_64 x86_64 x86_64 GNU/Linux
+$ whoami
 root
-\[root@centos-01 ~\]# pwd
+$ pwd
 /root
-\[root@centos-01 ~\]# exit
+$ exit
 exit
 
+
 Script done on Fri 09 Jun 2017 06:25:11 PM UTC
+```
 
-While you view the file you realize that the script also stores line feeds and backspaces. It also indicates the time of the recording to the top and the end of the file.
+При просмотре файла вы понимаете, что скрипт также хранит переводы строки и возвраты. Это также указывает время записи в начало и конец файла.
 
-## 3\. Record several terminal session
+## 3\. Запись нескольких терминальных сессий
 
-You can record several terminal session as you want. When you finish a record, just begin another new session record. It can be helpful if you want to record several configurations that you are doing to show it to your team or students for example. You just need to name each recording file.
+Вы можете записать несколько терминальных сессий, как хотите. Когда вы закончите запись, просто начните другую новую запись сеанса. Это может быть полезно, если вы хотите записать несколько конфигураций, которые вы делаете, чтобы показать их своей команде или студентам, например. Вам просто нужно назвать каждый файл записи.
 
-For example, let us assume that you have to do[OpenLDAP](https://linoxide.com/linux-how-to/install-openldap-2-different-hosts-configure-mirror-mode/),[DNS](https://linoxide.com/containers/setting-dns-server-docker/),[Machma](https://linoxide.com/tools/machma-enables-run-multiple-commands-parallel-linux/) configurations. You will need to record each configuration. To do this, just create recording file corresponding to each configuration when finished.
+Например, давайте предположим, что вы должны сделать [OpenLDAP](https://linoxide.com/linux-how-to/install-openldap-2-different-hosts-configure-mirror-mode/), [DNS](https://linoxide.com/containers/setting-dns-server-docker/),[Machma](https://linoxide.com/tools/machma-enables-run-multiple-commands-parallel-linux/) конфигурации. Вам нужно будет записать каждую конфигурацию. Для этого просто создайте файл записи, соответствующий каждой конфигурации, когда закончите.
 
-\# script openldap\_record
+```console
+$ script openldap_record
    ...............
     configuration step
    ..............
-# exit
+$ exit
+```
 
 When you have finished with the first configuration, begin to record the next configuration
 
