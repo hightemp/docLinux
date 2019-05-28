@@ -117,7 +117,8 @@ Jan  1 00:00:43 etn kernel: [   43.201827] ETN JPROBE: trace_etn_write:23: Writi
 <details>
 	<summary><b>Пример для x86</b></summary>
 	<p>
-```
+
+```console
 $ perf list pmu hw sw cache
   branch-instructions OR cpu/branch-instructions/    [Kernel PMU event]
   branch-misses OR cpu/branch-misses/                [Kernel PMU event]
