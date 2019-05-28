@@ -61,8 +61,8 @@ sar,[perf-tools](https://github.com/brendangregg/perf-tools#contents),[bcc/BPF](
 * В моей статье [lwn.net](http://lwn.net/) [Ftrace: скрытый выключатель света](http://lwn.net/Articles/608497/) показан пример использования Linux ftrace (август 2014 г.) ).
 * Сообщения о Perf-инструментах на основе ftrace (2014-5):
 	* [iosnoop для Linux](http://www.brendangregg.com/blog/2014-07-16/iosnoop-for-linux.html)
-	* [тепловые карты задержки iosnoop](http://www.brendangregg.com/blog/2014-07-23/ linux-iosnoop-latency-heat-maps.html)
-	* [opensnoop для Linux](http://www.brendangregg.com/blog/2014-07-25/opensnoop-for-linux .html)
+	* [тепловые карты задержки iosnoop](http://www.brendangregg.com/blog/2014-07-23/linux-iosnoop-latency-heat-maps.html)
+	* [opensnoop для Linux](http://www.brendangregg.com/blog/2014-07-25/opensnoop-for-linux.html)
 	* [execsnoop для Linux](http://www.brendangregg.com/blog/2014-07-28/execsnoop-for-linux.html)
 	* [ftrace: скрытый выключатель света](http://www.brendangregg.com/blog/2014-08-30/ftrace-the-hidden-light-switch.html)
 	* [tcpretrans](http://www.brendangregg.com/blog/2014-09-06/linux-ftrace-ТСР-ретранслировать-tracing.html)
