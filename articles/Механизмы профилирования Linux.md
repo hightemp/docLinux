@@ -115,7 +115,7 @@ Jan  1 00:00:43 etn kernel: [   43.201827] ETN JPROBE: trace_etn_write:23: Writi
 Для доступа к этим счётчикам, а также к огромной куче другого добра, была написана программа`perf`. С её помощью можно посмотреть, какие железные события нам доступны.  
   
 
-<details><summary>Пример для x86</summary>
+<details><summary><b>Пример для x86</b></summary>
 
 #### yes, even hidden code blocks!
 
