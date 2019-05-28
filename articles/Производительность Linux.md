@@ -87,9 +87,9 @@ sar,[perf-tools](https://github.com/brendangregg/perf-tools#contents),[bcc/BPF](
 *   Страница [Оценка размера рабочего набора](http://www.brendangregg.com/wss.html) для Linux (2018+).
 *   Пост [Начальные регрессии производительности KPTI/KAISER](http://www.brendangregg.com/blog/2018-02-09/kpti-kaiser-meltdown-performance.html) (2018).
 *   В [PMCs EC2: Измерение IPC](http://www.brendangregg.com/blog/2017-05-04/the-pmcs-of-ec2.html) я показал поддержку нового счетчика мониторинга производительности (PMC) в облаке AWS EC2 (2017).
-*   [Использование ЦП неверно] (http://www.brendangregg.com/blog/2017-05-09/cpu-utilization-is-wrong.html): пост, объясняющий растущую проблему циклов остановки памяти, доминирующих в % ЦП метрика (2017).
-*   Пост о [Linux 4.7 Hist Triggers] (http://www.brendangregg.com/blog/2016-06-08/linux-hist-triggers.html) (2016).
-*   В блоге [strace Wow Much Syscall] (http://www.brendangregg.com/blog/2014-05-11/strace-wow-much-syscall.html) обсуждается strace(1) для производственного использования и сравнивается его к передовым средствам отслеживания (2014).
+*   [Использование ЦП неверно](http://www.brendangregg.com/blog/2017-05-09/cpu-utilization-is-wrong.html): пост, объясняющий растущую проблему циклов остановки памяти, доминирующих в % ЦП метрика (2017).
+*   Пост о [Linux 4.7 Hist Triggers](http://www.brendangregg.com/blog/2016-06-08/linux-hist-triggers.html) (2016).
+*   В блоге [strace Wow Much Syscall](http://www.brendangregg.com/blog/2014-05-11/strace-wow-much-syscall.html) обсуждается strace(1) для производственного использования и сравнивается его к передовым средствам отслеживания (2014).
 *   [Метод ИСПОЛЬЗОВАНИЯ: Контрольный список производительности Linux](http://www.brendangregg.com/USEmethod/use-linux.html); также см. страницу [USE Method](http://www.brendangregg.com/usemethod.html) для описания этой методологии.
 *   [Метод анализа вне процессора](http://www.brendangregg.com/offcpuanalysis.html), где я демонстрирую эту методологию для Linux.
 *   [Производительность систем: предприятие и облако] (http://www.brendangregg.com/sysperfbook.html) (Prentice Hall, 2013) использует дистрибутивы Linux в качестве основного примера.
