@@ -26,11 +26,11 @@ sar,[perf-tools](https://github.com/brendangregg/perf-tools#contents),[bcc/BPF](
 *   [Анализ производительности Linux за 60 000 миллисекунд](http://techblog.netflix.com/2015/11/linux-performance-analysis-in-60s.html) показывает первые десять команд, которые будут использоваться в расследовании ([видео](http://www.brendangregg.com/blog/2015-12-03/linux-perf-60s-video.html), [PDF](http://www.brendangregg.com/Articles/Netflix_Linux_Perf_Analysis_60s.pdf)), Написано мной и командой инженеров по производительности в Netflix (2015).
 *   Мой пост [Настройка производительности экземпляров Linux на ЕС2](http://www.brendangregg.com/blog/2015-03-03/performance-tuning-linux-instances-on-ec2.html) включает в себя используемые нами переменные на Netflix (2015).
 *   Пост в [Средняя загрузка Linux: разгадывание тайны](http://www.brendangregg.com/blog/2017-08-08/linux-load-averages.html), объясняющий, что они из себя представляют и почему они включают в себя состояние сна (2017).
-*   [Полный пример отладки gdb (учебник)] (http://www.brendangregg.com/blog/2016-08-09/gdb-example-ncurses.html), включая использование некоторых инструментов perf/отладка (2016).
+*   [Полный пример отладки gdb (учебник)](http://www.brendangregg.com/blog/2016-08-09/gdb-example-ncurses.html), включая использование некоторых инструментов perf/отладка (2016).
 *   Генерация графиков пламени в Linux с использованием perf & eBPF:
-    [Графики пламени CPU](http://www.brendangregg.com/FlameGraphs/cpuflamegraphs.html#Linux)
-    [Графики пламени вне процессора](http://www.brendangregg.com/FlameGraphs/offcpuflamegraphs.html#Linux)
-    [Графики пламени памяти](http://www.brendangregg.com/FlameGraphs/memoryflamegraphs.html#Linux)
+	* [Графики пламени CPU](http://www.brendangregg.com/FlameGraphs/cpuflamegraphs.html#Linux)
+	* [Графики пламени вне процессора](http://www.brendangregg.com/FlameGraphs/offcpuflamegraphs.html#Linux)
+	* [Графики пламени памяти](http://www.brendangregg.com/FlameGraphs/memoryflamegraphs.html#Linux)
 *   Посты о eBPF, bcc и bpftrace (2015-8):
     [Linux eBPF](http://www.brendangregg.com/blog/2015-05-15/ebpf-one-small-step.html) (2015)
     [bcc: Укрощение Linux 4.3+ Tracing Superpowers](http://www.brendangregg.com/blog/2015-09-22/bcc-linux-4.3-tracing.html)
