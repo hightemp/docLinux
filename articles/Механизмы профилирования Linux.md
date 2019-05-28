@@ -168,6 +168,8 @@ $ perf list pmu hw sw cache
 ```
 </details>
 
+------
+
 <details><summary><b>А вот что на ARM</b></summary>
 	123
 ```console
