@@ -121,11 +121,12 @@ gmon.out: No such file or directory
 Теперь запускаем программу под gprof:
 
 ```console
-cat test.txt | gprof ./htable_test > profile
+$ cat test.txt | gprof ./htable_test > profile
 ```
 
 При этом сама программа в stdout ничего выводить не будет. Полученный текстовый файл profile вполне читаемый — видно, где и сколько времени проводила программа. Так, к примеру, могут выглядеть первые несколько его строк:
 
+```
 Flat profile:  
   
 Each sample counts as 0.01 seconds.  
@@ -139,40 +140,50 @@ Each sample counts as 0.01 seconds.
   3.04      0.31     0.01                             main  
   0.00      0.31     0.00        1     0.00     0.00  htable_free  
   0.00      0.31     0.00        1     0.00     0.00  htable_new
+```
 
 Также можно построить красивый граф вызовов:
 
-sudoapt-get installgraphviz  
-sudopipinstallgprof2dot  
+```console
+$ sudo apt-get install graphviz  
+$ sudo pip install gprof2dot  
   
-gprof2dot ./profile|dot-Tsvg-ooutput.svg
+$ gprof2dot ./profile | dot -Tsvg -o output.svg
+```
 
 Пример полученной картинки (кликабельно, SVG, ~ 9 Кб):
 
 [![gprof2dot, пример результата](/images/gprof2dot-output-example.png)](https://eax.me/files/2016/03/gprof2dot-output-example.svg)
 
-Подробности про утилиту dot и Graphviz см в заметке[Рисуем красивые графы при помощи Graphviz](https://eax.me/graphviz/).
+Подробности про утилиту dot и Graphviz см в заметке [Рисуем красивые графы при помощи Graphviz](https://eax.me/graphviz/).
 
 ### Получение стэктрейсов при помощи Gdb
 
-Как ни странно,[gdb](https://eax.me/gdb/)можно использовать и для профайлинга. Просто говорим:
+Как ни странно, [gdb](https://eax.me/gdb/) можно использовать и для профайлинга. Просто говорим:
 
-gdb--batch--command=gdb.script-p12345
+```console
+$ gdb --batch --command=gdb.script -p 12345
+```
 
 … где в gdb.script написано:
 
+```
 bt
+```
 
 Понятно, что таким образом можно собирать не только стэктрейсы, но и другую информацию, например, значения переменных, переданных аргументов, и так далее. Этот прием показал себя весьма полезным, например, при поиске и устранении lock contention. Если программа часто висит в ожидании лока, мы будем видеть это ожидание по стэктрейсам.
 
 ### Профайлинг при помощи perf top
 
-Установка perf в Ubuntu / Debian:
+Установка perf в Ubuntu/Debian:
 
-sudoapt-get installlinux-tools-common
+```console
+$ sudo apt-get install linux-tools-common
+```
 
 При первом запуске увидим что-то вроде:
 
+```console
 $ perf top -u postgres  
 WARNING: perf not found for kernel 3.13.0-71  
   
@@ -185,22 +196,31 @@ You may also want to install one of the following packages to keep
 up to date:  
     linux-tools-generic  
     linux-cloud-tools-generic
+```
 
 Ставим и эти пакеты тоже:
 
-sudoapt-get installlinux-tools-generic linux-cloud-tools-generic
+```console
+$ sudo apt-get install linux-tools-generic linux-cloud-tools-generic
+```
 
 Можно посмотреть top по всей системе:
 
-sudoperf top-a
+```console
+$ sudo perf top -a
+```
 
 … по процессам конкретного пользователя:
 
-sudoperf top-upostgres
+```console
+$ sudo perf top -u postgres
+```
 
 … или конкретному процессу:
 
-sudoperf top-p12345
+```console
+$ sudo perf top -p 12345
+```
 
 Вот как это примерно выглядит:
 
@@ -208,7 +228,7 @@ sudoperf top-p12345
 
 Картинка обновляется в реальном времени. При помощи стрелочек и клавиши Enter можно «проваливаться внутрь» процессов и функций, вплоть до подсвечивания строчек кода и ассемблерных инструкций, которые тормозят. Очень удобно!
 
-Во FreeBSD, насколько я понимаю, аналогичный функционал предоставляется[программой pmcstat](https://eax.me/freebsd-pmcstat/). Однако на практике я ею пока не пользовался.
+Во FreeBSD, насколько я понимаю, аналогичный функционал предоставляется [программой pmcstat](https://eax.me/freebsd-pmcstat/). Однако на практике я ею пока не пользовался.
 
 ### Строим флемграфы
 
@@ -216,10 +236,13 @@ sudoperf top-p12345
 
 Например, пишем stack samples с частотой 99 Герц для определенного pid’а со сборкой данных о call chains (флаг`-g`):
 
-sudoperf record-p12345-F99-g
+```console
+$ sudo perf record -p 12345 -F 99 -g
+```
 
 Запуск конкретной программы под perf производится так:
 
+```console
 sudoperf record-F99-g--./myprog arg1 arg2 arg3
 
 На выходе получаем файл perf.data.
