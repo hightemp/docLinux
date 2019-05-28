@@ -109,18 +109,23 @@ Script started, file is machma_record
 
 Чтобы сделать это, вы должны использовать опцию `--timing` команды сценария, когда вы начнете запись.
 
-\# script --timing=file\_time shell\_record1
-Script started, file is shell\_record1
+```console
+$ script --timing=file_time shell_record1
+Script started, file is shell_record1
+```
 
-See that the file into which to record is _shell\_record1. _When the record is finished, exit normally
+Смотрите, что файл для записи - это _shell\_record1_. Когда запись закончится, выйдите нормально
 
-\# exit
+```console
+$ exit
 exit
-Script done, file is shell\_record1
+Script done, file is shell_record1
+```
 
-Let's see check the content of _file\_time _
+Давайте посмотрим содержимое _file\_time_
 
-\# cat file\_time 
+```console
+$ cat file_time 
 0.807440 49
 0.030061 1
 116.131648 1
@@ -132,19 +137,24 @@ Let's see check the content of _file\_time _
 0.301079 1
 0.112105 2
 0.363375 152
+```
 
-The`--timing` option outputs timing data to the file indicated. This data contains two fields, separated by a space which indicates how much time elapsed since the previous output how many characters were output this time. This information can be used to replay typescripts with realistic typing and output delays.
+Опция `--timing` выводит данные синхронизации в указанный файл. Эти данные содержат два поля, разделенных пробелом, который указывает, сколько времени прошло с момента предыдущего вывода, сколько символов было выведено на этот раз. Эта информация может быть использована для воспроизведения записей с реалистичными задержками при наборе текста и выводе.
 
-Now to replay the terminal session, we use scriptreplay command instead of script command with the same syntax when recording the session. Look below
+Теперь, чтобы воспроизвести сеанс терминала, мы используем команду scriptreplay вместо команды script с тем же синтаксисом при записи сеанса. Смотри ниже
 
-\# scriptreplay --timing=file\_time shell\_record1
+```console
+$ scriptreplay --timing=file_time shell_record1
+```
 
-You will that the recorded session with be played as if you were looking a video which was recording all that you were doing. You can just insert the timing file without indicating all the --timing=file\_time. Look below
+Вы сделаете так, чтобы записанная сессия воспроизводилась так, как если бы вы смотрели видео, которое записывало все, что вы делали. Вы можете просто вставить файл синхронизации без указания всех параметров --timing=file\_time. Смотри ниже
 
-\# scriptreplay file\_time shell\_record1
+```console
+$ scriptreplay file_time shell_record1
+```
 
-So you understand that the first parameter is the timing file and the second is the recorded file.
+Итак, вы понимаете, что первый параметр - это файл синхронизации, а второй - записанный файл.
 
-## Conclusion
+## Заключение
 
-The script command can be your to-go tool for documenting your work and showing others what you did in a session. It can be used as a way to log what you are doing in a shell session. When you run script, a new shell is forked. It reads standard input and output for your terminal tty and stores the data in a file.
+Команда сценария может быть вашим готовым инструментом для документирования вашей работы и показа другим, что вы делали во время сеанса. Его можно использовать для регистрации того, что вы делаете в сеансе оболочки. Когда вы запускаете скрипт, новая оболочка разветвляется. Он читает стандартный ввод и вывод для вашего терминала tty и сохраняет данные в файл.
