@@ -75,37 +75,39 @@ $ exit
 Когда вы закончите с первой конфигурацией, начните записывать следующую конфигурацию
 
 ```console
-$ script machma\_record
+$ script machma_record
     ............
      configuration steps
     .............
 $ exit
 ```
 
-And so on for the other. Note that if you script command followed by existing filename, the file will be replaced. So you will lost everything.
+И так далее для других. Обратите внимание, что если вы запишете команду с указанием существующего имени файла, файл будет заменен. Таким образом, вы потеряете все.
 
-Now, let us imagine that you have begun Machma configuration but you have to abort its configuration in order to finish DNS configuration because of some emergency case. Now you want to continue the machma configuration where you left. It means you want to record the next steps into the existing file_machma\_record _without deleting its previous content; to do this you will use`script -a`command to append the new output to the file.
+Теперь давайте представим, что вы начали настройку Machma, но вам необходимо прервать ее настройку, чтобы завершить настройку DNS из-за непредвиденной ситуации. Теперь вы хотите продолжить настройку Machma, где вы оставили. Это означает, что вы хотите записать следующие шаги в существующий файл _machma\_record_ без удаления его предыдущего содержимого; Для этого вы будете использовать команду `-a` для добавления нового вывода в файл.
 
-This is the content of our recorded file
+Это содержание нашего записанного файла
 
 ![](/images/script-record1.png)
 
-Now if we want to continue our recording in this file without deleting the content already present, we will do
+Теперь, если мы хотим продолжить запись в этом файле, не удаляя уже существующее содержимое, мы сделаем
 
-\# script -a machma\_record
-Script started, file is machma\_record
+```console
+$ script -a machma_record
+Script started, file is machma_record
+```
 
-Now continue the configuration, then exit when finished and let's check the content of the recorded file.
+Теперь продолжите настройку, затем выйдите, когда закончите, и давайте проверим содержимое записанного файла.
 
 ![](/images/script-append.png)
 
-Note the new time of the new record which appears. You can see that the file has the previous and actual records.
+Обратите внимание на новое время новой записи, которая появляется. Вы можете видеть, что файл имеет предыдущие и фактические записи.
 
-## 4\. Replay a linux terminal session
+## 4\. Воспроизвести терминальную сессию Linux
 
-We have seen that it is possible to see the content of the recorded file with commands to display a text file content. The script command also gives the possibility to see the recorded session as a _video. _It means that you will review exactly what you have done step by step at the moment you were entering the commands as if you were looking a video. So you will playback/replay the recorded terminal session.
+Мы видели, что можно просматривать содержимое записанного файла с помощью команд для отображения содержимого текстового файла. Команда сценария также дает возможность увидеть записанный сеанс в виде видео. Это означает, что вы будете точно проверять, что вы сделали, шаг за шагом в момент ввода команд, как если бы вы смотрели видео. Таким образом, вы будете воспроизводить / воспроизводить записанный сеанс терминала.
 
-To do it, you have to use `--timing`option of script command when you will start the record.
+Чтобы сделать это, вы должны использовать опцию `--timing` команды сценария, когда вы начнете запись.
 
 \# script --timing=file\_time shell\_record1
 Script started, file is shell\_record1
