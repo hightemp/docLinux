@@ -112,12 +112,12 @@ Jan  1 00:00:43 etn kernel: [   43.201827] ETN JPROBE: trace_etn_write:23: Writi
   
 «Perf events» — это интерфейс доступа к счётчикам в PMU (Performance Monitoring Unit), который является частью CPU. Благодаря этим метрикам, вы можете с легкостью попросить ядро показать вам сколько было промахов в L1 кеше, независимо от того, какая у вас архитектура, будь то ARM или amd64. Правда, для вашего процессора должна быть поддержка в ядре:-) Относительно актуальную информацию по этому поводу можно найти [здесь](http://web.eece.maine.edu/~vweaver/projects/perf_events/support.html).  
   
-Для доступа к этим счётчикам, а также к огромной куче другого добра, была написана программа`perf`. С её помощью можно посмотреть, какие железные события нам доступны.  
+Для доступа к этим счётчикам, а также к огромной куче другого добра, была написана программа `perf`. С её помощью можно посмотреть, какие железные события нам доступны.  
   
 <details>
 	<summary><b>Пример для x86</b></summary>
 	<p>
-```console
+```
 $ perf list pmu hw sw cache
   branch-instructions OR cpu/branch-instructions/    [Kernel PMU event]
   branch-misses OR cpu/branch-misses/                [Kernel PMU event]
@@ -170,8 +170,6 @@ $ perf list pmu hw sw cache
 ```
 	</p>
 </details>
-
-------
 
 <details>
 	<summary><b>А вот что на ARM</b></summary>
