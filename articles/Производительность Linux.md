@@ -1,4 +1,4 @@
-# Linux Performance
+# Производительность Linux
 
 hi-res: observability + static + perf-tools/bcc ([svg](http://www.brendangregg.com/Perf/linux_perf_tools_full.svg))  
 [![](/images/linux_perf_tools_full_1000.jpg)](http://www.brendangregg.com/Perf/linux_perf_tools_full.png)  
@@ -8,11 +8,11 @@ slides: static, benchmarking, tuning
 [![](/images/linux_static_tools_333.png)](http://www.brendangregg.com/Perf/linux_static_tools.png)[![](/images/linux_benchmarking_tools_333.png)](http://www.brendangregg.com/Perf/linux_benchmarking_tools.png)[![](/images/linux_tuning_tools_333.png)](http://www.brendangregg.com/Perf/linux_tuning_tools.png)  
 sar,[perf-tools](https://github.com/brendangregg/perf-tools#contents),[bcc/BPF](https://github.com/iovisor/bcc#tools):  
 [![](/images/linux_observability_sar_333.png)](http://www.brendangregg.com/Perf/linux_observability_sar.png)[![](/images/perf-tools_2016_333.png)](http://www.brendangregg.com/Perf/perf-tools_2016.png)[![](/images/bcc_tracing_tools_2016_333.png)](http://www.brendangregg.com/Perf/bcc_tracing_tools.png)  
-Images license: creative commons[Attribution-ShareAlike 4.0](http://creativecommons.org/licenses/by-sa/4.0/).  
+Лицензия на изображения: Creative Commons [Attribution-ShareAlike 4.0](http://creativecommons.org/licenses/by-sa/4.0/).  
 
-This page links to various Linux performance material I've created, including the tools maps on the right. The first is a hi-res version combining observability, static performance tuning, and perf-tools/bcc (see[discussion](https://www.reddit.com/r/linux/comments/4x4smu/linux_performance_tools_full_version_draft/)). The remainder were designed for use in slide decks and have larger fonts and arrows, and show:[Linux observability tools](http://www.brendangregg.com/Perf/linux_observability_tools.png),[Linux benchmarking tools](http://www.brendangregg.com/Perf/linux_benchmarking_tools.png),[Linux tuning tools](http://www.brendangregg.com/Perf/linux_tuning_tools.png), and[Linux sar](http://www.brendangregg.com/Perf/linux_observability_sar). For even more diagrams, see my slide decks below.
+Эта страница содержит ссылки на различные материалы о производительности Linux, которые я создал, включая карты инструментов справа. Первая - это высококачественная версия, сочетающая в себе наблюдаемость, статическую настройку производительности и perf-tools/bcc (см. [Обсуждение] (https://www.reddit.com/r/linux/comments/4x4smu/linux_performance_tools_full_version_draft/)). Остальные были предназначены для использования в слайд-колодах и имеют более крупные шрифты и стрелки, и показывают: [Инструменты наблюдения Linux] (http://www.brendangregg.com/Perf/linux_observability_tools.png), [Инструменты тестирования Linux] (http: //www.brendangregg.com/Perf/linux_benchmarking_tools.png), [Инструменты настройки Linux] (http://www.brendangregg.com/Perf/linux_tuning_tools.png) и [Linux sar] (http: // www. brendangregg.com/Perf/linux_observability_sar). Еще больше диаграмм смотрите в моих слайдах ниже.
 
-## Tools
+## Инструменты
 
 *   [perf\_events](http://www.brendangregg.com/perf.html): perf one-liners, examples, visualizations.
 *   [eBPF tools](http://www.brendangregg.com/ebpf.html): eBPF tracing tools and examples with bcc.
