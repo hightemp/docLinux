@@ -14,43 +14,43 @@ sar,[perf-tools](https://github.com/brendangregg/perf-tools#contents),[bcc/BPF](
 
 ## Инструменты
 
-*   [perf\_events](http://www.brendangregg.com/perf.html): perf one-liners, examples, visualizations.
-*   [eBPF tools](http://www.brendangregg.com/ebpf.html): eBPF tracing tools and examples with bcc.
-*   [perf-tools](https://github.com/brendangregg/perf-tools): perf analysis tools using ftrace (github).
-*   [bcc](https://github.com/iovisor/bcc#tools): perf analysis tools using eBPF (github).
-*   [ktap](http://www.brendangregg.com/ktap.html): one-liners, examples, and scripts.
-*   [Flame Graphs](http://www.brendangregg.com/flamegraphs.html): using[perf](http://www.brendangregg.com/FlameGraphs/cpuflamegraphs.html#perf),[SystemTap](http://www.brendangregg.com/FlameGraphs/cpuflamegraphs.html#SystemTap), and[ktap](http://www.brendangregg.com/FlameGraphs/cpuflamegraphs.html#ktap).
+*   [perf\_events](http://www.brendangregg.com/perf.html): Перфорированные строки, примеры, визуализации.
+*   [eBPF tools](http://www.brendangregg.com/ebpf.html): Инструменты трассировки eBPF и примеры с ОЦК.
+*   [perf-tools](https://github.com/brendangregg/perf-tools): Инструменты анализа перфорации с использованием ftrace (github).
+*   [bcc](https://github.com/iovisor/bcc#tools): Инструменты анализа перфорации с использованием eBPF (github).
+*   [ktap](http://www.brendangregg.com/ktap.html): однострочники, примеры и сценарии.
+*   [Flame Graphs](http://www.brendangregg.com/flamegraphs.html): с помощью [perf](http://www.brendangregg.com/FlameGraphs/cpuflamegraphs.html#perf),[SystemTap](http://www.brendangregg.com/FlameGraphs/cpuflamegraphs.html#SystemTap), а также [ktap](http://www.brendangregg.com/FlameGraphs/cpuflamegraphs.html#ktap).
 
-## Documentation
+## Документация
 
-*   [Linux Performance Analysis in 60,000 Milliseconds](http://techblog.netflix.com/2015/11/linux-performance-analysis-in-60s.html)shows the first ten commands to use in an investigation ([video](http://www.brendangregg.com/blog/2015-12-03/linux-perf-60s-video.html),[PDF](http://www.brendangregg.com/Articles/Netflix_Linux_Perf_Analysis_60s.pdf)). Written by myself and the performance engineering team at Netflix (2015).
-*   My post[Performance Tuning Linux Instances on EC2](http://www.brendangregg.com/blog/2015-03-03/performance-tuning-linux-instances-on-ec2.html)includes the tunables we're using at Netflix (2015).
-*   A post on[Linux Load Averages: Solving the Mystery](http://www.brendangregg.com/blog/2017-08-08/linux-load-averages.html), explaining what they are and why they include the uninterruptible sleep state (2017).
-*   A[gdb Debugging Full Example (Tutorial)](http://www.brendangregg.com/blog/2016-08-09/gdb-example-ncurses.html), including the use of some perf/debugging tools (2016).
-*   Generating flame graphs on Linux using perf & eBPF:
-    [CPU Flame Graphs](http://www.brendangregg.com/FlameGraphs/cpuflamegraphs.html#Linux)  
-    [Off-CPU Flame Graphs](http://www.brendangregg.com/FlameGraphs/offcpuflamegraphs.html#Linux)  
-    [Memory Flame Graphs](http://www.brendangregg.com/FlameGraphs/memoryflamegraphs.html#Linux)
-*   Posts about eBPF, bcc, and bpftrace (2015-8):
-    [Linux eBPF](http://www.brendangregg.com/blog/2015-05-15/ebpf-one-small-step.html)(2015)  
-    [bcc: Taming Linux 4.3+ Tracing Superpowers](http://www.brendangregg.com/blog/2015-09-22/bcc-linux-4.3-tracing.html)  
-    [tcpconnect and tcpaccept for Linux (bcc)](http://www.brendangregg.com/blog/2015-10-31/tcpconnect-tcpaccept-bcc.html)  
-    [Linux eBPF Stack Trace Hack (bcc)](http://www.brendangregg.com/blog/2016-01-18/ebpf-stack-trace-hack.html)(2016)  
-    [Linux eBPF Off-CPU Flame Graph (bcc)](http://www.brendangregg.com/blog/2016-01-20/ebpf-offcpu-flame-graph.html)  
-    [Linux Wakeup and Off-Wake Profiling (bcc)](http://www.brendangregg.com/blog/2016-02-01/linux-wakeup-offwake-profiling.html)  
-    [Linux chain graph prototype (bcc)](http://www.brendangregg.com/blog/2016-02-05/ebpf-chaingraph-prototype.html)  
-    [Linux eBPF/bcc uprobes](http://www.brendangregg.com/blog/2016-02-08/linux-ebpf-bcc-uprobes.html)  
-    [Linux BPF/bcc Road Ahead](http://www.brendangregg.com/blog/2016-03-28/linux-bpf-bcc-road-ahead-2016.html)  
-    [Ubuntu Xenial bcc/BPF](http://www.brendangregg.com/blog/2016-06-14/ubuntu-xenial-bcc-bpf.html)  
-    [Linux bcc/BPF Tracing Security Capabilities](http://www.brendangregg.com/blog/2016-10-01/linux-bcc-security-capabilities.html)  
-    [Linux MySQL Slow Query Tracing with bcc/BPF](http://www.brendangregg.com/blog/2016-10-04/linux-bcc-mysqld-qslower.html)  
-    [Linux bcc/BPF ext4 Latency Tracing](http://www.brendangregg.com/blog/2016-10-06/linux-bcc-ext4dist-ext4slower.html)  
-    [Linux bcc/BPF Run Queue (Scheduler) Latency](http://www.brendangregg.com/blog/2016-10-08/linux-bcc-runqlat.html)  
-    [Linux bcc/BPF Node.js USDT Tracing](http://www.brendangregg.com/blog/2016-10-12/linux-bcc-nodejs-usdt.html)  
-    [Linux bcc tcptop](http://www.brendangregg.com/blog/2016-10-15/linux-bcc-tcptop.html)  
-    [Linux 4.9's Efficient BPF-based Profiler](http://www.brendangregg.com/blog/2016-10-21/linux-efficient-profiler.html)  
-    [DTrace for Linux 2016](http://www.brendangregg.com/blog/2016-10-27/dtrace-for-linux-2016.html)  
-    [Linux 4.x Tracing Tools: Using BPF Superpowers](http://www.slideshare.net/brendangregg/linux-4x-tracing-tools-using-bpf-superpowers)  
+*   [Анализ производительности Linux за 60 000 миллисекунд](http://techblog.netflix.com/2015/11/linux-performance-analysis-in-60s.html) показывает первые десять команд, которые будут использоваться в расследовании ([видео](http://www.brendangregg.com/blog/2015-12-03/linux-perf-60s-video.html), [PDF](http://www.brendangregg.com/Articles/Netflix_Linux_Perf_Analysis_60s.pdf)), Написано мной и командой инженеров по производительности в Netflix (2015).
+*   Мой пост [Настройка производительности экземпляров Linux на ЕС2](http://www.brendangregg.com/blog/2015-03-03/performance-tuning-linux-instances-on-ec2.html) включает в себя используемые нами переменные на Netflix (2015).
+*   Пост в [Средняя загрузка Linux: разгадывание тайны](http://www.brendangregg.com/blog/2017-08-08/linux-load-averages.html), объясняющий, что они из себя представляют и почему они включают в себя состояние сна (2017).
+*   [Полный пример отладки gdb (учебник)] (http://www.brendangregg.com/blog/2016-08-09/gdb-example-ncurses.html), включая использование некоторых инструментов perf/отладка (2016).
+*   Генерация графиков пламени в Linux с использованием perf & eBPF:
+    [Графики пламени CPU](http://www.brendangregg.com/FlameGraphs/cpuflamegraphs.html#Linux)
+    [Графики пламени вне процессора](http://www.brendangregg.com/FlameGraphs/offcpuflamegraphs.html#Linux)
+    [Графики пламени памяти](http://www.brendangregg.com/FlameGraphs/memoryflamegraphs.html#Linux)
+*   Посты о eBPF, bcc и bpftrace (2015-8):
+    [Linux eBPF](http://www.brendangregg.com/blog/2015-05-15/ebpf-one-small-step.html) (2015)
+    [bcc: Укрощение Linux 4.3+ Tracing Superpowers](http://www.brendangregg.com/blog/2015-09-22/bcc-linux-4.3-tracing.html)
+    [tcpconnect и tcpaccept для Linux (bcc)] (http://www.brendangregg.com/blog/2015-10-31/tcpconnect-tcpaccept-bcc.html)
+    [Отслеживание стека eBPF в Linux (скрытая копия)](http://www.brendangregg.com/blog/2016-01-18/ebpf-stack-trace-hack.html) (2016)
+    [График пламени вне процессора CPU Linux (bcc)](http://www.brendangregg.com/blog/2016-01-20/ebpf-offcpu-flame-graph.html)
+    [Linux Wakeup и Off-Wake Profiling (bcc)](http://www.brendangregg.com/blog/2016-02-01/linux-wakeup-offwake-profiling.html)
+    [Прототип графа цепочек Linux (bcc)](http://www.brendangregg.com/blog/2016-02-05/ebpf-chaingraph-prototype.html)
+    [Linux eBPF / bcc uprobes](http://www.brendangregg.com/blog/2016-02-08/linux-ebpf-bcc-uprobes.html)
+    [Linux BPF / bcc Road Ahead](http://www.brendangregg.com/blog/2016-03-28/linux-bpf-bcc-road-ahead-2016.html)
+    [Ubuntu Xenial bcc / BPF](http://www.brendangregg.com/blog/2016-06-14/ubuntu-xenial-bcc-bpf.html)
+    [Linux bcc / BPF Отслеживание возможностей безопасности](http://www.brendangregg.com/blog/2016-10-01/linux-bcc-security-capabilities.html)
+    [Трассировка медленного запроса Linux MySQL с помощью bcc / BPF](http://www.brendangregg.com/blog/2016-10-04/linux-bcc-mysqld-qslower.html)
+    [Linux bcc / BPF ext4 Отслеживание задержки](http://www.brendangregg.com/blog/2016-10-06/linux-bcc-ext4dist-ext4slower.html)
+    [Задержка запуска очереди Linux (bcc / BPF) (планировщик)](http://www.brendangregg.com/blog/2016-10-08/linux-bcc-runqlat.html)
+    [Linux bcc / BPF Node.js Трассировка USDT](http://www.brendangregg.com/blog/2016-10-12/linux-bcc-nodejs-usdt.html)
+    [Linux bcc tcptop](http://www.brendangregg.com/blog/2016-10-15/linux-bcc-tcptop.html)
+    [Эффективный профилировщик на основе BPF в Linux 4.9](http://www.brendangregg.com/blog/2016-10-21/linux-efficient-profiler.html)
+    [DTrace для Linux 2016](http://www.brendangregg.com/blog/2016-10-27/dtrace-for-linux-2016.html)
+    [Инструменты трассировки Linux 4.x: Использование сверхдержав BPF](http://www.slideshare.net/brendangregg/linux-4x-tracing-tools-using-bpf-superpowers)  
     [Linux bcc/BPF tcplife: TCP Lifespans](http://www.brendangregg.com/blog/2016-11-30/linux-bcc-tcplife.html)  
     [Golang bcc/BPF Function Tracing](http://www.brendangregg.com/blog/2017-01-31/golang-bcc-bpf-function-tracing.html)(2017)  
     [7 BPF tools for performance analysis on Fedora](https://opensource.com/article/17/11/bccbpf-performance)  
