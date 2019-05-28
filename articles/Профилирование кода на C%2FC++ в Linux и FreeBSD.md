@@ -243,24 +243,28 @@ $ sudo perf record -p 12345 -F 99 -g
 Запуск конкретной программы под perf производится так:
 
 ```console
-sudoperf record-F99-g--./myprog arg1 arg2 arg3
+$ sudo perf record -F99 -g -- ./myprog arg1 arg2 arg3
+```
 
 На выходе получаем файл perf.data.
 
 Смотрим отчет:
 
-sudoperf report--stdio
+```console
+$ sudo perf report --stdio
+```
 
 Но читать его в таком виде не очень-то удобно. Намного удобнее построить флеймграф:
 
-git clonehttps://github.com/brendangregg/FlameGraph  
-sudoperf script|./FlameGraph/stackcollapse-perf.pl>out.perf-folded  
-./FlameGraph/flamegraph.pl out.perf-folded>perf.svg
+```console
+$ git clone https://github.com/brendangregg/FlameGraph  
+$ sudo perf script | ./FlameGraph/stackcollapse-perf.pl > out.perf-folded ./FlameGraph/flamegraph.pl out.perf-folded > perf.svg
+```
 
-Получаем красивую картинку вроде[такой](http://www.brendangregg.com/FlameGraphs/cpu-bash-flamegraph.svg):
+Получаем красивую картинку вроде [такой](http://www.brendangregg.com/FlameGraphs/cpu-bash-flamegraph.svg):
 
 ![Пример флеймграфа](/images/flamegraph.jpg)
 
-В полученном SVG-файле можно кликать на названия процедур для увеличения соответствующего участка флеймграфа, а также искать процедуры по имени.[Здесь](https://github.com/brendangregg/FlameGraph)и[здесь](http://www.brendangregg.com/flamegraphs.html)можно найти больше информации и примеров. Еще этот набор скриптов умеет работать с dtrace и строить разные другие виды флеймграфов, но это уже тема для отдельной заметки.
+В полученном SVG-файле можно кликать на названия процедур для увеличения соответствующего участка флеймграфа, а также искать процедуры по имени. [Здесь](https://github.com/brendangregg/FlameGraph) и [здесь](http://www.brendangregg.com/flamegraphs.html) можно найти больше информации и примеров. Еще этот набор скриптов умеет работать с dtrace и строить разные другие виды флеймграфов, но это уже тема для отдельной заметки.
 
-_Дополнение:_Описание того, как строятся флеймграфы при помощи DTrace, вы найдете в заметке[Использование DTrace на примере FreeBSD и Linux](https://eax.me/dtrace/). Аналогичную инструкцию для SystemTap вы найдете в посте[Установка и простые примеры использования SystemTap](https://eax.me/systemtap/), а для bcc/eBPF — в статье[Трассировка и профайлинг в Linux с помощью bcc/eBPF](https://eax.me/bcc-ebpf/). Если же вас интересует профилирование памяти, читайте заметку[Профилируем использование памяти в программах на C/C++ при помощи Heaptrack](https://eax.me/heaptrack/).
+_Дополнение:_ Описание того, как строятся флеймграфы при помощи DTrace, вы найдете в заметке [Использование DTrace на примере FreeBSD и Linux](https://eax.me/dtrace/). Аналогичную инструкцию для SystemTap вы найдете в посте [Установка и простые примеры использования SystemTap](https://eax.me/systemtap/), а для bcc/eBPF — в статье [Трассировка и профайлинг в Linux с помощью bcc/eBPF](https://eax.me/bcc-ebpf/). Если же вас интересует профилирование памяти, читайте заметку [Профилируем использование памяти в программах на C/C++ при помощи Heaptrack](https://eax.me/heaptrack/).
