@@ -13,3 +13,5 @@ $ strace -ff -o trace sh -c 'command1 | command2'
 ```
 
 Это должно создать отдельные файлы `trace.<PID>` для каждого разветвленного потомка.
+**********
+[strace](/tags/strace.md)
