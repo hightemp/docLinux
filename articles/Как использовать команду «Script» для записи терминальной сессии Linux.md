@@ -13,21 +13,21 @@
 script makes a typescript of everything printed on your terminal. If the argument file is given, script saves all dialogue in the indicated file in the current directory. If no file name is given, the typescript is saved in default file typescript. To record your shell session so what you are doing in the current shell, just use the command below
 
 ```console
-# script shell\record1
+$ script shell\record1
 Script started, file is shell\record1
 ```
 
 Это указывает на то, что файл _shell\_record1_ создан. Давайте проверим файл
 
 ```console
-# ls -l shell_*
+$ ls -l shell_*
 -rw-r--r-- 1 root root 0 Jun 9 17:50 shell_record1
 ```
 
 После завершения вашей задачи вы можете ввести _exit_ или `Ctrl-d`, чтобы закрыть сеанс скрипта и сохранить файл.
 
 ```console
-# exit
+$ exit
 exit
 Script done, file is shell_record1
 ```
