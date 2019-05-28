@@ -114,7 +114,9 @@ Jan  1 00:00:43 etn kernel: [   43.201827] ETN JPROBE: trace_etn_write:23: Writi
   
 Для доступа к этим счётчикам, а также к огромной куче другого добра, была написана программа`perf`. С её помощью можно посмотреть, какие железные события нам доступны.  
   
-<details><summary><b>Пример для x86</b></summary>
+<details>
+	<summary><b>Пример для x86</b></summary>
+	<p>
 ```console
 $ perf list pmu hw sw cache
   branch-instructions OR cpu/branch-instructions/    [Kernel PMU event]
@@ -166,12 +168,14 @@ $ perf list pmu hw sw cache
   branch-loads                                       [Hardware cache event]
   branch-load-misses                                 [Hardware cache event]	
 ```
+	</p>
 </details>
 
 ------
 
-<details><summary><b>А вот что на ARM</b></summary>
-	123
+<details>
+	<summary><b>А вот что на ARM</b></summary>
+	<p>
 ```console
 $ perf list pmu hw sw cache
 
@@ -207,6 +211,7 @@ $ perf list pmu hw sw cache
   branch-loads                                       [Hardware cache event]
   branch-load-misses                                 [Hardware cache event]
 ```
+	</p>
 </details>
 
 Видно, что x86 побогаче будет на такие вещи.  
