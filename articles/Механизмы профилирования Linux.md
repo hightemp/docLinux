@@ -18,7 +18,7 @@ kmem:kmalloc                                       [Tracepoint event]
   
 А вот так оно выглядит на самом деле в ядерной функции [`__do_kmalloc`](http://lxr.free-electrons.com/source/mm/slab.c?v=3.18#L3481):  
 
-```cplusplus
+```c++
     /**
      *  __do_kmalloc - allocate memory
      *  @size: how many bytes of memory are required.
@@ -43,8 +43,6 @@ kmem:kmalloc                                       [Tracepoint event]
     }
 ```    
 
-  
-  
 `trace_kmalloc` — это и есть tracepoint.  
   
 Такие tracepoint’ы пишут вывод в отладочный кольцевой буфер, который можно посмотреть в /sys/kernel/debug/tracing/trace:  
