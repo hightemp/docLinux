@@ -4,18 +4,21 @@
 
 Kernel tracepoints — это фреймворк для трассировки ядра, сделанный через статическое инструментирование кода. Да, вы правильно поняли, большинство важных функций ядра (сеть, управление памятью, планировщик) статически инструментировано. На моём ядре количество tracepoint’ов такое:  
 
-\[etn\]$ perf list tracepointt | wc -l
-  1271
-
+```console
+$ perf list tracepointt | wc -l
+1271
+```
   
 Среди них есть kmalloc:  
 
-\[etn\]$ perf list tracepoint | grep "kmalloc "
-  kmem:kmalloc                                       \[Tracepoint event\]
-
+```console
+$ perf list tracepoint | grep "kmalloc "
+kmem:kmalloc                                       [Tracepoint event]
+```
   
-А вот так оно выглядит на самом деле в ядерной функции[`__do_kmalloc`](http://lxr.free-electrons.com/source/mm/slab.c?v=3.18#L3481):  
+А вот так оно выглядит на самом деле в ядерной функции [`__do_kmalloc`](http://lxr.free-electrons.com/source/mm/slab.c?v=3.18#L3481):  
 
+```cplusplus
     /**
      *  __do_kmalloc - allocate memory
      *  @size: how many bytes of memory are required.
@@ -38,7 +41,7 @@ Kernel tracepoints — это фреймворк для трассировки 
     
             return ret;
     }
-    
+```    
 
   
   
