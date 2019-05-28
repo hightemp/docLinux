@@ -253,3 +253,4 @@ Perf timechart
     *   [https://lwn.net/Articles/441209/](https://lwn.net/Articles/441209/)
 **********
 [perf](/tags/perf.md)
+[kprobes](/tags/kprobes.md)
