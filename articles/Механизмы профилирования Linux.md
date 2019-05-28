@@ -251,3 +251,5 @@ Perf timechart
 *   _perf_events_:
     *   [http://web.eece.maine.edu/~vweaver/projects/perf_events/](http://web.eece.maine.edu/~vweaver/projects/perf_events/)
     *   [https://lwn.net/Articles/441209/](https://lwn.net/Articles/441209/)
+**********
+[perf](/tags/perf.md)
