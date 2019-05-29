@@ -6,29 +6,17 @@ The [Linux](https://www.networkworld.com/article/3215226/linux/what-is-linux-use
 
 This easy. Just type**logger <message>**on the command line and your message will be added to the end of the /var/log/syslog file.
 
-$ logger comment to be added to log
-$ tail -1 /vvar/log/syslog
-May 21 18:02:16 butterfly shs: comment to be added to log
+	$ logger comment to be added to log
+	$ tail -1 /vvar/log/syslog
+	May 21 18:02:16 butterfly shs: comment to be added to log
 
 ### Command output
 
 You can also add the output from commands by enclosing the commands in backticks.
 
-[
-
-![](/images/77493432b8576587638f0950dbe5e558)
-
-
-
-
-
-](https://www.networkworld.com/article/3274570/link)
-
-$ logger \`who\`
-$ tail -1 /var/log/syslog
-May 21 18:02:43 butterfly shs: shs pts/0 2018-05-21 15:57 (192.168.0.15)
-
-**\[ Two-Minute Linux Tips:[Learn how to master a host of Linux commands in these 2-minute video tutorials](https://www.networkworld.com/video/series/8559/2-minute-linux-tips)\]**
+	$ logger `who`
+	$ tail -1 /var/log/syslog
+	May 21 18:02:43 butterfly shs: shs pts/0 2018-05-21 15:57 (192.168.0.15)
 
 ### Content from a file
 
