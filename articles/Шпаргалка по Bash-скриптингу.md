@@ -376,9 +376,9 @@ fi
 
 ```
 
-## Arrays
+## Массивы
 
-### Defining arrays
+### Определение массивов
 
 ```bash
 Fruits=('Apple' 'Banana' 'Orange')
@@ -392,32 +392,32 @@ Fruits[2]="Orange"
 
 ```
 
-### Working with arrays
+### Работа с массивами
 
 ```bash
-echo ${Fruits[0]}           # Element #0
-echo ${Fruits[@]}           # All elements, space-separated
-echo ${#Fruits[@]}          # Number of elements
-echo ${#Fruits}             # String length of the 1st element
-echo ${#Fruits[3]}          # String length of the Nth element
-echo ${Fruits[@]:3:2}       # Range (from position 3, length 2)
+echo ${Fruits[0]}           # Элемент #0
+echo ${Fruits[@]}           # Всех элементов, разделенных пробелами
+echo ${#Fruits[@]}          # Количество элементов
+echo ${#Fruits}             # Длина строки 1-го элемента
+echo ${#Fruits[3]}          # Длина строки n-го элемента
+echo ${Fruits[@]:3:2}       # Дальность (из положения 3, Длина 2)
 
 ```
 
-### Operations
+### Операции
 
 ```bash
-Fruits=("${Fruits[@]}" "Watermelon")    # Push
-Fruits+=('Watermelon')                  # Also Push
-Fruits=( ${Fruits[@]/Ap*/} )            # Remove by regex match
-unset Fruits[2]                         # Remove one item
-Fruits=("${Fruits[@]}")                 # Duplicate
-Fruits=("${Fruits[@]}" "${Veggies[@]}") # Concatenate
-lines=(`cat "logfile"`)                 # Read from file
+Fruits=("${Fruits[@]}" "Watermelon")    # Вставить
+Fruits+=('Watermelon')                  # Вставить
+Fruits=( ${Fruits[@]/Ap*/} )            # Удалить с помощью регулярного выражения
+unset Fruits[2]                         # Удалить один элемент
+Fruits=("${Fruits[@]}")                 # Дубликат
+Fruits=("${Fruits[@]}" "${Veggies[@]}") # Обединить
+lines=(`cat "logfile"`)                 # Прочитать из файла
 
 ```
 
-### Iteration
+### Итерации
 
 ```bash
 for i in "${arrayName[@]}"; do
@@ -426,9 +426,9 @@ done
 
 ```
 
-## [#](https://devhints.io/bash#dictionaries)Dictionaries
+## Словари
 
-### Defining
+### Определение
 
 ```bash
 declare -A sounds
@@ -443,22 +443,22 @@ sounds[wolf]="howl"
 
 ```
 
-Declares`sound`as a Dictionary object (aka associative array).
+Объявляет "звук" как объект словаря (он же ассоциативный массив).
 
-### Working with dictionaries
+### Работа со словарями
 
 ```bash
-echo ${sounds[dog]} # Dog's sound
-echo ${sounds[@]}   # All values
-echo ${!sounds[@]}  # All keys
-echo ${#sounds[@]}  # Number of elements
-unset sounds[dog]   # Delete dog
+echo ${sounds[dog]} # Собачий звук
+echo ${sounds[@]}   # Все значения
+echo ${!sounds[@]}  # Все ключи
+echo ${#sounds[@]}  # Количество элементов
+unset sounds[dog]   # Удалить собаку
 
 ```
 
-### Iteration
+### Итерации
 
-#### Iterate over values
+#### Перебор значений
 
 ```bash
 for val in "${sounds[@]}"; do
@@ -467,7 +467,7 @@ done
 
 ```
 
-#### Iterate over keys
+#### Перебирать ключи
 
 ```bash
 for key in "${!sounds[@]}"; do
@@ -476,42 +476,42 @@ done
 
 ```
 
-## [#](https://devhints.io/bash#options)Options
+## Опции
 
-### Options
+### Опции
 
 ```bash
-set -o noclobber  # Avoid overlay files (echo "hi" > foo)
-set -o errexit    # Used to exit upon error, avoiding cascading errors
-set -o pipefail   # Unveils hidden failures
-set -o nounset    # Exposes unset variables
+set -o noclobber  # Избегайте наложения файлов (echo "hi" > foo)
+set -o errexit    # Используется для выхода при ошибке, избегая каскадных ошибок
+set -o pipefail   # Раскрывает скрытые неудачи
+set -o nounset    # Выставляет неустановленные переменные
 
 ```
 
-### Glob options
+### Опции Glob 
 
 ```bash
-set -o nullglob    # Non-matching globs are removed  ('*.foo' => '')
-set -o failglob    # Non-matching globs throw errors
-set -o nocaseglob  # Case insensitive globs
-set -o globdots    # Wildcards match dotfiles ("*.sh" => ".foo.sh")
-set -o globstar    # Allow ** for recursive matches ('lib/**/*.rb' => 'lib/a/b/c.rb')
+set -o nullglob    # Несоответствующие удаляются ('* .foo' => '')
+set -o failglob    # При несоответствующих кидаются ошибки
+set -o nocaseglob  # Нечувствительные к регистру
+set -o globdots    # Подстановочные знаки соответствуют точечным файлам ("*.sh" => ".foo.sh")
+set -o globstar    # Разрешить ** для рекурсивных совпадений ('lib/**/*.rb' => 'lib/a/b/c.rb')
 
 ```
 
-Set`GLOBIGNORE`as a colon-separated list of patterns to be removed from glob matches.
+Установите `GLOBIGNORE` в качестве списка шаблонов, разделенных двоеточиями, которые будут удалены из совпадений.
 
-## [#](https://devhints.io/bash#history)History
+## История
 
-### Commands
+### Команды
 
-<table style="background-repeat: no-repeat; box-sizing: inherit; border-collapse: collapse; -webkit-font-smoothing: antialiased; width: 584px; border-radius: 3px;"><tbody style="background-repeat: no-repeat; box-sizing: inherit; -webkit-font-smoothing: antialiased;"><tr style="background-repeat: no-repeat; box-sizing: inherit; -webkit-font-smoothing: antialiased;"><td style="background-repeat: no-repeat; box-sizing: inherit; -webkit-font-smoothing: antialiased; padding: 8px 16px; vertical-align: top; text-align: left; white-space: nowrap;"><code style="background-repeat: no-repeat; box-sizing: inherit; font-family: cousine, sfmono-regular, Consolas, Menlo, &quot;liberation mono&quot;, &quot;ubuntu mono&quot;, Courier, monospace; font-size: 0.96em; letter-spacing: -0.03em; color: rgb(51, 85, 170);">history</code></td><td style="background-repeat: no-repeat; box-sizing: inherit; -webkit-font-smoothing: antialiased; padding: 8px 16px; vertical-align: top; text-align: right;">Show history</td></tr><tr style="background-repeat: no-repeat; box-sizing: inherit; -webkit-font-smoothing: antialiased; border-top: 1px solid rgba(102, 119, 136, 0.05);"><td style="background-repeat: no-repeat; box-sizing: inherit; -webkit-font-smoothing: antialiased; padding: 8px 16px; vertical-align: top; text-align: left; white-space: nowrap;"><code style="background-repeat: no-repeat; box-sizing: inherit; font-family: cousine, sfmono-regular, Consolas, Menlo, &quot;liberation mono&quot;, &quot;ubuntu mono&quot;, Courier, monospace; font-size: 0.96em; letter-spacing: -0.03em; color: rgb(51, 85, 170);">shopt -s histverify</code></td><td style="background-repeat: no-repeat; box-sizing: inherit; -webkit-font-smoothing: antialiased; padding: 8px 16px; vertical-align: top; text-align: right;">Don’t execute expanded result immediately</td></tr></tbody></table>
+<table style="background-repeat: no-repeat; box-sizing: inherit; border-collapse: collapse; -webkit-font-smoothing: antialiased; width: 584px; border-radius: 3px;"><tbody style="background-repeat: no-repeat; box-sizing: inherit; -webkit-font-smoothing: antialiased;"><tr style="background-repeat: no-repeat; box-sizing: inherit; -webkit-font-smoothing: antialiased;"><td style="background-repeat: no-repeat; box-sizing: inherit; -webkit-font-smoothing: antialiased; padding: 8px 16px; vertical-align: top; text-align: left; white-space: nowrap;"><code style="background-repeat: no-repeat; box-sizing: inherit; font-family: cousine, sfmono-regular, Consolas, Menlo, &quot;liberation mono&quot;, &quot;ubuntu mono&quot;, Courier, monospace; font-size: 0.96em; letter-spacing: -0.03em; color: rgb(51, 85, 170);">history</code></td><td style="background-repeat: no-repeat; box-sizing: inherit; -webkit-font-smoothing: antialiased; padding: 8px 16px; vertical-align: top; text-align: right;">Показать историю</td></tr><tr style="background-repeat: no-repeat; box-sizing: inherit; -webkit-font-smoothing: antialiased; border-top: 1px solid rgba(102, 119, 136, 0.05);"><td style="background-repeat: no-repeat; box-sizing: inherit; -webkit-font-smoothing: antialiased; padding: 8px 16px; vertical-align: top; text-align: left; white-space: nowrap;"><code style="background-repeat: no-repeat; box-sizing: inherit; font-family: cousine, sfmono-regular, Consolas, Menlo, &quot;liberation mono&quot;, &quot;ubuntu mono&quot;, Courier, monospace; font-size: 0.96em; letter-spacing: -0.03em; color: rgb(51, 85, 170);">shopt -s histverify</code></td><td style="background-repeat: no-repeat; box-sizing: inherit; -webkit-font-smoothing: antialiased; padding: 8px 16px; vertical-align: top; text-align: right;">Немедленно не выполнить развернутый результат </td></tr></tbody></table>
 
-### Expansions
+### Расширения
 
-<table style="background-repeat: no-repeat; box-sizing: inherit; border-collapse: collapse; -webkit-font-smoothing: antialiased; width: 584px; border-radius: 3px;"><tbody style="background-repeat: no-repeat; box-sizing: inherit; -webkit-font-smoothing: antialiased;"><tr style="background-repeat: no-repeat; box-sizing: inherit; -webkit-font-smoothing: antialiased;"><td style="background-repeat: no-repeat; box-sizing: inherit; -webkit-font-smoothing: antialiased; padding: 8px 16px; vertical-align: top; text-align: left; white-space: nowrap;"><code style="background-repeat: no-repeat; box-sizing: inherit; font-family: cousine, sfmono-regular, Consolas, Menlo, &quot;liberation mono&quot;, &quot;ubuntu mono&quot;, Courier, monospace; font-size: 0.96em; letter-spacing: -0.03em; color: rgb(51, 85, 170);">!$</code></td><td style="background-repeat: no-repeat; box-sizing: inherit; -webkit-font-smoothing: antialiased; padding: 8px 16px; vertical-align: top; text-align: right;">Expand last parameter of most recent command</td></tr><tr style="background-repeat: no-repeat; box-sizing: inherit; -webkit-font-smoothing: antialiased; border-top: 1px solid rgba(102, 119, 136, 0.05);"><td style="background-repeat: no-repeat; box-sizing: inherit; -webkit-font-smoothing: antialiased; padding: 8px 16px; vertical-align: top; text-align: left; white-space: nowrap;"><code style="background-repeat: no-repeat; box-sizing: inherit; font-family: cousine, sfmono-regular, Consolas, Menlo, &quot;liberation mono&quot;, &quot;ubuntu mono&quot;, Courier, monospace; font-size: 0.96em; letter-spacing: -0.03em; color: rgb(51, 85, 170);">!*</code></td><td style="background-repeat: no-repeat; box-sizing: inherit; -webkit-font-smoothing: antialiased; padding: 8px 16px; vertical-align: top; text-align: right;">Expand all parameters of most recent command</td></tr><tr style="background-repeat: no-repeat; box-sizing: inherit; -webkit-font-smoothing: antialiased; border-top: 1px solid rgba(102, 119, 136, 0.05);"><td style="background-repeat: no-repeat; box-sizing: inherit; -webkit-font-smoothing: antialiased; padding: 8px 16px; vertical-align: top; text-align: left; white-space: nowrap;"><code style="background-repeat: no-repeat; box-sizing: inherit; font-family: cousine, sfmono-regular, Consolas, Menlo, &quot;liberation mono&quot;, &quot;ubuntu mono&quot;, Courier, monospace; font-size: 0.96em; letter-spacing: -0.03em; color: rgb(51, 85, 170);">!-n</code></td><td style="background-repeat: no-repeat; box-sizing: inherit; -webkit-font-smoothing: antialiased; padding: 8px 16px; vertical-align: top; text-align: right;">Expand<span>&nbsp;</span><code style="background-repeat: no-repeat; box-sizing: inherit; font-family: cousine, sfmono-regular, Consolas, Menlo, &quot;liberation mono&quot;, &quot;ubuntu mono&quot;, Courier, monospace; font-size: 0.96em; letter-spacing: -0.03em; color: rgb(102, 119, 136);">n</code>th most recent command</td></tr><tr style="background-repeat: no-repeat; box-sizing: inherit; -webkit-font-smoothing: antialiased; border-top: 1px solid rgba(102, 119, 136, 0.05);"><td style="background-repeat: no-repeat; box-sizing: inherit; -webkit-font-smoothing: antialiased; padding: 8px 16px; vertical-align: top; text-align: left; white-space: nowrap;"><code style="background-repeat: no-repeat; box-sizing: inherit; font-family: cousine, sfmono-regular, Consolas, Menlo, &quot;liberation mono&quot;, &quot;ubuntu mono&quot;, Courier, monospace; font-size: 0.96em; letter-spacing: -0.03em; color: rgb(51, 85, 170);">!n</code></td><td style="background-repeat: no-repeat; box-sizing: inherit; -webkit-font-smoothing: antialiased; padding: 8px 16px; vertical-align: top; text-align: right;">Expand<span>&nbsp;</span><code style="background-repeat: no-repeat; box-sizing: inherit; font-family: cousine, sfmono-regular, Consolas, Menlo, &quot;liberation mono&quot;, &quot;ubuntu mono&quot;, Courier, monospace; font-size: 0.96em; letter-spacing: -0.03em; color: rgb(102, 119, 136);">n</code>th command in history</td></tr><tr style="background-repeat: no-repeat; box-sizing: inherit; -webkit-font-smoothing: antialiased; border-top: 1px solid rgba(102, 119, 136, 0.05);"><td style="background-repeat: no-repeat; box-sizing: inherit; -webkit-font-smoothing: antialiased; padding: 8px 16px; vertical-align: top; text-align: left; white-space: nowrap;"><code style="background-repeat: no-repeat; box-sizing: inherit; font-family: cousine, sfmono-regular, Consolas, Menlo, &quot;liberation mono&quot;, &quot;ubuntu mono&quot;, Courier, monospace; font-size: 0.96em; letter-spacing: -0.03em; color: rgb(51, 85, 170);">!&lt;command&gt;</code></td><td style="background-repeat: no-repeat; box-sizing: inherit; -webkit-font-smoothing: antialiased; padding: 8px 16px; vertical-align: top; text-align: right;">Expand most recent invocation of command<span>&nbsp;</span><code style="background-repeat: no-repeat; box-sizing: inherit; font-family: cousine, sfmono-regular, Consolas, Menlo, &quot;liberation mono&quot;, &quot;ubuntu mono&quot;, Courier, monospace; font-size: 0.96em; letter-spacing: -0.03em; color: rgb(102, 119, 136);">&lt;command&gt;</code></td></tr></tbody></table>
+<table style="background-repeat: no-repeat; box-sizing: inherit; border-collapse: collapse; -webkit-font-smoothing: antialiased; width: 584px; border-radius: 3px;"><tbody style="background-repeat: no-repeat; box-sizing: inherit; -webkit-font-smoothing: antialiased;"><tr style="background-repeat: no-repeat; box-sizing: inherit; -webkit-font-smoothing: antialiased;"><td style="background-repeat: no-repeat; box-sizing: inherit; -webkit-font-smoothing: antialiased; padding: 8px 16px; vertical-align: top; text-align: left; white-space: nowrap;"><code style="background-repeat: no-repeat; box-sizing: inherit; font-family: cousine, sfmono-regular, Consolas, Menlo, &quot;liberation mono&quot;, &quot;ubuntu mono&quot;, Courier, monospace; font-size: 0.96em; letter-spacing: -0.03em; color: rgb(51, 85, 170);">!$</code></td><td style="background-repeat: no-repeat; box-sizing: inherit; -webkit-font-smoothing: antialiased; padding: 8px 16px; vertical-align: top; text-align: right;">Развернуть последний параметр последней команды</td></tr><tr style="background-repeat: no-repeat; box-sizing: inherit; -webkit-font-smoothing: antialiased; border-top: 1px solid rgba(102, 119, 136, 0.05);"><td style="background-repeat: no-repeat; box-sizing: inherit; -webkit-font-smoothing: antialiased; padding: 8px 16px; vertical-align: top; text-align: left; white-space: nowrap;"><code style="background-repeat: no-repeat; box-sizing: inherit; font-family: cousine, sfmono-regular, Consolas, Menlo, &quot;liberation mono&quot;, &quot;ubuntu mono&quot;, Courier, monospace; font-size: 0.96em; letter-spacing: -0.03em; color: rgb(51, 85, 170);">!*</code></td><td style="background-repeat: no-repeat; box-sizing: inherit; -webkit-font-smoothing: antialiased; padding: 8px 16px; vertical-align: top; text-align: right;">Развернуть все параметры последней команды</td></tr><tr style="background-repeat: no-repeat; box-sizing: inherit; -webkit-font-smoothing: antialiased; border-top: 1px solid rgba(102, 119, 136, 0.05);"><td style="background-repeat: no-repeat; box-sizing: inherit; -webkit-font-smoothing: antialiased; padding: 8px 16px; vertical-align: top; text-align: left; white-space: nowrap;"><code style="background-repeat: no-repeat; box-sizing: inherit; font-family: cousine, sfmono-regular, Consolas, Menlo, &quot;liberation mono&quot;, &quot;ubuntu mono&quot;, Courier, monospace; font-size: 0.96em; letter-spacing: -0.03em; color: rgb(51, 85, 170);">!-n</code></td><td style="background-repeat: no-repeat; box-sizing: inherit; -webkit-font-smoothing: antialiased; padding: 8px 16px; vertical-align: top; text-align: right;">Развернуть<span>&nbsp;</span><code style="background-repeat: no-repeat; box-sizing: inherit; font-family: cousine, sfmono-regular, Consolas, Menlo, &quot;liberation mono&quot;, &quot;ubuntu mono&quot;, Courier, monospace; font-size: 0.96em; letter-spacing: -0.03em; color: rgb(102, 119, 136);">n</code> самых последних команд</td></tr><tr style="background-repeat: no-repeat; box-sizing: inherit; -webkit-font-smoothing: antialiased; border-top: 1px solid rgba(102, 119, 136, 0.05);"><td style="background-repeat: no-repeat; box-sizing: inherit; -webkit-font-smoothing: antialiased; padding: 8px 16px; vertical-align: top; text-align: left; white-space: nowrap;"><code style="background-repeat: no-repeat; box-sizing: inherit; font-family: cousine, sfmono-regular, Consolas, Menlo, &quot;liberation mono&quot;, &quot;ubuntu mono&quot;, Courier, monospace; font-size: 0.96em; letter-spacing: -0.03em; color: rgb(51, 85, 170);">!n</code></td><td style="background-repeat: no-repeat; box-sizing: inherit; -webkit-font-smoothing: antialiased; padding: 8px 16px; vertical-align: top; text-align: right;">Развернуть<span>&nbsp;</span><code style="background-repeat: no-repeat; box-sizing: inherit; font-family: cousine, sfmono-regular, Consolas, Menlo, &quot;liberation mono&quot;, &quot;ubuntu mono&quot;, Courier, monospace; font-size: 0.96em; letter-spacing: -0.03em; color: rgb(102, 119, 136);">n</code> команд в истории</td></tr><tr style="background-repeat: no-repeat; box-sizing: inherit; -webkit-font-smoothing: antialiased; border-top: 1px solid rgba(102, 119, 136, 0.05);"><td style="background-repeat: no-repeat; box-sizing: inherit; -webkit-font-smoothing: antialiased; padding: 8px 16px; vertical-align: top; text-align: left; white-space: nowrap;"><code style="background-repeat: no-repeat; box-sizing: inherit; font-family: cousine, sfmono-regular, Consolas, Menlo, &quot;liberation mono&quot;, &quot;ubuntu mono&quot;, Courier, monospace; font-size: 0.96em; letter-spacing: -0.03em; color: rgb(51, 85, 170);">!&lt;command&gt;</code></td><td style="background-repeat: no-repeat; box-sizing: inherit; -webkit-font-smoothing: antialiased; padding: 8px 16px; vertical-align: top; text-align: right;">Развернуть последний вызов команды<span>&nbsp;</span><code style="background-repeat: no-repeat; box-sizing: inherit; font-family: cousine, sfmono-regular, Consolas, Menlo, &quot;liberation mono&quot;, &quot;ubuntu mono&quot;, Courier, monospace; font-size: 0.96em; letter-spacing: -0.03em; color: rgb(102, 119, 136);">&lt;command&gt;</code></td></tr></tbody></table>
 
-### Operations
+### Операции
 
 <table style="background-repeat: no-repeat; box-sizing: inherit; border-collapse: collapse; -webkit-font-smoothing: antialiased; width: 584px; border-top-left-radius: 3px; border-top-right-radius: 3px;"><tbody style="background-repeat: no-repeat; box-sizing: inherit; -webkit-font-smoothing: antialiased;"><tr style="background-repeat: no-repeat; box-sizing: inherit; -webkit-font-smoothing: antialiased;"><td style="background-repeat: no-repeat; box-sizing: inherit; -webkit-font-smoothing: antialiased; padding: 8px 16px; vertical-align: top; text-align: left; white-space: nowrap;"><code style="background-repeat: no-repeat; box-sizing: inherit; font-family: cousine, sfmono-regular, Consolas, Menlo, &quot;liberation mono&quot;, &quot;ubuntu mono&quot;, Courier, monospace; font-size: 0.96em; letter-spacing: -0.03em; color: rgb(51, 85, 170);">!!</code></td><td style="background-repeat: no-repeat; box-sizing: inherit; -webkit-font-smoothing: antialiased; padding: 8px 16px; vertical-align: top; text-align: right;">Execute last command again</td></tr><tr style="background-repeat: no-repeat; box-sizing: inherit; -webkit-font-smoothing: antialiased; border-top: 1px solid rgba(102, 119, 136, 0.05);"><td style="background-repeat: no-repeat; box-sizing: inherit; -webkit-font-smoothing: antialiased; padding: 8px 16px; vertical-align: top; text-align: left; white-space: nowrap;"><code style="background-repeat: no-repeat; box-sizing: inherit; font-family: cousine, sfmono-regular, Consolas, Menlo, &quot;liberation mono&quot;, &quot;ubuntu mono&quot;, Courier, monospace; font-size: 0.96em; letter-spacing: -0.03em; color: rgb(51, 85, 170);">!!:s/&lt;FROM&gt;/&lt;TO&gt;/</code></td><td style="background-repeat: no-repeat; box-sizing: inherit; -webkit-font-smoothing: antialiased; padding: 8px 16px; vertical-align: top; text-align: right;">Replace first occurrence of<span>&nbsp;</span><code style="background-repeat: no-repeat; box-sizing: inherit; font-family: cousine, sfmono-regular, Consolas, Menlo, &quot;liberation mono&quot;, &quot;ubuntu mono&quot;, Courier, monospace; font-size: 0.96em; letter-spacing: -0.03em; color: rgb(102, 119, 136);">&lt;FROM&gt;</code><span>&nbsp;</span>to<span>&nbsp;</span><code style="background-repeat: no-repeat; box-sizing: inherit; font-family: cousine, sfmono-regular, Consolas, Menlo, &quot;liberation mono&quot;, &quot;ubuntu mono&quot;, Courier, monospace; font-size: 0.96em; letter-spacing: -0.03em; color: rgb(102, 119, 136);">&lt;TO&gt;</code><span>&nbsp;</span>in most recent command</td></tr><tr style="background-repeat: no-repeat; box-sizing: inherit; -webkit-font-smoothing: antialiased; border-top: 1px solid rgba(102, 119, 136, 0.05);"><td style="background-repeat: no-repeat; box-sizing: inherit; -webkit-font-smoothing: antialiased; padding: 8px 16px; vertical-align: top; text-align: left; white-space: nowrap;"><code style="background-repeat: no-repeat; box-sizing: inherit; font-family: cousine, sfmono-regular, Consolas, Menlo, &quot;liberation mono&quot;, &quot;ubuntu mono&quot;, Courier, monospace; font-size: 0.96em; letter-spacing: -0.03em; color: rgb(51, 85, 170);">!!:gs/&lt;FROM&gt;/&lt;TO&gt;/</code></td><td style="background-repeat: no-repeat; box-sizing: inherit; -webkit-font-smoothing: antialiased; padding: 8px 16px; vertical-align: top; text-align: right;">Replace all occurrences of<span>&nbsp;</span><code style="background-repeat: no-repeat; box-sizing: inherit; font-family: cousine, sfmono-regular, Consolas, Menlo, &quot;liberation mono&quot;, &quot;ubuntu mono&quot;, Courier, monospace; font-size: 0.96em; letter-spacing: -0.03em; color: rgb(102, 119, 136);">&lt;FROM&gt;</code><span>&nbsp;</span>to<span>&nbsp;</span><code style="background-repeat: no-repeat; box-sizing: inherit; font-family: cousine, sfmono-regular, Consolas, Menlo, &quot;liberation mono&quot;, &quot;ubuntu mono&quot;, Courier, monospace; font-size: 0.96em; letter-spacing: -0.03em; color: rgb(102, 119, 136);">&lt;TO&gt;</code><span>&nbsp;</span>in most recent command</td></tr><tr style="background-repeat: no-repeat; box-sizing: inherit; -webkit-font-smoothing: antialiased; border-top: 1px solid rgba(102, 119, 136, 0.05);"><td style="background-repeat: no-repeat; box-sizing: inherit; -webkit-font-smoothing: antialiased; padding: 8px 16px; vertical-align: top; text-align: left; white-space: nowrap;"><code style="background-repeat: no-repeat; box-sizing: inherit; font-family: cousine, sfmono-regular, Consolas, Menlo, &quot;liberation mono&quot;, &quot;ubuntu mono&quot;, Courier, monospace; font-size: 0.96em; letter-spacing: -0.03em; color: rgb(51, 85, 170);">!$:t</code></td><td style="background-repeat: no-repeat; box-sizing: inherit; -webkit-font-smoothing: antialiased; padding: 8px 16px; vertical-align: top; text-align: right;">Expand only basename from last parameter of most recent command</td></tr><tr style="background-repeat: no-repeat; box-sizing: inherit; -webkit-font-smoothing: antialiased; border-top: 1px solid rgba(102, 119, 136, 0.05);"><td style="background-repeat: no-repeat; box-sizing: inherit; -webkit-font-smoothing: antialiased; padding: 8px 16px; vertical-align: top; text-align: left; white-space: nowrap;"><code style="background-repeat: no-repeat; box-sizing: inherit; font-family: cousine, sfmono-regular, Consolas, Menlo, &quot;liberation mono&quot;, &quot;ubuntu mono&quot;, Courier, monospace; font-size: 0.96em; letter-spacing: -0.03em; color: rgb(51, 85, 170);">!$:h</code></td><td style="background-repeat: no-repeat; box-sizing: inherit; -webkit-font-smoothing: antialiased; padding: 8px 16px; vertical-align: top; text-align: right;">Expand only directory from last parameter of most recent command</td></tr></tbody></table>
 
