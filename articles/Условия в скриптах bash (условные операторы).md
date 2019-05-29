@@ -98,10 +98,10 @@ fi
     if [ $foo -ge 3 -a $foo -lt 10 ]; then
     ```
     
-    The above condition will return true if $foo contains an integer greater than or equal to 3 and**L**ess**T**han 10. You can read more about these combining expressions at the respective condition syntaxes.
+    Приведенное выше условие вернет true, если $foo содержит целое число, большее или равное 3 и меньшее (**L**ess **T**han) 10. Подробнее об этих выражениях объединения можно прочитать в соответствующих синтаксисах условий.
     
 
-And, one more basic thing: don’t forget that conditions can also be used in other statements, like_while_and_until_. It is outside the scope of this tutorial to explain those, but you can read about them at the[Bash Guide for Beginners](http://www.tldp.org/LDP/Bash-Beginners-Guide/html/sect_09_02.html "Read about the while and the until loop in the Bash Guide for Beginners").
+И еще одна базовая вещь: не забывайте, что условия могут также использоваться в других операторах, таких как _while_ и _until_. Объяснение этого не входит в этот урок, но вы можете прочитать о них в [Руководстве по Bash для начинающих](http://www.tldp.org/LDP/Bash-Beginners-Guide/html/sect_09_02.html.) (Прочитайте о цикле while и before в Руководстве по Bash для начинающих).
 
 Anyway, I’ve only shown you conditions between single brackets so far. There are more syntaxes, however, as you will read in the next section.
 
