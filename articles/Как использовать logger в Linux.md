@@ -66,13 +66,12 @@ The**\-e**option allows you to avoid dumping empty lines into your log file. The
 
 ```console
 $ cat appts
-Appts
-																							<=== file includes blank line
+Appts <=== file includes blank line
 8 AM -- get to office
 8:30 AM -- meet with boss
 11:00 AM -- staff meeting
 $ logger -e -f appts
-May 22 08:17:31 butterfly shs: Appts          <=== log does not
+May 22 08:17:31 butterfly shs: Appts <=== log does not
 May 22 08:17:31 butterfly shs: 8 AM -- get to office
 May 22 08:17:31 butterfly shs: 8:30 AM -- meet with boss
 May 22 08:17:31 butterfly shs: 11:00 AM -- staff meeting
