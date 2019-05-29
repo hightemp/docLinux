@@ -25,13 +25,17 @@ for (;;) {
 
 Let’s start it:
 
+```
 $ php server.php
+```
 
 And test it in another terminal:
 
+```
 $ nc -u 127.0.0.1 10000  
 Hello, world!  
 Uryyb, jbeyq!
+```
 
 Cool, it works. Now we want this script to run at all times, be restarted in case of a failure (unexpected exit), and even survive server restarts. That’s where systemd comes into play.
 
@@ -39,20 +43,22 @@ Cool, it works. Now we want this script to run at all times, be restarted in cas
 
 Let’s create a file called`/etc/systemd/system/rot13.service`:
 
-\[Unit\]  
+```
+[Unit]  
 Description=ROT13 demo service  
 After=network.target  
 StartLimitIntervalSec=0
 
-\[Service\]  
+[Service]  
 Type=simple  
 Restart=always  
 RestartSec=1  
 User=centos  
 ExecStart=/usr/bin/env php /path/to/server.php  
   
-\[Install\]  
+[Install]  
 WantedBy=multi-user.target
+```
 
 You’ll need to:
 
