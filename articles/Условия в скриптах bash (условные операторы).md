@@ -84,13 +84,13 @@ fi
 
 Кроме того, есть две вещи, которые может быть полезно знать:
 
-1.  _You can invert a condition_by putting an “!” in front of it. Example:
+1.  _Вы можете инвертировать условие_, поставив перед ним «!». Пример:
     
-    ```
+    ```bash
     if [ ! -f regularfile ]; then
     ```
     
-    Be sure to place the “!” inside the brackets!
+    Обязательно поместите "!" В скобки!
     
 2.  _You can combine conditions_by using certain operators. For the single-bracket syntax that we’ve been using so far, you can use “-a” for_and_and “-o” for_or_. Example:
     
