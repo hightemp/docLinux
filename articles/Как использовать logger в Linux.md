@@ -64,19 +64,21 @@ Don't be misled by these simple examples. The**\--size**option is generally used
 
 The**\-e**option allows you to avoid dumping empty lines into your log file. They will simply be ignored. Note, however, that a line that contains blanks will_not_be considered blank.
 
-	$ cat appts
-	Appts
-																								<=== file includes blank line
-	8 AM -- get to office
-	8:30 AM -- meet with boss
-	11:00 AM -- staff meeting
-	$ logger -e -f appts
-	May 22 08:17:31 butterfly shs: Appts          <=== log does not
-	May 22 08:17:31 butterfly shs: 8 AM -- get to office
-	May 22 08:17:31 butterfly shs: 8:30 AM -- meet with boss
-	May 22 08:17:31 butterfly shs: 11:00 AM -- staff meeting
-	May 22 08:17:33 butterfly kernel: \[58833.758599\] \[UFW BLOCK\] IN=enp0s25 OUT= MAC=01:00:5e:00:00:fb:ac:63:be:ca:10:cf:08:00 SRC=192.168.0.9 DST=224.0.0.251 LEN=32 TOS=0x00 PREC=0xC0 TTL=1 ID=0 DF PROTO=2
-
+```console
+$ cat appts
+Appts
+																							<=== file includes blank line
+8 AM -- get to office
+8:30 AM -- meet with boss
+11:00 AM -- staff meeting
+$ logger -e -f appts
+May 22 08:17:31 butterfly shs: Appts          <=== log does not
+May 22 08:17:31 butterfly shs: 8 AM -- get to office
+May 22 08:17:31 butterfly shs: 8:30 AM -- meet with boss
+May 22 08:17:31 butterfly shs: 11:00 AM -- staff meeting
+May 22 08:17:33 butterfly kernel: \[58833.758599\] \[UFW BLOCK\] IN=enp0s25 OUT= MAC=01:00:5e:00:00:fb:ac:63:be:ca:10:cf:08:00 SRC=192.168.0.9 DST=224.0.0.251 LEN=32 TOS=0x00 PREC=0xC0 TTL=1 ID=0 DF PROTO=2
+```console
+	
 ### Other options
 
 The logger tool offers others as well — such as writing to a log on another server using**\-n**or**\--no-act**for testing. Check your man page for more details.
