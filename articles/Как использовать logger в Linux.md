@@ -4,7 +4,7 @@ The [Linux](https://www.networkworld.com/article/3215226/linux/what-is-linux-use
 
 ### How easy is easy?
 
-This easy. Just type**logger <message>**on the command line and your message will be added to the end of the /var/log/syslog file.
+This easy. Just type **logger <message>** on the command line and your message will be added to the end of the /var/log/syslog file.
 
 	$ logger comment to be added to log
 	$ tail -1 /vvar/log/syslog
@@ -20,7 +20,7 @@ You can also add the output from commands by enclosing the commands in backticks
 
 ### Content from a file
 
-The contents of text files can be added by using the**\-f**option. Put the name of the file to be added to the log following the**\-f**option as shown below.
+The contents of text files can be added by using the **\-f** option. Put the name of the file to be added to the log following the **\-f** option as shown below.
 
 	$ cat msg
 	Backups to off-site facility will run this coming weekend.
@@ -35,14 +35,14 @@ The contents of text files can be added by using the**\-f**option. Put the name 
 You can add logger commands to scripts to make it easier to track the completion of important tasks.
 
 	$ grep logger /bin/runme
-	logger "$0 completed at \`date\`"
+	logger "$0 completed at `date`"
 	$ sudo runme
 	$ tail -1 /var/log/syslog
 	May 21 17:57:36 butterfly shs: ./runme completed at Mon May 21 17:57:36 EDT 2018
 
 ### Limiting the size of logger entries
 
-If you're concerned about how much data will be added to your log file, especially if you're dumping content from a file, you can use the**\--size**option to limit it. In this example, the size is artificially small to make a point.
+If you're concerned about how much data will be added to your log file, especially if you're dumping content from a file, you can use the **\--size** option to limit it. In this example, the size is artificially small to make a point.
 
 	$ logger --size 10 12345678901234567890123456789012345678901234567890
 	$ tail -1 /var/log/syslog
@@ -50,7 +50,7 @@ If you're concerned about how much data will be added to your log file, especial
 
 This option works differently than you might expect in that, given input that includes blanks, it will constrain the content on a per-line basis rather than an overall length basis.
 
-	$ logger --size 5 \`date\`
+	$ logger --size 5 `date`
 	$ tail -5 /var/log/syslog
 	May 22 08:35:51 butterfly shs: May
 	May 22 08:35:51 butterfly shs: 22
@@ -58,11 +58,11 @@ This option works differently than you might expect in that, given input that in
 	May 22 08:35:51 butterfly shs: EDT
 	May 22 08:35:51 butterfly shs: 2018
 
-Don't be misled by these simple examples. The**\--size**option is generally used to limit large amounts of text. The default maximum is 1KiB (1024 bytes).
+Don't be misled by these simple examples. The **\--size** option is generally used to limit large amounts of text. The default maximum is 1KiB (1024 bytes).
 
 ### Ignoring blank lines
 
-The**\-e**option allows you to avoid dumping empty lines into your log file. They will simply be ignored. Note, however, that a line that contains blanks will_not_be considered blank.
+The **\-e** option allows you to avoid dumping empty lines into your log file. They will simply be ignored. Note, however, that a line that contains blanks will_not_be considered blank.
 
 ```console
 $ cat appts
@@ -80,7 +80,7 @@ May 22 08:17:33 butterfly kernel: \[58833.758599\] \[UFW BLOCK\] IN=enp0s25 OUT=
 	
 ### Other options
 
-The logger tool offers others as well — such as writing to a log on another server using**\-n**or**\--no-act**for testing. Check your man page for more details.
+The logger tool offers others as well — such as writing to a log on another server using **\-n** or **\--no-act** for testing. Check your man page for more details.
 
 
 
