@@ -1,7 +1,6 @@
 # Шпаргалка по Bash-скриптингу
 
-###   
-Example
+### Example
 
 ```bash
 #!/usr/bin/env bash
