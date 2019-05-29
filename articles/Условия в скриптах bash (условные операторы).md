@@ -8,28 +8,27 @@
 if [ $foo -ge 3 ]; then
 ```
 
-The condition in this example is essentially a command. It may sound strange, but surrounding a comparison with square brackets is the same as using the built-in test command, like this:
+Условие в этом примере по сути является командой. Это может звучать странно, но сравнение с квадратными скобками аналогично использованию встроенной команды `test`, например:
 
-```
+```bash
 if test $foo -ge 3; then
 ```
 
-If $foo is**G**reater then or**E**qual to 3, the block after ‘then’ will be executed. If you always wondered why bash tends to use -ge or -eq instead of >= or ==, it’s because this condition type originates from a command, where -ge and -eq are options.  
-And that’s what_if_does essentially, checking the exit status of a command. I’ll explain that in more detail further in the tutorial.  
-There also are built-in checks that are more specific to shells. What  
-about this one?
+Если $foo больше(G) или равно(E) 3, блок после «then» будет выполнен. Если вы всегда задавались вопросом, почему bash использует `-ge` или `-eq` вместо >= или ==, это потому, что этот тип условия исходит из команды, где `-ge` и `-eq` - параметры.
+И это то, что по сути, проверяет состояние завершения команды. Я объясню это более подробно далее в руководстве.
+Также есть встроенные проверки, которые более специфичны для оболочек.
 
-```
+```bash
 if [ -f regularfile ]; then
 ```
 
-The above condition is true if the file ‘regularfile’ exists_and_  
-is a regular file. A regular file means that it’s not a block or  
-character device, or a directory. This way, you can make sure a usable  
-file exists before doing something with it. You can even check if a  
-file is readable!
+Вышеуказанное условие выполняется, если файл «regularfile» существует _и_
+это обычный файл. Обычный файл означает, что это не блок или
+символьное устройство или каталог. Таким образом, вы можете быть уверены, что
+Файл существует, прежде чем что-то делать с ним. Вы даже можете проверить, если
+файл читабелен!
 
-```
+```bash
 if [ -r readablefile]; then
 ```
 
