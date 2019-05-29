@@ -8,7 +8,7 @@ The cool thing is that it’s fairly easy to create a Linux service: use your fa
 
 ### The program
 
-Let’s create a small server using PHP. I can see your eyebrows rising, but it works surprisingly well. We’ll listen to UDP port 10000, and return any message received with a[ROT13](https://en.wikipedia.org/wiki/ROT13)transformation:
+Let’s create a small server using PHP. I can see your eyebrows rising, but it works surprisingly well. We’ll listen to UDP port 10000, and return any message received with a [ROT13](https://en.wikipedia.org/wiki/ROT13) transformation:
 
 ```php
 <?php
