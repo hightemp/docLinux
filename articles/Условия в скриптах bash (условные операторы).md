@@ -1,10 +1,10 @@
 # Условия в скриптах bash (условные операторы)
 
-## Introduction
+## Вступление
 
-Bash features a lot of built-in checks and comparisons, coming in quite handy in many situations. You’ve probably seen if statements like the following before:
+В Bash имеется множество встроенных проверок и сравнений, что очень удобно во многих ситуациях. Вы, наверное, видели, если такие заявления раньше:
 
-```
+```bash
 if [ $foo -ge 3 ]; then
 ```
 
