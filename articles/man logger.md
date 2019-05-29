@@ -6,44 +6,44 @@ LOGGER(1)                       User Commands                      LOGGER(1)
 
 ## [](http://man7.org/linux/man-pages/man1/logger.1.html#SYNOPSIS)SYNOPSIS        [top](http://man7.org/linux/man-pages/man1/logger.1.html#top_of_page)
 
-       **logger** \[options\] \[_message_\]
+       **logger** [options] [_message_]
 
 ## [](http://man7.org/linux/man-pages/man1/logger.1.html#DESCRIPTION)DESCRIPTION        [top](http://man7.org/linux/man-pages/man1/logger.1.html#top_of_page)
 
        **logger** makes entries in the system log.
 
        When the optional _message_ argument is present, it is written to the
-       log.  If it is not present, and the **\-f** option is not given either,
+       log.  If it is not present, and the **-f** option is not given either,
        then standard input is logged.
 
 ## [](http://man7.org/linux/man-pages/man1/logger.1.html#OPTIONS)OPTIONS        [top](http://man7.org/linux/man-pages/man1/logger.1.html#top_of_page)
 
-       **\-d**, **\--udp**
+       **-d**, **--udp**
               Use datagrams (UDP) only.  By default the connection is tried
               to the syslog port defined in /etc/services, which is often
               514 .
 
-              See also **\--server** and **\--socket** to specify where to connect.
+              See also **--server** and **--socket** to specify where to connect.
 
-       **\-e**, **\--skip-empty**
+       **-e**, **--skip-empty**
               Ignore empty lines when processing files.  An empty line is
               defined to be a line without any characters.  Thus a line
               consisting only of whitespace is NOT considered empty.  Note
-              that when the **\--prio-prefix** option is specified, the priority
+              that when the **--prio-prefix** option is specified, the priority
               is not part of the line.  Thus an empty line in this mode is a
               line that does not have any characters after the priority
               prefix (e.g. **<13>**).
 
-       **\-f**, **\--file** _file_
+       **-f**, **--file** _file_
               Log the contents of the specified _file_.  This option cannot be
               combined with a command-line message.
 
-       **\-i** Log the PID of the logger process with each line.
+       **-i** Log the PID of the logger process with each line.
 
-       **\--id**\[**\=**_id_\]
+       **--id**[**=**_id_]
               Log the PID of the logger process with each line.  When the
               optional argument _id_ is specified, then it is used instead of
-              the logger command's PID.  The use of **\--id=$$** (PPID) is
+              the logger command's PID.  The use of **--id=$$** (PPID) is
               recommended in scripts that send several messages.
 
               Note that the system logging infrastructure (for example
@@ -54,16 +54,16 @@ LOGGER(1)                       User Commands                      LOGGER(1)
               the specified PID exists, otherwise the socket credentials are
               not modified and the problem is silently ignored.
 
-       **\--journald**\[**\=**_file_\]
+       **--journald**[**=**_file_]
               Write a systemd journal entry.  The entry is read from the
               given _file_, when specified, otherwise from standard input.
               Each line must begin with a field that is accepted by
               journald; see [systemd.journal-fields(7)](http://man7.org/linux/man-pages/man7/systemd.journal-fields.7.html) for details.  The use
-              of a MESSAGE\_ID field is generally a good idea, as it makes
+              of a MESSAGE_ID field is generally a good idea, as it makes
               finding entries easy.  Examples:
 
                   **logger --journald <<end**
-                  **MESSAGE\_ID=67feb6ffbaf24c5cbec13c008dd72309**
+                  **MESSAGE_ID=67feb6ffbaf24c5cbec13c008dd72309**
                   **MESSAGE=The dogs bark, but the caravan goes on.**
                   **DOGS=bark**
                   **CARAVAN=goes on**
@@ -71,53 +71,53 @@ LOGGER(1)                       User Commands                      LOGGER(1)
 
                   **logger --journald=entry.txt**
 
-              Notice that **\--journald** will ignore values of other options,
+              Notice that **--journald** will ignore values of other options,
               such as priority.  If priority is needed it must be within
               input, and use PRIORITY field.  The simple execution of
               **journalctl** will display MESSAGE field.  Use **journalctl**
-              **\--output json-pretty** to see rest of the fields.
+              **--output json-pretty** to see rest of the fields.
 
               To include newlines in MESSAGE, specify MESSAGE several times.
               This is handled as a special case, other fields will be stored
               as an array in the journal if they appear multiple times.
 
-       **\--msgid** _msgid_
+       **--msgid** _msgid_
               Sets the RFC5424 MSGID field.  Note that the space character
               is not permitted inside of _msgid_.  This option is only used if
-              **\--rfc5424** is specified as well; otherwise, it is silently
+              **--rfc5424** is specified as well; otherwise, it is silently
               ignored.
 
-       **\-n**, **\--server** _server_
+       **-n**, **--server** _server_
               Write to the specified remote syslog _server_ instead of to the
-              system log socket.  Unless **\--udp** or **\--tcp** is specified, **logger**
+              system log socket.  Unless **--udp** or **--tcp** is specified, **logger**
               will first try to use UDP, but if this fails a TCP connection
               is attempted.
 
-       **\--no-act**
+       **--no-act**
               Causes everything to be done except for writing the log
               message to the system log, and removing the connection or the
-              journal.  This option can be used together with **\--stderr** for
+              journal.  This option can be used together with **--stderr** for
               testing purposes.
 
-       **\--octet-count**
+       **--octet-count**
               Use the RFC 6587 octet counting framing method for sending
               messages.  When this option is not used, the default is no
               framing on UDP, and RFC6587 non-transparent framing (also
               known as octet stuffing) on TCP.
 
-       **\-P**, **\--port** _port_
+       **-P**, **--port** _port_
               Use the specified _port_.  When this option is not specified,
               the port defaults to syslog for udp and to syslog-conn for tcp
               connections.
 
-       **\-p**, **\--priority** _priority_
+       **-p**, **--priority** _priority_
               Enter the message into the log with the specified _priority_.
               The priority may be specified numerically or as a
-              _facility_._level_ pair.  For example, **\-p local3.info** logs the
+              _facility_._level_ pair.  For example, **-p local3.info** logs the
               message as informational in the local3 facility.  The default
               is **user.notice**.
 
-       **\--prio-prefix**
+       **--prio-prefix**
               Look for a syslog prefix on every line read from standard
               input.  This prefix is a decimal number within angle brackets
               that encodes both the facility and the level.  The number is
@@ -126,17 +126,17 @@ LOGGER(1)                       User Commands                      LOGGER(1)
               level=6, becomes **<134>**.
 
               If the prefix contains no facility, the facility defaults to
-              what is specified by the **\-p** option.  Similarly, if no prefix
+              what is specified by the **-p** option.  Similarly, if no prefix
               is provided, the line is logged using the _priority_ given with
-              **\-p**.
+              **-p**.
 
               This option doesn't affect a command-line message.
 
-       **\--rfc3164**
+       **--rfc3164**
               Use the RFC 3164 BSD syslog protocol to submit messages to a
               remote server.
 
-       **\--rfc5424**\[**\=**_without_\]
+       **--rfc5424**[**=**_without_]
               Use the RFC 5424 syslog protocol to submit messages to a
               remote server.  The optional _without_ argument can be a comma-
               separated list of the following values: **notq**, **notime**, **nohost**.
@@ -145,7 +145,7 @@ LOGGER(1)                       User Commands                      LOGGER(1)
               from the submitted message.  The time-quality information
               shows whether the local clock was synchronized plus the
               maximum number of microseconds the timestamp might be off.
-              The time quality is also automatically suppressed when **\--sd-id**
+              The time quality is also automatically suppressed when **--sd-id**
               **timeQuality** is specified.
 
               The **notime** value (which implies **notq**) suppresses the complete
@@ -158,13 +158,13 @@ LOGGER(1)                       User Commands                      LOGGER(1)
               The RFC 5424 protocol has been the default for **logger** since
               version 2.26.
 
-       **\-s**, **\--stderr**
+       **-s**, **--stderr**
               Output the message to standard error as well as to the system
               log.
 
-       **\--sd-id** _name_\[**@**_digits_\]
+       **--sd-id** _name_[**@**_digits_]
               Specifies a structured data element ID for an RFC 5424 message
-              header.  The option has to be used before **\--sd-param** to
+              header.  The option has to be used before **--sd-param** to
               introduce a new element.  The number of structured data
               elements is unlimited.  The ID (_name_ plus possibly **@**_digits_) is
               case-sensitive and uniquely identifies the type and purpose of
@@ -178,25 +178,25 @@ LOGGER(1)                       User Commands                      LOGGER(1)
               **meta** (with parameters sequenceId, sysUpTime and language).
               These element IDs may be specified without the **@**_digits_ suffix.
 
-       **\--sd-param** _name_**\="**_value_**"**
+       **--sd-param** _name_**="**_value_**"**
               Specifies a structured data element parameter, a name and
-              value pair.  The option has to be used after **\--sd-id** and may
+              value pair.  The option has to be used after **--sd-id** and may
               be specified more than once for the same element.  Note that
               the quotation marks around _value_ are required and must be
               escaped on the command line.
 
-                  **logger --rfc5424 --sd-id zoo@123               \\**
-                                   **\--sd-param tiger=\\"hungry\\"   \\**
-                                   **\--sd-param zebra=\\"running\\"  \\**
-                                   **\--sd-id manager@123           \\**
-                                   **\--sd-param onMeeting=\\"yes\\"  \\**
+                  **logger --rfc5424 --sd-id zoo@123               **
+                                   **--sd-param tiger="hungry"   **
+                                   **--sd-param zebra="running"  **
+                                   **--sd-id manager@123           **
+                                   **--sd-param onMeeting="yes"  **
                                    **"this is message"**
 
               produces:
 
-                **<13>1 2015-10-01T14:07:59.168662+02:00 ws kzak - - \[timeQuality tzKnown="1" isSynced="1" syncAccuracy="218616"\]\[zoo@123 tiger="hungry" zebra="running"\]\[manager@123 onMeeting="yes"\] this is message**
+                **<13>1 2015-10-01T14:07:59.168662+02:00 ws kzak - - [timeQuality tzKnown="1" isSynced="1" syncAccuracy="218616"][zoo@123 tiger="hungry" zebra="running"][manager@123 onMeeting="yes"] this is message**
 
-       **\-S**, **\--size** _size_
+       **-S**, **--size** _size_
               Sets the maximum permitted message size to _size_.  The default
               is 1KiB characters, which is the limit traditionally used and
               specified in RFC 3164.  With RFC 5424, this limit has become
@@ -204,8 +204,8 @@ LOGGER(1)                       User Commands                      LOGGER(1)
               least process 4KiB messages.
 
               Most receivers accept messages larger than 1KiB over any type
-              of syslog protocol.  As such, the **\--size** option affects logger
-              in all cases (not only when **\--rfc5424** was used).
+              of syslog protocol.  As such, the **--size** option affects logger
+              in all cases (not only when **--rfc5424** was used).
 
               Note: the message-size limit limits the overall message size,
               including the syslog header.  Header sizes vary depending on
@@ -217,7 +217,7 @@ LOGGER(1)                       User Commands                      LOGGER(1)
               rule of thumb two to four KiB message size should generally be
               OK, whereas anything larger should be verified to work.
 
-       **\--socket-errors**\[**\=**_mode_\]
+       **--socket-errors**[**=**_mode_]
               Print errors about Unix socket connections.  The _mode_ can be a
               value of **off**, **on**, or **auto**.  When the mode is auto logger will
               detect if the init process is systemd, and if so assumption is
@@ -231,29 +231,29 @@ LOGGER(1)                       User Commands                      LOGGER(1)
               messages are not communicated and will result to successful
               return value of [logger(1)](http://man7.org/linux/man-pages/man1/logger.1.html) invocation.
 
-       **\-T**, **\--tcp**
+       **-T**, **--tcp**
               Use stream (TCP) only.  By default the connection is tried to
               the _syslog-conn_ port defined in /etc/services, which is often
               _601_.
 
-              See also **\--server** and **\--socket** to specify where to connect.
+              See also **--server** and **--socket** to specify where to connect.
 
-       **\-t**, **\--tag** _tag_
+       **-t**, **--tag** _tag_
               Mark every line to be logged with the specified _tag_.  The
               default tag is the name of the user logged in on the terminal
               (or a user name based on effective user ID).
 
-       **\-u**, **\--socket** _socket_
+       **-u**, **--socket** _socket_
               Write to the specified _socket_ instead of to the system log
               socket.
 
-       **\--** End the argument list.  This allows the _message_ to start with
+       **--** End the argument list.  This allows the _message_ to start with
               a hyphen (-).
 
-       **\-V**, **\--version**
+       **-V**, **--version**
               Display version information and exit.
 
-       **\-h**, **\--help**
+       **-h**, **--help**
               Display help text and exit.
 
 ## [](http://man7.org/linux/man-pages/man1/logger.1.html#RETURN_VALUE)RETURN VALUE        [top](http://man7.org/linux/man-pages/man1/logger.1.html#top_of_page)
