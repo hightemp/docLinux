@@ -60,9 +60,9 @@ fi
 
 Краткое объяснение примера: сначала мы проверяем, является ли файл somefile читаемым («if \[-r somefile \]»). Если так, мы читаем это в переменную. Если нет, мы проверяем, существует ли он на самом деле («elif \[-f somefile \]»). Если это правда, мы сообщаем, что он существует, но не читается (если бы это было так, мы бы прочитали содержимое). Если файл не существует, мы также сообщаем об этом. Условие в _elif_ выполняется только в том случае, если условие в _if_ было ложным. Команды, принадлежащие _else_, выполняются, только если оба условия ложны.
 
-## The basic rules of conditions
+## Основные правила условий
 
-When you start writing and using your own conditions, there are some rules you should know to prevent getting errors that are hard to trace. Here follow three important ones:
+Когда вы начинаете писать и использовать свои собственные условия, вы должны знать некоторые правила, чтобы избежать ошибок, которые трудно отследить. Вот три важных:
 
 1.  **Always keep spaces between the brackets and the actual check/comparison**. The following won’t work:
     
