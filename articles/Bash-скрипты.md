@@ -2074,3 +2074,5 @@ ls -al badfile anotherfile 2> /dev/null
 ```bash
 cat /dev/null > myfile
 ```
+
+# Bash-скрипты, часть 5: сигналы, фоновые задачи, управление сценариями
