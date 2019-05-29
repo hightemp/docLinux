@@ -519,33 +519,33 @@ set -o globstar    # Разрешить ** для рекурсивных сов�
 
 ### Ломтики
 
-<table style="background-repeat: no-repeat; box-sizing: inherit; border-collapse: collapse; -webkit-font-smoothing: antialiased; width: 584px; border-top-left-radius: 3px; border-top-right-radius: 3px;"><tbody style="background-repeat: no-repeat; box-sizing: inherit; -webkit-font-smoothing: antialiased;"><tr style="background-repeat: no-repeat; box-sizing: inherit; -webkit-font-smoothing: antialiased;"><td style="background-repeat: no-repeat; box-sizing: inherit; -webkit-font-smoothing: antialiased; padding: 8px 16px; vertical-align: top; text-align: left; white-space: nowrap;"><code style="background-repeat: no-repeat; box-sizing: inherit; font-family: cousine, sfmono-regular, Consolas, Menlo, &quot;liberation mono&quot;, &quot;ubuntu mono&quot;, Courier, monospace; font-size: 0.96em; letter-spacing: -0.03em; color: rgb(51, 85, 170);">!!:n</code></td><td style="background-repeat: no-repeat; box-sizing: inherit; -webkit-font-smoothing: antialiased; padding: 8px 16px; vertical-align: top; text-align: right;">Расширить только<span>&nbsp;</span><code style="background-repeat: no-repeat; box-sizing: inherit; font-family: cousine, sfmono-regular, Consolas, Menlo, &quot;liberation mono&quot;, &quot;ubuntu mono&quot;, Courier, monospace; font-size: 0.96em; letter-spacing: -0.03em; color: rgb(102, 119, 136);">n</code> токена самой последней команды (команда - <span>&nbsp;</span><code style="background-repeat: no-repeat; box-sizing: inherit; font-family: cousine, sfmono-regular, Consolas, Menlo, &quot;liberation mono&quot;, &quot;ubuntu mono&quot;, Courier, monospace; font-size: 0.96em; letter-spacing: -0.03em; color: rgb(102, 119, 136);">0</code>; Первый аргумент - <span>&nbsp;</span><code style="background-repeat: no-repeat; box-sizing: inherit; font-family: cousine, sfmono-regular, Consolas, Menlo, &quot;liberation mono&quot;, &quot;ubuntu mono&quot;, Courier, monospace; font-size: 0.96em; letter-spacing: -0.03em; color: rgb(102, 119, 136);">1</code>)</td></tr><tr style="background-repeat: no-repeat; box-sizing: inherit; -webkit-font-smoothing: antialiased; border-top: 1px solid rgba(102, 119, 136, 0.05);"><td style="background-repeat: no-repeat; box-sizing: inherit; -webkit-font-smoothing: antialiased; padding: 8px 16px; vertical-align: top; text-align: left; white-space: nowrap;"><code style="background-repeat: no-repeat; box-sizing: inherit; font-family: cousine, sfmono-regular, Consolas, Menlo, &quot;liberation mono&quot;, &quot;ubuntu mono&quot;, Courier, monospace; font-size: 0.96em; letter-spacing: -0.03em; color: rgb(51, 85, 170);">!^</code></td><td style="background-repeat: no-repeat; box-sizing: inherit; -webkit-font-smoothing: antialiased; padding: 8px 16px; vertical-align: top; text-align: right;">Expand first argument from most recent command</td></tr><tr style="background-repeat: no-repeat; box-sizing: inherit; -webkit-font-smoothing: antialiased; border-top: 1px solid rgba(102, 119, 136, 0.05);"><td style="background-repeat: no-repeat; box-sizing: inherit; -webkit-font-smoothing: antialiased; padding: 8px 16px; vertical-align: top; text-align: left; white-space: nowrap;"><code style="background-repeat: no-repeat; box-sizing: inherit; font-family: cousine, sfmono-regular, Consolas, Menlo, &quot;liberation mono&quot;, &quot;ubuntu mono&quot;, Courier, monospace; font-size: 0.96em; letter-spacing: -0.03em; color: rgb(51, 85, 170);">!$</code></td><td style="background-repeat: no-repeat; box-sizing: inherit; -webkit-font-smoothing: antialiased; padding: 8px 16px; vertical-align: top; text-align: right;">Expand last token from most recent command</td></tr><tr style="background-repeat: no-repeat; box-sizing: inherit; -webkit-font-smoothing: antialiased; border-top: 1px solid rgba(102, 119, 136, 0.05);"><td style="background-repeat: no-repeat; box-sizing: inherit; -webkit-font-smoothing: antialiased; padding: 8px 16px; vertical-align: top; text-align: left; white-space: nowrap;"><code style="background-repeat: no-repeat; box-sizing: inherit; font-family: cousine, sfmono-regular, Consolas, Menlo, &quot;liberation mono&quot;, &quot;ubuntu mono&quot;, Courier, monospace; font-size: 0.96em; letter-spacing: -0.03em; color: rgb(51, 85, 170);">!!:n-m</code></td><td style="background-repeat: no-repeat; box-sizing: inherit; -webkit-font-smoothing: antialiased; padding: 8px 16px; vertical-align: top; text-align: right;">Expand range of tokens from most recent command</td></tr><tr style="background-repeat: no-repeat; box-sizing: inherit; -webkit-font-smoothing: antialiased; border-top: 1px solid rgba(102, 119, 136, 0.05);"><td style="background-repeat: no-repeat; box-sizing: inherit; -webkit-font-smoothing: antialiased; padding: 8px 16px; vertical-align: top; text-align: left; white-space: nowrap;"><code style="background-repeat: no-repeat; box-sizing: inherit; font-family: cousine, sfmono-regular, Consolas, Menlo, &quot;liberation mono&quot;, &quot;ubuntu mono&quot;, Courier, monospace; font-size: 0.96em; letter-spacing: -0.03em; color: rgb(51, 85, 170);">!!:n-$</code></td><td style="background-repeat: no-repeat; box-sizing: inherit; -webkit-font-smoothing: antialiased; padding: 8px 16px; vertical-align: top; text-align: right;">Expand<span>&nbsp;</span><code style="background-repeat: no-repeat; box-sizing: inherit; font-family: cousine, sfmono-regular, Consolas, Menlo, &quot;liberation mono&quot;, &quot;ubuntu mono&quot;, Courier, monospace; font-size: 0.96em; letter-spacing: -0.03em; color: rgb(102, 119, 136);">n</code>th token to last from most recent command</td></tr></tbody></table>
+<table style="background-repeat: no-repeat; box-sizing: inherit; border-collapse: collapse; -webkit-font-smoothing: antialiased; width: 584px; border-top-left-radius: 3px; border-top-right-radius: 3px;"><tbody style="background-repeat: no-repeat; box-sizing: inherit; -webkit-font-smoothing: antialiased;"><tr style="background-repeat: no-repeat; box-sizing: inherit; -webkit-font-smoothing: antialiased;"><td style="background-repeat: no-repeat; box-sizing: inherit; -webkit-font-smoothing: antialiased; padding: 8px 16px; vertical-align: top; text-align: left; white-space: nowrap;"><code style="background-repeat: no-repeat; box-sizing: inherit; font-family: cousine, sfmono-regular, Consolas, Menlo, &quot;liberation mono&quot;, &quot;ubuntu mono&quot;, Courier, monospace; font-size: 0.96em; letter-spacing: -0.03em; color: rgb(51, 85, 170);">!!:n</code></td><td style="background-repeat: no-repeat; box-sizing: inherit; -webkit-font-smoothing: antialiased; padding: 8px 16px; vertical-align: top; text-align: right;">Расширить только<span>&nbsp;</span><code style="background-repeat: no-repeat; box-sizing: inherit; font-family: cousine, sfmono-regular, Consolas, Menlo, &quot;liberation mono&quot;, &quot;ubuntu mono&quot;, Courier, monospace; font-size: 0.96em; letter-spacing: -0.03em; color: rgb(102, 119, 136);">n</code> токена самой последней команды (команда - <span>&nbsp;</span><code style="background-repeat: no-repeat; box-sizing: inherit; font-family: cousine, sfmono-regular, Consolas, Menlo, &quot;liberation mono&quot;, &quot;ubuntu mono&quot;, Courier, monospace; font-size: 0.96em; letter-spacing: -0.03em; color: rgb(102, 119, 136);">0</code>; Первый аргумент - <span>&nbsp;</span><code style="background-repeat: no-repeat; box-sizing: inherit; font-family: cousine, sfmono-regular, Consolas, Menlo, &quot;liberation mono&quot;, &quot;ubuntu mono&quot;, Courier, monospace; font-size: 0.96em; letter-spacing: -0.03em; color: rgb(102, 119, 136);">1</code>)</td></tr><tr style="background-repeat: no-repeat; box-sizing: inherit; -webkit-font-smoothing: antialiased; border-top: 1px solid rgba(102, 119, 136, 0.05);"><td style="background-repeat: no-repeat; box-sizing: inherit; -webkit-font-smoothing: antialiased; padding: 8px 16px; vertical-align: top; text-align: left; white-space: nowrap;"><code style="background-repeat: no-repeat; box-sizing: inherit; font-family: cousine, sfmono-regular, Consolas, Menlo, &quot;liberation mono&quot;, &quot;ubuntu mono&quot;, Courier, monospace; font-size: 0.96em; letter-spacing: -0.03em; color: rgb(51, 85, 170);">!^</code></td><td style="background-repeat: no-repeat; box-sizing: inherit; -webkit-font-smoothing: antialiased; padding: 8px 16px; vertical-align: top; text-align: right;">Развернуть первый аргумент последней команды</td></tr><tr style="background-repeat: no-repeat; box-sizing: inherit; -webkit-font-smoothing: antialiased; border-top: 1px solid rgba(102, 119, 136, 0.05);"><td style="background-repeat: no-repeat; box-sizing: inherit; -webkit-font-smoothing: antialiased; padding: 8px 16px; vertical-align: top; text-align: left; white-space: nowrap;"><code style="background-repeat: no-repeat; box-sizing: inherit; font-family: cousine, sfmono-regular, Consolas, Menlo, &quot;liberation mono&quot;, &quot;ubuntu mono&quot;, Courier, monospace; font-size: 0.96em; letter-spacing: -0.03em; color: rgb(51, 85, 170);">!$</code></td><td style="background-repeat: no-repeat; box-sizing: inherit; -webkit-font-smoothing: antialiased; padding: 8px 16px; vertical-align: top; text-align: right;">Развернуть последний маркер из последней команды</td></tr><tr style="background-repeat: no-repeat; box-sizing: inherit; -webkit-font-smoothing: antialiased; border-top: 1px solid rgba(102, 119, 136, 0.05);"><td style="background-repeat: no-repeat; box-sizing: inherit; -webkit-font-smoothing: antialiased; padding: 8px 16px; vertical-align: top; text-align: left; white-space: nowrap;"><code style="background-repeat: no-repeat; box-sizing: inherit; font-family: cousine, sfmono-regular, Consolas, Menlo, &quot;liberation mono&quot;, &quot;ubuntu mono&quot;, Courier, monospace; font-size: 0.96em; letter-spacing: -0.03em; color: rgb(51, 85, 170);">!!:n-m</code></td><td style="background-repeat: no-repeat; box-sizing: inherit; -webkit-font-smoothing: antialiased; padding: 8px 16px; vertical-align: top; text-align: right;">Расширить диапазон токенов из последней команды</td></tr><tr style="background-repeat: no-repeat; box-sizing: inherit; -webkit-font-smoothing: antialiased; border-top: 1px solid rgba(102, 119, 136, 0.05);"><td style="background-repeat: no-repeat; box-sizing: inherit; -webkit-font-smoothing: antialiased; padding: 8px 16px; vertical-align: top; text-align: left; white-space: nowrap;"><code style="background-repeat: no-repeat; box-sizing: inherit; font-family: cousine, sfmono-regular, Consolas, Menlo, &quot;liberation mono&quot;, &quot;ubuntu mono&quot;, Courier, monospace; font-size: 0.96em; letter-spacing: -0.03em; color: rgb(51, 85, 170);">!!:n-$</code></td><td style="background-repeat: no-repeat; box-sizing: inherit; -webkit-font-smoothing: antialiased; padding: 8px 16px; vertical-align: top; text-align: right;">Расширить<span>&nbsp;</span><code style="background-repeat: no-repeat; box-sizing: inherit; font-family: cousine, sfmono-regular, Consolas, Menlo, &quot;liberation mono&quot;, &quot;ubuntu mono&quot;, Courier, monospace; font-size: 0.96em; letter-spacing: -0.03em; color: rgb(102, 119, 136);">n</code> токенов до последней из последней команды</td></tr></tbody></table>
 
-`!!`can be replaced with any valid expansion i.e.`!cat`,`!-2`,`!42`, etc.
+`!!` можно заменить любым допустимым расширением, т.е. `!cat`,`!-2`, `!42` и т.д.
 
-## [#](https://devhints.io/bash#miscellaneous)Miscellaneous
+## Разное
 
-### Numeric calculations
+### Числовые расчеты
 
 ```bash
-$((a + 200))      # Add 200 to $a
+$((a + 200))      # Добавить 200 к $a
 
 ```
 
 ```bash
-$((RANDOM%=200))  # Random number 0..200
+$((RANDOM%=200))  # Случайное число 0..200
 
 ```
 
-### Subshells
+### Подоболочки
 
 ```bash
 (cd somedir; echo "I'm now in $PWD")
-pwd # still in first directory
+pwd # еще в первом каталоге
 
 ```
 
-### Redirection
+### Перенаправление
 
 ```bash
 python hello.py > output.txt   # stdout to (file)
@@ -558,11 +558,11 @@ python hello.py &>/dev/null    # stdout and stderr to (null)
 ```
 
 ```bash
-python hello.py < foo.txt      # feed foo.txt to stdin for python
+python hello.py < foo.txt      # подать foo.txt в stdin для python
 
 ```
 
-### Inspecting commands
+### Проверка команды
 
 ```bash
 command -V cd
@@ -570,14 +570,14 @@ command -V cd
 
 ```
 
-### Trap errors
+### Ловушки ошибок
 
 ```bash
 trap 'echo Error at about $LINENO' ERR
 
 ```
 
-or
+или же
 
 ```bash
 traperr() {
@@ -604,7 +604,7 @@ esac
 
 ```
 
-### Source relative
+### Source
 
 ```bash
 source "${0%/*}/../share/foo.sh"
@@ -619,14 +619,14 @@ printf "Hello %s, I'm %s" Sven Olga
 
 ```
 
-### Directory of script
+### Каталог скрипта
 
 ```bash
 DIR="${0%/*}"
 
 ```
 
-### Getting options
+### Получение опций
 
 ```bash
 while [[ "$1" =~ ^- && ! "$1" == "--" ]]; do case $1 in
@@ -654,7 +654,7 @@ END
 
 ```
 
-### Reading input
+### Чтение ввода
 
 ```bash
 echo -n "Proceed? [y/n]: "
@@ -664,17 +664,17 @@ echo $ans
 ```
 
 ```bash
-read -n 1 ans    # Just one character
+read -n 1 ans    # Только один символ
 
 ```
 
-### Special variables
+### Специальные переменные
 
-<table style="background-repeat: no-repeat; box-sizing: inherit; border-collapse: collapse; -webkit-font-smoothing: antialiased; width: 584px; border-top-left-radius: 3px; border-top-right-radius: 3px;"><tbody style="background-repeat: no-repeat; box-sizing: inherit; -webkit-font-smoothing: antialiased;"><tr style="background-repeat: no-repeat; box-sizing: inherit; -webkit-font-smoothing: antialiased;"><td style="background-repeat: no-repeat; box-sizing: inherit; -webkit-font-smoothing: antialiased; padding: 8px 16px; vertical-align: top; text-align: left; white-space: nowrap;"><code style="background-repeat: no-repeat; box-sizing: inherit; font-family: cousine, sfmono-regular, Consolas, Menlo, &quot;liberation mono&quot;, &quot;ubuntu mono&quot;, Courier, monospace; font-size: 0.96em; letter-spacing: -0.03em; color: rgb(51, 85, 170);">$?</code></td><td style="background-repeat: no-repeat; box-sizing: inherit; -webkit-font-smoothing: antialiased; padding: 8px 16px; vertical-align: top; text-align: right;">Exit status of last task</td></tr><tr style="background-repeat: no-repeat; box-sizing: inherit; -webkit-font-smoothing: antialiased; border-top: 1px solid rgba(102, 119, 136, 0.05);"><td style="background-repeat: no-repeat; box-sizing: inherit; -webkit-font-smoothing: antialiased; padding: 8px 16px; vertical-align: top; text-align: left; white-space: nowrap;"><code style="background-repeat: no-repeat; box-sizing: inherit; font-family: cousine, sfmono-regular, Consolas, Menlo, &quot;liberation mono&quot;, &quot;ubuntu mono&quot;, Courier, monospace; font-size: 0.96em; letter-spacing: -0.03em; color: rgb(51, 85, 170);">$!</code></td><td style="background-repeat: no-repeat; box-sizing: inherit; -webkit-font-smoothing: antialiased; padding: 8px 16px; vertical-align: top; text-align: right;">PID of last background task</td></tr><tr style="background-repeat: no-repeat; box-sizing: inherit; -webkit-font-smoothing: antialiased; border-top: 1px solid rgba(102, 119, 136, 0.05);"><td style="background-repeat: no-repeat; box-sizing: inherit; -webkit-font-smoothing: antialiased; padding: 8px 16px; vertical-align: top; text-align: left; white-space: nowrap;"><code style="background-repeat: no-repeat; box-sizing: inherit; font-family: cousine, sfmono-regular, Consolas, Menlo, &quot;liberation mono&quot;, &quot;ubuntu mono&quot;, Courier, monospace; font-size: 0.96em; letter-spacing: -0.03em; color: rgb(51, 85, 170);">$$</code></td><td style="background-repeat: no-repeat; box-sizing: inherit; -webkit-font-smoothing: antialiased; padding: 8px 16px; vertical-align: top; text-align: right;">PID of shell</td></tr></tbody></table>
+<table style="background-repeat: no-repeat; box-sizing: inherit; border-collapse: collapse; -webkit-font-smoothing: antialiased; width: 584px; border-top-left-radius: 3px; border-top-right-radius: 3px;"><tbody style="background-repeat: no-repeat; box-sizing: inherit; -webkit-font-smoothing: antialiased;"><tr style="background-repeat: no-repeat; box-sizing: inherit; -webkit-font-smoothing: antialiased;"><td style="background-repeat: no-repeat; box-sizing: inherit; -webkit-font-smoothing: antialiased; padding: 8px 16px; vertical-align: top; text-align: left; white-space: nowrap;"><code style="background-repeat: no-repeat; box-sizing: inherit; font-family: cousine, sfmono-regular, Consolas, Menlo, &quot;liberation mono&quot;, &quot;ubuntu mono&quot;, Courier, monospace; font-size: 0.96em; letter-spacing: -0.03em; color: rgb(51, 85, 170);">$?</code></td><td style="background-repeat: no-repeat; box-sizing: inherit; -webkit-font-smoothing: antialiased; padding: 8px 16px; vertical-align: top; text-align: right;">Значение выходного статуса (exit) последней задачи</td></tr><tr style="background-repeat: no-repeat; box-sizing: inherit; -webkit-font-smoothing: antialiased; border-top: 1px solid rgba(102, 119, 136, 0.05);"><td style="background-repeat: no-repeat; box-sizing: inherit; -webkit-font-smoothing: antialiased; padding: 8px 16px; vertical-align: top; text-align: left; white-space: nowrap;"><code style="background-repeat: no-repeat; box-sizing: inherit; font-family: cousine, sfmono-regular, Consolas, Menlo, &quot;liberation mono&quot;, &quot;ubuntu mono&quot;, Courier, monospace; font-size: 0.96em; letter-spacing: -0.03em; color: rgb(51, 85, 170);">$!</code></td><td style="background-repeat: no-repeat; box-sizing: inherit; -webkit-font-smoothing: antialiased; padding: 8px 16px; vertical-align: top; text-align: right;">PID последней фоновой задачи</td></tr><tr style="background-repeat: no-repeat; box-sizing: inherit; -webkit-font-smoothing: antialiased; border-top: 1px solid rgba(102, 119, 136, 0.05);"><td style="background-repeat: no-repeat; box-sizing: inherit; -webkit-font-smoothing: antialiased; padding: 8px 16px; vertical-align: top; text-align: left; white-space: nowrap;"><code style="background-repeat: no-repeat; box-sizing: inherit; font-family: cousine, sfmono-regular, Consolas, Menlo, &quot;liberation mono&quot;, &quot;ubuntu mono&quot;, Courier, monospace; font-size: 0.96em; letter-spacing: -0.03em; color: rgb(51, 85, 170);">$$</code></td><td style="background-repeat: no-repeat; box-sizing: inherit; -webkit-font-smoothing: antialiased; padding: 8px 16px; vertical-align: top; text-align: right;">PID оболочки</td></tr></tbody></table>
 
-See[Special parameters](http://wiki.bash-hackers.org/syntax/shellvars#special_parameters_and_shell_variables).
+Смотрите [Специальные параметры](http://wiki.bash-hackers.org/syntax/shellvars#special_parameters_and_shell_variables).
 
-### Go to previous directory
+### Перейти в предыдущий каталог
 
 ```bash
 pwd # /home/user/foo
@@ -685,7 +685,7 @@ pwd # /home/user/foo
 
 ```
 
-## [#](https://devhints.io/bash#also-see)Also see
+## Смотрите также
 
 *   [Bash-hackers wiki](http://wiki.bash-hackers.org/)_(bash-hackers.org)_
 *   [Shell vars](http://wiki.bash-hackers.org/syntax/shellvars)_(bash-hackers.org)_
