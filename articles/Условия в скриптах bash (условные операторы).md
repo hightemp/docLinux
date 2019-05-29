@@ -197,7 +197,7 @@ if [[ "$stringvar" == *string* ]]; then
     
     Обратите внимание, что оператор _and_ имеет приоритет над оператором _or_, что означает, что «&&» или «-a» будет оцениваться перед «||» или «-о».
     
-*   _The fifth difference_is that the double-bracket syntax allows regex pattern matching using the “=~” operator. See[the table](https://linuxacademy.com/blog/linux/conditions-in-bash-scripting-if-statements/#string-based-conditions)for more information.
+*   Пятое отличие состоит в том, что синтаксис в двойных скобках позволяет сопоставлять шаблоны с помощью оператора «=\~». Смотрите [таблица] (https://linuxacademy.com/blog/linux/conditions-in-bash-scripting-if-statements/#string-based-conditions) для получения дополнительной информации.
 
 ### 3\. Double-parenthesis syntax
 
