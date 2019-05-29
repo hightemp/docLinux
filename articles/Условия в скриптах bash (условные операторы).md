@@ -92,9 +92,9 @@ fi
     
     Обязательно поместите "!" В скобки!
     
-2.  _You can combine conditions_by using certain operators. For the single-bracket syntax that we’ve been using so far, you can use “-a” for_and_and “-o” for_or_. Example:
+2.  _Вы можете комбинировать условия_ с помощью определенных операторов. Для синтаксиса с одной скобкой, который мы использовали до сих пор, вы можете использовать «-a» для _and_ и «-o» для _or_. Пример:
     
-    ```
+    ```bash
     if [ $foo -ge 3 -a $foo -lt 10 ]; then
     ```
     
