@@ -44,11 +44,11 @@ if <condition>; then
 fi
 ```
 
-The condition is, depending on its type, surrounded by certain  
-brackets, eg. \[ \]. You can read about the different types further on  
-in the tutorial. You can add commands to be executed when the condition is false using the_else_keyword, and use the_elif_(elseif) keyword to execute commands on another condition if the primary condition is false. The_else_keyword always comes last. Example:
+Условие, в зависимости от его типа, окружено определенным
+скобки, например. \[\]. Вы можете прочитать о различных типах дальше
+в учебнике. Вы можете добавить команды, которые будут выполняться, когда условие ложно, с помощью ключевого слова _else_ и использовать ключевое слово _elif_ (elseif) для выполнения команд с другим условием, если основное условие ложно. Ключевое слово _else_ всегда стоит последним. Пример:
 
-```
+```bash
 if [ -r somefile ]; then
         content=$(cat somefile)
 elif [ -f somefile ]; then
@@ -58,7 +58,7 @@ else
 fi
 ```
 
-A short explanation of the example: first we check if the file somefile is readable (“if \[ -r somefile \]”). If so, we read it into a variable. If not, we check if it actually exists (“elif \[ -f somefile \]”). If that’s true, we report that it exists but isn’t readable (if it was, we would have read the content). If the file doesn’t exist, we report so, too. The condition at_elif_is only executed if the condition at_if_was false. The commands belonging to_else_are only executed if both conditions are false.
+Краткое объяснение примера: сначала мы проверяем, является ли файл somefile читаемым («if \[-r somefile \]»). Если так, мы читаем это в переменную. Если нет, мы проверяем, существует ли он на самом деле («elif \[-f somefile \]»). Если это правда, мы сообщаем, что он существует, но не читается (если бы это было так, мы бы прочитали содержимое). Если файл не существует, мы также сообщаем об этом. Условие в _elif_ выполняется только в том случае, если условие в _if_ было ложным. Команды, принадлежащие _else_, выполняются, только если оба условия ложны.
 
 ## The basic rules of conditions
 
