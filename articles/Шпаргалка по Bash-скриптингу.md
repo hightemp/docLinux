@@ -692,3 +692,5 @@ pwd # /home/user/foo
 *   [Learn bash in y minutes](https://learnxinyminutes.com/docs/bash/) _(learnxinyminutes.com)_
 *   [Bash Guide](http://mywiki.wooledge.org/BashGuide) _(mywiki.wooledge.org)_
 *   [ShellCheck](https://www.shellcheck.net/) _(shellcheck.net)_
+**********
+[bash](/tags/bash.md)
