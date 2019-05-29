@@ -32,13 +32,13 @@ if [ -f regularfile ]; then
 if [ -r readablefile]; then
 ```
 
-The above condition is true if the file ‘readablefile’ exists_and_is readable. Easy, isn’t it?
+Приведенное выше условие выполняется, если файл «readablefile» существует и доступен для чтения. Легко, не правда ли?
 
-## The syntax of an if statement (a short explanation)
+## Синтаксис оператора if (краткое объяснение)
 
-The basic syntax of an_if … then_statement is like this:
+Основной синтаксис оператора _if … then_ выглядит следующим образом:
 
-```
+```bash
 if <condition>; then
 <commands>
 fi
