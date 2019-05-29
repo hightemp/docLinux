@@ -27,8 +27,6 @@ Software Requirements and Linux Command Line Conventions
 
 ## The systemd init system
 
-![rpm](/images/c71cae4b64cdfab1a2c60782e5ff4b7d.png)
-
 All the major distributions, such as Rhel, CentOS, Fedora, Ubuntu, Debian and Archlinux, adopted systemd as their init system. Systemd, actually, is more than just an init system, and that's one of the reasons why some people are strongly against its design, which goes against the well established unix motto: "do one thing and do it well". Where other init systems use simple shell script to manage services, systemd uses its own`.service`files (units with the .service suffix): in this tutorial we will see how they are structured and how to create and install one.
 
 * * *
