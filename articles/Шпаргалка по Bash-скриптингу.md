@@ -183,9 +183,9 @@ DIR=${SRC%$BASE}  #=> "/path/to/" (dirpath)
 
 `:` Является необязательным (например, `${FOO=word}` работает)
 
-## [#](https://devhints.io/bash#loops)Loops
+## Циклы
 
-### Basic for loop
+### Основной цикл
 
 ```bash
 for i in /etc/rc.*; do
@@ -194,7 +194,7 @@ done
 
 ```
 
-### C-like for loop
+### C-подобный цикл
 
 ```bash
 for ((i = 0 ; i < 100 ; i++)); do
@@ -203,7 +203,7 @@ done
 
 ```
 
-### Ranges
+### Диапазоны
 
 ```bash
 for i in {1..5}; do
@@ -212,7 +212,7 @@ done
 
 ```
 
-#### With step size
+#### С размером шага 
 
 ```bash
 for i in {5..50..5}; do
@@ -221,7 +221,7 @@ done
 
 ```
 
-### Reading lines
+### Чтение линий
 
 ```bash
 < file.txt | while read line; do
@@ -230,7 +230,7 @@ done
 
 ```
 
-### Forever
+### Вечный цикл
 
 ```bash
 while true; do
@@ -239,9 +239,9 @@ done
 
 ```
 
-## [#](https://devhints.io/bash#functions)Functions
+## Функции
 
-### Defining functions
+### Определение функции
 
 ```bash
 myfunc() {
@@ -263,7 +263,7 @@ myfunc "John"
 
 ```
 
-### Returning values
+### Возврат значений
 
 ```bash
 myfunc() {
@@ -278,7 +278,7 @@ result="$(myfunc)"
 
 ```
 
-### Raising errors
+### Ошибки
 
 ```bash
 myfunc() {
@@ -296,17 +296,17 @@ fi
 
 ```
 
-### Arguments
+### Аргументы
 
-<table style="background-repeat: no-repeat; box-sizing: inherit; border-collapse: collapse; -webkit-font-smoothing: antialiased; width: 378px; border-top-left-radius: 3px; border-top-right-radius: 3px;"><tbody style="background-repeat: no-repeat; box-sizing: inherit; -webkit-font-smoothing: antialiased;"><tr style="background-repeat: no-repeat; box-sizing: inherit; -webkit-font-smoothing: antialiased;"><td style="background-repeat: no-repeat; box-sizing: inherit; -webkit-font-smoothing: antialiased; padding: 8px 16px; vertical-align: top; text-align: left; white-space: nowrap;"><code style="background-repeat: no-repeat; box-sizing: inherit; font-family: cousine, sfmono-regular, Consolas, Menlo, &quot;liberation mono&quot;, &quot;ubuntu mono&quot;, Courier, monospace; font-size: 0.96em; letter-spacing: -0.03em; color: rgb(51, 85, 170);">$#</code></td><td style="background-repeat: no-repeat; box-sizing: inherit; -webkit-font-smoothing: antialiased; padding: 8px 16px; vertical-align: top; text-align: right;">Number of arguments</td></tr><tr style="background-repeat: no-repeat; box-sizing: inherit; -webkit-font-smoothing: antialiased; border-top: 1px solid rgba(102, 119, 136, 0.05);"><td style="background-repeat: no-repeat; box-sizing: inherit; -webkit-font-smoothing: antialiased; padding: 8px 16px; vertical-align: top; text-align: left; white-space: nowrap;"><code style="background-repeat: no-repeat; box-sizing: inherit; font-family: cousine, sfmono-regular, Consolas, Menlo, &quot;liberation mono&quot;, &quot;ubuntu mono&quot;, Courier, monospace; font-size: 0.96em; letter-spacing: -0.03em; color: rgb(51, 85, 170);">$*</code></td><td style="background-repeat: no-repeat; box-sizing: inherit; -webkit-font-smoothing: antialiased; padding: 8px 16px; vertical-align: top; text-align: right;">All arguments</td></tr><tr style="background-repeat: no-repeat; box-sizing: inherit; -webkit-font-smoothing: antialiased; border-top: 1px solid rgba(102, 119, 136, 0.05);"><td style="background-repeat: no-repeat; box-sizing: inherit; -webkit-font-smoothing: antialiased; padding: 8px 16px; vertical-align: top; text-align: left; white-space: nowrap;"><code style="background-repeat: no-repeat; box-sizing: inherit; font-family: cousine, sfmono-regular, Consolas, Menlo, &quot;liberation mono&quot;, &quot;ubuntu mono&quot;, Courier, monospace; font-size: 0.96em; letter-spacing: -0.03em; color: rgb(51, 85, 170);">$@</code></td><td style="background-repeat: no-repeat; box-sizing: inherit; -webkit-font-smoothing: antialiased; padding: 8px 16px; vertical-align: top; text-align: right;">All arguments, starting from first</td></tr><tr style="background-repeat: no-repeat; box-sizing: inherit; -webkit-font-smoothing: antialiased; border-top: 1px solid rgba(102, 119, 136, 0.05);"><td style="background-repeat: no-repeat; box-sizing: inherit; -webkit-font-smoothing: antialiased; padding: 8px 16px; vertical-align: top; text-align: left; white-space: nowrap;"><code style="background-repeat: no-repeat; box-sizing: inherit; font-family: cousine, sfmono-regular, Consolas, Menlo, &quot;liberation mono&quot;, &quot;ubuntu mono&quot;, Courier, monospace; font-size: 0.96em; letter-spacing: -0.03em; color: rgb(51, 85, 170);">$1</code></td><td style="background-repeat: no-repeat; box-sizing: inherit; -webkit-font-smoothing: antialiased; padding: 8px 16px; vertical-align: top; text-align: right;">First argument</td></tr></tbody></table>
+<table style="background-repeat: no-repeat; box-sizing: inherit; border-collapse: collapse; -webkit-font-smoothing: antialiased; width: 378px; border-top-left-radius: 3px; border-top-right-radius: 3px;"><tbody style="background-repeat: no-repeat; box-sizing: inherit; -webkit-font-smoothing: antialiased;"><tr style="background-repeat: no-repeat; box-sizing: inherit; -webkit-font-smoothing: antialiased;"><td style="background-repeat: no-repeat; box-sizing: inherit; -webkit-font-smoothing: antialiased; padding: 8px 16px; vertical-align: top; text-align: left; white-space: nowrap;"><code style="background-repeat: no-repeat; box-sizing: inherit; font-family: cousine, sfmono-regular, Consolas, Menlo, &quot;liberation mono&quot;, &quot;ubuntu mono&quot;, Courier, monospace; font-size: 0.96em; letter-spacing: -0.03em; color: rgb(51, 85, 170);">$#</code></td><td style="background-repeat: no-repeat; box-sizing: inherit; -webkit-font-smoothing: antialiased; padding: 8px 16px; vertical-align: top; text-align: right;">Количество аргументов</td></tr><tr style="background-repeat: no-repeat; box-sizing: inherit; -webkit-font-smoothing: antialiased; border-top: 1px solid rgba(102, 119, 136, 0.05);"><td style="background-repeat: no-repeat; box-sizing: inherit; -webkit-font-smoothing: antialiased; padding: 8px 16px; vertical-align: top; text-align: left; white-space: nowrap;"><code style="background-repeat: no-repeat; box-sizing: inherit; font-family: cousine, sfmono-regular, Consolas, Menlo, &quot;liberation mono&quot;, &quot;ubuntu mono&quot;, Courier, monospace; font-size: 0.96em; letter-spacing: -0.03em; color: rgb(51, 85, 170);">$*</code></td><td style="background-repeat: no-repeat; box-sizing: inherit; -webkit-font-smoothing: antialiased; padding: 8px 16px; vertical-align: top; text-align: right;">Все аргументы</td></tr><tr style="background-repeat: no-repeat; box-sizing: inherit; -webkit-font-smoothing: antialiased; border-top: 1px solid rgba(102, 119, 136, 0.05);"><td style="background-repeat: no-repeat; box-sizing: inherit; -webkit-font-smoothing: antialiased; padding: 8px 16px; vertical-align: top; text-align: left; white-space: nowrap;"><code style="background-repeat: no-repeat; box-sizing: inherit; font-family: cousine, sfmono-regular, Consolas, Menlo, &quot;liberation mono&quot;, &quot;ubuntu mono&quot;, Courier, monospace; font-size: 0.96em; letter-spacing: -0.03em; color: rgb(51, 85, 170);">$@</code></td><td style="background-repeat: no-repeat; box-sizing: inherit; -webkit-font-smoothing: antialiased; padding: 8px 16px; vertical-align: top; text-align: right;">Все аргументы, начиная с первого</td></tr><tr style="background-repeat: no-repeat; box-sizing: inherit; -webkit-font-smoothing: antialiased; border-top: 1px solid rgba(102, 119, 136, 0.05);"><td style="background-repeat: no-repeat; box-sizing: inherit; -webkit-font-smoothing: antialiased; padding: 8px 16px; vertical-align: top; text-align: left; white-space: nowrap;"><code style="background-repeat: no-repeat; box-sizing: inherit; font-family: cousine, sfmono-regular, Consolas, Menlo, &quot;liberation mono&quot;, &quot;ubuntu mono&quot;, Courier, monospace; font-size: 0.96em; letter-spacing: -0.03em; color: rgb(51, 85, 170);">$1</code></td><td style="background-repeat: no-repeat; box-sizing: inherit; -webkit-font-smoothing: antialiased; padding: 8px 16px; vertical-align: top; text-align: right;">Первый аргумент</td></tr></tbody></table>
 
-See[Special parameters](http://wiki.bash-hackers.org/syntax/shellvars#special_parameters_and_shell_variables).
+См. [специальные параметры](http://wiki.bash-hackers.org/syntax/shellvars#special_parameters_and_shell_variables).
 
-## [#](https://devhints.io/bash#conditionals)Conditionals
+## Условия
 
-### Conditions
+### Условия
 
-Note that`[[`is actually a command/program that returns either`0`(true) or`1`(false). Any program that obeys the same logic (like all base utils, such as`grep(1)`or`ping(1)`) can be used as condition, see examples.
+Обратите внимание, что ` [[`- это на самом деле команда/программа, которая возвращает `0` (true) или `1` (ложь). Любая программа, которая подчиняется той же логике (как и все базовые утилиты, такие как `команда grep(1) " или " пинг - (1)`) можно использовать как условие, см. примеры.
 
 <table style="background-repeat: no-repeat; box-sizing: inherit; border-collapse: collapse; -webkit-font-smoothing: antialiased; width: 378px; border-top: 1px solid rgba(102, 119, 136, 0.05);"><tbody style="background-repeat: no-repeat; box-sizing: inherit; -webkit-font-smoothing: antialiased;"><tr style="background-repeat: no-repeat; box-sizing: inherit; -webkit-font-smoothing: antialiased;"><td style="background-repeat: no-repeat; box-sizing: inherit; -webkit-font-smoothing: antialiased; padding: 8px 16px; vertical-align: top; text-align: left; white-space: nowrap;"><code style="background-repeat: no-repeat; box-sizing: inherit; font-family: cousine, sfmono-regular, Consolas, Menlo, &quot;liberation mono&quot;, &quot;ubuntu mono&quot;, Courier, monospace; font-size: 0.96em; letter-spacing: -0.03em; color: rgb(51, 85, 170);">[[ -z STRING ]]</code></td><td style="background-repeat: no-repeat; box-sizing: inherit; -webkit-font-smoothing: antialiased; padding: 8px 16px; vertical-align: top; text-align: right;">Empty string</td></tr><tr style="background-repeat: no-repeat; box-sizing: inherit; -webkit-font-smoothing: antialiased; border-top: 1px solid rgba(102, 119, 136, 0.05);"><td style="background-repeat: no-repeat; box-sizing: inherit; -webkit-font-smoothing: antialiased; padding: 8px 16px; vertical-align: top; text-align: left; white-space: nowrap;"><code style="background-repeat: no-repeat; box-sizing: inherit; font-family: cousine, sfmono-regular, Consolas, Menlo, &quot;liberation mono&quot;, &quot;ubuntu mono&quot;, Courier, monospace; font-size: 0.96em; letter-spacing: -0.03em; color: rgb(51, 85, 170);">[[ -n STRING ]]</code></td><td style="background-repeat: no-repeat; box-sizing: inherit; -webkit-font-smoothing: antialiased; padding: 8px 16px; vertical-align: top; text-align: right;">Not empty string</td></tr><tr style="background-repeat: no-repeat; box-sizing: inherit; -webkit-font-smoothing: antialiased; border-top: 1px solid rgba(102, 119, 136, 0.05);"><td style="background-repeat: no-repeat; box-sizing: inherit; -webkit-font-smoothing: antialiased; padding: 8px 16px; vertical-align: top; text-align: left; white-space: nowrap;"><code style="background-repeat: no-repeat; box-sizing: inherit; font-family: cousine, sfmono-regular, Consolas, Menlo, &quot;liberation mono&quot;, &quot;ubuntu mono&quot;, Courier, monospace; font-size: 0.96em; letter-spacing: -0.03em; color: rgb(51, 85, 170);">[[ STRING == STRING ]]</code></td><td style="background-repeat: no-repeat; box-sizing: inherit; -webkit-font-smoothing: antialiased; padding: 8px 16px; vertical-align: top; text-align: right;">Equal</td></tr><tr style="background-repeat: no-repeat; box-sizing: inherit; -webkit-font-smoothing: antialiased; border-top: 1px solid rgba(102, 119, 136, 0.05);"><td style="background-repeat: no-repeat; box-sizing: inherit; -webkit-font-smoothing: antialiased; padding: 8px 16px; vertical-align: top; text-align: left; white-space: nowrap;"><code style="background-repeat: no-repeat; box-sizing: inherit; font-family: cousine, sfmono-regular, Consolas, Menlo, &quot;liberation mono&quot;, &quot;ubuntu mono&quot;, Courier, monospace; font-size: 0.96em; letter-spacing: -0.03em; color: rgb(51, 85, 170);">[[ STRING != STRING ]]</code></td><td style="background-repeat: no-repeat; box-sizing: inherit; -webkit-font-smoothing: antialiased; padding: 8px 16px; vertical-align: top; text-align: right;">Not Equal</td></tr></tbody><tbody style="background-repeat: no-repeat; box-sizing: inherit; -webkit-font-smoothing: antialiased; border-top: 1px solid rgba(102, 119, 136, 0.2);"><tr style="background-repeat: no-repeat; box-sizing: inherit; -webkit-font-smoothing: antialiased;"><td style="background-repeat: no-repeat; box-sizing: inherit; -webkit-font-smoothing: antialiased; padding: 8px 16px; vertical-align: top; text-align: left; white-space: nowrap;"><code style="background-repeat: no-repeat; box-sizing: inherit; font-family: cousine, sfmono-regular, Consolas, Menlo, &quot;liberation mono&quot;, &quot;ubuntu mono&quot;, Courier, monospace; font-size: 0.96em; letter-spacing: -0.03em; color: rgb(51, 85, 170);">[[ NUM -eq NUM ]]</code></td><td style="background-repeat: no-repeat; box-sizing: inherit; -webkit-font-smoothing: antialiased; padding: 8px 16px; vertical-align: top; text-align: right;">Equal</td></tr><tr style="background-repeat: no-repeat; box-sizing: inherit; -webkit-font-smoothing: antialiased; border-top: 1px solid rgba(102, 119, 136, 0.05);"><td style="background-repeat: no-repeat; box-sizing: inherit; -webkit-font-smoothing: antialiased; padding: 8px 16px; vertical-align: top; text-align: left; white-space: nowrap;"><code style="background-repeat: no-repeat; box-sizing: inherit; font-family: cousine, sfmono-regular, Consolas, Menlo, &quot;liberation mono&quot;, &quot;ubuntu mono&quot;, Courier, monospace; font-size: 0.96em; letter-spacing: -0.03em; color: rgb(51, 85, 170);">[[ NUM -ne NUM ]]</code></td><td style="background-repeat: no-repeat; box-sizing: inherit; -webkit-font-smoothing: antialiased; padding: 8px 16px; vertical-align: top; text-align: right;">Not equal</td></tr><tr style="background-repeat: no-repeat; box-sizing: inherit; -webkit-font-smoothing: antialiased; border-top: 1px solid rgba(102, 119, 136, 0.05);"><td style="background-repeat: no-repeat; box-sizing: inherit; -webkit-font-smoothing: antialiased; padding: 8px 16px; vertical-align: top; text-align: left; white-space: nowrap;"><code style="background-repeat: no-repeat; box-sizing: inherit; font-family: cousine, sfmono-regular, Consolas, Menlo, &quot;liberation mono&quot;, &quot;ubuntu mono&quot;, Courier, monospace; font-size: 0.96em; letter-spacing: -0.03em; color: rgb(51, 85, 170);">[[ NUM -lt NUM ]]</code></td><td style="background-repeat: no-repeat; box-sizing: inherit; -webkit-font-smoothing: antialiased; padding: 8px 16px; vertical-align: top; text-align: right;">Less than</td></tr><tr style="background-repeat: no-repeat; box-sizing: inherit; -webkit-font-smoothing: antialiased; border-top: 1px solid rgba(102, 119, 136, 0.05);"><td style="background-repeat: no-repeat; box-sizing: inherit; -webkit-font-smoothing: antialiased; padding: 8px 16px; vertical-align: top; text-align: left; white-space: nowrap;"><code style="background-repeat: no-repeat; box-sizing: inherit; font-family: cousine, sfmono-regular, Consolas, Menlo, &quot;liberation mono&quot;, &quot;ubuntu mono&quot;, Courier, monospace; font-size: 0.96em; letter-spacing: -0.03em; color: rgb(51, 85, 170);">[[ NUM -le NUM ]]</code></td><td style="background-repeat: no-repeat; box-sizing: inherit; -webkit-font-smoothing: antialiased; padding: 8px 16px; vertical-align: top; text-align: right;">Less than or equal</td></tr><tr style="background-repeat: no-repeat; box-sizing: inherit; -webkit-font-smoothing: antialiased; border-top: 1px solid rgba(102, 119, 136, 0.05);"><td style="background-repeat: no-repeat; box-sizing: inherit; -webkit-font-smoothing: antialiased; padding: 8px 16px; vertical-align: top; text-align: left; white-space: nowrap;"><code style="background-repeat: no-repeat; box-sizing: inherit; font-family: cousine, sfmono-regular, Consolas, Menlo, &quot;liberation mono&quot;, &quot;ubuntu mono&quot;, Courier, monospace; font-size: 0.96em; letter-spacing: -0.03em; color: rgb(51, 85, 170);">[[ NUM -gt NUM ]]</code></td><td style="background-repeat: no-repeat; box-sizing: inherit; -webkit-font-smoothing: antialiased; padding: 8px 16px; vertical-align: top; text-align: right;">Greater than</td></tr><tr style="background-repeat: no-repeat; box-sizing: inherit; -webkit-font-smoothing: antialiased; border-top: 1px solid rgba(102, 119, 136, 0.05);"><td style="background-repeat: no-repeat; box-sizing: inherit; -webkit-font-smoothing: antialiased; padding: 8px 16px; vertical-align: top; text-align: left; white-space: nowrap;"><code style="background-repeat: no-repeat; box-sizing: inherit; font-family: cousine, sfmono-regular, Consolas, Menlo, &quot;liberation mono&quot;, &quot;ubuntu mono&quot;, Courier, monospace; font-size: 0.96em; letter-spacing: -0.03em; color: rgb(51, 85, 170);">[[ NUM -ge NUM ]]</code></td><td style="background-repeat: no-repeat; box-sizing: inherit; -webkit-font-smoothing: antialiased; padding: 8px 16px; vertical-align: top; text-align: right;">Greater than or equal</td></tr></tbody><tbody style="background-repeat: no-repeat; box-sizing: inherit; -webkit-font-smoothing: antialiased; border-top: 1px solid rgba(102, 119, 136, 0.2);"><tr style="background-repeat: no-repeat; box-sizing: inherit; -webkit-font-smoothing: antialiased;"><td style="background-repeat: no-repeat; box-sizing: inherit; -webkit-font-smoothing: antialiased; padding: 8px 16px; vertical-align: top; text-align: left; white-space: nowrap;"><code style="background-repeat: no-repeat; box-sizing: inherit; font-family: cousine, sfmono-regular, Consolas, Menlo, &quot;liberation mono&quot;, &quot;ubuntu mono&quot;, Courier, monospace; font-size: 0.96em; letter-spacing: -0.03em; color: rgb(51, 85, 170);">[[ STRING =~ STRING ]]</code></td><td style="background-repeat: no-repeat; box-sizing: inherit; -webkit-font-smoothing: antialiased; padding: 8px 16px; vertical-align: top; text-align: right;">Regexp</td></tr></tbody><tbody style="background-repeat: no-repeat; box-sizing: inherit; -webkit-font-smoothing: antialiased; border-top: 1px solid rgba(102, 119, 136, 0.2);"><tr style="background-repeat: no-repeat; box-sizing: inherit; -webkit-font-smoothing: antialiased;"><td style="background-repeat: no-repeat; box-sizing: inherit; -webkit-font-smoothing: antialiased; padding: 8px 16px; vertical-align: top; text-align: left; white-space: nowrap;"><code style="background-repeat: no-repeat; box-sizing: inherit; font-family: cousine, sfmono-regular, Consolas, Menlo, &quot;liberation mono&quot;, &quot;ubuntu mono&quot;, Courier, monospace; font-size: 0.96em; letter-spacing: -0.03em; color: rgb(51, 85, 170);">(( NUM &lt; NUM ))</code></td><td style="background-repeat: no-repeat; box-sizing: inherit; -webkit-font-smoothing: antialiased; padding: 8px 16px; vertical-align: top; text-align: right;">Numeric conditions</td></tr></tbody></table>
 
