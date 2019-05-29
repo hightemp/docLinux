@@ -1,6 +1,6 @@
 # Как использовать logger в Linux
 
-he[Linux](https://www.networkworld.com/article/3215226/linux/what-is-linux-uses-featres-products-operating-systems.html)**logger**command provides an easy way to add log files to**/var/log/syslog**— from the command line, from scripts, or from other files. In today's post, we'll take a look at how it works.
+The [Linux](https://www.networkworld.com/article/3215226/linux/what-is-linux-uses-featres-products-operating-systems.html) **logger** command provides an easy way to add log files to **/var/log/syslog** — from the command line, from scripts, or from other files. In today's post, we'll take a look at how it works.
 
 ### How easy is easy?
 
