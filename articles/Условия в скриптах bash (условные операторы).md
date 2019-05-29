@@ -103,48 +103,48 @@ fi
 
 И еще одна базовая вещь: не забывайте, что условия могут также использоваться в других операторах, таких как _while_ и _until_. Объяснение этого не входит в этот урок, но вы можете прочитать о них в [Руководстве по Bash для начинающих](http://www.tldp.org/LDP/Bash-Beginners-Guide/html/sect_09_02.html.).
 
-Anyway, I’ve only shown you conditions between single brackets so far. There are more syntaxes, however, as you will read in the next section.
+Во всяком случае, я пока показал вам только условия в одинарных скобках. Однако есть и другие синтаксисы, о которых вы узнаете в следующем разделе.
 
-## Different condition syntaxes
+## Различные синтаксисы условий
 
-Bash features different syntaxes for conditions. I will list the three of them:
+Bash имеет различные синтаксисы для условий. Я перечислю три из них:
 
-### 1\. Single-bracket syntax
+### 1. Синтаксис с одной скобкой
 
-This is the condition syntax you have already seen in the previous paragraphs; it’s the oldest supported syntax. It supports three types of conditions:
+Это синтаксис условия, который вы уже видели в предыдущих параграфах; это самый старый поддерживаемый синтаксис. Он поддерживает три типа условий:
 
-*   **File-based conditions**
-    *   Allows different kinds of checks on a file. Example:
+*   **Файловые условия**
+    *   Позволяет различные виды проверок. Пример:
         
-        ```
+        ```bash
         if [ -L symboliclink ]; then
         ```
         
-        The above condition is true if the file ‘symboliclink’ exists and is a symbolic link. For more file-based conditions see[the table](https://linuxacademy.com/blog/linux/conditions-in-bash-scripting-if-statements/#file-based-conditions "Go to the table of testing expressions")below.
+        Приведенное выше условие верно, если файл символическая ссылка существует и является символической ссылкой. Дополнительные условия для файлов см. в [таблице](https://linuxacademy.com/blog/linux/conditions-in-bash-scripting-if-statements/#file-based-conditions) ниже.
         
-*   **String-based conditions**
-    *   Allows checks on a string and comparing of strings. Example one:
+*   **Строковые условия**
+    *   Позволяет проверять строку и сравнивать строки. Пример первый:
         
-        ```
+        ```bash
         if [ -z "$emptystring" ]; then
         ```
         
-        The above condition is true if $emptystring is an empty string or an uninitialized variable. Example two:
+        Вышеуказанное условие истинно, если $emptystring является пустой строкой или неинициализированной переменной. Пример два:
         
-        ```
+        ```bash
         if [ "$stringvar1" == "cheese" ]; then
         ```
         
-        The above condition is true if $stringvar1 contains just the string “cheese”. For more string-based conditions see[the table](https://linuxacademy.com/blog/linux/conditions-in-bash-scripting-if-statements/#string-based-conditions "Go to the table of testing expressions")below.
+        Приведенное выше условие истинно, если $stringvar1 содержит только строку «cheese». Дополнительные условия на основе строк см. в [таблице](https://linuxacademy.com/blog/linux/conditions-in-bash-scripting-if-statements/#string-based-conditions) ниже.
         
-*   **Arithmetic (number-based) conditions**
-    *   Allows comparing integer numbers. Example:
+*   **Арифметические (числовые) условия**
+    *   Позволяет сравнивать целые числа. Пример:
         
-        ```
+        ```bash
         if [ $num -lt 1 ]; then
         ```
         
-        The above condition returns true if $num is less than 1. For more arithmetic conditions see[the table](https://linuxacademy.com/blog/linux/conditions-in-bash-scripting-if-statements/#arithmetic-conditions "Go to the table of testing expressions")below.
+        Приведенное выше условие возвращает true, если $num меньше 1. Более подробные арифметические условия см. в [таблице](https://linuxacademy.com/blog/linux/conditions-in-bash-scripting-if-statements/#arithmetic-conditions) ниже.
         
 
 ### 2\. Double-bracket syntax
