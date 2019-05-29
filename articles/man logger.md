@@ -346,3 +346,6 @@ LOGGER(1)                       User Commands                      LOGGER(1)
        man-pages@man7.org
 
 util-linux                      November 2015                      LOGGER(1)
+
+**********
+[logger](/tags/logger.md)
