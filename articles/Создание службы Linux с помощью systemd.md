@@ -118,7 +118,7 @@ StartLimitIntervalSec=10
 
 The`RestartSec`directive also has an impact on the outcome: if you set it to restart after 3 seconds, then you can never reach 5 failed retries within 10 seconds.
 
-**The simple fix that always works is to set**`**StartLimitIntervalSec=0**`**.**This way, systemd will attempt to restart your service forever.
+**The simple fix that always works is to set `StartLimitIntervalSec=0`.** This way, systemd will attempt to restart your service forever.
 
 It’s a good idea to set `RestartSec` to at least 1 second though, to avoid putting too much stress on your server when things start going wrong.
 
