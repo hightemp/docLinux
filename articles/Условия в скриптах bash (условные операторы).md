@@ -64,13 +64,13 @@ fi
 
 Когда вы начинаете писать и использовать свои собственные условия, вы должны знать некоторые правила, чтобы избежать ошибок, которые трудно отследить. Вот три важных:
 
-1.  **Always keep spaces between the brackets and the actual check/comparison**. The following won’t work:
+1.  **Всегда оставляйте пробелы между скобками и фактической проверкой/сравнением**. Следующие не будут работать:
     
-    ```
+    ```bash
     if [$foo -ge 3]; then
     ```
     
-    Bash will complain about a “missing \`\]'”.
+    Баш будет жаловаться на “отсутствуoщий '\]'”.
     
 2.  **Always terminate the line before putting a new keyword like “then”**. The words_if_,_then_,_else_,_elif_and_fi_are shell keywords, meaning that they cannot share the same line. Put a “;” between the previous statement and the keyword or place the keyword on the start of a new line. Bash will throw errors like “syntax error near unexpected token \`fi'” if you don’t.
 3.  _It is a good habit to quote string variables if you use them in conditions_, because otherwise they are likely to give trouble if they contain  
