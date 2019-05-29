@@ -179,17 +179,17 @@ if [[ "$stringvar" == *string* ]]; then
     if [ -a *.sh ]; then
     ```
     
-    The above condition will return true if there is one single file in the working directory that has a .sh extension. If there are none, it will return false. If there are several .sh files, bash will throw an error and stop executing the script. This is because \*.sh is expanded to the files in the working directory. Using double brackets prevents this:
+    Вышеуказанное условие вернет true, если в рабочем каталоге есть один файл с расширением .sh. Если их нет, он вернет false. Если есть несколько файлов .sh, bash выдаст ошибку и прекратит выполнение скрипта. Это связано с тем, что \*.sh распространяется на файлы в рабочем каталоге. Использование двойных скобок предотвращает это:
     
-    ```
+    ```bash
     if [[ -a *.sh ]]; then
     ```
     
-    The above condition will return true only if there is a file in the working directory called “\*.sh”, no matter what other .sh files exist. The asterisk is taken literally because the double-bracket syntax does not expand filenames.
+    Приведенное выше условие вернет true, только если в рабочем каталоге есть файл с именем «\*.sh», независимо от того, какие существуют другие файлы .sh. Звездочка взята буквально, потому что синтаксис в двойных скобках не расширяет имена файлов.
     
-*   _The fourth difference_is the addition of more generally known combining expressions, or, more specific, the operators “&&” and “||”. Example:
+*   Четвертое отличие - это добавление более общеизвестных объединяющих выражений или, более конкретно, операторов «&&» и «||». Пример:
     
-    ```
+    ```bash
     if [[ $num -eq 3 && "$stringvar" == foo ]]; then
     ```
     
