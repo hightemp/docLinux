@@ -14,12 +14,14 @@ In this tutorial we will see how a systemd service is structured, and we will le
 ## Software Requirements and Conventions Used
 
 Software Requirements and Linux Command Line Conventions
+
 | Category | Requirements, Conventions or Software Version Used |
 | --- | --- |
 | System | A GNU/Linux distribution which uses systemd as init system |
 | Software | systemd |
 | Other | Root permissions are required to install and manage a service. |
-| Conventions | **#**\- requires given[linux commands](https://linuxconfig.org/linux-commands)to be executed with root privileges either directly as a root user or by use of`sudo`command  
+| Conventions | **#**\- requires given[linux commands](https://linuxconfig.org/linux-commands) to be executed with root privileges either directly as a root user or by use of `sudo` command  
+
 **$**\- requires given[linux commands](https://linuxconfig.org/linux-commands)to be executed as a regular non-privileged user  
  |
 
