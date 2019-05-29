@@ -191,5 +191,6 @@ In this tutorial we saw how a systemd service file is composed, what are its sec
 
 Since systemd, like it or not, has become the standard init system in the Linux world, it's important to become familiar to its way of doing things. The official systemd services documentation can be found[on the freedesktop website](https://www.freedesktop.org/software/systemd/man/systemd.service.html). You could also be interested in reading our article about[managing services with systemd](https://linuxconfig.org/start-stop-and-restart-services-on-systemd-rhel-7-linux-server).
 
+
 **********
 [systemd](/tags/systemd.md)
