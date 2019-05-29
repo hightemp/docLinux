@@ -29,15 +29,6 @@ Software Requirements and Linux Command Line Conventions
 
 All the major distributions, such as Rhel, CentOS, Fedora, Ubuntu, Debian and Archlinux, adopted systemd as their init system. Systemd, actually, is more than just an init system, and that's one of the reasons why some people are strongly against its design, which goes against the well established unix motto: "do one thing and do it well". Where other init systems use simple shell script to manage services, systemd uses its own`.service`files (units with the .service suffix): in this tutorial we will see how they are structured and how to create and install one.
 
-* * *
-
-_**SUBSCRIBE TO NEWSLETTER**  
-Subscribe to Linux Career[NEWSLETTER](https://bit.ly/2X5D30q)and receive latest Linux news, jobs, career advice and tutorials._
-
-* * *
-
-* * *
-
 ## Anatomy of a service unit
 
 What is a service unit? A file with the`.service`suffix contains information about a process which is managed by systemd. It is composed by three main sections:
@@ -69,15 +60,6 @@ The line above instructs systemd to start the service unit`httpd.service`only af
 
 ### Specifying hard dependencies with "Requires"
 
-* * *
-
-_**SUBSCRIBE TO NEWSLETTER**  
-Subscribe to Linux Career[NEWSLETTER](https://bit.ly/2X5D30q)and receive latest Linux news, jobs, career advice and tutorials._
-
-* * *
-
-* * *
-
 As we briefly mentioned above, a unit (a service in our case) can depend on other units (not necessarily "service" units) to work correctly: such dependencies can be declared by using the`Requires`option.
 
 If any of the units on which a service depends fails to start, the activation of the service it's stopped: this is why those are called`hard dependencies`. In this line, extracted from the service file of the avahi-daemon, we can see how it is declared as dependent from the avahi-daemon.socket unit:
@@ -106,9 +88,6 @@ A service can be started, stopped, restarted or reloaded. The commands to be exe
 
 The command to be executed when a service starts, is declared by using the`ExecStart`option. The argument passed to the option can also be the path to a script. Optionally, we can declare commands to be executed before and after the service is started, by using the`ExecStartPre`and`ExecStartPost`options respectively. Here is the command used to start the NetworkManager service:
 
-* * *
-
-* * *
 
 ```
 [Service]
@@ -142,14 +121,6 @@ Another process works similarly to`simple`, and it is`notify`: the difference is
 
 By using specific options, it's possible to define some timeouts for the service. Let's start with`RestartSec`: by using this option, we can setup the amount of time (by default in seconds) systemd should wait before restarting a service. A timespan can also be used as a value for this option, as "5min 20s". The default is`100ms`.
 
-* * *
-
-_**SUBSCRIBE TO NEWSLETTER**  
-Subscribe to Linux Career[NEWSLETTER](https://bit.ly/2X5D30q)and receive latest Linux news, jobs, career advice and tutorials._
-
-* * *
-
-* * *
 
 The`TimeoutStartSec`and`TimeoutStopSec`options can be used to specify, respectively, the timeout for a service startup and stop, in seconds. In the first case, if after the specified timeout the daemon startup process it's not completed, it will be considered to be failed.
 
@@ -190,10 +161,6 @@ ExecStop=/usr/sbin/ethtool -s ens5f5 wol g
 WantedBy=multi-user.target
 
 ```
-
-* * *
-
-* * *
 
 We set a simple unit description, and declared that the service depends on the`network.target`unit and should be launched after it is reached. In the`[Service]`section we set the type of the service as`oneshot`, and instructed systemd to consider the service to be active after the command is executed, using the`RemainAfterExit`option. We also defined the commands to be run when the service is started and stopped. Finally, in the`[Install]`section we basically declared that our service should be included in the`multi-user`target.
 
