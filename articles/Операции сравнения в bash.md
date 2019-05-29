@@ -125,6 +125,11 @@
 	строка не "пустая".
 
 <table class="CAUTION" width="90%" border="0"><tbody><tr><td width="25" align="center" valign="top" style="font-size: 11pt;"><img src="https://www.opennet.ru/docs/RUS/bash_scripting_guide/misc/abs-book/images/caution.gif" hspace="5" alt="Caution"></td><td align="left" valign="top" style="font-size: 11pt;"><p>Оператор<span>&nbsp;</span><tt class="USERINPUT"><strong>-n</strong></tt><span>&nbsp;</span>требует, чтобы строка была заключена в кавычки внутри квадратных скобок. Как правило, проверка строк, не заключенных в кавычки, оператором<span>&nbsp;</span><tt class="USERINPUT"><strong>! -z</strong></tt>, или просто указание строки без кавычек внутри квадратных скобок (см.<span>&nbsp;</span><a href="https://www.opennet.ru/docs/RUS/bash_scripting_guide/x2565.html#STRTEST" style="text-decoration: none; color: rgb(96, 96, 144);">Пример 7-6</a>), проходит нормально, однако это небезопасная, с точки зрения отказоустойчивости, практика.<span>&nbsp;</span><span class="emphasis"><em class="EMPHASIS">Всегда</em></span><span>&nbsp;</span>заключайте проверяемую строку в кавычки.<span>&nbsp;</span><a name="AEN2722" href="https://www.opennet.ru/docs/RUS/bash_scripting_guide/x2565.html#FTN.AEN2722" style="text-decoration: none; color: rgb(96, 96, 144);"><span class="footnote">[1]</span></a></p></td></tr></tbody></table>
+n the above script, before uploading the file
+
+![PHPuploadfile](/images/42d23a8eb8a09002f6a8dfa90a9dbe08.jpg)
+
+Once when we select the file and upload then the function
 
 **********
 [bash](/tags/bash.md)
