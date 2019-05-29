@@ -144,7 +144,7 @@ sudo cgexec -g cpu:cpulimited /usr/local/bin/matho-primes 0 9999999999 > /dev/nu
 
 Обратите внимание на то, как ЦП все еще пропорционален в соотношении **2:1**. Теперь две задачи **matho-primes** в группе **cpulimited** совместно используют центральный процессор, в то время как процесс в другой группе все еще получает больше процессорного времени.
 **********
-[centos](/tags/centos.md)
+[CentOS](/tags/CentOS.md)
 [nice](/tags/nice.md)
 [cpulimit](/tags/cpulimit.md)
 [cgroups](/tags/cgroups.md)
