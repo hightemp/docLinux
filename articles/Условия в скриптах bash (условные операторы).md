@@ -72,7 +72,7 @@ fi
     
     Баш будет жаловаться на “отсутствуoщий '\]'”.
     
-2.  **Always terminate the line before putting a new keyword like “then”**. The words_if_,_then_,_else_,_elif_and_fi_are shell keywords, meaning that they cannot share the same line. Put a “;” between the previous statement and the keyword or place the keyword on the start of a new line. Bash will throw errors like “syntax error near unexpected token \`fi'” if you don’t.
+2.  **Всегда заканчивайте строку перед введением нового ключевого слова, такого как «then»**. Слова _if_, _then_, _else_, _elif_ и _fi_ являются ключевыми словами оболочки, что означает, что они не могут использовать одну и ту же строку. Поместите «;» между предыдущим оператором и ключевым словом или поместите ключевое слово в начале новой строки. Bash будет выдавать ошибки, такие как «ошибка синтаксиса, рядом с неожиданным токеном« fi », если вы этого не сделаете.
 3.  _It is a good habit to quote string variables if you use them in conditions_, because otherwise they are likely to give trouble if they contain  
     spaces and/or newlines. By quoting I mean:
     
