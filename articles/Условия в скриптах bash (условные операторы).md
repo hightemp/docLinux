@@ -193,9 +193,9 @@ if [[ "$stringvar" == *string* ]]; then
     if [[ $num -eq 3 && "$stringvar" == foo ]]; then
     ```
     
-    The above condition returns true if $num is equal to 3 and $stringvar is equal to “foo”. The -a and -o known from the single-bracket syntax is supported, too.
+    Приведенное выше условие возвращает true, если $num равно 3, а $stringvar равно «foo». Также поддерживаются -a и -o, известные из синтаксиса с одной скобкой.
     
-    Note that the_and_operator has precedence over the_or_operator, meaning that “&&” or “-a” will be evaluated before “||” or “-o”.
+    Обратите внимание, что оператор _and_ имеет приоритет над оператором _or_, что означает, что «&&» или «-a» будет оцениваться перед «||» или «-о».
     
 *   _The fifth difference_is that the double-bracket syntax allows regex pattern matching using the “=~” operator. See[the table](https://linuxacademy.com/blog/linux/conditions-in-bash-scripting-if-statements/#string-based-conditions)for more information.
 
