@@ -147,35 +147,35 @@ Bash имеет различные синтаксисы для условий. �
         Приведенное выше условие возвращает true, если $num меньше 1. Более подробные арифметические условия см. в [таблице](https://linuxacademy.com/blog/linux/conditions-in-bash-scripting-if-statements/#arithmetic-conditions) ниже.
         
 
-### 2\. Double-bracket syntax
+### 2. Синтаксис в двойных скобках
 
-You may have encountered conditions enclosed in double square brackets already, which look like this:
+Возможно, вы уже столкнулись с условиями, заключенными в двойные квадратные скобки, которые выглядят так:
 
-```
+```bash
 if [[ "$stringvar" == *string* ]]; then
 ```
 
-The double-bracket syntax serves as an enhanced version of the single-bracket syntax; it mainly has the same features, but also some important differences with it. I will list them here:
+Синтаксис двойной скобки служит расширенной версией синтаксиса одной скобки; он в основном имеет те же особенности, но и некоторые важные различия с ним. Я перечислю их здесь:
 
-*   _The first difference_can be seen in the above example; when comparing strings, the double-bracket syntax features shell globbing. This means that an asterisk (“\*”) will expand to literally anything, just as you probably know from normal command-line usage. Therefore, if $stringvar contains the phrase “string” anywhere, the condition will return true. Other forms of shell globbing are allowed, too. If you’d like to match both “String” and “string”, you could use the following syntax:
+*   Первое отличие_ можно увидеть в приведенном выше примере; при сравнении строк в синтаксисе двойных скобок используется глобализация оболочки(shell globbing). Это означает, что звездочка («\*») расширится буквально до чего угодно, как вы, вероятно, знаете из обычного использования командной строки. Поэтому, если $stringvar где-либо содержит фразу «string», условие вернет true. Допускаются и другие формы срыва оболочки. Если вы хотите сопоставить и строку «String», и строку «string», вы можете использовать следующий синтаксис:
     
-    ```
+    ```bash
     if [[ "$stringvar" == *[sS]tring* ]]; then
     ```
     
-    Note that only general shell globbing is allowed. Bash-specific things like {1..4} or {foo,bar} will not work. Also, note that the**globbing will not work if you quote the right string**. In this case, you should leave it unquoted.
+    Обратите внимание, что допускается только общее глобирование оболочки. Такие Bash-специфичные вещи, такие как {1..4} или {foo, bar}, не будут работать. Также обратите внимание, что **глобирование не будет работать, если вы экранировали кавычками правую строку**. В этом случае вы должны оставить его без кавычек.
     
-*   _The second difference_is that word splitting is prevented. Therefore, you could omit placing quotes around string variables and use a condition like the following without problems:
+*   Второе отличие - это то, что разделение слов предотвращено. Следовательно, вы можете опустить размещение кавычек вокруг строковых переменных и без проблем использовать условие, подобное следующему:
     
-    ```
+    ```bash
     if [[ $stringvarwithspaces != foo ]]; then
     ```
     
-    Nevertheless, the quoting string variables remains a good habit, so I recommend just to keep doing it.
+    Тем не менее, цитирование строковых переменных остается хорошей привычкой, поэтому я рекомендую просто продолжать это делать.
     
-*   _The third difference_consists of not expanding filenames. I will illustrate this difference using two examples, starting with the old single-bracket situation:
+*   Третье отличие состоит в том, что имена файлов не расширяются. Я проиллюстрирую это различие на двух примерах, начиная со старой ситуации с одной скобкой:
     
-    ```
+    ```bash
     if [ -a *.sh ]; then
     ```
     
