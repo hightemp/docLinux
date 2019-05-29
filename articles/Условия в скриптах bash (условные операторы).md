@@ -199,15 +199,15 @@ if [[ "$stringvar" == *string* ]]; then
     
 *   Пятое отличие состоит в том, что синтаксис в двойных скобках позволяет сопоставлять шаблоны с помощью оператора «=\~». Смотрите [таблица](https://linuxacademy.com/blog/linux/conditions-in-bash-scripting-if-statements/#string-based-conditions) для получения дополнительной информации.
 
-### 3\. Double-parenthesis syntax
+### 3. Синтаксис с двойными скобками
 
-There also is another syntax for arithmetic (number-based) conditions, most likely adopted from the Korn shell:
+Существует также другой синтаксис для арифметических (основанных на числах) условий, наиболее вероятно взятый из оболочки Korn:
 
-```
+```bash
 if (( $num <= 5 )); then
 ```
 
-The above condition is true if $num is less than or equal to 5. This syntax may seem more familiar to programmers. It features all the ‘normal’ operators, like “==”, “<” and “>=”. It supports the “&&” and “||” combining expressions (but not the -a and -o ones!). It is equivalent to the built-in let command.
+Приведенное выше условие выполняется, если $num меньше или равно 5. Этот синтаксис может показаться программистам более знакомым. Он включает в себя все "нормальные" операторы, такие как ==, <-> и =>. Он поддерживает комбинирующие выражения «&&» и «||» (но не выражения -a и -o!). Это эквивалентно встроенной команде let.
 
 ## Table of conditions
 
