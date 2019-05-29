@@ -73,18 +73,16 @@ fi
     Баш будет жаловаться на “отсутствуoщий '\]'”.
     
 2.  **Всегда заканчивайте строку перед введением нового ключевого слова, такого как «then»**. Слова _if_, _then_, _else_, _elif_ и _fi_ являются ключевыми словами оболочки, что означает, что они не могут использовать одну и ту же строку. Поместите «;» между предыдущим оператором и ключевым словом или поместите ключевое слово в начале новой строки. Bash будет выдавать ошибки, такие как «ошибка синтаксиса, рядом с неожиданным токеном «fi», если вы этого не сделаете.
-3.  _It is a good habit to quote string variables if you use them in conditions_, because otherwise they are likely to give trouble if they contain  
-    spaces and/or newlines. By quoting I mean:
+3.  _Это хорошая привычка заключать в кавычки строковые переменные, если вы используете их в условиях_, потому что в противном случае они могут создать проблемы, если они содержат пробелы и/или символы новой строки. Цитируя я имею в виду:
     
-    ```
+    ```bash
     if [ "$stringvar" == "tux" ]; then
     ```
     
-    There are a few cases in which you should not  
-    quote, but they are rare. You will see one of them further on in the tutorial.
+    Есть несколько случаев, в которых вы не должны экранировать ковычками, но они редки. Вы увидите одну из них далее в руководстве.
     
 
-Also, there are two things that may be useful to know:
+Кроме того, есть две вещи, которые может быть полезно знать:
 
 1.  _You can invert a condition_by putting an “!” in front of it. Example:
     
