@@ -26,12 +26,12 @@
 * [Профилирование кода на C/C++ в Linux и FreeBSD](/articles/%D0%9F%D1%80%D0%BE%D1%84%D0%B8%D0%BB%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5%20%D0%BA%D0%BE%D0%B4%D0%B0%20%D0%BD%D0%B0%20C%2FC%2B%2B%20%D0%B2%20Linux%20%D0%B8%20FreeBSD.md)
 * [Механизмы контейнеризации: cgroups](/articles/%D0%9C%D0%B5%D1%85%D0%B0%D0%BD%D0%B8%D0%B7%D0%BC%D1%8B%20%D0%BA%D0%BE%D0%BD%D1%82%D0%B5%D0%B9%D0%BD%D0%B5%D1%80%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D0%B8%3A%20cgroups.md)
 * [Bash-скрипты](/articles/Bash-%D1%81%D0%BA%D1%80%D0%B8%D0%BF%D1%82%D1%8B.md)
+* [Шпаргалка по Bash-скриптингу](/articles/%D0%A8%D0%BF%D0%B0%D1%80%D0%B3%D0%B0%D0%BB%D0%BA%D0%B0%20%D0%BF%D0%BE%20Bash-%D1%81%D0%BA%D1%80%D0%B8%D0%BF%D1%82%D0%B8%D0%BD%D0%B3%D1%83.md)
 ---
 [LVM](/tags/LVM.md)
 [OOM killer](/tags/OOM%20killer.md)
 [Ubuntu](/tags/Ubuntu.md)
 [auditd](/tags/auditd.md)
-[bash](/tags/bash.md)
 [centos](/tags/centos.md)
 [cgroups](/tags/cgroups.md)
 [cpulimit](/tags/cpulimit.md)
@@ -54,3 +54,4 @@
 [kernel tracepoints](/tags/kernel%20tracepoints.md)
 [perf](/tags/perf.md)
 [профилирование](/tags/%D0%BF%D1%80%D0%BE%D1%84%D0%B8%D0%BB%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5.md)
+[bash](/tags/bash.md)
