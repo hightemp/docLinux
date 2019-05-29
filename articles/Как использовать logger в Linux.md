@@ -7,7 +7,7 @@ The [Linux](https://www.networkworld.com/article/3215226/linux/what-is-linux-use
 This easy. Just type **logger <message>** on the command line and your message will be added to the end of the /var/log/syslog file.
 
 	$ logger comment to be added to log
-	$ tail -1 /vvar/log/syslog
+	$ tail -1 /var/log/syslog
 	May 21 18:02:16 butterfly shs: comment to be added to log
 
 ### Command output
