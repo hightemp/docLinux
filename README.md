@@ -38,7 +38,6 @@
 ---
 [LVM](/tags/LVM.md)
 [OOM killer](/tags/OOM%20killer.md)
-[Ubuntu](/tags/Ubuntu.md)
 [auditd](/tags/auditd.md)
 [cgroups](/tags/cgroups.md)
 [cpulimit](/tags/cpulimit.md)
@@ -66,3 +65,4 @@
 [CentOS](/tags/CentOS.md)
 [логи](/tags/%D0%BB%D0%BE%D0%B3%D0%B8.md)
 [logger](/tags/logger.md)
+[Ubuntu](/tags/Ubuntu.md)
