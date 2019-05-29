@@ -1,14 +1,14 @@
 LOGGER(1)                       User Commands                      LOGGER(1)
 
-## [](http://man7.org/linux/man-pages/man1/logger.1.html#NAME)NAME        [top](http://man7.org/linux/man-pages/man1/logger.1.html#top_of_page)
+## [](http://man7.org/linux/man-pages/man1/logger.1.html#NAME)NAME        
 
        logger - enter messages into the system log
 
-## [](http://man7.org/linux/man-pages/man1/logger.1.html#SYNOPSIS)SYNOPSIS        [top](http://man7.org/linux/man-pages/man1/logger.1.html#top_of_page)
+## [](http://man7.org/linux/man-pages/man1/logger.1.html#SYNOPSIS)SYNOPSIS        
 
        **logger** [options] [_message_]
 
-## [](http://man7.org/linux/man-pages/man1/logger.1.html#DESCRIPTION)DESCRIPTION        [top](http://man7.org/linux/man-pages/man1/logger.1.html#top_of_page)
+## [](http://man7.org/linux/man-pages/man1/logger.1.html#DESCRIPTION)DESCRIPTION        
 
        **logger** makes entries in the system log.
 
@@ -16,7 +16,7 @@ LOGGER(1)                       User Commands                      LOGGER(1)
        log.  If it is not present, and the **-f** option is not given either,
        then standard input is logged.
 
-## [](http://man7.org/linux/man-pages/man1/logger.1.html#OPTIONS)OPTIONS        [top](http://man7.org/linux/man-pages/man1/logger.1.html#top_of_page)
+## [](http://man7.org/linux/man-pages/man1/logger.1.html#OPTIONS)OPTIONS        
 
        **-d**, **--udp**
               Use datagrams (UDP) only.  By default the connection is tried
@@ -256,11 +256,11 @@ LOGGER(1)                       User Commands                      LOGGER(1)
        **-h**, **--help**
               Display help text and exit.
 
-## [](http://man7.org/linux/man-pages/man1/logger.1.html#RETURN_VALUE)RETURN VALUE        [top](http://man7.org/linux/man-pages/man1/logger.1.html#top_of_page)
+## [](http://man7.org/linux/man-pages/man1/logger.1.html#RETURN_VALUE)RETURN VALUE        
 
        The **logger** utility exits 0 on success, and >0 if an error occurs.
 
-## [](http://man7.org/linux/man-pages/man1/logger.1.html#FACILITIES_AND_LEVELS)FACILITIES AND LEVELS        [top](http://man7.org/linux/man-pages/man1/logger.1.html#top_of_page)
+## [](http://man7.org/linux/man-pages/man1/logger.1.html#FACILITIES_AND_LEVELS)FACILITIES AND LEVELS        
 
        Valid facility names are:
 
@@ -300,35 +300,35 @@ LOGGER(1)                       User Commands                      LOGGER(1)
        For the priority order and intended purposes of these facilities and
        levels, see [syslog(3)](http://man7.org/linux/man-pages/man3/syslog.3.html).
 
-## [](http://man7.org/linux/man-pages/man1/logger.1.html#EXAMPLES)EXAMPLES        [top](http://man7.org/linux/man-pages/man1/logger.1.html#top_of_page)
+## [](http://man7.org/linux/man-pages/man1/logger.1.html#EXAMPLES)EXAMPLES        
 
        **logger System rebooted**
        **logger -p local0.notice -t HOSTIDM -f /dev/idmc**
        **logger -n loghost.example.com System rebooted**
 
-## [](http://man7.org/linux/man-pages/man1/logger.1.html#SEE_ALSO)SEE ALSO        [top](http://man7.org/linux/man-pages/man1/logger.1.html#top_of_page)
+## [](http://man7.org/linux/man-pages/man1/logger.1.html#SEE_ALSO)SEE ALSO        
 
        [journalctl(1)](http://man7.org/linux/man-pages/man1/journalctl.1.html), [syslog(3)](http://man7.org/linux/man-pages/man3/syslog.3.html), [systemd.journal-fields(7)](http://man7.org/linux/man-pages/man7/systemd.journal-fields.7.html)
 
-## [](http://man7.org/linux/man-pages/man1/logger.1.html#STANDARDS)STANDARDS        [top](http://man7.org/linux/man-pages/man1/logger.1.html#top_of_page)
+## [](http://man7.org/linux/man-pages/man1/logger.1.html#STANDARDS)STANDARDS        
 
        The **logger** command is expected to be IEEE Std 1003.2 ("POSIX.2")
        compatible.
 
-## [](http://man7.org/linux/man-pages/man1/logger.1.html#AUTHORS)AUTHORS        [top](http://man7.org/linux/man-pages/man1/logger.1.html#top_of_page)
+## [](http://man7.org/linux/man-pages/man1/logger.1.html#AUTHORS)AUTHORS        
 
        The **logger** command was originally written by University of California
        in 1983-1993 and later rewritten by Karel Zak ⟨kzak@redhat.com⟩,
        Rainer Gerhards ⟨rgerhards@adiscon.com⟩ and Sami Kerola
        ⟨kerolasa@iki.fi⟩.
 
-## [](http://man7.org/linux/man-pages/man1/logger.1.html#AVAILABILITY)AVAILABILITY        [top](http://man7.org/linux/man-pages/man1/logger.1.html#top_of_page)
+## [](http://man7.org/linux/man-pages/man1/logger.1.html#AVAILABILITY)AVAILABILITY        
 
        The logger command is part of the util-linux package and is available
        from Linux Kernel Archive 
        ⟨[https://www.kernel.org/pub/linux/utils/util-linux/](https://www.kernel.org/pub/linux/utils/util-linux/)⟩.
 
-## [](http://man7.org/linux/man-pages/man1/logger.1.html#COLOPHON)COLOPHON        [top](http://man7.org/linux/man-pages/man1/logger.1.html#top_of_page)
+## [](http://man7.org/linux/man-pages/man1/logger.1.html#COLOPHON)COLOPHON        
 
        This page is part of the _util-linux_ (a random collection of Linux
        utilities) project.  Information about the project can be found at 
