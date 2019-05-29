@@ -10,6 +10,19 @@ The cool thing is that it’s fairly easy to create a Linux service: use your fa
 
 Let’s create a small server using PHP. I can see your eyebrows rising, but it works surprisingly well. We’ll listen to UDP port 10000, and return any message received with a[ROT13](https://en.wikipedia.org/wiki/ROT13)transformation:
 
+```php
+<?php
+
+$sock = socket\_create(AF\_INET, SOCK\_DGRAM, SOL\_UDP);
+socket\_bind($sock, '0.0.0.0', 10000);
+
+for (;;) {
+    socket\_recvfrom($sock, $message, 1024, 0, $ip, $port);
+    $reply = str\_rot13($message);
+    socket\_sendto($sock, $reply, strlen($reply), 0, $ip, $port);
+}
+```
+
 Let’s start it:
 
 $ php server.php
