@@ -68,15 +68,18 @@ drwxr-xr-x  2 root root   4096 Nov 29 15:47 ConsoleKit
 
 Это пример ее работы в CentOS:
 
-`[root@TestLinux ~]# who  
+```
+[root@TestLinux ~]# who  
 root     tty1         2013-12-09 10:44  
 root      pts/0        2013-12-09 10:29 (10.0.2.2)  
 sysadmin pts/1        2013-12-09 10:31 (10.0.2.2)  
-joeblog  pts/2        2013-12-09 10:39 (10.0.2.2)`
+joeblog  pts/2        2013-12-09 10:39 (10.0.2.2)
+```
 
 Команда «sysadmin» выводит историю входа пользователей:
 
-`[root@TestLinux ~]# last | grep sysadmin  
+```
+[root@TestLinux ~]# last | grep sysadmin  
 sysadmin pts/1        10.0.2.2         Mon Dec  9 10:31   still logged in  
 sysadmin pts/0        10.0.2.2         Fri Nov 29 15:42 - crash  (00:01)  
 sysadmin pts/0        10.0.2.2         Thu Nov 28 17:06 - 17:13  (00:06)  
@@ -84,17 +87,21 @@ sysadmin pts/0        10.0.2.2         Thu Nov 28 16:17 - 17:05 
 sysadmin pts/0        10.0.2.2         Thu Nov 28 09:29 - crash  (06:04)  
 sysadmin pts/0        10.0.2.2         Wed Nov 27 16:37 - down   (00:29)  
 sysadmin tty1                          Wed Nov 27 14:05 - down   (00:36)  
-sysadmin tty1                          Wed Nov 27 13:49 - 14:04  (00:15)`
+sysadmin tty1                          Wed Nov 27 13:49 - 14:04  (00:15)
+```
 
 В данном примере нужно было получить историю входа пользователя sysadmin. Как можно видеть,  было пару случаев, когда он приводил к сбою системы.
 
 Чтобы узнать время последней перезагрузки системы, используйте следующую команду:
 
-`[root@TestLinux ~]# last reboot`
+```
+[root@TestLinux ~]# last reboot
+```
 
 Результат имеет примерно такой вид:
 
-`reboot   system boot  2.6.32-358.el6.x Mon Dec  9 10:27 - 10:47  (00:19)  
+```
+reboot   system boot  2.6.32-358.el6.x Mon Dec  9 10:27 - 10:47  (00:19)  
 reboot   system boot  2.6.32-358.el6.x Fri Dec  6 16:37 - 10:47 (2+18:10)  
 reboot   system boot  2.6.32-358.el6.x Fri Dec  6 16:28 - 16:36  (00:08)    reboot   system boot  2.6.32-358.el6.x Fri Dec  6 11:06 - 16:36  (05:29)  
 reboot   system boot  2.6.32-358.el6.x Mon Dec  2 17:00 - 16:36 (3+23:36)  
@@ -102,15 +109,19 @@ reboot   system boot  2.6.32-358.el6.x Fri Nov 29 16:01 - 16:36 (7+00:34)
 reboot   system boot  2.6.32-358.el6.x Fri Nov 29 15:43 - 16:36 (7+00:53)  
 ...  
 ...  
-wtmp begins Fri Nov 15 16:11:54 2013`
+wtmp begins Fri Nov 15 16:11:54 2013
+```
 
 Чтобы узнать время последнего входа в систему, используйте lastlog:
 
-`[root@TestLinux ~]# lastlog`
+```
+[root@TestLinux ~]# lastlog
+```
 
 Результат на CentOS выглядит примерно так:
 
-`Username        Port        From            Latest  
+```
+Username        Port        From            Latest  
 root            tty1                        Mon Dec  9 10:44:30 +1100 2013  
 bin                                        **Never logged in**  
 daemon                                     **Never logged in**  
@@ -132,17 +143,21 @@ postfix                                    **
 sshd                                       **Never logged in**  
 sysadmin         pts/1    10.0.2.2         Mon Dec  9 10:31:50 +1100 2013  
 dbus                                       **Never logged in**  
-joeblog          pts/2    10.0.2.2         Mon Dec  9 10:39:24 +1100 2013`
+joeblog          pts/2    10.0.2.2         Mon Dec  9 10:39:24 +1100 2013
+```
 
 Для просмотра содержимого текстовых журналов можно использовать команды «cat», «head» или «tail».
 
 В приведенном ниже примере просматриваются последние 10 строк журнала /var/log/messages на Debian:
 
-`debian@debian:~$ sudo tail /var/log/messages`
+```
+debian@debian:~$ sudo tail /var/log/messages
+```
 
 Вывод:
 
-`Dec 16 01:21:08 debian kernel: [    9.584074] Bluetooth: BNEP (Ethernet Emulation) ver 1.3  
+```
+Dec 16 01:21:08 debian kernel: [    9.584074] Bluetooth: BNEP (Ethernet Emulation) ver 1.3  
 Dec 16 01:21:08 debian kernel: [    9.584074] Bluetooth: BNEP filters: protocol multicast  
 Dec 16 01:21:08 debian kernel: [    9.648220] Bridge firewalling registered  
 Dec 16 01:21:08 debian kernel: [    9.696728] Bluetooth: SCO (Voice Link) ver 0.6  
@@ -151,7 +166,8 @@ Dec 16 01:21:08 debian kernel: [    9.832215] lp: driver loaded but no device
 Dec 16 01:21:08 debian kernel: [    9.868897] ppdev: user-space parallel port driver  
 Dec 16 01:21:11 debian kernel: [   12.748833] [drm] Initialized drm 1.1.0 20060810  
 Dec 16 01:21:11 debian kernel: [   12.754412] pci 0000:00:02.0: PCI INT A -> Link[LNKB] -> GSI 11 (level, low) -> IRQ 11  
-Dec 16 01:21:11 debian kernel: [   12.754412] [drm] Initialized vboxvideo 1.0.0 20090303 for 0000:00:02.0 on minor 0`
+Dec 16 01:21:11 debian kernel: [   12.754412] [drm] Initialized vboxvideo 1.0.0 20090303 for 0000:00:02.0 on minor 0
+```
 
 ## Демон rsyslog
 
@@ -175,7 +191,8 @@ Dec 16 01:21:11 debian kernel: [   12.754412] [drm] Initialized vboxvideo 1.0.
 
 Вот отрывок из файла rsyslog.conf на CentOS:
 
-`# rsyslog v5 configuration file  
+```
+# rsyslog v5 configuration file  
 ...  
 ...  
 # Include all config files in /etc/rsyslog.d/  
@@ -200,7 +217,8 @@ uucp,news.crit                                 
 # Save boot messages also to boot.log  
 local7.*                                                /var/log/boot.log  
 ...  
-...`
+...
+```
 
 Чтобы понять, что все это значит, нужно рассмотреть типы объектов, которые распознает Linux:
 
@@ -266,7 +284,8 @@ local7.*                                    
 
 По возможности проверьте, что говорит rsyslog.conf на других системах Linux. Вот отрывок из Debian:
 
-`#  /etc/rsyslog.conf    Configuration file for rsyslog.  
+```
+#  /etc/rsyslog.conf    Configuration file for rsyslog.  
 #  
 #           For more information see  
 #           /usr/share/doc/rsyslog-doc/html/rsyslog_conf.html  
@@ -292,7 +311,8 @@ mail.err            /var/log/mail.err
 #  
 news.crit           /var/log/news/news.crit  
 news.err            /var/log/news/news.err  
-news.notice         -/var/log/news/news.notice`
+news.notice         -/var/log/news/news.notice
+```
 
 Как можно видеть, Debian сохраняет сообщения безопасности/авторизации всех уровней в /var/log/auth.log, в то время как CentOS делает это в /var/log/secure.
 
@@ -300,14 +320,16 @@ news.notice         -/var/log/news/news.notice`
 
 Так это выглядит в Ubuntu:
 
-`#  Default logging rules can be found in /etc/rsyslog.d/50-default.conf  
+```
+#  Default logging rules can be found in /etc/rsyslog.d/50-default.conf  
 ....  
 ....  
 $IncludeConfig /etc/rsyslog.d/*.conf  
 Содержимое каталога /etc/rsyslog.d выглядит так:  
 -rw-r--r-- 1 root root  311 Mar 17  2012 20-ufw.conf  
 -rw-r--r-- 1 root root  252 Apr 11  2012 21-cloudinit.conf  
--rw-r--r-- 1 root root 1655 Mar 30  2012 50-default.conf`
+-rw-r--r-- 1 root root 1655 Mar 30  2012 50-default.conf
+```
 
 Теперь сохранять сообщение в журнал необязательно; сообщение можно переслать консоли пользователя. В таком случае, поле действия будет содержать имя пользователя. Если сообщение нужно отправить нескольким пользователям, их имена нужно разделить запятыми. Если же сообщение нужно распространить между всеми пользователями, в поле действия вносится символ \*.
 
@@ -327,7 +349,8 @@ $IncludeConfig /etc/rsyslog.d/*.conf
 
 В следующем примере внесены две строки в файл rsyslog.conf на CentOS. Как видите, обе они исходят от объекта local4 и имеют разные приоритеты.
 
-`[root@TestLinux ~]# vi /etc/rsyslog.conf  
+```
+[root@TestLinux ~]# vi /etc/rsyslog.conf  
 ....  
 ....  
 # New lines added for testing log message generation  
@@ -350,12 +373,15 @@ Starting system logger:                            �
 `...  
 ...  
 -rw-------  1 root root      0 Dec  9 11:21 local4crit.log  
--rw-------  1 root root     72 Dec  9 11:22 local4info.log`
+-rw-------  1 root root     72 Dec  9 11:22 local4info.log
+```
 
 Размер local4info.log не равен нулю, а это значит, что сообщение было записано:
 
-`[root@TestLinux ~]# cat /var/log/local4info.log  
-Dec  9 11:22:32 TestLinux root:  This is a info message from local 4`
+```
+[root@TestLinux ~]# cat /var/log/local4info.log  
+Dec  9 11:22:32 TestLinux root:  This is a info message from local 4
+```
 
 ## Ротация  лог-файлов
 
@@ -371,7 +397,8 @@ Linux использует понятие «ротации» журналов в
 
 Вот что находится в данном файле на Debian:
 
-`debian@debian:~$ cat /etc/logrotate.conf  
+```
+debian@debian:~$ cat /etc/logrotate.conf  
 # see "man logrotate" for details  
 # rotate log files weekly  
 weekly  
@@ -396,7 +423,8 @@ monthly
 create 0660 root utmp  
 rotate 1  
 }  
-# system-specific logs may be configured here`
+# system-specific logs may be configured here
+```
 
 По умолчанию журналы ротируются еженедельно, оставляя 4 backlog-а. При запуске программы создается новый пустой журнал, а старые при необходимости будут сжаты.
 
@@ -404,7 +432,8 @@ rotate 1
 
 Пользовательские конфигурации ротации журналов содержатся в каталоге «etc/logrotate.d». также они включены в logrotate.conf с помощью директивы include. К примеру, Debian показывает такое содержание данного каталога:
 
-`debian@debian:~$ ls -l /etc/logrotate.d  
+```
+debian@debian:~$ ls -l /etc/logrotate.d  
 total 44  
 -rw-r--r-- 1 root root 173 Apr 15  2011 apt  
 -rw-r--r-- 1 root root  79 Aug 12  2011 aptitude  
@@ -416,11 +445,13 @@ total 44
 -rw-r--r-- 1 root root 157 Nov 16  2010 pm-utils  
 -rw-r--r-- 1 root root  94 Aug  8  2010 ppp  
 -rw-r--r-- 1 root root 515 Nov 30  2010 rsyslog  
--rw-r--r-- 1 root root 114 Nov 26  2008 unattended-upgrades`
+-rw-r--r-- 1 root root 114 Nov 26  2008 unattended-upgrades
+```
 
 Содержание rsyslog показывает, как вернуть логи в исходное состояние:
 
-`debian@debian:~$ cat /etc/logrotate.d/rsyslog  
+```
+debian@debian:~$ cat /etc/logrotate.d/rsyslog  
 /var/log/syslog  
 {  
 rotate 7  
@@ -456,7 +487,8 @@ sharedscripts
 postrotate  
 invoke-rc.d rsyslog reload > /dev/null  
 endscript  
-}`
+}
+```
 
 Как видите,  файл «syslog» будет повторно инициализирован каждый день. Другие журнальные файлы ротируются каждую неделю.
 
@@ -468,7 +500,8 @@ Logrotate можно запустить вручную для ротации о�
 
 Чтобы продемонстрировать, как это работает, ниже приведен неполный список журнальных файлов в каталоге /var/log на CentOS:
 
-`[root@TestLinux ~]# ls -l /var/log  
+```
+[root@TestLinux ~]# ls -l /var/log  
 total 800  
 ...  
 -rw-------  1 root root    359 Dec 17 18:25 maillog  
@@ -478,11 +511,13 @@ total 800
 -rw-------  1 root root    591 Dec 17 18:28 secure  
 -rw-------. 1 root root   4187 Dec 16 16:41 secure-20131216  
 ...  
-...`
+...
+```
 
 Неполное содержимое файла logrotate.conf выглядит так:
 
-`[root@TestLinux ~]# cat /etc/logrotate.conf  
+```
+[root@TestLinux ~]# cat /etc/logrotate.conf  
 # see "man logrotate" for details  
 # rotate log files weekly  
 weekly  
@@ -491,7 +526,8 @@ rotate 4
 # create new (empty) log files after rotating old ones  
 create  
 ...  
-...`
+...
+```
 
 Затем запустите команду logrotate:
 
@@ -499,7 +535,8 @@ create
 
 Сообщения прокручиваются при создании новых файлов, обнаружении ошибок и т.д. Затем  попробуйте проверить новые журнальные файлы почты, безопасности и сообщений:
 
-`[root@TestLinux ~]# ls -l /var/log/mail*  
+```
+[root@TestLinux ~]# ls -l /var/log/mail*  
 -rw-------  1 root root    0 Dec 17 18:34 /var/log/maillog  
 -rw-------. 1 root root 1830 Dec 16 16:35 /var/log/maillog-20131216  
 -rw-------  1 root root  359 Dec 17 18:25 /var/log/maillog-20131217  
@@ -511,7 +548,8 @@ create
 -rw-------  1 root root    0 Dec 17 18:34 /var/log/secure  
 -rw-------. 1 root root 4187 Dec 16 16:41 /var/log/secure-20131216  
 -rw-------  1 root root  591 Dec 17 18:28 /var/log/secure-20131217  
-[root@TestLinux ~]#`
+[root@TestLinux ~]#
+```
 
 Как можно видеть, все три новых журнала были созданы. Почтовый журнал и журнал безопасности все еще пусты, но новый журнал сообщений уже содержит некоторые данные.
 
