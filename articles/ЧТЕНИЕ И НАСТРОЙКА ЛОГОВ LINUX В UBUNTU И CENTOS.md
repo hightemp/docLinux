@@ -16,7 +16,8 @@
 
 В системе CentOS это выглядит так:
 
-`[root@TestLinux ~]# ls -l /var/log  
+```
+[root@TestLinux ~]# ls -l /var/log  
 total 1472  
 -rw-------. 1 root root   4524 Nov 15 16:04 anaconda.ifcfg.log  
 -rw-------. 1 root root  59041 Nov 15 16:04 anaconda.log  
@@ -46,7 +47,8 @@ drwxr-xr-x  2 root root   4096 Nov 29 15:47 ConsoleKit
 -rw-------. 1 root root      0 Nov 15 16:02 spooler-20131202  
 -rw-------. 1 root root      0 Nov 15 16:02 tallylog  
 -rw-rw-r--. 1 root utmp  89856 Dec  9 10:44 wtmp  
--rw-------  1 root root   3778 Dec  6 16:48 yum.log`
+-rw-------  1 root root   3778 Dec  6 16:48 yum.log
+```
 
 ## Просмотр логов
 
@@ -516,8 +518,10 @@ create
 
 
 
+
+
 **********
-[Ubuntu](/tags/Ubuntu.md)
 [CentOS](/tags/CentOS.md)
-[logger](/tags/logger.md)
 [логи](/tags/%D0%BB%D0%BE%D0%B3%D0%B8.md)
+[Ubuntu](/tags/Ubuntu.md)
+[logger](/tags/logger.md)
