@@ -15,11 +15,11 @@
 *   **[/sbin](http://www.linuxbase.org/betaspecs/fhs/fhs/ch03s16.html)** \- Где хранятся супер-бинарники. Они, как правило, работают только с root. (**s**uper-**bin**aries)
 *   **[/srv](http://www.linuxbase.org/betaspecs/fhs/fhs/ch03s17.html)** \- Стенды для «подачи». Этот каталог предназначен для статических файлов, которые раздаются. `/srv/http` будет для статических сайтов, `/srv/ftp` для FTP-сервера. (**s**e**rv**e)
 *   **[/tmp](http://www.linuxbase.org/betaspecs/fhs/fhs/ch03s18.html)** \- Где временные файлы могут быть сохранены. (**t**e**mp**orary)
-*   **[/usr](http://www.linuxbase.org/betaspecs/fhs/fhs/ch04.html)**\- Еще один каталог, унаследованный от старых Unix, он обозначает «Системные ресурсы UNIX». Это не означает «пользователь» (см. [Вики Debian](https://wiki.debian.org/FilesystemHierarchyStandard)). Этот каталог должен быть общим для хостов и может безопасно подключаться по NFS к нескольким хостам. Он может быть смонтирован только для чтения.(**U**NIX**S**ystem**R**esources)
-*   **[/var](http://www.linuxbase.org/betaspecs/fhs/fhs/ch05.html)**\- Another directory inherited from the Unixes of old, it stands for "**var**iable". This is where system data that varies may be stored. Such things as spool and cache directories may be located here. If a program needs to write to the local file-system and isn't serving that data to someone directly, it'll go here.
+*   **[/usr](http://www.linuxbase.org/betaspecs/fhs/fhs/ch04.html)** \- Еще один каталог, унаследованный от старых Unix, он обозначает «Системные ресурсы UNIX». Это не означает «пользователь» (см. [Вики Debian](https://wiki.debian.org/FilesystemHierarchyStandard)). Этот каталог должен быть общим для хостов и может безопасно подключаться по NFS к нескольким хостам. Он может быть смонтирован только для чтения.(**U**NIX **S**ystem **R**esources)
+*   **[/var](http://www.linuxbase.org/betaspecs/fhs/fhs/ch05.html)** \- Еще один каталог, унаследованный от Unixes из старых, он обозначает «переменная». Здесь могут храниться системные данные, которые различаются. Здесь можно найти такие каталоги, как спул и кеш. Если программе необходимо записать данные в локальную файловую систему, и она не передает эти данные кому-то напрямую, это будет происходить здесь. (**var**iable)
 
-**/opt vs /usr/local**
+## /opt vs /usr/local
 
-The rule of thumb I've seen is best described as:
+Эмпирическое правило, которое я видел, лучше всего описать так:
 
-> Use`/usr/local`for things that would normally go into`/usr`, or are overriding things that are already in`/usr`. Use`/opt`for things that install all in one directory, or are otherwise special.
+> Используйте `/usr/local` для вещей, которые обычно входят в `/usr`, или переопределяют вещи, которые уже находятся в `/usr`. Используйте `/opt` для вещей, которые устанавливают все в один каталог или являются специальными.
