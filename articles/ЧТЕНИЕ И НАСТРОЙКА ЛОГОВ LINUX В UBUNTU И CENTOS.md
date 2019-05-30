@@ -565,3 +565,4 @@ create
 [Ubuntu](/tags/Ubuntu.md)
 [logger](/tags/logger.md)
 [rsyslog](/tags/rsyslog.md)
+[bash](/tags/bash.md)
