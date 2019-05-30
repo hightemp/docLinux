@@ -6,11 +6,11 @@
 *   **[/boot](http://www.linuxbase.org/betaspecs/fhs/fhs/ch03s05.html)** \- Файлы, необходимые для **boot**ing.
 *   **[/dev](http://www.linuxbase.org/betaspecs/fhs/fhs/ch03s06.html)** \- Файлы устройств (**Dev**ice).
 *   **[/etc](http://www.linuxbase.org/betaspecs/fhs/fhs/ch03s07.html)** \- **_Et c_**_etera_. Имя унаследовано от самых ранних Unix, то есть когда оно стало местом для размещения конфигурационных файлов.
-*   **[/home](http://www.linuxbase.org/betaspecs/fhs/fhs/ch03s08.html)**\- Где хранятся **домашние** каталоги.
-*   **[/lib](http://www.linuxbase.org/betaspecs/fhs/fhs/ch03s09.html)**\- Где хранятся библиотеки кода (**lib**raries).
-*   **[/media](http://www.linuxbase.org/betaspecs/fhs/fhs/ch03s11.html)**\- A more modern directory, but where removable**media**gets mounted.
-*   **[/mnt](http://www.linuxbase.org/betaspecs/fhs/fhs/ch03s12.html)**\- Where temporary file-systems are**m**ou**nt**ed.
-*   **[/opt](http://www.linuxbase.org/betaspecs/fhs/fhs/ch03s13.html)**\- Where**opt**ional add-on software is installed. This is discrete from`/usr/local/`for reasons I'll get to later.
+*   **[/home](http://www.linuxbase.org/betaspecs/fhs/fhs/ch03s08.html)** \- Где хранятся **домашние** каталоги.
+*   **[/lib](http://www.linuxbase.org/betaspecs/fhs/fhs/ch03s09.html)** \- Где хранятся библиотеки кода (**lib**raries).
+*   **[/media](http://www.linuxbase.org/betaspecs/fhs/fhs/ch03s11.html)** \- Более современный каталог, но где монтируется съемный носитель. (**media**)
+*   **[/mnt](http://www.linuxbase.org/betaspecs/fhs/fhs/ch03s12.html)** \- Где смонтированы временные файловые системы. (**m**ou**nt**ed.)
+*   **[/opt](http://www.linuxbase.org/betaspecs/fhs/fhs/ch03s13.html)** \- Где установлено дополнительное программное обеспечение. Это отдельно от `/usr/local/` по причинам, о которых я расскажу позже. (**opt**ional)
 *   **[/run](http://www.linuxbase.org/betaspecs/fhs/fhs/ch03s15.html)**\- Where**run**time variable data is kept.
 *   **[/sbin](http://www.linuxbase.org/betaspecs/fhs/fhs/ch03s16.html)**\- Where**s**uper-**bin**aries are stored. These usually only work with root.
 *   **[/srv](http://www.linuxbase.org/betaspecs/fhs/fhs/ch03s17.html)**\- Stands for "**s**e**rv**e". This directory is intended for static files that are served out.`/srv/http`would be for static websites,`/srv/ftp`for an FTP server.
