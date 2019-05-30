@@ -1,13 +1,13 @@
 # Значение каталогов в Unix и Unix-подобных системах
 
-For more data on the layout of Linux file-systems, look at the [Filesystem Hierarchy Standard](http://www.pathname.com/fhs/) (now at version 2.3, with the [beta 3.0](http://www.linuxbase.org/betaspecs/fhs/fhs.txt) version deployed on most recent distros). It does explain some of where the names came from:
+Для получения дополнительных сведений о компоновке файловых систем Linux см. [Стандарт иерархии файловых систем](http://www.pathname.com/fhs/) (теперь версия 2.3, с [beta 3.0](http: / /www.linuxbase.org/betaspecs/fhs/fhs.txt) версия, развернутая на самых последних дистрибутивах). Это объясняет, откуда пришли имена:
 
-*   **[/bin](http://www.linuxbase.org/betaspecs/fhs/fhs/ch03s04.html)**\-**Bin**aries.
-*   **[/boot](http://www.linuxbase.org/betaspecs/fhs/fhs/ch03s05.html)**\- Files required for**boot**ing.
-*   **[/dev](http://www.linuxbase.org/betaspecs/fhs/fhs/ch03s06.html)**\-**Dev**ice files.
-*   **[/etc](http://www.linuxbase.org/betaspecs/fhs/fhs/ch03s07.html)**\-**_Et c_**_etera_. The name is inherited from the earliest Unixes, which is when it became the spot to put config-files.
-*   **[/home](http://www.linuxbase.org/betaspecs/fhs/fhs/ch03s08.html)**\- Where**home**directories are kept.
-*   **[/lib](http://www.linuxbase.org/betaspecs/fhs/fhs/ch03s09.html)**\- Where code**lib**raries are kept.
+*   **[/bin](http://www.linuxbase.org/betaspecs/fhs/fhs/ch03s04.html)** \- Бинарники (**Bin**aries).
+*   **[/boot](http://www.linuxbase.org/betaspecs/fhs/fhs/ch03s05.html)** \- Файлы, необходимые для **boot**ing.
+*   **[/dev](http://www.linuxbase.org/betaspecs/fhs/fhs/ch03s06.html)** \- Файлы устройств (**Dev**ice).
+*   **[/etc](http://www.linuxbase.org/betaspecs/fhs/fhs/ch03s07.html)** \- **_Et c_**_etera_. Имя унаследовано от самых ранних Unix, то есть когда оно стало местом для размещения конфигурационных файлов.
+*   **[/home](http://www.linuxbase.org/betaspecs/fhs/fhs/ch03s08.html)**\- Где хранятся **домашние** каталоги.
+*   **[/lib](http://www.linuxbase.org/betaspecs/fhs/fhs/ch03s09.html)**\- Где хранятся библиотеки кода (**lib**raries).
 *   **[/media](http://www.linuxbase.org/betaspecs/fhs/fhs/ch03s11.html)**\- A more modern directory, but where removable**media**gets mounted.
 *   **[/mnt](http://www.linuxbase.org/betaspecs/fhs/fhs/ch03s12.html)**\- Where temporary file-systems are**m**ou**nt**ed.
 *   **[/opt](http://www.linuxbase.org/betaspecs/fhs/fhs/ch03s13.html)**\- Where**opt**ional add-on software is installed. This is discrete from`/usr/local/`for reasons I'll get to later.
