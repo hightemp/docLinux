@@ -84,3 +84,4 @@
 [select](/tags/select.md)
 [proc](/tags/proc.md)
 [cpu](/tags/cpu.md)
+[MySQL](/tags/MySQL.md)
