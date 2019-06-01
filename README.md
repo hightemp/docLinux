@@ -91,3 +91,4 @@
 [MySQL](/tags/MySQL.md)
 [CentOS](/tags/CentOS.md)
 [mysqltuner](/tags/mysqltuner.md)
+[сеть](/tags/%D1%81%D0%B5%D1%82%D1%8C.md)
