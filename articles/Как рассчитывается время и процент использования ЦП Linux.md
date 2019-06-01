@@ -1,14 +1,14 @@
 # Как рассчитывается время и процент использования ЦП Linux
 
-### Overview
+### обзор
 
-CPU time is allocated in discrete time slices (ticks). For a certain number of time slices, the cpu is busy, other times it is not (which is represented by the idle process). In the picture below the CPU is busy for 6 of the 10 CPU slices. 6/10 = .60 = 60% of busy time (and there would therefore be 40% idle time).
+Время процессора распределяется в дискретных временных срезах (тиках). В течение определенного количества временных интервалов процессор занят, в других случаях это не так (что представлено процессом простоя). На рисунке ниже процессор занят для 6 из 10 срезов процессора. 6/10 = .60 = 60% занятого времени (и поэтому было бы 40% простоя).
 
 ![](/images/3b036987b148a55b2e46e60aa3364470)
 
-Note: A tick(cycle) is the time it takes to send a single pulse. A pulse consists of a high voltage followed by a low voltage. There can be billions of ticks per second depending on the frequency(GHz) of the CPU clock.
+Примечание. Тик (цикл) - это время, необходимое для отправки одного импульса. Импульс состоит из высокого напряжения, за которым следует низкое напряжение. Может быть миллиарды тиков в секунду в зависимости от частоты (ГГц) тактовой частоты процессора.
 
-You can get the number of CPU ticks since boot from /proc/stat
+Вы можете получить количество тактов процессора с момента загрузки из /proc/stat
 
 ```
  cat /proc/stat
@@ -17,36 +17,36 @@ cpu  4705 356  584    3699   23    23     0       0     0          0
 
 ```
 
-*   user: normal processes executing in user mode
-*   nice: niced processes executing in user mode
-*   system: processes executing in kernel mode
-*   idle: twiddling thumbs
-*   iowait: waiting for I/O to complete
-*   irq: servicing interrupts
-*   softirq: servicing softirqs
-*   steal: involuntary wait
-*   guest: running a normal guest
-*   guest\_nice: running a niced guest
+*   **user:** нормальные процессы, выполняющиеся в пользовательском режиме
+*   **nice:** niced процессы, выполняющиеся в пользовательском режиме
+*   **system:** процессы, выполняющиеся в режиме ядра
+*   **idle:** большие пальцы
+*   **iowait:** ожидание завершения ввода/вывода
+*   **irq:** обслуживание прерываний
+*   **softirq:** обслуживание Softirqs
+*   **steal:** непроизвольное ожидание
+*   **guest:** работающий под нормальным гость
+*   **guest\_nice:** работающий под приятным(niced) гостем
 
-### Formula
+###  Формула
 
-To calculate Linux CPU usage time subtract the idle CPU time from the total CPU time as follows:
+Чтобы рассчитать время загрузки процессора Linux, вычтите время простоя процессора из общего времени процессора следующим образом:
 
-**Total CPU time since boot**\= user+nice+system+idle+iowait+irq+softirq+steal
+**Общее время процессора с момента загрузки**\= user+nice+system+idle+iowait+irq+softirq+steal
 
-**Total CPU Idle time since boot**\= idle + iowait
+**Общее время простоя процессора с момента загрузки**\= idle + iowait
 
-**Total CPU usage time since boot**\= Total CPU time since boot - Total CPU Idle time since boot
+**Общее время использования процессора с момента загрузки**\= Общее время процессора с момента загрузки - Общее время простоя процессора с момента загрузки
 
-**Total CPU percentage**\= Total CPU usage time since boot/Total CPU time since boot X 100
+**Общий процент процессора**\= Общее время использования процессора с момента загрузки/Общее время процессора с момента загрузки X 100
 
-If you use the formula on the example data above you should get a Linux CPU usage Percentage of 60%.
+Если вы используете формулу в приведенных выше примерах данных, вы должны получить процент использования ЦП Linux в размере 60%.
 
-Note: Guest and Guest\_nice are already accounted in user and nice, hence they are not included in the total calculation
+**Примечание:** Guest и Guest_nice уже учтены в user и nice, следовательно, они не включены в общий расчет
 
-For real time CPU usage, you will need to calculate the time between two intervals.
+Для использования процессора в режиме реального времени вам необходимо рассчитать время между двумя интервалами.
 
-Below is an example of a Bash Script by Paul Colby that does this
+Ниже приведен пример сценария Bash Пола Колби, который делает это
 
 ```
     #!/bin/bash
@@ -82,7 +82,7 @@ Below is an example of a Bash Script by Paul Colby that does this
 
 ```
 
-Ref[https://www.kernel.org/doc/Documentation/filesystems/proc.txt](https://www.kernel.org/doc/Documentation/filesystems/proc.txt)section 1.8
+[https://www.kernel.org/doc/Documentation/filesystems/proc.txt](https://www.kernel.org/doc/Documentation/filesystems/proc.txt) section 1.8
 
 [https://github.com/pcolby/scripts/blob/master/cpu.sh](https://github.com/pcolby/scripts/blob/master/cpu.sh)
 
