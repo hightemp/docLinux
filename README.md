@@ -78,6 +78,7 @@
 [vim](/tags/vim.md)
 [proc](/tags/proc.md)
 [cpu](/tags/cpu.md)
-[bash](/tags/bash.md)
 [tput](/tags/tput.md)
 [dialog](/tags/dialog.md)
+[bash](/tags/bash.md)
+[select](/tags/select.md)
