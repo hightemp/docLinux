@@ -163,5 +163,5 @@ Centos 7
 
 **********
 [Ubuntu](/tags/Ubuntu.md)
-[MySQL](/tags/MySQL.md)
 [CentOS](/tags/CentOS.md)
+[MySQL](/tags/MySQL.md)

@@ -72,7 +72,6 @@
 [репозиторий](/tags/%D1%80%D0%B5%D0%BF%D0%BE%D0%B7%D0%B8%D1%82%D0%BE%D1%80%D0%B8%D0%B9.md)
 [systemd](/tags/systemd.md)
 [service](/tags/service.md)
-[CentOS](/tags/CentOS.md)
 [логи](/tags/%D0%BB%D0%BE%D0%B3%D0%B8.md)
 [logger](/tags/logger.md)
 [rsyslog](/tags/rsyslog.md)
@@ -89,3 +88,5 @@
 [thread](/tags/thread.md)
 [Ubuntu](/tags/Ubuntu.md)
 [MySQL](/tags/MySQL.md)
+[CentOS](/tags/CentOS.md)
+[mysqltuner](/tags/mysqltuner.md)
