@@ -47,3 +47,4 @@ cpu_usage = 100 * ((total_time / Hertz) / seconds)
 
 **********
 [proc](/tags/proc.md)
+[cpu](/tags/cpu.md)
