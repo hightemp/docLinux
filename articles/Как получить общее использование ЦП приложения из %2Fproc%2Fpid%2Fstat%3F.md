@@ -44,3 +44,6 @@ seconds = uptime - (starttime / Hertz)
 ```
 cpu_usage = 100 * ((total_time / Hertz) / seconds)
 ```
+
+**********
+[proc](/tags/proc.md)
