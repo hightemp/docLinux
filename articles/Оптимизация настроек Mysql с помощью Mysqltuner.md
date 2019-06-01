@@ -159,7 +159,9 @@ Centos 7
 
 После изменения конфигурации Mysql-сервер должен проработать минимум 24 часа без перезагрузок. Затем, можно снова запустить утилиту Mysqltuner и проанализировать вывод статистики. Таким образом, можно привести конфигурационный файл my.cnf и работу Mysql-сервера, соответственно, к оптимальному состоянию.
 
-Сайт:[http://mysqltuner.com/](http://mysqltuner.com/)
+Сайт:
+[http://mysqltuner.com/](http://mysqltuner.com/)
+https://github.com/major/MySQLTuner-perl
 
 **********
 [Ubuntu](/tags/Ubuntu.md)
