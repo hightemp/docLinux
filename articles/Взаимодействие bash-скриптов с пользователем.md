@@ -260,3 +260,6 @@ _Любой приказ, который может быть неправиль�
 [http://pwet.fr/man/linux/commandes/kdialog](http://pwet.fr/man/linux/commandes/kdialog)  
 [http://linux.about.com/library/cmd/blcmdl1\_gdialog.htm](http://linux.about.com/library/cmd/blcmdl1_gdialog.htm)  
 [http://www.techrepublic.com/blog/opensource/gui-scripting-in-bash/1667](http://www.techrepublic.com/blog/opensource/gui-scripting-in-bash/1667)
+
+**********
+[bash](/tags/bash.md)
