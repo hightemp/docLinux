@@ -102,3 +102,4 @@ cpu  4705 356  584    3699   23    23     0       0     0          0
 
 **********
 [proc](/tags/proc.md)
+[cpu](/tags/cpu.md)
