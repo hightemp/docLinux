@@ -78,5 +78,5 @@
 [proc](/tags/proc.md)
 [cpu](/tags/cpu.md)
 [bash](/tags/bash.md)
-[tput](/tags/tput.md)
 [dialog](/tags/dialog.md)
+[tput](/tags/tput.md)
