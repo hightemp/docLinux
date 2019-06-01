@@ -99,3 +99,6 @@ cpu  4705 356  584    3699   23    23     0       0     0          0
 [http://www.ask.com/technology/many-times-system-clock-tick-per-second-1-ghz-processor-b9028ab0b0de7883](http://www.ask.com/technology/many-times-system-clock-tick-per-second-1-ghz-processor-b9028ab0b0de7883)
 
 [https://github.com/torvalds/linux/blob/master/fs/proc/stat.c](https://github.com/torvalds/linux/blob/master/fs/proc/stat.c)
+
+**********
+[proc](/tags/proc.md)
