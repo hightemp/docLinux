@@ -67,19 +67,19 @@ mysql_install_db --user=mysql --datadir=/data/mysql/mysql7
 
 Теперь вы, возможно, заметили, что я написал выше, что вам нужно заменить исходную группу экземпляров MySQL (\[mysqld\]) на группу с номером группы параметров (\[mysql _N_ \]). Это не совсем верно, так как они могут сосуществовать в гармонии. Однако обычный скрипт start / stop, используемый для управления MySQL, не будет работать с дополнительными экземплярами, и mysqld\_multi действительно не управляет \[mysqld\]. Простое решение здесь состоит в том, чтобы переименовать группу \[mysqld\] с суффиксным целым числом, скажем, \[mysqld0\] (вам не нужно вносить какие-либо изменения в его текущие параметры), и позволить mysqld\_multi управлять все случаи.
 
-Two commands you might find useful when configuring multiple instances are:
+Две команды, которые могут оказаться полезными при настройке нескольких экземпляров:
 
 ```
 $ mysqld_multi --example
 ```
 
-…which provides an example of a my.cnf file configured with multiple instances and showing the use of different options, and:
+…который предоставляет пример файла my.cnf, настроенного с несколькими экземплярами и показывающего использование различных параметров, и:
 
 ```
 $ my_print_defaults --defaults-file=/etc/my.cnf mysqld7
 ```
 
-…which shows how a given group (“mysqld7” in the example above) was defined within my.cnf.
+…который показывает, как данная группа («mysqld7» в приведенном выше примере) была определена в my.cnf.
 
 ## Managing multiple instances
 
