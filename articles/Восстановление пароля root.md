@@ -81,3 +81,6 @@ passwd
 [http://special.w6.ru/node/37](http://special.w6.ru/node/37)
 
 [http://itshaman.ru/articles/12/passwd-root-linux](http://itshaman.ru/articles/12/passwd-root-linux)
+
+**********
+[Ubuntu](/tags/Ubuntu.md)
