@@ -5,7 +5,7 @@ Vagrant.configure("2") do |config|
 
   MACHINES.each do |boxname, boxconfig|
 		
-		config.vm.define boxname do |box|
+    config.vm.define boxname do |box|
 
 		# ...
 
