@@ -19,3 +19,4 @@ grub2-mkconfig -o /boot/grub2/grub.cfg
 
 **********
 [grub](/tags/grub.md)
+[CentOS](/tags/CentOS.md)
