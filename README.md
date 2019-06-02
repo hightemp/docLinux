@@ -100,5 +100,6 @@
 [mysqld_multi](/tags/mysqld_multi.md)
 [vagrant](/tags/vagrant.md)
 [grub](/tags/grub.md)
-[CentOS](/tags/CentOS.md)
 [Ubuntu](/tags/Ubuntu.md)
+[CentOS](/tags/CentOS.md)
+[Debian](/tags/Debian.md)
