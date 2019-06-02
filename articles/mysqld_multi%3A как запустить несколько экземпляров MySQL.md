@@ -100,7 +100,7 @@ user       = multi_admin
 password   = multipass
 ```
 
-You can use mysqld_multi to start, stop, restart or report the status of a particular instance, all instances or a subset of them. Here are a few examples that speak for themselves:
+Вы можете использовать mysqld_multi, чтобы запускать, останавливать, перезапускать или сообщать о состоянии конкретного экземпляра, всех экземпляров или их подмножества. Вот несколько примеров, которые говорят сами за себя:
 
 ```
 $ mysqld_multi report
@@ -125,7 +125,7 @@ MySQL (Percona Server) from group: mysqld1 is running
 MySQL (Percona Server) from group: mysqld7 is not running
 ```
 
-### Managing the MySQL daemon
+### Управление демоном MySQL
 
 What is missing here is an init script to automate the start/stop of all instances upon server initialization/shutdown; now that we use mysqld\_multi to control the instances, the usual /etc/init.d/mysql won’t work anymore. But a similar startup script (though much simpler and less robust) relying on mysqld\_multi is provided alongside MySQL/Percona Server, which can be found in /usr/share/<mysql|percona-server>/mysqld\_multi.server. You can simply copy it over as /etc/init.d/mysql, effectively replacing the original script while maintaining its name._**Please note:**_ You may need to edit it first and modify the first two lines defining “basedir” and “bindir” as this script was not designed to find out the good working values for these variables itself, which the original single-instance /etc/init.d/mysql does. Considering you probably have mysqld\_multi installed in /usr/bin, setting these variables as follows is enough:
 
