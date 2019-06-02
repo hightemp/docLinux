@@ -209,7 +209,7 @@ $ mysqldump --socket=/var/run/mysqld/mysqld7.sock --all-databases > mysqld7.sql
 $ innobackupex --defaults-file=/etc/my.cnf --defaults-group=mysqld7 --socket=/var/run/mysqld/mysqld7.sock /root/Backup/
 ```
 
-Yes, you also need to provide a path to the socket (when running the command locally), even though that information is already available in “–defaults-group=mysqld7”; as it turns out, only the Percona XtraBackup tool (which is called by innobackupex during the backup process) makes use of the information available in the group option. You may need to provide credentials as well (“–user” & “–password”), and don’t forget you’ll need to [prepare](https://www.percona.com/doc/percona-xtrabackup/2.2/howtos/recipes_ibkx_local.html "Make a Local Full Backup (Create, Prepare and Restore)") the backup afterward. The option “defaults-group” is not available in all versions of Percona XtraBackup so make sure to use the latest one.
+Да, вам также необходимо указать путь к сокету (при локальном запуске команды), даже если эта информация уже доступна в "defaults-group = mysqld7"; оказывается, что только инструмент Percona XtraBackup (который вызывается innobackupex в процессе резервного копирования) использует информацию, доступную в параметре группы. Вам также может понадобиться предоставить учетные данные (“–user” & “–password”), и не забудьте, что вам нужно [подготовиться](https://www.percona.com/doc/percona-xtrabackup/2.2/howtos/recipes_ibkx_local.html "Создание локальной полной резервной копии (создание, подготовка и восстановление)") после резервной копии. Опция «defaults-group» доступна не во всех версиях Percona XtraBackup, поэтому обязательно используйте самую последнюю версию.
 
 ## Summary
 
