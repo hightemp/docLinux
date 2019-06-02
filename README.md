@@ -102,5 +102,5 @@
 [vagrant](/tags/vagrant.md)
 [grub](/tags/grub.md)
 [Ubuntu](/tags/Ubuntu.md)
-[CentOS](/tags/CentOS.md)
 [Debian](/tags/Debian.md)
+[CentOS](/tags/CentOS.md)
