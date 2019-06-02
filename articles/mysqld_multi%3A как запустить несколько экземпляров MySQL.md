@@ -6,7 +6,7 @@
 
 В целях тестирования и разработки [MySQL Sandbox](http://mysqlsandbox.net/ "MySQL Sandbox") может быть более практичным, и я лично предпочитаю использовать его для своих собственных тестов. Оба инструмента работают вокруг запуска и управления несколькими процессами mysqld, но Sandbox имеет, как следует из названия, подход «песочницы», облегчающий создание и удаление нового экземпляра (включая все данные внутри него). Чаще всего mysqld\_multi используется на производственных серверах: он поставляется с серверным пакетом и использует тот же единственный файл конфигурации, который люди привыкли искать при настройке MySQL. Итак, как это работает? Как мы настраиваем и управляем экземплярами? И, что важно, как мы создаем резервные копии всех созданных нами экземпляров?
 
-## Understanding the concept of groups in my.cnf
+## Понимание концепции групп в my.cnf
 
 You may have noticed already that MySQL’s main configuration file (or “[option file](http://dev.mysql.com/doc/refman/5.6/en/option-files.html "Using Option Files")“), my.cnf, is arranged under what is called_group_structures: Sections defining configuration options specific to a given program or purpose. Usually, the program itself gives a name to the group, which appears enclosed by brackets. Here’s a basic my.cnf showing three such groups:
 
