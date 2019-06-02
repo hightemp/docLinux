@@ -8,7 +8,7 @@
 
 ## Понимание концепции групп в my.cnf
 
-You may have noticed already that MySQL’s main configuration file (or “[option file](http://dev.mysql.com/doc/refman/5.6/en/option-files.html "Using Option Files")“), my.cnf, is arranged under what is called_group_structures: Sections defining configuration options specific to a given program or purpose. Usually, the program itself gives a name to the group, which appears enclosed by brackets. Here’s a basic my.cnf showing three such groups:
+Возможно, вы уже заметили, что основной файл конфигурации MySQL (или [файл опций](http://dev.mysql.com/doc/refman/5.6/en/option-files.html "Использование файлов опций") ), my.cnf организован в соответствии с так называемой_группой_структур: разделами, определяющими параметры конфигурации, специфичные для данной программы или цели. Обычно сама программа дает имя группе, которая отображается в квадратных скобках. Вот простой my.cnf, показывающий три такие группы:
 
 ```
 [client]
