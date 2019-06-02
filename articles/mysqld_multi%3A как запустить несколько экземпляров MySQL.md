@@ -144,7 +144,7 @@ bindir=/usr/bin
 $ tar -zxvf mysql-5.6.20-linux-glibc2.5-x86_64.tar.gz -C /opt
 ```
 
-Then I made a cold copy of the datadir from one of the existing instances to /data/mysql/mysqld574:
+Затем я сделал холодную копию dadadir из одного из существующих экземпляров в /data/mysql/mysqld574:
 
 ```
 $ mysqld_multi stop 0
@@ -152,7 +152,7 @@ $ cp -r /data/mysql/mysql1 /data/mysql/mysql5620
 $ chown mysql:mysql -R /data/mysql/mysql5620
 ```
 
-and added a new group to my.cnf as follows:
+и добавил новую группу в my.cnf следующим образом:
 
 ```
 [mysqld5620]
@@ -165,7 +165,7 @@ basedir         = /opt/mysql-5.6.20-linux-glibc2.5-x86_64
 mysqld          = /opt/mysql-5.6.20-linux-glibc2.5-x86_64/bin/mysqld_safe
 ```
 
-Note the use of basedir, pointing to the path were the binaries for MySQL 5.6.20 were extracted, as well as a specific mysqld to be used with this instance. If you have made a copy of the datadir from an instance running a previous version of MySQL/Percona Server you will need to consider the same approach use when upgrading and run_mysql\_upgrade_.
+Обратите внимание на использование basedir, указывающее на путь, куда были извлечены двоичные файлы для MySQL 5.6.20, а также определенный mysqld для использования с этим экземпляром. Если вы сделали копию каталога данных из экземпляра, на котором запущена предыдущая версия MySQL / Percona Server, вам нужно будет рассмотреть тот же подход, который используется при обновлении и запустить _mysql\_upgrade_.
 
 \* I did try to use the latest experimental release of MySQL 5.7 (mysql-5.7.4-m14-linux-glibc2.5-x86\_64.tar.gz) but it crashed with:
 
