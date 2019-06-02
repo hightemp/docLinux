@@ -173,9 +173,9 @@ mysqld          = /opt/mysql-5.6.20-linux-glibc2.5-x86_64/bin/mysqld_safe
 *** glibc detected *** bin/mysqld: double free or corruption (!prev): 0x0000000003627650 ***
 ```
 
-## Using the conventional tools to start and stop an instance
+## Использование обычных инструментов для запуска и остановки экземпляра
 
-Even though mysqld\_multi makes things easier to control in general let’s not forget it is a wrapper; you can still rely (though not always, as shown below) on the conventional tools directly to start and stop an instance: mysqld\* and mysqladmin. Just make sure to use the parameter _–defaults-group-suffix_to identify which instance you want to start:
+Хотя mysqld\_multi упрощает управление, в общем, давайте не будем забывать, что это обертка; Вы все еще можете полагаться (хотя и не всегда, как показано ниже) на обычные инструменты для запуска и остановки экземпляра: mysqld\* и mysqladmin. Просто убедитесь, что вы используете параметр _-defaults-group-suffix_, чтобы определить, какой экземпляр вы хотите запустить:
 
 ```
 mysqld --defaults-group-suffix=5620
