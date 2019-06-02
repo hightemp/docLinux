@@ -105,3 +105,4 @@
 [Ubuntu](/tags/Ubuntu.md)
 [Debian](/tags/Debian.md)
 [CentOS](/tags/CentOS.md)
+[sed](/tags/sed.md)
