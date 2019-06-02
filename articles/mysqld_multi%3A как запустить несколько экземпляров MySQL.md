@@ -136,9 +136,9 @@ basedir=/usr
 bindir=/usr/bin
 ```
 
-## Configuring an instance with a different version of MySQL
+## Настройка экземпляра с другой версией MySQL
 
-If you’re planning to have multiple instances of MySQL running concurrently chances are you want to use a mix of different versions for each of them, such as during a development cycle to test application compatibility. This is a common use for mysqld\_multi, and simple enough to achieve. To showcase its use I downloaded the latest version of MySQL 5.6 available and extracted the TAR file in /opt:
+Если вы планируете запускать несколько экземпляров MySQL одновременно, есть вероятность, что вы захотите использовать разные версии для каждой из них, например, во время цикла разработки для проверки совместимости приложений. Это обычное использование для mysqld\_multi, и достаточно простое для достижения. Чтобы продемонстрировать его использование, я скачал последнюю версию MySQL 5.6 и извлек файл TAR в /opt:
 
 ```
 $ tar -zxvf mysql-5.6.20-linux-glibc2.5-x86_64.tar.gz -C /opt
