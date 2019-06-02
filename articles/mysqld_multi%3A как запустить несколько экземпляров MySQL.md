@@ -28,7 +28,7 @@ datadir		= /var/lib/mysql
 target_dir = /backups/mysql/
 ```
 
-The options defined in the group [client] above are used by the _mysql _command-line tool. As such, if you don’t specify any other option when executing _mysql_ it will attempt to connect to the local MySQL server through the socket in /var/run/mysqld/mysqld.sock and using the credentials stated in that group. Similarly, _mysqld_ will look for the options defined under its section at startup, and the same happens with [Percona XtraBackup](https://www.percona.com/software/percona-xtrabackup) when you run a backup with that tool. However, the operating parameters defined by the above groups may also be stated as command-line options during the execution of the program, in which case they replace the ones defined in my.cnf.
+Параметры, определенные в группе [клиент] выше, используются инструментом командной строки _mysql_. Таким образом, если вы не укажете какую-либо другую опцию при выполнении _mysql_, она попытается подключиться к локальному серверу MySQL через сокет в /var/run/mysqld/mysqld.sock и использовать учетные данные, указанные в этой группе. Точно так же _mysqld_ будет искать параметры, определенные в его разделе при запуске, и то же самое происходит с [Percona XtraBackup](https://www.percona.com/software/percona-xtrabackup) при запуске резервного копирования с этим инструмент. Однако рабочие параметры, определенные вышеупомянутыми группами, также могут быть указаны как параметры командной строки во время выполнения программы, и в этом случае они заменяют параметры, определенные в my.cnf.
 
 ## Getting started with multiple instances of MySQL
 
