@@ -167,7 +167,7 @@ mysqld          = /opt/mysql-5.6.20-linux-glibc2.5-x86_64/bin/mysqld_safe
 
 Обратите внимание на использование basedir, указывающее на путь, куда были извлечены двоичные файлы для MySQL 5.6.20, а также определенный mysqld для использования с этим экземпляром. Если вы сделали копию каталога данных из экземпляра, на котором запущена предыдущая версия MySQL / Percona Server, вам нужно будет рассмотреть тот же подход, который используется при обновлении и запустить _mysql\_upgrade_.
 
-\* I did try to use the latest experimental release of MySQL 5.7 (mysql-5.7.4-m14-linux-glibc2.5-x86\_64.tar.gz) but it crashed with:
+\* Я пытался использовать последний экспериментальный выпуск MySQL 5.7 (mysql-5.7.4-m14-linux-glibc2.5-x86\_64.tar.gz), но он потерпел крах:
 
 ```
 *** glibc detected *** bin/mysqld: double free or corruption (!prev): 0x0000000003627650 ***
