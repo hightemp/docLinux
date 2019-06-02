@@ -227,3 +227,6 @@ $ cat *.html | sed '1,/<pre>/d; /<\/pre>/,$d' > final.file
 *   8 -[xtips.ru](http://xtips.ru/?act=tview&tid=47)
 *   9-18 -[www.pixelbeat.org](http://www.pixelbeat.org/cmdline_ru_RU.html)
 *   19 -[www.cyberciti.biz](http://www.cyberciti.biz/faq/howto-linux-unix-command-remove-all-blank-lines/)
+
+**********
+[sed](/tags/sed.md)
