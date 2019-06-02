@@ -181,19 +181,19 @@ mysqld          = /opt/mysql-5.6.20-linux-glibc2.5-x86_64/bin/mysqld_safe
 mysqld --defaults-group-suffix=5620
 ```
 
-and _–socket_ to indicate the one you want to stop:
+и _–socket_ для указания того, кого вы хотите остановить:
 
 ```
 $mysqladmin -S /var/run/mysqld/mysqld5620.sock shutdown
 ```
 
-_\* However_, mysqld won’t work to start an instance if you have redefined the option ‘mysqld’ on the configuration group, as I did for [mysqld5620] above, stating:
+_\* Однако_, mysqld не будет работать для запуска экземпляра, если вы переопределили опцию «mysqld» в группе конфигурации, как я это сделал для \[mysqld5620\] выше, заявив:
 
 ```
 [ERROR] mysqld: unknown variable 'mysqld=/opt/mysql-5.6.20-linux-glibc2.5-x86_64/bin/mysqld_safe'
 ```
 
-I’ve tested using “ledir” to indicate the path to the directory containing the binaries for MySQL 5.6.20 instead of “mysqld” but it also failed with a similar error. If nothing else, that shows you need to stick with mysqld_multi when starting instances in a mixed-version environment.
+Я проверил, используя «ledir», чтобы указать путь к каталогу, содержащему двоичные файлы для MySQL 5.6.20 вместо «mysqld», но он также потерпел неудачу с похожей ошибкой. Если ничего другого, это показывает, что вам нужно придерживаться mysqld_multi при запуске экземпляров в среде со смешанной версией.
 
 ## Backups
 
