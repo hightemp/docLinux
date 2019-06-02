@@ -195,9 +195,9 @@ _\* Однако_, mysqld не будет работать для запуска
 
 Я проверил, используя «ledir», чтобы указать путь к каталогу, содержащему двоичные файлы для MySQL 5.6.20 вместо «mysqld», но он также потерпел неудачу с похожей ошибкой. Если ничего другого, это показывает, что вам нужно придерживаться mysqld_multi при запуске экземпляров в среде со смешанной версией.
 
-## Backups
+## Резервные копии
 
-The backup of multiple instances must be done on an individual basis like you would if each instance was located in a different server. You just need to provide the appropriate parameters to identify the instance you’re targeting. For example, we can simply use_socket_ with mysqldump when running it locally:
+Резервное копирование нескольких экземпляров должно выполняться на индивидуальной основе, как если бы каждый экземпляр находился на отдельном сервере. Вам просто нужно предоставить соответствующие параметры, чтобы идентифицировать экземпляр, на который вы нацеливаетесь. Например, мы можем просто использовать _socket_ с mysqldump при локальном запуске:
 
 ```
 $ mysqldump --socket=/var/run/mysqld/mysqld7.sock --all-databases > mysqld7.sql
