@@ -134,3 +134,4 @@ See section [4.1.2 Файлы параметров\`my.cnf'](http://www.mysql.ru
 
 **********
 [MySQL](/tags/MySQL.md)
+[mysqld_multi](/tags/mysqld_multi.md)
