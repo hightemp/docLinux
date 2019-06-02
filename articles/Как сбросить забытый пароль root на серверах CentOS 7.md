@@ -45,3 +45,6 @@ touch /.autorelabel
 ```
 
 Exit and reboot your system. You should be able to sign on and use the system with the new password you created. That’s how you change the root password on CentOS 7.
+
+**********
+[CentOS](/tags/CentOS.md)
