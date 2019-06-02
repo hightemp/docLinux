@@ -85,3 +85,4 @@ passwd
 **********
 [Ubuntu](/tags/Ubuntu.md)
 [CentOS](/tags/CentOS.md)
+[Debian](/tags/Debian.md)
