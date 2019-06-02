@@ -92,7 +92,6 @@
 [cpu](/tags/cpu.md)
 [fork](/tags/fork.md)
 [thread](/tags/thread.md)
-[Ubuntu](/tags/Ubuntu.md)
 [mysqltuner](/tags/mysqltuner.md)
 [сеть](/tags/%D1%81%D0%B5%D1%82%D1%8C.md)
 [tcp](/tags/tcp.md)
@@ -102,3 +101,4 @@
 [vagrant](/tags/vagrant.md)
 [grub](/tags/grub.md)
 [CentOS](/tags/CentOS.md)
+[Ubuntu](/tags/Ubuntu.md)
