@@ -1,6 +1,6 @@
 # mysqld_multi: как запустить несколько экземпляров MySQL
 
-The need to have multiple instances of MySQL (the well-known_mysqld_process) running in the same server concurrently in a transparent way, instead of having them executed in separate containers/virtual machines, is not very common. Yet from time to time the[Percona Support](https://www.percona.com/products/mysql-support)team receives a request from a customer to assist in the configuration of such an environment. MySQL provides a tool to facilitate the execution of multiple instances called[mysqld\_multi](http://dev.mysql.com/doc/refman/5.6/en/mysqld-multi.html "mysqld_multi — Manage Multiple MySQL Servers"):
+Необходимость иметь несколько экземпляров MySQL (хорошо известный процесс _mysqld_), работающих на одном и том же сервере одновременно прозрачным образом, вместо того, чтобы выполнять их в отдельных контейнерах / виртуальных машинах, не очень распространена. Тем не менее, время от времени команда [Percona Support](https://www.percona.com/products/mysql-support) получает запрос от клиента для помощи в настройке такой среды. MySQL предоставляет инструмент для облегчения выполнения нескольких экземпляров, который называется [mysqld \ _multi](http://dev.mysql.com/doc/refman/5.6/en/mysqld-multi.html «mysqld_multi» - управление несколькими серверами MySQL. «):
 
 > _“mysqld_multiis designed to manage severalmysqldprocesses that listen for connections on different Unix socket files and TCP/IP ports. It can start or stop servers, or report their current status.”_
 
