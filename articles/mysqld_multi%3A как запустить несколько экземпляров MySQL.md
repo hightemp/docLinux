@@ -57,7 +57,7 @@ port		= 3308
 datadir		= /data/mysql/mysql7
 ```
 
-Besides using different pid files, ports and sockets for the new instances I’ve also defined a different datadir for each – it’s very important that the instances [do**not**share the same datadir](http://dev.mysql.com/doc/refman/5.6/en/multiple-data-directories.html "Setting Up Multiple Data Directories"). Chances are you’re importing the data from a backup but if that’s not the case you can simply use mysql_install_db to create each additional datadir (but make sure the parent directory exists and that the mysql user has write access on it):
+Помимо использования разных pid-файлов, портов и сокетов для новых экземпляров, я также определил разные datadir для каждого - очень важно, чтобы экземпляры [не ** не ** совместно использовали один и тот же datadir] (http : //dev.mysql.com/doc/refman/5.6/en/multiple-data-directories.html «Настройка нескольких каталогов данных»). Скорее всего, вы импортируете данные из резервной копии, но если это не так, вы можете просто использовать mysql_install_db для создания каждого дополнительного каталога данных (но убедитесь, что родительский каталог существует и что у пользователя mysql есть доступ для записи в него) :
 
 ```
 mysql_install_db --user=mysql --datadir=/data/mysql/mysql7
