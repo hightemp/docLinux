@@ -203,7 +203,7 @@ _\* Однако_, mysqld не будет работать для запуска
 $ mysqldump --socket=/var/run/mysqld/mysqld7.sock --all-databases > mysqld7.sql
 ```
 
-In Percona XtraBackup there’s an option named  [_–defaults-group_](https://www.percona.com/doc/percona-xtrabackup/2.2/innobackupex/innobackupex_option_reference.html#cmdoption-innobackupex--defaults-group "XtraBackup's --defaults-group option description") that should be used in environments running multiple instances to indicate which one you want to backup :
+В Percona XtraBackup есть опция с именем [_–defaults-group_](https://www.percona.com/doc/percona-xtrabackup/2.2/innobackupex/innobackupex_option_reference.html#cmdoption-innobackupex--defaults-group "XtraBackup's --defaults-group option description"), которая должна использоваться в средах, в которых запущено несколько экземпляров, чтобы указать, какой из них вы хотите сделать резервную копию:
 
 ```
 $ innobackupex --defaults-file=/etc/my.cnf --defaults-group=mysqld7 --socket=/var/run/mysqld/mysqld7.sock /root/Backup/
