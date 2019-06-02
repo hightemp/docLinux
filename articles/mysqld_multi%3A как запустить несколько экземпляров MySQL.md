@@ -81,9 +81,9 @@ $ my_print_defaults --defaults-file=/etc/my.cnf mysqld7
 
 …который показывает, как данная группа («mysqld7» в приведенном выше примере) была определена в my.cnf.
 
-## Managing multiple instances
+## Управление несколькими экземплярами
 
-_mysqld\_multi_ allows you to start, stop, reload (which is effectively a restart) and report the current status of a given instance, all instances or a subset of them. The most important observation here is that the “stop” action is managed through mysqladmin – and internally that happens on an individual basis, with one “mysqladmin … stop” call per instance, even if you have mysqld\_multi stop all of them. For this to work properly you need to setup a MySQL account with the SHUTDOWN privilege and defined with the same user name and password in all instances. Yes, it will work out of the box if you run mysqld\_multi as root in a freshly installed server where the root user can access MySQL passwordless in all instances. But as the[manual](http://dev.mysql.com/doc/refman/5.6/en/mysqld-multi.html "mysqld_multi — Manage Multiple MySQL Servers")suggests, it’s better to have a specific account created for this purpose:
+_mysqld\_multi_ позволяет запускать, останавливать, перезагружать (что фактически является перезапуском) и сообщать о текущем состоянии данного экземпляра, всех экземпляров или их подмножества. Наиболее важным наблюдением здесь является то, что действие «остановки» управляется через mysqladmin - и внутренне, что происходит на индивидуальной основе, с одним вызовом «mysqladmin» - stop »на экземпляр, даже если у вас есть mysqld\_multi останови их всех. Чтобы это работало должным образом, вам необходимо настроить учетную запись MySQL с привилегией SHUTDOWN, для которой во всех случаях задано одно и то же имя пользователя и пароль. Да, он будет работать «из коробки», если вы запустите mysqld\_multi от имени пользователя root на только что установленном сервере, где пользователь root может получить доступ к MySQL без пароля во всех случаях. Но, как предполагает [manual](http://dev.mysql.com/doc/refman/5.6/en/mysqld-multi.html «mysqld_multi - управление несколькими серверами MySQL»), лучше иметь определенная учетная запись, созданная для этой цели:
 
 ```
 mysql> GRANT SHUTDOWN ON *.* TO 'multi_admin'@'localhost' IDENTIFIED BY 'multipass';
