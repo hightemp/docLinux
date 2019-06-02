@@ -86,11 +86,12 @@ See section[4.1.4 Запуск нескольких серверов MySQL на 
 
 Пример файла конфигурации для`mysqld_multi`.
 
-\# Этот файл может находиться в вашей домашней директории (~/.my.cnf) или
+```
+# Этот файл может находиться в вашей домашней директории (~/.my.cnf) или
 /etc/my.cnf
 # Version 2.1 by Jani Tolonen
 
-```
+
 [mysqld_multi]
 mysqld = /usr/local/bin/safe_mysqld
 mysqladmin = /usr/local/bin/mysqladmin
@@ -129,5 +130,4 @@ datadir = /usr/local/mysql/var6
 language = /usr/local/share/mysql/japanese
 user = jani
 ```
-
 See section[4.1.2 Файлы параметров\`my.cnf'](http://www.mysql.ru/docs/man/Option_files.html).
