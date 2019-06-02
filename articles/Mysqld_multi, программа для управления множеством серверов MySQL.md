@@ -90,13 +90,14 @@ See section[4.1.4 Запуск нескольких серверов MySQL на 
 /etc/my.cnf
 # Version 2.1 by Jani Tolonen
 
-\[mysqld\_multi\]
-mysqld = /usr/local/bin/safe\_mysqld
+```
+[mysqld_multi]
+mysqld = /usr/local/bin/safe_mysqld
 mysqladmin = /usr/local/bin/mysqladmin
-user = multi\_admin
+user = multi_admin
 password = multipass
 
-\[mysqld2\]
+[mysqld2]
 socket = /tmp/mysql.sock2
 port = 3307
 pid-file = /usr/local/mysql/var2/hostname.pid2
@@ -104,7 +105,7 @@ datadir = /usr/local/mysql/var2
 language = /usr/local/share/mysql/english
 user = john
 
-\[mysqld3\]
+[mysqld3]
 socket = /tmp/mysql.sock3
 port = 3308
 pid-file = /usr/local/mysql/var3/hostname.pid3
@@ -112,7 +113,7 @@ datadir = /usr/local/mysql/var3
 language = /usr/local/share/mysql/swedish
 user = monty
 
-\[mysqld4\]
+[mysqld4]
 socket = /tmp/mysql.sock4
 port = 3309
 pid-file = /usr/local/mysql/var4/hostname.pid4
@@ -120,12 +121,13 @@ datadir = /usr/local/mysql/var4
 language = /usr/local/share/mysql/estonia
 user = tonu
 
-\[mysqld6\]
+[mysqld6]
 socket = /tmp/mysql.sock6
 port = 3311
 pid-file = /usr/local/mysql/var6/hostname.pid6
 datadir = /usr/local/mysql/var6
 language = /usr/local/share/mysql/japanese
 user = jani
+```
 
 See section[4.1.2 Файлы параметров\`my.cnf'](http://www.mysql.ru/docs/man/Option_files.html).
