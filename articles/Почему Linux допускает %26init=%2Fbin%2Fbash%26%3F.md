@@ -1,5 +1,5 @@
 # Почему Linux допускает "init=/bin/bash"?
 
-When the computer starts, it runs a program called "init", usually found at`/bin/init`or`/sbin/init`. This program is responsible for all the system startup and creating a usable environment.
+Когда компьютер запускается, он запускает программу с именем "init", обычно находящуюся в `/bin/init` или `/sbin/init`. Эта программа отвечает за весь запуск системы и создание удобной среды.
 
-Specifying`init=/bin/bash`tells the kernel to run`/bin/bash`instead (which is a shell). Specifying`rw`tells the kernel to boot with the hard disk in read-write mode instead of read-only mode. Traditionally the kernel starts with the disk in read-only mode and a process later on checks the integrity of the disk before switching to read-write.
+Указание `init=/bin/bash` говорит ядру запустить вместо него `/bin/bash` (который является оболочкой). Указание `rw` указывает ядру загружаться с жесткого диска в режиме чтения-записи вместо режима только для чтения. Традиционно ядро запускается с диска в режиме «только чтение», а затем процесс проверяет целостность диска перед переключением на чтение и запись.
