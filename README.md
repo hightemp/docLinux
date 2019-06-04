@@ -107,3 +107,5 @@
 [vagrant](/tags/vagrant.md)
 [vim](/tags/vim.md)
 [сеть](/tags/%D1%81%D0%B5%D1%82%D1%8C.md)
+[docker](/tags/docker.md)
+[Dockerfile](/tags/Dockerfile.md)
