@@ -111,3 +111,4 @@
 [docker](/tags/docker.md)
 [grub](/tags/grub.md)
 [загрузка](/tags/%D0%B7%D0%B0%D0%B3%D1%80%D1%83%D0%B7%D0%BA%D0%B0.md)
+[BIOS](/tags/BIOS.md)
