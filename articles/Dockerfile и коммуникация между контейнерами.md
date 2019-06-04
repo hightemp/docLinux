@@ -367,3 +367,6 @@ $ sudo docker run --rm --name web2 --link db:db training/webapp env
 Префикс DB_ был взят из alias контейнера.   
   
 Можно просто использовать информацию из hosts, например команда ping db (где db – alias) будет работать.
+
+**********
+[docker](/tags/docker.md)
