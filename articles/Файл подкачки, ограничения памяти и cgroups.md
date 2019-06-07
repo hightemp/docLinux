@@ -24,21 +24,21 @@ https://jvns.ca/blog/2017/02/17/mystery-swap/
 
 Моя модель пределов памяти для cgroups всегда была «если вы используете больше памяти, чем X, вы сразу же будете убиты». Оказывается, это предположение было неверным! Если вы используете больше памяти X, вы все равно можете использовать swap!
 
-И, видимо, некоторые ядра также поддерживают установку отдельных пределов подкачки. Таким образом, вы можете установить предел памяти в X и предел обмена в 0, что даст вам более предсказуемое поведение. Обмен это странно и сбивает с толку.
+И, видимо, некоторые ядра также поддерживают установку отдельных ограничений файла подкачки. Таким образом, вы можете установить предел памяти в X и предел файла подкачки в 0, что даст вам более предсказуемое поведение. Файл подкачки - это странно и сбивает с толку.
 
-Anyway, we found out through all this that the processes in question had recently started using much more memory for very understandable reasons, and rolled back that change, and everything made sense again.
+Во всяком случае, благодаря всему этому мы выяснили, что рассматриваемые процессы недавно начали использовать гораздо больше памяти по вполне понятным причинам, и откатили это изменение, и все снова имело смысл.
 
-And more importantly than everything making sense, the build system was happy again.
+И что более важно, чем все, что имело смысл, система сборки снова была счастлива.
 
-### does swap even make sense?
+### своп вообще имеет смысл?
 
-It’s not completely clear to me under what circumstances having swap on a computer at all even makes sense. It seems like swap has some role on desktop computers.
+Мне не совсем понятно, при каких обстоятельствах вообще имеет смысл иметь «своп» на компьютере. Кажется, что «своп» играет определенную роль на настольных компьютерах.
 
-I am not sure though if any of the servers we operate benefit by having swap enabled? This seems like it would be a good thing to understand.
+Я не уверен, что если какой-либо из серверов, с которыми мы работаем, выигрывает от включения свопинга? Кажется, это было бы хорошо понять.
 
-Like I hear the advice “no, just always turn off swap, it will be better overall” a lot and maybe that is the right thing! I think the reason that swap is considered bad in production systems is that it has weird/unpredictable effects and predictability is good.
+Как будто я слышу совет «нет, просто всегда отключайте «своп», это будет лучше в целом», и, возможно, это правильно! Я думаю, что причина, по которой «своп» считается плохим в производственных системах, заключается в том, что он имеет странные/непредсказуемые эффекты, а предсказуемость - это хорошо.
 
-Somewhat relately, this [swap insanity](https://blog.jcole.us/2010/09/28/mysql-swap-insanity-and-the-numa-architecture/)article looks really interesting.
+В некоторой степени, эта статья [swap insanity](https://blog.jcole.us/2010/09/28/mysql-swap-insanity-and-the-numa-architecture/) выглядит действительно интересной.
 
 ### understanding memory models is cool
 
