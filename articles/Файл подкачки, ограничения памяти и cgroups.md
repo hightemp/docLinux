@@ -54,3 +54,4 @@ Now if I ever see a process mysteriously swapping hopefully I will remember abou
 **********
 [swap](/tags/swap.md)
 [cgroups](/tags/cgroups.md)
+[память](/tags/%D0%BF%D0%B0%D0%BC%D1%8F%D1%82%D1%8C.md)
