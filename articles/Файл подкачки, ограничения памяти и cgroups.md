@@ -42,14 +42,14 @@ https://jvns.ca/blog/2017/02/17/mystery-swap/
 
 ### понимание моделей памяти это круто
 
-I learned
+Я научился
 
-*   the vm.swappiness exists and you can use it to make a machine more or less likely to swap
-*   that when Linux OOM kills a process in a cgroup (“container”), it actually prints a bunch of very useful stuff about the memory usage of everything else in the cgroup at the time. I should remember to look at dmesg earlier on!
+* vm.swappiness существует, и вы можете использовать его для более или менее вероятного использования файла подкачки компьютера
+* что, когда Linux OOM убивает процесс в cgroup («контейнер»), он на самом деле печатает кучу очень полезных вещей об использовании памяти всего остального в cgroup в то время. Я должен помнить, чтобы посмотреть в dmesg ранее!
 
-It’s really important to me to understand what’s happening on the computers that I work with – when something happens like “this computer is swapping and I don’t know WHY” it bothers me a lot.
+Для меня очень важно понять, что происходит на компьютерах, с которыми я работаю, - когда что-то происходит, например, - этот компьютер подменяется, и я не знаю, ПОЧЕМУ, это меня сильно беспокоит.
 
-Now if I ever see a process mysteriously swapping hopefully I will remember about memory limits!
+Теперь, если я когда-нибудь увижу процесс таинственного обмена, надеюсь, я буду помнить об ограничении памяти!
 
 
 **********
