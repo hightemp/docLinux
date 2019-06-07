@@ -1,5 +1,7 @@
 # Файл подкачки, ограничения памяти и cgroups
 
+https://jvns.ca/blog/2017/02/17/mystery-swap/
+
 This week there was a bug at work, and I learned something new about memory & swap & cgroups!
 
 Understanding how memory usage works has been an ongoing project for a while – back in December, I wrote [How much memory is my process using?](https://jvns.ca/blog/2016/12/03/how-much-memory-is-my-process-using-/) which explains how memory works on Linux.
