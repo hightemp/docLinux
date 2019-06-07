@@ -2,29 +2,29 @@
 
 https://jvns.ca/blog/2017/02/17/mystery-swap/
 
-This week there was a bug at work, and I learned something new about memory & swap & cgroups!
+На этой неделе на работе произошла ошибка, и я узнал что-то новое о памяти, обмене и группах!
 
-Understanding how memory usage works has been an ongoing project for a while – back in December, I wrote [How much memory is my process using?](https://jvns.ca/blog/2016/12/03/how-much-memory-is-my-process-using-/) which explains how memory works on Linux.
+Понимание того, как работает использование памяти, уже некоторое время является постоянным проектом - еще в декабре я написал [Сколько памяти использует мой процесс?](Https://jvns.ca/blog/2016/12/03/how-much-memory-is-my-process-using-/), который объясняет, как работает память в Linux.
 
-So I felt surprised and worried yesterday when something was happening with memory on Linux that I didn’t understand! Here’s the situation and why I was confused:
+Поэтому вчера я был удивлен и обеспокоен, когда с Linux что-то происходит с памятью, чего я не понимаю! Вот ситуация и почему я был сбит с толку:
 
-We had some machines running builds. They were swapping. They had say 30GB of RAM in total. 15GB was being used by some processes and 15GB by the filesystem cache. I was really confused about why these machines were swapping, because – I know about memory! If 15GB of memory is being used by the filesystem cache, the OS can always free that memory! There’s no reason to swap!
+У нас было несколько машин, на которых работали сборки. Они менялись местами. Они сказали 30 ГБ ОЗУ в общей сложности. 15 ГБ использовались некоторыми процессами, а 15 ГБ - кешем файловой системы. Я был действительно смущен тем, почему эти машины менялись местами, потому что - я знаю о памяти! Если кеш файловой системы использует 15 ГБ памяти, ОС всегда может освободить эту память! Там нет причин для обмена!
 
-I then learned about the “swappiness” setting, and that if “swappiness” is high, then the OS is more likely to swap, even if it doesn’t absolutely need to. We tried setting `sysctl vm.swappiness=1`, which lets you tell the operating system “no, really, please don’t swap, just take memory away from the filesystem cache instead”. The machine continued to swap. I was confused.
+Затем я узнал о параметре «swappiness» и о том, что, если «swappiness» является высоким, то ОС, будет использовать swap, даже если в этом нет особой необходимости. Мы попытались установить `sysctl vm.swappiness = 1`, что позволит вам сказать операционной системе: «Нет, действительно, пожалуйста, не используй swap, просто вместо этого удали память из кэша файловой системы». Машина продолжала использовать swap. Я был сбит с толку.
 
-After a while, we turned off swap and things got worse. Some processes started being OOM killed. (the OOM killer on Linux will kill processes if you run out of memory) But why? The boxes had free memory, didn’t they? In my head I had an axiom “if a computer has free memory, there is no reason the processes on it should get OOM killed”. Obviously there was something I did not understand.
+Через некоторое время мы отключили «своп» и все стало еще хуже. Некоторые процессы стали убиваться OOM. (OOM killer в Linux убьет процессы, если у вас не хватит памяти) Но почему? У боксов была свободная память, не так ли? У меня в голове была аксиома «если у компьютера есть свободная память, нет причин, по которым процессы на нем должны быть убиты OOM». Очевидно, было что-то, чего я не понял.
 
-I finally looked at the output of `dmesg` (which is how you see messages the Linux kernel prints about what it’s up to) to understand why the processes were being OOM killed. And then there was this magic word:`cgroups`. Everything became clear pretty quickly:
+Наконец, я посмотрел на вывод `dmesg` (именно так вы видите сообщения, которые печатает ядро Linux о том, что он задумал), чтобы понять, почему процессы были уничтожены OOM. А потом появилось это волшебное слово: `cgroups`. Все стало понятно довольно быстро:
 
-*   the processes that were being killed were in a cgroup (which we talked about back in this [namespaces & groups](https://jvns.ca/blog/2016/10/10/what-even-is-a-container/) post)
-*   cgroups can have **memory limits**, which are like “you are only allowed to use 15GB of memory otherwise your processes will get killed by the OOM killer”
-*   and this memory limit was the reason the processes were being killed even though there was free memory!
+*   процессы, которые были убиты, были в cgroup (о которой мы говорили в этом [пространства имен и группы](https://jvns.ca/blog/2016/10/10/what-even-is-a-container/) посте)
+*   cgroups может иметь **ограничения памяти**, которые похожи на «вам разрешено использовать только 15 ГБ памяти, иначе ваши процессы будут убиты OOM килером»
+*   и этот предел памяти был причиной того, что процессы были убиты, даже если была свободная память!
 
-### swap + cgroup memory limits = a little surprising
+### swap + cgroup ограничения памяти = сюрпризы
 
-My model of memory limits on cgroups was always “if you use more than X memory, you will get killed right away”. It turns out that that assumptions was wrong! If you use more than X memory, you can still use swap!
+Моя модель пределов памяти для cgroups всегда была «если вы используете больше памяти, чем X, вы сразу же будете убиты». Оказывается, это предположение было неверным! Если вы используете больше памяти X, вы все равно можете использовать swap!
 
-And apparently some kernels also support setting separate swap limits. So you could set your memory limit to X and your swap limit to 0, which would give you more predictable behavior. Swapping is weird and confusing.
+И, видимо, некоторые ядра также поддерживают установку отдельных пределов подкачки. Таким образом, вы можете установить предел памяти в X и предел обмена в 0, что даст вам более предсказуемое поведение. Обмен это странно и сбивает с толку.
 
 Anyway, we found out through all this that the processes in question had recently started using much more memory for very understandable reasons, and rolled back that change, and everything made sense again.
 
