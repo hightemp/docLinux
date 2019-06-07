@@ -50,3 +50,6 @@ I learned
 It’s really important to me to understand what’s happening on the computers that I work with – when something happens like “this computer is swapping and I don’t know WHY” it bothers me a lot.
 
 Now if I ever see a process mysteriously swapping hopefully I will remember about memory limits!
+
+**********
+[swap](/tags/swap.md)
