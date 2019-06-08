@@ -243,20 +243,20 @@ $ curl -s https://raw.githubusercontent.com/torvalds/linux/v4.8/kernel/sched/loa
 <a id="4"></a>
 ## Процессы
 
-In the top right corner,`htop`shows the total number of processes and how many of them are running. But it says_Tasks_not processes. Why?
+В верхнем правом углу htop показывает общее количество процессов и их количество. Но он говорит: «Задачи, а не процессы». Зачем?
 
-Another name for a process is a_task_. The Linux kernel internally refers to processes as tasks.`htop`uses Tasks instead of Processes probably because it's shorter and saves some screen space.
+Другое название процесса - это задача. Ядро Linux внутренне называет процессы задачами. htop использует Задачи вместо Процессов, вероятно, потому что он короче и экономит место на экране.
 
-You can also see threads in`htop`. To toggle the visibility of threads, hit`Shift`+`H`on your keyboard. If you see`Tasks: 23, 10 thr`, it means it they are visible.
+Вы также можете увидеть темы в `htop`. Чтобы переключить видимость потоков, нажмите `Shift` + `H` на клавиатуре. Если вы видите `Tasks: 23, 10 thr', это означает, что они видны.
 
-You can also see kernel threads with`Shift`+`K`. When they are visible, it'll say`Tasks: 23, 40 kthr`.
+Вы также можете видеть потоки ядра с помощью `Shift` +` K`. Когда они будут видны, он скажет `Tasks: 23, 40 kthr`.
 
 <a id="5"></a>
-## Process ID / PID
+## ID / PID процесса
 
-Every time a new process is started it is assigned an identification number (ID) which is called process ID or PID for short.
+Каждый раз, когда запускается новый процесс, ему присваивается идентификационный номер (ID), который для краткости называется ID процесса или PID.
 
-If you run a program in the background (`&`) from`bash`, you will see the job number in square brackets and the PID.
+Если вы запустите программу в фоновом режиме (`&`) из `bash`, вы увидите номер задания в квадратных скобках и PID.
 
 ```
 $ sleep 1000 &
@@ -264,7 +264,7 @@ $ sleep 1000 &
 
 ```
 
-If you missed it, you can use the`$!`variable in`bash`that will expand to the last backgrounded process ID.
+Если вы пропустили это, вы можете использовать переменную `$!` В `bash`, которая будет расширяться до последнего фонового идентификатора процесса.
 
 ```
 $ echo $!
@@ -272,11 +272,11 @@ $ echo $!
 
 ```
 
-Process ID is very useful. It can be used to see details about the process and to control it.
+Идентификатор процесса очень полезен. С его помощью можно увидеть детали процесса и контролировать его.
 
-`procfs`is a pseudo file system that lets userland programs to get information from the kernel by reading files. It is usually mounted at`/proc/`and to you it looks like a regular directory that you can browse with`ls`and`cd`.
+`procfs` - это псевдо файловая система, которая позволяет пользовательским программам получать информацию из ядра, читая файлы. Обычно он монтируется в `/proc/` и для вас выглядит как обычный каталог, который вы можете просматривать с помощью `ls` и` cd`.
 
-All information related to a process is located at`/proc/<pid>/`.
+Вся информация, связанная с процессом, находится в `/proc/<pid>/`.
 
 ```
 $ ls /proc/12503
