@@ -54,7 +54,7 @@
 *   [`/sbin/agetty --noclear tty1 linux`](#user-content-42)
 *   [`sshd: root@pts/0`&`-bash`&`htop`](#user-content-43)
 *   [После](#user-content-44)
-*   [аппендикс](#user-content-45)
+*   [Аппендикс](#user-content-45)
 *   [Исходный код](#user-content-46)
 *   [Файловые дескрипторы и перенаправление](#user-content-47)
 *   [Цвета в PuTTY](#user-content-48)
@@ -65,16 +65,16 @@
 <a id="1"></a>
 ## htop на Ubuntu Server 16.04 x64
 
-Here is a screenshot of htop that I am going to describe.
+Вот скриншот htop, который я собираюсь описать.
 
 ![Screenshot of htop](/images/35fbb90c436937f3136c6087f4f7a6b3.png)
 
 <a id="2"></a>
 ## Uptime
 
-Uptime shows how long the system has been running.
+Время работы показывает, как долго работает система.
 
-You can see the same information by running`uptime`:
+Вы можете увидеть ту же информацию, запустив `uptime`:
 
 ```
 $ uptime
@@ -82,27 +82,27 @@ $ uptime
 
 ```
 
-How does the`uptime`program know that?
+Как программа `uptime` узнает об этом?
 
-It reads the information from the file`/proc/uptime`.
+Читает информацию из файла `/proc/uptime`.
 
 ```
 9592411.58 9566042.33
 
 ```
 
-The first number is the total number of seconds the system has been up. The second number is how much of that time the machine has spent idle, in seconds The second value may be greater than the overall system uptime on systems with multiple cores since it is a sum.
+Первое число - это общее количество секунд, в течение которых система работала. Второе число показывает, сколько времени машина провела в режиме ожидания, в секундах. Второе значение может быть больше, чем общее время безотказной работы системы в системах с несколькими ядрами, поскольку оно является суммой.
 
-How did I know that? I looked at what files the`uptime`program opens when it is run. We can use the`strace`tool to do that.
+Как я узнал это? Я посмотрел, какие файлы программа uptime открывает при запуске. Мы можем использовать инструмент "strace", чтобы сделать это.
 
 ```
 strace uptime
 
 ```
 
-There will be a lot of output. We can`grep`for the`open`system call. But that will not really work since`strace`outputs everything to the standard error (stderr) stream. We can redirect the stderr to the standard output (stdout) stream with`2>&1`.
+Будет много вывода. Мы можем сделать `grep` для системного вызова `open`. Но это не сработает, поскольку `strace` выводит все в поток стандартных ошибок (stderr). Мы можем перенаправить stderr в стандартный поток вывода (stdout) с помощью `2>&1`.
 
-Our output is this:
+Наш вывод такой:
 
 ```
 $ strace uptime 2>&1 | grep open
@@ -113,16 +113,16 @@ open("/proc/loadavg", O_RDONLY)         = 4
 
 ```
 
-which contains the file`/proc/uptime`which I mentioned.
+который содержит файл `/proc/uptime`, о котором я упоминал.
 
-It turns out that you can also use`strace -e open uptime`and not bother with grepping.
+Оказывается, вы также можете использовать `strace -e open uptime` и не беспокоиться о grepping.
 
-So why do we need the`uptime`program if we can just read the contents of the file? The`uptime`output is nicely formatted for humans whereas the number of seconds is more useful for using in your own programs or scripts.
+Так зачем нам нужна программа uptime, если мы можем просто прочитать содержимое файла? Результат `uptime` хорошо отформатирован для людей, тогда как количество секунд более полезно для использования в ваших собственных программах или скриптах.
 
 <a id="3"></a>
-## Load average
+## Средняя нагрузка
 
-In addition to uptime, there were also three numbers that represent the load average.
+Помимо времени безотказной работы, было также три числа, представляющих среднюю нагрузку.
 
 ```
 $ uptime
@@ -130,7 +130,7 @@ $ uptime
 
 ```
 
-They are taken from the`/proc/loadavg`file. If you take another look at the`strace`output, you'll see that this file was also opened.
+Они взяты из файла `/proc/loadavg`. Если вы еще раз посмотрите на вывод `strace`, вы увидите, что этот файл также был открыт.
 
 ```
 $ cat /proc/loadavg
