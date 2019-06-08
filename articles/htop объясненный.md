@@ -200,13 +200,13 @@ $ cat /proc/loadavg
 
 Поскольку в моей системе только один процессор, загрузка процессора составляет 100%, поскольку мой процессор может одновременно запускать только один процесс.
 
-If I had two cores, my CPU usage would be 50% since my computer can run two processes at the same time. The load average of a computer with 2 cores that has a 100% CPU utilization would be`2.00`.
+Если бы у меня было два ядра, загрузка моего процессора составляла бы 50%, поскольку мой компьютер мог запускать два процесса одновременно. Средняя нагрузка на компьютер с 2 ядрами, который загружен на 100%, составила бы 2.00.
 
-You can see the number of your cores or CPUs in the top left corner of`htop`or by running`nproc`.
+Вы можете увидеть количество ваших ядер или процессоров в верхнем левом углу «htop» или запустив «nproc».
 
-Because the load number also includes processes in uninterruptible states which don't have much effect on CPU utilization, it's not quite correct to infer CPU usage from load averages like I just did. This also explains why you may see high load averages but not much load on the CPU.
+Поскольку в число загрузки также входят процессы в непрерывном состоянии, которые не оказывают большого влияния на загрузку ЦП, не совсем правильно выводить использование ЦП из средних значений нагрузки, как я только что сделал. Это также объясняет, почему вы можете видеть высокие средние нагрузки, но не слишком большую нагрузку на процессор.
 
-But there are tools like`mpstat`that can show the instantaneous CPU utilization.
+Но есть такие инструменты, как `mpstat`, которые могут показать мгновенную загрузку процессора.
 
 ```
 $ sudo apt install sysstat -y
@@ -226,7 +226,7 @@ Linux 4.4.0-47-generic (hostname)   12/03/2016      _x86_64_        (1 CPU)
 
 ```
 
-Why do we use load averages then?
+Почему тогда мы используем средние нагрузки?
 
 ```
 $ curl -s https://raw.githubusercontent.com/torvalds/linux/v4.8/kernel/sched/loadavg.c | head -n 7
@@ -241,7 +241,7 @@ $ curl -s https://raw.githubusercontent.com/torvalds/linux/v4.8/kernel/sched/loa
 ```
 
 <a id="4"></a>
-## Processes
+## Процессы
 
 In the top right corner,`htop`shows the total number of processes and how many of them are running. But it says_Tasks_not processes. Why?
 
