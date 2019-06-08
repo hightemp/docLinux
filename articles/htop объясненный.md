@@ -1740,3 +1740,6 @@ Here is a list of non-minor corrections and updates since the post was published
 *   Rewrite the section about load averages (Dec 4, 2016)
 *   Fix:`kill 1234`by default sends`TERM`not`INT`(Dec 7, 2016)
 *   Explain CPU and memory color bars (Dec 7, 2016)
+
+**********
+[htop](/tags/htop.md)
