@@ -372,12 +372,12 @@ init
 
 Таким образом, `/sbin/init` с идентификатором 1 был запущен при загрузке, который породил демон SSH `sshd`. Когда вы подключаетесь к компьютеру, `sshd` запускает процесс для сеанса, который, в свою очередь, запускает оболочку `bash`.
 
-Мне нравится использовать это древовидное представление в `htop`, когда мне также интересно видеть все темы.
+Мне нравится использовать это древовидное представление в `htop`, когда я заинтересован видеть все потоки.
 
 <a id="7"></a>
-## Process user
+## Пользователь процесса
 
-Each process is owned by a user. Users are represented with a numeric ID.
+Каждый процесс принадлежит пользователю. Пользователи представлены с числовым идентификатором.
 
 ```
 $ sleep 1000 &
@@ -387,7 +387,7 @@ Uid:    1000    1000    1000    1000
 
 ```
 
-You can use the`id`command to find out the name for this user.
+Вы можете использовать команду `id`, чтобы узнать имя этого пользователя.
 
 ```
 $ id 1000
@@ -395,7 +395,7 @@ uid=1000(ubuntu) gid=1000(ubuntu) groups=1000(ubuntu),4(adm)
 
 ```
 
-It turns out that`id`gets this information from the`/etc/passwd`and`/etc/group`files.
+Оказывается, `id` получает эту информацию из файлов `/etc/passwd` и `/etc/group`.
 
 ```
 $ strace -e open id 1000
@@ -409,7 +409,7 @@ open("/etc/group", O_RDONLY|O_CLOEXEC)  = 3
 
 ```
 
-That's because the Name Service Switch (NSS) configuration file`/etc/nsswitch.conf`says to use these files to resolve names.
+Это связано с тем, что файл конфигурации Name Service Switch (NSS) `/etc/nsswitch.conf` говорит об использовании этих файлов для разрешения имен.
 
 ```
 $ head -n 9 /etc/nsswitch.conf
@@ -420,9 +420,9 @@ shadow:         compat
 
 ```
 
-The value of`compat`(Compatibility mode) is the same as`files`except other special entries are permitted.`files`means that the database is stored in a file (loaded by`libnss_files.so`). But you could also store your users in other databases and services or use Lightweight Directory Access Protocol (LDAP), for example.
+The value of `compat` (Compatibility mode) is the same as `files` except other special entries are permitted. `files` means that the database is stored in a file (loaded by `libnss_files.so`). But you could also store your users in other databases and services or use Lightweight Directory Access Protocol (LDAP), for example.
 
-`/etc/passwd`and`/etc/group`are plain text files that map numeric IDs to human readable names.
+`/etc/passwd` and `/etc/group` are plain text files that map numeric IDs to human readable names.
 
 ```
 $ cat /etc/passwd
