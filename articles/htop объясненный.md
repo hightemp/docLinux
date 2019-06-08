@@ -69,6 +69,7 @@ Here is a screenshot of htop that I am going to describe.
 
 ![Screenshot of htop](/images/35fbb90c436937f3136c6087f4f7a6b3.png)
 
+<a id="2"></a>
 ## Uptime
 
 Uptime shows how long the system has been running.
@@ -118,6 +119,7 @@ It turns out that you can also use`strace -e open uptime`and not bother with gre
 
 So why do we need the`uptime`program if we can just read the contents of the file? The`uptime`output is nicely formatted for humans whereas the number of seconds is more useful for using in your own programs or scripts.
 
+<a id="3"></a>
 ## Load average
 
 In addition to uptime, there were also three numbers that represent the load average.
@@ -238,6 +240,7 @@ $ curl -s https://raw.githubusercontent.com/torvalds/linux/v4.8/kernel/sched/loa
 
 ```
 
+<a id="4"></a>
 ## Processes
 
 In the top right corner,`htop`shows the total number of processes and how many of them are running. But it says_Tasks_not processes. Why?
@@ -248,6 +251,7 @@ You can also see threads in`htop`. To toggle the visibility of threads, hit`Shif
 
 You can also see kernel threads with`Shift`+`K`. When they are visible, it'll say`Tasks: 23, 40 kthr`.
 
+<a id="5"></a>
 ## Process ID / PID
 
 Every time a new process is started it is assigned an identification number (ID) which is called process ID or PID for short.
