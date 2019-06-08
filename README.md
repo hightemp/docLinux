@@ -105,7 +105,6 @@
 [MySQL](/tags/MySQL.md)
 [mysqld_multi](/tags/mysqld_multi.md)
 [vagrant](/tags/vagrant.md)
-[Ubuntu](/tags/Ubuntu.md)
 [Debian](/tags/Debian.md)
 [CentOS](/tags/CentOS.md)
 [sed](/tags/sed.md)
@@ -119,3 +118,4 @@
 [cgroups](/tags/cgroups.md)
 [память](/tags/%D0%BF%D0%B0%D0%BC%D1%8F%D1%82%D1%8C.md)
 [htop](/tags/htop.md)
+[Ubuntu](/tags/Ubuntu.md)
