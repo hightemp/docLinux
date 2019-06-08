@@ -329,6 +329,7 @@ lrwxrwxrwx 1 ubuntu ubuntu 0 Jul  6 10:10 /proc/12503/exe -> /bin/sleep
 
 So this is how`htop`,`top`,`ps`and other diagnostic utilities get their information about the details of a process: they read it from`/proc/<pid>/<file>`.
 
+<a id="6"></a>
 ## Process tree
 
 When you launch a new process, the process that launched the new process is called the parent process. The new process is now a child process for the parent process. These relationships form a tree structure.
