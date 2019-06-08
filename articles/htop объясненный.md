@@ -581,20 +581,20 @@ $ ps x
 <a id="9"></a>
 ### R - запущен или готов к запуску (в очереди выполнения)
 
-In this state, the process is currently running or on a run queue waiting to run.
+В этом состоянии процесс в данный момент выполняется или находится в очереди выполнения, ожидающей запуска.
 
-What does it mean to run?
+Что значит бегать?
 
-When you compile the source code of a program that you've written, that machine code is CPU instructions. It is saved to a file that can be executed. When you launch a program, it is loaded into memory and then the CPU executes these instructions.
+Когда вы компилируете исходный код написанной вами программы, этот машинный код является инструкциями процессора. Он сохраняется в файл, который может быть выполнен. Когда вы запускаете программу, она загружается в память, а затем процессор выполняет эти инструкции.
 
-Basically it means that the CPU is physically executing instructions. Or, in other words, crunching numbers.
+В основном это означает, что процессор физически выполняет инструкции. Или, другими словами, производит подсчеты.
 
 <a id="10"></a>
-### S - interruptible sleep (waiting for an event to complete)
+### S - прерывистый сон (ожидание завершения события)
 
-This means that the code instructions of this process are not being executed on the CPU. Instead, this process is waiting for something - an event or a condition - to happen. When an event happens, the kernel sets the state to running.
+Это означает, что инструкции кода этого процесса не выполняются на процессоре. Вместо этого этот процесс ожидает чего-то - события или условия - чтобы это произошло. Когда происходит событие, ядро устанавливает состояние на выполнение.
 
-One example is the`sleep`utily from coreutils. It will sleep for a specific number of seconds (approximately).
+Одним из примеров является `sleep` от coreutils. Он будет спать в течение определенного количества секунд (приблизительно).
 
 ```
 $ sleep 1000 &
@@ -607,19 +607,19 @@ $ ps f
 
 ```
 
-So this is_interruptible_sleep. How can we interrupt it?
+Так что это прерывистый сон. Как мы можем прервать это?
 
-By sending a signal.
+Отправив сигнал.
 
-You can send a signal in`htop`by hitting`F9`and then choosing one of the signals in the menu on the left.
+Вы можете отправить сигнал в `htop`, нажав `F9` и выбрав один из сигналов в меню слева.
 
-Sending a signal is also known as`kill`. That's because`kill`is a system call that can send a signal to a process. There is a program`/bin/kill`that can make this system call from userland and the default signal to use is`TERM`which will ask the process to terminate or in other words try to kill it.
+Отправка сигнала также называется `kill`. Это потому, что `kill` - это системный вызов, который может послать сигнал процессу. Существует программа `/bin/kill`, которая может сделать этот системный вызов из пользовательского пространства, и используемый по умолчанию сигнал - `TERM`, который попросит завершить процесс или, другими словами, попытаться его убить.
 
-Signal is just a number. Numbers are hard to remember so we give them names. Signal names are usually written in uppercase and may be prefixed with`SIG`.
+Сигнал это просто число. Числа трудно запомнить, поэтому мы даем им имена. Имена сигналов обычно пишутся в верхнем регистре и могут начинаться с префикса `SIG`.
 
-Some commonly used signals are`INT`,`KILL`,`STOP`,`CONT`,`HUP`.
+Некоторыми обычно используемыми сигналами являются `INT`, `KILL`, `STOP`, `CONT`, `HUP`.
 
-Let's interrupt the sleep process by sending the`INT`aka`SIGINT`aka`2`aka`Terminal interrupt`signal.
+Давайте прервем процесс ожидания, отправив сигнал `INT` aka `SIGINT` aka `2` aka `Terminal interrupt`.
 
 ```
 $ kill -INT 10089
@@ -627,21 +627,21 @@ $ kill -INT 10089
 
 ```
 
-This is also what happens When you hit`CTRL`+`C`on your keyboard.`bash`will the send the foreground process the`SIGINT`signal just like we just did manually.
+Это также то, что происходит, когда вы нажимаете `CTRL` + `C` на клавиатуре. `bash` отправит переднему плану обработать сигнал `SIGINT`, как мы это делали вручную.
 
-By the way, in`bash`,`kill`is a built-in command, even though there is`/bin/kill`on most systems. Why? It allows processes to be killed if the limit on processes that you can create is reached.
+Кстати, в `bash`, `kill` является встроенной командой, хотя в большинстве систем есть `/bin/kill`. Зачем? Это позволяет уничтожать процессы, если достигнут предел для процессов, которые вы можете создать.
 
-These commands do the same thing:
+Эти команды делают то же самое:
 
 *   `kill -INT 10089`
 *   `kill -2 10089`
 *   `/bin/kill -2 10089`
 
-Another useful signal to know is`SIGKILL`aka`9`. You may have used it to kill a process that didn't respond to your frantic`CTRL`+`C`keyboard presses.
+Еще один полезный сигнал, который нужно знать, это `SIGKILL` aka `9`. Возможно, вы использовали его, чтобы убить процесс, который не реагировал на ваши неистовые нажатия клавиш `CTRL`+`C`.
 
-When you write a program, you can set up signal handlers that are functions that will be called when your process receives a signal. In other words, you can catch the signal and then do something, for example, clean up and shut down gracefully. So sending`SIGINT`(the user wants to interrupt a process) and`SIGTERM`(the user wants to terminate the process) does not mean that the process will be terminated.
+Когда вы пишете программу, вы можете настроить обработчики сигналов, которые будут вызываться при получении сигнала вашим процессом. Другими словами, вы можете поймать сигнал и затем что-то сделать, например, очистить и корректно завершить работу. Поэтому отправка `SIGINT` (пользователь хочет прервать процесс) и `SIGTERM` (пользователь хочет завершить процесс) не означает, что процесс будет прерван.
 
-You may have seen this exception when running Python scripts:
+Возможно, вы видели это исключение при запуске скриптов Python:
 
 ```
 $ python -c 'import sys; sys.stdin.read()'
@@ -652,7 +652,7 @@ KeyboardInterrupt
 
 ```
 
-You can tell the kernel to forcefully terminate a process and not give it a change to respond by sending the`KILL`signal:
+Вы можете указать ядру принудительно завершить процесс и не давать ему изменения, чтобы ответить, отправив сигнал `KILL`:
 
 ```
 $ sleep 1000 &
@@ -663,23 +663,23 @@ $ kill -9 2658
 ```
 
 <a id="11"></a>
-### D - uninterruptible sleep (usually IO)
+### D - непрерывный сон (обычно IO)
 
-Unlike interruptible sleep, you cannot wake up this process with a signal. That is why many people dread seeing this state. You can't kill such processes because killing means sending`SIGKILL`signals to processes.
+В отличие от прерывистого сна, вы не можете разбудить этот процесс с сигналом. Вот почему многие люди боятся видеть это состояние. Вы не можете убить такие процессы, потому что уничтожение означает отправку сигналов `SIGKILL` процессам.
 
-This state is used if the process must wait without interruption or when the event is expected to occur quickly. Like reading to/from a disk. But that should only happen for a fraction of a second.
+Это состояние используется, если процесс должен ждать без прерывания или когда событие должно произойти быстро. Как чтение с/на диск. Но это должно произойти только на долю секунды.
 
-Here is a[nice answer on StackOverflow](http://stackoverflow.com/questions/223644/what-is-an-uninterruptable-process).
+Вот [хороший ответ по StackOverflow](http://stackoverflow.com/questions/223644/what-is-an-uninterruptable-process).
 
-> Uninterruptable processes are USUALLY waiting for I/O following a page fault. The process/task cannot be interrupted in this state, because it can't handle any signals; if it did, another page fault would happen and it would be back where it was.
+> Непрерывные процессы обычно ожидают ввода-вывода после сбоя страницы. Процесс / задача не могут быть прерваны в этом состоянии, потому что он не может обрабатывать какие-либо сигналы; если это произойдет, произойдет сбой другой страницы, и он вернется туда, где он был.
 
-In other words, this could happen if you are using Network File System (NFS) and it takes a while to read and write from it.
+Другими словами, это может произойти, если вы используете сетевую файловую систему (NFS), и для чтения и записи требуется некоторое время.
 
-Or in my experience it can also mean that some of the processes are swapping a lot which means you have too little available memory.
+Или, по моему опыту, это также может означать, что некоторые процессы свопят, что означает, что у вас слишком мало доступной памяти.
 
-Let's try to get a process to go into uninterruptible sleep.
+Давайте попробуем заставить процесс войти в непрерывный сон.
 
-`8.8.8.8`is a public DNS server provided by Google. They do not have an open NFS on there. But that won't stop us.
+`8.8.8.8` - публичный DNS-сервер, предоставленный Google. У них там нет открытой NFS. Но это не остановит нас.
 
 ```
 $ sudo mount 8.8.8.8:/tmp /tmp &
@@ -689,9 +689,9 @@ $ sudo ps x | grep mount.nfs
 
 ```
 
-How to find out what's causing this?`strace`!
+Как узнать, что вызывает это? `strace`!
 
-Let's`strace`the command in the output of`ps`above.
+Давайте `strace` команду в выводе `ps` выше.
 
 ```
 $ sudo strace /sbin/mount.nfs 8.8.8.8:/tmp /tmp -o rw
@@ -700,9 +700,9 @@ mount("8.8.8.8:/tmp", "/tmp", "nfs", 0, ...
 
 ```
 
-So the`mount`system call is blocking the process.
+So the `mount` system call is blocking the process.
 
-If you're wondering, you can run`mount`with an`intr`option to run as interruptible:`sudo mount 8.8.8.8:/tmp /tmp -o intr`.
+Если вам интересно, вы можете запустить `mount` с опцией `intr`, чтобы запустить как прерываемый: `sudo mount 8.8.8.8:/tmp /tmp -o intr`.
 
 <a id="12"></a>
 ### Z - defunct ("zombie") process, terminated but not reaped by its parent
