@@ -1271,6 +1271,7 @@ sudo apt remove snapd -y --purge
 *   [https://developer.ubuntu.com/en/snappy/](https://developer.ubuntu.com/en/snappy/)
 *   [https://insights.ubuntu.com/2016/06/14/universal-snap-packages-launch-on-multiple-linux-distros/](https://insights.ubuntu.com/2016/06/14/universal-snap-packages-launch-on-multiple-linux-distros/)
 
+<a id="31"></a>
 ### `/usr/bin/dbus-daemon`
 
 > In computing, D-Bus or DBus is an inter-process communication (IPC) and remote procedure call (RPC) mechanism that allows communication between multiple computer programs (that is, processes) concurrently running on the same machine
@@ -1294,12 +1295,14 @@ Oops. Should probably keep this.
 
 *   [https://en.wikipedia.org/wiki/D-Bus](https://en.wikipedia.org/wiki/D-Bus)
 
+<a id="32"></a>
 ### `/lib/systemd/systemd-logind`
 
 > systemd-logind is a system service that manages user logins.
 
 *   [https://www.freedesktop.org/software/systemd/man/systemd-logind.service.html](https://www.freedesktop.org/software/systemd/man/systemd-logind.service.html)
 
+<a id="33"></a>
 ### `/usr/sbin/cron -f`
 
 > cron - daemon to execute scheduled commands (Vixie Cron)
@@ -1365,6 +1368,7 @@ cron
 *   [https://www.digitalocean.com/community/tutorials/how-to-use-cron-to-automate-tasks-on-a-vps](https://www.digitalocean.com/community/tutorials/how-to-use-cron-to-automate-tasks-on-a-vps)
 *   [http://unix.stackexchange.com/questions/212355/where-is-my-logfile-of-crontab](http://unix.stackexchange.com/questions/212355/where-is-my-logfile-of-crontab)
 
+<a id="34"></a>
 ### `/usr/sbin/rsyslogd -n`
 
 > Rsyslogd is a system utility providing support for message logging.
@@ -1398,6 +1402,7 @@ So, maybe? I am going to keep it just in case.
 *   [https://www.digitalocean.com/community/tutorials/how-to-centralize-logs-with-rsyslog-logstash-and-elasticsearch-on-ubuntu-14-04](https://www.digitalocean.com/community/tutorials/how-to-centralize-logs-with-rsyslog-logstash-and-elasticsearch-on-ubuntu-14-04)
 *   [https://access.redhat.com/documentation/en-US/Red\_Hat\_Enterprise\_Linux/7/html/System\_Administrators\_Guide/s1-interaction\_of\_rsyslog\_and\_journal.html](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/System_Administrators_Guide/s1-interaction_of_rsyslog_and_journal.html)
 
+<a id="35"></a>
 ### `/usr/sbin/acpid`
 
 > acpid - Advanced Configuration and Power Interface event daemon
@@ -1422,6 +1427,7 @@ So I should probably keep this.
 *   [http://manpages.ubuntu.com/manpages/xenial/man8/acpid.8.html](http://manpages.ubuntu.com/manpages/xenial/man8/acpid.8.html)
 *   [https://en.wikipedia.org/wiki/Advanced\_Configuration\_and\_Power\_Interface](https://en.wikipedia.org/wiki/Advanced_Configuration_and_Power_Interface)
 
+<a id="36"></a>
 ### `/usr/bin/lxcfs /var/lib/lxcfs/`
 
 > Lxcfs is a fuse filesystem mainly designed for use by lxc containers. On a Ubuntu 15.04 system, it will be used by default to provide two things: first, a virtualized view of some /proc files; and secondly, filtered access to the host’s cgroup filesystems.
@@ -1440,6 +1446,7 @@ sudo apt remove lxcfs -y --purge
 *   [https://insights.ubuntu.com/2015/03/02/introducing-lxcfs/](https://insights.ubuntu.com/2015/03/02/introducing-lxcfs/)
 *   [https://www.stgraber.org/2016/03/31/lxcfs-2-0-has-been-released/](https://www.stgraber.org/2016/03/31/lxcfs-2-0-has-been-released/)
 
+<a id="37"></a>
 ### `/usr/lib/accountservice/accounts-daemon`
 
 > The AccountsService package provides a set of D-Bus interfaces for querying and manipulating user account information and an implementation of these interfaces based on the usermod(8), useradd(8) and userdel(8) commands.
@@ -1455,6 +1462,7 @@ Time will tell.
 
 *   [http://www.linuxfromscratch.org/blfs/view/systemd/gnome/accountsservice.html](http://www.linuxfromscratch.org/blfs/view/systemd/gnome/accountsservice.html)
 
+<a id="38"></a>
 ### `/sbin/mdadm`
 
 > mdadm is a Linux utility used to manage and monitor software RAID devices.
@@ -1474,6 +1482,7 @@ sudo apt remove mdadm -y --purge
 *   [https://help.ubuntu.com/community/Installation/SoftwareRAID](https://help.ubuntu.com/community/Installation/SoftwareRAID)
 *   [http://manpages.ubuntu.com/manpages/xenial/man8/mdadm.8.html](http://manpages.ubuntu.com/manpages/xenial/man8/mdadm.8.html)
 
+<a id="39"></a>
 ### `/usr/lib/policykit-1/polkitd --no-debug`
 
 > polkitd — PolicyKit daemon
@@ -1496,6 +1505,7 @@ Still wondering if this breaks something.
 *   [http://www.admin-magazine.com/Articles/Assigning-Privileges-with-sudo-and-PolicyKit](http://www.admin-magazine.com/Articles/Assigning-Privileges-with-sudo-and-PolicyKit)
 *   [https://wiki.archlinux.org/index.php/Polkit#Configuration](https://wiki.archlinux.org/index.php/Polkit#Configuration)
 
+<a id="40"></a>
 ### `/usr/sbin/sshd -D`
 
 > sshd (OpenSSH Daemon) is the daemon program for ssh.
@@ -1504,6 +1514,7 @@ Still wondering if this breaks something.
 
 *   [http://manpages.ubuntu.com/manpages/xenial/man8/sshd.8.html](http://manpages.ubuntu.com/manpages/xenial/man8/sshd.8.html)
 
+<a id="41"></a>
 ### `/sbin/iscsid`
 
 iscsid is the daemon (system service) that runs in the background, acting on iSCSI configuration, and managing the connections. From its manpage:
@@ -1527,6 +1538,7 @@ sudo apt remove open-iscsi -y --purge
 
 ```
 
+<a id="42"></a>
 ### `/sbin/agetty --noclear tty1 linux`
 
 > agetty - alternative Linux getty
@@ -1556,6 +1568,7 @@ When I rebooted the server, I could still connect to it via SSH but I was no lon
 *   [http://0pointer.de/blog/projects/serial-console.html](http://0pointer.de/blog/projects/serial-console.html)
 *   [http://unix.stackexchange.com/questions/56531/how-to-get-fewer-ttys-with-systemd](http://unix.stackexchange.com/questions/56531/how-to-get-fewer-ttys-with-systemd)
 
+<a id="43"></a>
 ### `sshd: root@pts/0`&`-bash`&`htop`
 
 `sshd: root@pts/0`means that there has been an SSH session established for the user`root`at the #`0`pseudoterminal (`pts`). A pseudoterminal emulates a real text terminal.
@@ -1568,6 +1581,7 @@ Why is there a dash at the beginning? Reddit user hirnbrot helpfully explained i
 
 `htop`is an interactive process viewer tool that is running in the screenshot.
 
+<a id="44"></a>
 ### After
 
 ```
@@ -1604,8 +1618,10 @@ Here's nginx, PHP7 and MySQL.
 
 ![](/images/88fdbf4095313e9fc943b51d9379998e.png)
 
+<a id="45"></a>
 ## Appendix
 
+<a id="46"></a>
 ### Source code
 
 Sometimes looking at`strace`is not enough.
@@ -1633,6 +1649,7 @@ If you scroll to the bottom of the page, you'll see links to the source code rep
 *   Debian Package Source Repository git://git.debian.org/collab-maint/procps.git
 *   Debian Package Source Repository (Browsable)[https://anonscm.debian.org/cgit/collab-maint/procps.git/](https://anonscm.debian.org/cgit/collab-maint/procps.git/)
 
+<a id="47"></a>
 ### File descriptors and redirection
 
 When you want to redirect standard error (stderr) to standard output (stdout), is it`2&>1`or`2>&1`?
@@ -1643,6 +1660,7 @@ If you write`echo something 2>1`, it means that you redirect stderr to a file wi
 
 If you add`&`before`1`, it means that`1`is not a filename but the stream ID. So it's`echo something 2>&1`.
 
+<a id="48"></a>
 ### Colors in PuTTY
 
 ![](/images/0a14a854bc0d52de42b9270f6d56b942.png)
@@ -1657,6 +1675,7 @@ If you have missing elements in htop when you are using PuTTY, here is how to so
 
 ![](/images/1c9f6024412d38830831a9bbfa1e5cf4.png)
 
+<a id="49"></a>
 ### Shell in C
 
 Let's write a very simple shell in C that demonstrates the use of`fork`/`exec`/`wait`system calls. Here's the program`shell.c`.
@@ -1740,6 +1759,7 @@ $ # press Enter
 
 That's because the shell is waiting for your input. Only when you enter a command does it check for the status of the background processes and show if they've been terminated.
 
+<a id="50"></a>
 ## TODO
 
 Here is what I'd like to find out more about.
@@ -1756,6 +1776,7 @@ Here is what I'd like to find out more about.
 *   process ID limit & fork bomb
 *   `lsof`,`ionice`,`schedtool`
 
+<a id="51"></a>
 ## Updates
 
 Here is a list of non-minor corrections and updates since the post was published.
