@@ -374,6 +374,7 @@ So the`/sbin/init`with an ID of 1 was started at boot, which spawned the SSH dae
 
 I like to use this tree view in`htop`when I'm also interested in seeing all threads.
 
+<a id="7"></a>
 ## Process user
 
 Each process is owned by a user. Users are represented with a numeric ID.
@@ -544,6 +545,7 @@ You can find the so called`setuid`executables with`find /bin -user root -perm -u
 
 Note that you can also do the same with group (`g+s`).
 
+<a id="8"></a>
 ## Process state
 
 We are next going to look at the process state column in`htop`which is denoted simply with the letter`S`.
@@ -576,6 +578,7 @@ $ ps x
 
 ```
 
+<a id="9"></a>
 ### R - running or runnable (on run queue)
 
 In this state, the process is currently running or on a run queue waiting to run.
@@ -586,6 +589,7 @@ When you compile the source code of a program that you've written, that machine 
 
 Basically it means that the CPU is physically executing instructions. Or, in other words, crunching numbers.
 
+<a id="10"></a>
 ### S - interruptible sleep (waiting for an event to complete)
 
 This means that the code instructions of this process are not being executed on the CPU. Instead, this process is waiting for something - an event or a condition - to happen. When an event happens, the kernel sets the state to running.
@@ -658,6 +662,7 @@ $ kill -9 2658
 
 ```
 
+<a id="11"></a>
 ### D - uninterruptible sleep (usually IO)
 
 Unlike interruptible sleep, you cannot wake up this process with a signal. That is why many people dread seeing this state. You can't kill such processes because killing means sending`SIGKILL`signals to processes.
@@ -699,6 +704,7 @@ So the`mount`system call is blocking the process.
 
 If you're wondering, you can run`mount`with an`intr`option to run as interruptible:`sudo mount 8.8.8.8:/tmp /tmp -o intr`.
 
+<a id="12"></a>
 ### Z - defunct ("zombie") process, terminated but not reaped by its parent
 
 When a process ends via`exit`and it still has child processes, the child processes become zombie processes.
@@ -791,6 +797,7 @@ The parent process has the option to find out its child process exit code (in a 
 
 Why not simply forcefully wake it up and kill it? For the same reason, you don't toss your child in the trash when you're tired of it. Bad things could happen.
 
+<a id="13"></a>
 ### T - stopped by job control signal
 
 I have opened two terminal windows and I can look at my user's processes with`ps u`.
@@ -832,6 +839,7 @@ Run`fg`in the first terminal to resume it.
 
 Another way to stop a process like this is to send the`STOP`signal with`kill`to the process. To resume the execution of the process, you can use the`CONT`signal.
 
+<a id="14"></a>
 ### t - stopped by debugger during the tracing
 
 First, install the GNU Debugger (gdb)
@@ -874,6 +882,7 @@ ubuntu    3905  0.0  0.1   9184   896 pts/0    t    07:41   0:00 nc -l 1234
 
 ```
 
+<a id="15"></a>
 ## Process time
 
 Linux is a multitasking operating system which means that even when you have a single CPU, you can run several processes at the same time. You can connect to your server via SSH and look at the output of`htop`while your web server is delivering the content of your blog to your readers over the internet.
@@ -890,6 +899,7 @@ This should help explain why the load average is the average number of running p
 
 This should also give you a clue why sometimes the running time of a process that's been running for 10 seconds is higher or lower than exactly 10 seconds.
 
+<a id="16"></a>
 ## Process niceness and priority
 
 When you have more tasks to run than the number of available CPU cores, you somehow have to decide which tasks to run next and which ones to keep waiting. This is what the task scheduler is responsible for.
@@ -937,6 +947,7 @@ Here is what the CPU usage colors mean:
 
 [http://askubuntu.com/questions/656771/process-niceness-vs-priority](http://askubuntu.com/questions/656771/process-niceness-vs-priority)
 
+<a id="17"></a>
 ## Memory usage - VIRT/RES/SHR/MEM
 
 A process has the illusion of being the only one in memory. This is accomplished by using virtual memory.
@@ -951,6 +962,7 @@ Here is what the memory usage colors mean:
 *   Blue: Buffers
 *   Orange: Cache
 
+<a id="18"></a>
 ### VIRT/VSZ - Virtual Image
 
 > The total amount of virtual memory used by the task. It includes all code, data and shared libraries plus pages that have been swapped out and pages that have been mapped but not used.
@@ -961,6 +973,7 @@ If an application requests 1 GB of memory but uses only 1 MB, then`VIRT`will rep
 
 Most of the time, this is not a useful number.
 
+<a id="19"></a>
 ### RES/RSS - Resident size
 
 > The non-swapped physical memory a task has used.
@@ -974,6 +987,7 @@ While`RES`can be a better indicator of how much memory a process is using than`V
 
 If a process uses 1 GB of memory and it calls`fork()`, the result of forking will be two processes whose`RES`is both 1 GB but only 1 GB will actually be used since Linux uses copy-on-write.
 
+<a id="20"></a>
 ### SHR - Shared Mem size
 
 > The amount of shared memory used by a task.  
@@ -1035,6 +1049,7 @@ child    Child used extra 2M        5216 0
 
 TODO: I should finish this.
 
+<a id="21"></a>
 ### MEM% - Memory usage
 
 > A task's currently used share of available physical memory.
@@ -1043,6 +1058,7 @@ This is`RES`divided by the total RAM you have.
 
 If`RES`is`400M`and you have 8 gigabytes of RAM,`MEM%`will be`400/8192*100`\=`4.88%`.
 
+<a id="22"></a>
 ## Processes
 
 I launched a Digital Ocean droplet with Ubuntu Server.
@@ -1053,10 +1069,12 @@ Do you actually need them?
 
 Here are my research notes on the processes that are run at startup on a fresh Digital Ocean droplet with Ubuntu Server 16.04.1 LTS x64.
 
+<a id="23"></a>
 ### Before
 
 ![](https://peteris.rocks/blog/htop/canyoukillit-before.png)
 
+<a id="24"></a>
 ### `/sbin/init`
 
 > The /sbin/init program (also called init) coordinates the rest of the boot process and configures the environment for the user.
@@ -1080,6 +1098,7 @@ Nothing.
 *   [https://wiki.ubuntu.com/SystemdForUpstartUsers](https://wiki.ubuntu.com/SystemdForUpstartUsers)
 *   [https://www.centos.org/docs/5/html/5.1/Installation\_Guide/s2-boot-init-shutdown-init.html](https://www.centos.org/docs/5/html/5.1/Installation_Guide/s2-boot-init-shutdown-init.html)
 
+<a id="25"></a>
 ### `/lib/systemd/systemd-journald`
 
 > systemd-journald is a system service that collects and stores logging data. It creates and maintains structured, indexed journals based on logging information that is received from a variety of sources.
@@ -1109,6 +1128,7 @@ It looks like it is not possible to remove or disable this service, you can only
 *   [https://www.loggly.com/blog/why-journald/](https://www.loggly.com/blog/why-journald/)
 *   [https://ask.fedoraproject.org/en/question/63985/how-to-correctly-disable-journald/](https://ask.fedoraproject.org/en/question/63985/how-to-correctly-disable-journald/)
 
+<a id="26"></a>
 ### `/sbin/lvmetad -f`
 
 > The lvmetad daemon caches LVM metadata, so that LVM commands can read metadata without scanning disks.
@@ -1130,6 +1150,7 @@ $ sudo apt remove lvm2 -y --purge
 *   [http://manpages.ubuntu.com/manpages/xenial/man8/lvmetad.8.html](http://manpages.ubuntu.com/manpages/xenial/man8/lvmetad.8.html)
 *   [http://askubuntu.com/questions/3596/what-is-lvm-and-what-is-it-used-for](http://askubuntu.com/questions/3596/what-is-lvm-and-what-is-it-used-for)
 
+<a id="27"></a>
 ### `/lib/systemd/udevd`
 
 > systemd-udevd listens to kernel uevents. For every event, systemd-udevd executes matching instructions specified in udev rules.
@@ -1143,6 +1164,7 @@ I am not sure if I need it running on a virtual server.
 *   [https://www.freedesktop.org/software/systemd/man/systemd-udevd.service.html](https://www.freedesktop.org/software/systemd/man/systemd-udevd.service.html)
 *   [https://wiki.archlinux.org/index.php/udev](https://wiki.archlinux.org/index.php/udev)
 
+<a id="28"></a>
 ### `/lib/systemd/timesyncd`
 
 > systemd-timesyncd is a system service that may be used to synchronize the local system clock with a remote Network Time Protocol server.
@@ -1198,6 +1220,7 @@ Ugh.
 *   [https://www.freedesktop.org/software/systemd/man/systemd-timesyncd.service.html](https://www.freedesktop.org/software/systemd/man/systemd-timesyncd.service.html)
 *   [https://wiki.archlinux.org/index.php/systemd-timesyncd](https://wiki.archlinux.org/index.php/systemd-timesyncd)
 
+<a id="29"></a>
 ### `/usr/sbin/atd -f`
 
 > atd - run jobs queued for later execution. atd runs jobs queued by at.
