@@ -138,13 +138,13 @@ $ cat /proc/loadavg
 
 ```
 
-The first three columns represent the average system load of the last 1, 5, and 15 minute periods. The fourth column shows the number of currently running processes and the total number of processes. The last column displays the last process ID used.
+Первые три столбца представляют среднюю загрузку системы за последние 1, 5 и 15-минутные периоды. Четвертый столбец показывает количество запущенных в данный момент процессов и общее количество процессов. В последнем столбце отображается последний использованный идентификатор процесса.
 
-Let's start with the last number.
+Начнем с последнего номера.
 
-Whenever you launch a new process, it is assigned an ID number. Process IDs are usually increasing, unless they've been exausted and are being reused. The process ID of 1 belongs to`/sbin/init`which is started at boot time.
+Каждый раз, когда вы запускаете новый процесс, ему присваивается идентификационный номер. Идентификаторы процесса обычно увеличиваются, если они не были исчерпаны и используются повторно. Идентификатор процесса с 1 принадлежит `/sbin/init`, который запускается во время загрузки.
 
-Let's look at the`/proc/loadavg`contents again and then launch the`sleep`command in the background. When it's launched in the background, its process ID will be shown.
+Давайте снова посмотрим на содержимое `/proc/loadavg` и затем запустим команду `sleep` в фоновом режиме. Когда он запущен в фоновом режиме, будет показан его идентификатор процесса.
 
 ```
 $ cat /proc/loadavg
@@ -154,9 +154,9 @@ $ sleep 10 &
 
 ```
 
-So the`1/123`means that there is one process running or ready to run at this time and there are`123`processed in total.
+Таким образом, `1/123` означает, что в данный момент запущен или готов к запуску один процесс и всего `123` обработано.
 
-When you run`htop`and see just one running process, it means that it is the`htop`process itself.
+Когда вы запускаете `htop` и видите только один запущенный процесс, это означает, что это сам процесс `htop`.
 
 If you run`sleep 30`and run`htop`again, you'll notice that there is still just 1 running process. That's because`sleep`is not running, it is sleeping or idling or in other words waiting for something to happen. A running process is a process that is currently running on the physical CPU or waiting its turn to run on the CPU.
 
