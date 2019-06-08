@@ -420,9 +420,9 @@ shadow:         compat
 
 ```
 
-The value of `compat` (Compatibility mode) is the same as `files` except other special entries are permitted. `files` means that the database is stored in a file (loaded by `libnss_files.so`). But you could also store your users in other databases and services or use Lightweight Directory Access Protocol (LDAP), for example.
+Значение `compat` (режим совместимости) такое же, как `files`, за исключением того, что разрешены другие специальные записи. `files` означает, что база данных хранится в файле (загружается с помощью `libnss_files.so`). Но вы также можете хранить своих пользователей в других базах данных и службах или использовать, например, облегченный протокол доступа к каталогам (LDAP).
 
-`/etc/passwd` and `/etc/group` are plain text files that map numeric IDs to human readable names.
+`/etc/passwd` и `/etc/group` - это простые текстовые файлы, которые отображают числовые идентификаторы в удобочитаемые имена.
 
 ```
 $ cat /etc/passwd
@@ -436,9 +436,9 @@ ubuntu:x:1000:
 
 ```
 
-`passwd`? But where are the passwords?
+`passwd`? Но где пароли?
 
-They are actually in`/etc/shadow`.
+На самом деле они находятся в `/etc/shadow`.
 
 ```
 $ sudo cat /etc/shadow
@@ -448,15 +448,15 @@ ubuntu:$6$GIfdqlb/$ms9ZoxfrUq455K6UbmHyOfz7DVf7TWaveyHcp.:17126:0:99999:7:::
 
 ```
 
-What's that gibberish?
+Что это за бред?
 
-*   `$6$`is the password hashing algorithm used, in this case it stands for`sha512`
-*   followed by randomly generated salt to safeguard against rainbow table attacks
-*   and finally the hash of your password + salt
+* `$6$` - используемый алгоритм хеширования паролей, в данном случае он обозначается как `sha512`
+* сопровождается случайно сгенерированной солью для защиты от радужных атак
+* и наконец хэш вашего пароля + соль
 
-When you run a program, it will be run as your user. Even if the executable file is not owned by you.
+Когда вы запустите программу, она будет запущена под вашим пользователем. Даже если исполняемый файл не принадлежит вам.
 
-If you'd like to run a program as`root`or another user, that's what`sudo`is for.
+Если вы хотите запустить программу от имени пользователя root или другого пользователя, для этого и нужен sudo.
 
 ```
 $ id
@@ -470,11 +470,11 @@ uid=1(daemon) gid=1(daemon) groups=1(daemon)
 
 ```
 
-But what if you want to log in as another user to launch various commands? Use`sudo bash`or`sudo -u user bash`. You'll be able to use the shell as that user.
+Но что, если вы хотите войти в систему как другой пользователь для запуска различных команд? Используйте `sudo bash` или` sudo -u user bash`. Вы сможете использовать оболочку в качестве этого пользователя.
 
-If you don't like being asked for the root password all the time, you can simply disable it by adding your user to the`/etc/sudoers`file.
+Если вам не нравится, когда вас постоянно просят ввести пароль root, вы можете просто отключить его, добавив своего пользователя в файл `/etc/sudoers`.
 
-Let's try it:
+Давай попробуем:
 
 ```
 $ echo "$USER ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
