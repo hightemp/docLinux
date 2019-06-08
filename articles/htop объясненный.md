@@ -482,7 +482,7 @@ $ echo "$USER ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
 
 ```
 
-Right, only root can do it.
+Правильно, только root может это сделать.
 
 ```
 $ sudo echo "$USER ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
@@ -492,14 +492,14 @@ $ sudo echo "$USER ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
 
 WTF?
 
-What happens here is that you are executing the`echo`command as root but appending the line to the`/etc/sudoers`file still as your user.
+Здесь происходит то, что вы выполняете команду `echo` от имени пользователя root, но добавляете строку в файл `/etc/sudoers` как пользователь.
 
-There are usually two ways around it:
+Обычно есть два пути:
 
 *   `echo "$USER ALL=(ALL) NOPASSWD: ALL" | sudo tee -a /etc/sudoers`
 *   `sudo bash -c "echo '$USER ALL=(ALL) NOPASSWD: ALL' >> /etc/sudoers"`
 
-In the first case,`tee -a`will append its standard input to the file and we execute this command as root.
+В первом случае `tee -a` добавит свой стандартный ввод в файл, и мы выполним эту команду как root.
 
 In the second case, we run bash as root and ask it to execute a command (`-c`) and the entire command will be executed as root. Note the tricky`"`/`'`business here which will dictate when the`$USER`variable will be expanded.
 
