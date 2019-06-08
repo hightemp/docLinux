@@ -553,19 +553,19 @@ $ ls -l /usr/bin/passwd
 Вот возможные значения:
 
 ```
-R    running or runnable (on run queue)
-S    interruptible sleep (waiting for an event to complete)
-D    uninterruptible sleep (usually IO)
-Z    defunct ("zombie") process, terminated but not reaped by its parent
-T    stopped by job control signal
-t    stopped by debugger during the tracing
-X    dead (should never be seen)
+R    работает или работает (в очереди выполнения)
+S    прерывистый сон (ожидание завершения события)
+D    непрерывный сон (обычно IO)
+Z    не существующий ("зомби") процесс, прерванный, но не собранный его родителем
+T    остановлен сигналом управления работой
+t    остановлен отладчиком во время трассировки
+X    мертвый (никогда не должно быть видно)
 
 ```
 
-I've ordered them by how often I see them.
+Я заказал их по тому, как часто я их вижу.
 
-Note that when you run`ps`, it will also show substates like`Ss`,`R+`,`Ss+`, etc.
+Обратите внимание, что когда вы запускаете `ps`, он также показывает подсостояния, такие как `Ss`, `R+`, `Ss+` и т.д.
 
 ```
 $ ps x
