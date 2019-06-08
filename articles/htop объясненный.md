@@ -158,9 +158,9 @@ $ sleep 10 &
 
 Когда вы запускаете `htop` и видите только один запущенный процесс, это означает, что это сам процесс `htop`.
 
-If you run`sleep 30`and run`htop`again, you'll notice that there is still just 1 running process. That's because`sleep`is not running, it is sleeping or idling or in other words waiting for something to happen. A running process is a process that is currently running on the physical CPU or waiting its turn to run on the CPU.
+Если вы запустите `sleep 30` и снова запустите `htop`, вы заметите, что все еще только один запущенный процесс. Это потому, что `sleep` не работает, он спит или бездействует или, другими словами, ждет, когда что-то случится. Запущенный процесс - это процесс, который в данный момент выполняется на физическом процессоре или ожидает своей очереди для запуска на процессоре.
 
-If you run`cat /dev/urandom > /dev/null`which repeatedly generates random bytes and writes them to a special file that is never read from, you will see that there are now two running process.
+Если вы запустите `cat /dev/urandom > /dev/null`, который многократно генерирует случайные байты и записывает их в специальный файл, из которого никогда не производится чтение, вы увидите, что теперь есть два запущенных процесса.
 
 ```
 $ cat /dev/urandom > /dev/null &
@@ -170,23 +170,23 @@ $ cat /proc/loadavg
 
 ```
 
-So there are now two running processes (random number generation and the`cat`that reads the contents of`/proc/loadavg`) and you'll also notice that the load averages have increased.
+Итак, теперь есть два запущенных процесса (генерация случайных чисел и `cat`, который читает содержимое `/proc/loadavg`), и вы также заметите, что средние значения нагрузки увеличились.
 
-The load average represents the average system load over a period of time.
+Средняя загрузка представляет собой среднюю загрузку системы за период времени.
 
-The load number is calculated by counting the number of running (currently running or waiting to run) and uninterruptible processes (waiting for disk or network activity). So it's simply a number of processes.
+Число загрузок рассчитывается путем подсчета количества запущенных (в данный момент запущенных или ожидающих выполнения) и непрерывных процессов (ожидающих активности диска или сети). Так что это просто ряд процессов.
 
-The load averages are then the average number of those processes during the last 1, 5 and 15 minutes, right?
+Тогда средние значения нагрузки - это среднее число этих процессов за последние 1, 5 и 15 минут, верно?
 
-It turns out it's not as simple as that.
+Оказывается, не все так просто.
 
-The load average is the exponentially damped moving average of the load number. From Wikipedia:
+Среднее значение нагрузки является экспоненциально демпфированным скользящим средним числа нагрузки. Из Википедии:
 
-> Mathematically speaking, all three values always average all the system load since the system started up. They all decay exponentially, but they decay at different speed. Hence, the 1-minute load average will add up 63% of the load from last minute, plus 37% of the load since start up excluding the last minute. Therefore, it's not technically accurate that the 1-minute load average only includes the last 60 seconds activity (since it still includes 37% activity from the past), but that includes mostly the last minute.
+> Математически говоря, все три значения всегда усредняют всю загрузку системы с момента запуска системы. Все они экспоненциально разлагаются, но разлагаются с разной скоростью. Следовательно, 1-минутное среднее значение нагрузки будет составлять 63% нагрузки с последней минуты, плюс 37% нагрузки с момента запуска, исключая последнюю минуту. Таким образом, технически неточно, что среднее значение нагрузки за 1 минуту включает только последние 60 секунд активности (поскольку оно все еще включает 37% активности за прошлый период), но в основном включает последнюю минуту.
 
-Is that what you expected?
+Это то, что вы ожидали?
 
-Let's return to our random number generation.
+Давайте вернемся к нашей генерации случайных чисел.
 
 ```
 $ cat /proc/loadavg
@@ -194,11 +194,11 @@ $ cat /proc/loadavg
 
 ```
 
-While technically not correct, this is how I simplify load averages to make it easier to reason about them.
+Хотя это технически неверно, я упростил средние значения нагрузки, чтобы было легче рассуждать о них.
 
-In this case, the random number generation process is CPU bound, so the load average over the last minute is`1.00`or on average 1 running process.
+В этом случае процесс генерации случайных чисел связан с процессором, поэтому средняя загрузка за последнюю минуту составляет 1,00 или в среднем 1 запущенный процесс.
 
-Since there is only one CPU on my system, the CPU utilization is 100% since my CPU can run only one process at a time.
+Поскольку в моей системе только один процессор, загрузка процессора составляет 100%, поскольку мой процессор может одновременно запускать только один процесс.
 
 If I had two cores, my CPU usage would be 50% since my computer can run two processes at the same time. The load average of a computer with 2 cores that has a 100% CPU utilization would be`2.00`.
 
