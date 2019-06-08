@@ -501,9 +501,9 @@ WTF?
 
 В первом случае `tee -a` добавит свой стандартный ввод в файл, и мы выполним эту команду как root.
 
-In the second case, we run bash as root and ask it to execute a command (`-c`) and the entire command will be executed as root. Note the tricky`"`/`'`business here which will dictate when the`$USER`variable will be expanded.
+Во втором случае мы запускаем bash от имени пользователя root и просим его выполнить команду (`-c`), и вся команда будет выполнена от имени пользователя root. Обратите внимание на хитрый `"`/`'` трюк здесь, который будет диктовать, когда переменная `$USER` будет расширена.
 
-If you take a look at the`/etc/sudoers`file you will see that it begins with
+Если вы посмотрите на файл `/etc/sudoers`, то увидите, что он начинается с
 
 ```
 $ sudo head -n 3 /etc/sudoers
@@ -513,13 +513,13 @@ $ sudo head -n 3 /etc/sudoers
 
 ```
 
-Uh oh.
+Ооо
 
-It's a helpful warning that says you should edit this file with`sudo visudo`. It will validate the contents of the file before saving and prevent you from making mistakes. If you don't use`visudo`and make a mistake, it may lock you out from`sudo`. Which means that you won't be able to correct your mistake!
+Это полезное предупреждение о том, что вы должны редактировать этот файл с помощью `sudo visudo`. Он проверит содержимое файла перед сохранением и предотвратит ваши ошибки. Если вы не используете `visudo` и допускаете ошибку, это может заблокировать вас от `sudo`. Это означает, что вы не сможете исправить свою ошибку!
 
-Let's say you want to change your password. You can do it with the`passwd`command. It will, as we saw earlier, save the password to the`/etc/shadow`file.
+Допустим, вы хотите изменить свой пароль. Вы можете сделать это командой `passwd`. Он, как мы видели ранее, сохранит пароль в файл `/etc/shadow`.
 
-This file is sensitive and only writeable by root:
+Этот файл чувствителен и доступен для записи только пользователю root:
 
 ```
 $ ls -l /etc/shadow
@@ -527,11 +527,11 @@ $ ls -l /etc/shadow
 
 ```
 
-So how is it possible that the`passwd`program which is executed by a regular user can write to a protected file?
+Так как же возможно, что программа `passwd`, выполняемая обычным пользователем, может записывать в защищенный файл?
 
-I said earlier that when you launch a process, it is owned by you, even if the owner of the executable file is another user.
+Ранее я говорил, что когда вы запускаете процесс, он принадлежит вам, даже если владельцем исполняемого файла является другой пользователь.
 
-It turns out that you can change that behavior by changing file permissions. Let's take a look.
+Оказывается, вы можете изменить это поведение, изменив права доступа к файлам. Давайте взглянем.
 
 ```
 $ ls -l /usr/bin/passwd
@@ -539,18 +539,18 @@ $ ls -l /usr/bin/passwd
 
 ```
 
-Notice the`s`letter. It was accomplished with`sudo chmod u+s /usr/bin/passwd`. It means that an executable will be launched as the the owner of the file which is root in this case.
+Обратите внимание на букву `s`. Это было сделано с помощью `sudo chmod u+s /usr/bin/passwd`. Это означает, что исполняемый файл будет запущен как владелец файла, который в этом случае является root.
 
-You can find the so called`setuid`executables with`find /bin -user root -perm -u+s`.
+Вы можете найти так называемые исполняемые файлы `setuid` с помощью команды `find /bin -user root -perm -u+s`.
 
-Note that you can also do the same with group (`g+s`).
+Обратите внимание, что вы можете сделать то же самое с группой (`g + s`).
 
 <a id="8"></a>
-## Process state
+## Состояние процесса
 
-We are next going to look at the process state column in`htop`which is denoted simply with the letter`S`.
+Далее мы рассмотрим столбец состояния процесса в `htop`, который обозначается просто буквой` S`.
 
-Here are the possible values:
+Вот возможные значения:
 
 ```
 R    running or runnable (on run queue)
