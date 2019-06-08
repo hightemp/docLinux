@@ -289,7 +289,7 @@ comm        fd               map_files  net         pagemap        setgroups    
 
 ```
 
-For example,`/proc/<pid>/cmdline`will give the command that was used to launch the process.
+Например, `/proc/<pid>/cmdline` даст команду, которая использовалась для запуска процесса.
 
 ```
 $ cat /proc/12503/cmdline
@@ -297,7 +297,7 @@ sleep1000$
 
 ```
 
-Ugh, that's not right. It turns out that the command is separated by the`\0`byte.
+Тьфу, это не правильно. Оказывается, команда отделяется байтом `\0`.
 
 ```
 $ od -c /proc/12503/cmdline
@@ -306,7 +306,7 @@ $ od -c /proc/12503/cmdline
 
 ```
 
-which we can replace with a space or newline
+который мы можем заменить пробелом или переводом строки
 
 ```
 $ tr '\0' '\n' < /proc/12503/cmdline
@@ -318,7 +318,7 @@ sleep
 
 ```
 
-The process directory for a process can contain links! For instance,`cwd`points to the current working directory and`exe`is the executed binary.
+Каталог процесса для процесса может содержать ссылки! Например, `cwd` указывает на текущий рабочий каталог, а `exe` - исполняемый двоичный файл.
 
 ```
 $ ls -l /proc/12503/{cwd,exe}
@@ -327,16 +327,16 @@ lrwxrwxrwx 1 ubuntu ubuntu 0 Jul  6 10:10 /proc/12503/exe -> /bin/sleep
 
 ```
 
-So this is how`htop`,`top`,`ps`and other diagnostic utilities get their information about the details of a process: they read it from`/proc/<pid>/<file>`.
+Вот как `htop`,` top`, `ps` и другие диагностические утилиты получают информацию о деталях процесса: они читают ее из `/proc/<pid>/<file> `.
 
 <a id="6"></a>
-## Process tree
+## Дерево процессов
 
-When you launch a new process, the process that launched the new process is called the parent process. The new process is now a child process for the parent process. These relationships form a tree structure.
+Когда вы запускаете новый процесс, процесс, который запустил новый процесс, называется родительским процессом. Новый процесс теперь является дочерним процессом для родительского процесса. Эти отношения образуют древовидную структуру.
 
-If you hit`F5`in`htop`, you can see the process hierarchy.
+Если вы нажмете `F5` в` htop`, вы увидите иерархию процесса.
 
-You can also use the`f`switch with`ps`
+Вы также можете использовать переключатель `f` с `ps`
 
 ```
 $ ps f
@@ -346,7 +346,7 @@ $ ps f
 
 ```
 
-or`pstree`
+или `pstree`
 
 ```
 $ pstree -a
@@ -362,17 +362,17 @@ init
 
 ```
 
-If you have ever wondered why you often see`bash`or`sshd`as parents of some of your processes, here's why.
+Если вы когда-нибудь задавались вопросом, почему вы часто видите `bash` или `sshd` как родителей некоторых из ваших процессов, вот почему.
 
-This is what happens when you run, say,`date`from your`bash`shell:
+Вот что происходит, когда вы запускаете, скажем, `date` из вашей оболочки `bash`:
 
-*   `bash`creates a new process that is a copy of itself (using a`fork`system call)
-*   it will then load the program from the executable file`/bin/date`into memory (using an`exec`system call)
-*   `bash`as the parent process will wait for its child to exit
+* `bash` создает новый процесс, который является его копией (с помощью системного вызова `fork`)
+* он затем загрузит программу из исполняемого файла `/bin/date` в память (используя системный вызов exec)
+* `bash`, как родительский процесс будет ожидать завершения своего потомка
 
-So the`/sbin/init`with an ID of 1 was started at boot, which spawned the SSH daemon`sshd`. When you connect to the computer,`sshd`will spawn a process for the session which in turn will launch the`bash`shell.
+Таким образом, `/sbin/init` с идентификатором 1 был запущен при загрузке, который породил демон SSH `sshd`. Когда вы подключаетесь к компьютеру, `sshd` запускает процесс для сеанса, который, в свою очередь, запускает оболочку `bash`.
 
-I like to use this tree view in`htop`when I'm also interested in seeing all threads.
+Мне нравится использовать это древовидное представление в `htop`, когда мне также интересно видеть все темы.
 
 <a id="7"></a>
 ## Process user
