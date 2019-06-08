@@ -1,76 +1,66 @@
 # htop объясненный
 
-For the longest time I did not know what everything meant in htop.
+Долгое время я не знал, что все это значит в htop.
 
-I thought that load average`1.0`on my two core machine means that the CPU usage is at 50%. That's not quite right. And also, why does it say`1.0`?
+Я думал, что средняя загрузка `1,0` на моей двухъядерной машине означает, что загрузка процессора составляет 50%. Это не совсем верно. А также, почему он говорит `1.0`?
 
-I decided to look everything up and document it here.
+Я решил посмотреть все и задокументировать это здесь.
 
-They also say that the best way to learn something is to try to teach it.
+Они также говорят, что лучший способ научиться чему-то - это научить этому.
 
 ## Table of Contents
 
-*   [htop on Ubuntu Server 16.04 x64](https://peteris.rocks/blog/htop/#htop-on-ubuntu-server-16-04-x64)
-*   [Uptime](https://peteris.rocks/blog/htop/#uptime)
-*   [Load average](https://peteris.rocks/blog/htop/#load-average)
-*   [Processes](https://peteris.rocks/blog/htop/#processes)
-*   [Process ID / PID](https://peteris.rocks/blog/htop/#process-id-pid)
-*   [Process tree](https://peteris.rocks/blog/htop/#process-tree)
-*   [Process user](https://peteris.rocks/blog/htop/#process-user)
-*   [Process state](https://peteris.rocks/blog/htop/#process-state)
-
-*   [R - running or runnable (on run queue)](https://peteris.rocks/blog/htop/#r-running-or-runnable-on-run-queue)
-*   [S - interruptible sleep (waiting for an event to complete)](https://peteris.rocks/blog/htop/#s-interruptible-sleep-waiting-for-an-event-to-complete)
-*   [D - uninterruptible sleep (usually IO)](https://peteris.rocks/blog/htop/#d-uninterruptible-sleep-usually-io)
-*   [Z - defunct ("zombie") process, terminated but not reaped by its parent](https://peteris.rocks/blog/htop/#z-defunct-zombie-process-terminated-but-not-reaped-by-its-parent)
-*   [T - stopped by job control signal](https://peteris.rocks/blog/htop/#t-stopped-by-job-control-signal)
-*   [t - stopped by debugger during the tracing](https://peteris.rocks/blog/htop/#t-stopped-by-debugger-during-the-tracing)
-
-*   [Process time](https://peteris.rocks/blog/htop/#process-time)
-*   [Process niceness and priority](https://peteris.rocks/blog/htop/#process-niceness-and-priority)
-*   [Memory usage - VIRT/RES/SHR/MEM](https://peteris.rocks/blog/htop/#memory-usage-virt-res-shr-mem)
-
-*   [VIRT/VSZ - Virtual Image](https://peteris.rocks/blog/htop/#virt-vsz-virtual-image)
-*   [RES/RSS - Resident size](https://peteris.rocks/blog/htop/#res-rss-resident-size)
-*   [SHR - Shared Mem size](https://peteris.rocks/blog/htop/#shr-shared-mem-size)
-*   [MEM% - Memory usage](https://peteris.rocks/blog/htop/#mem-memory-usage)
-
-*   [Processes](https://peteris.rocks/blog/htop/#processes)
-
-*   [Before](https://peteris.rocks/blog/htop/#before)
-*   [`/sbin/init`](https://peteris.rocks/blog/htop/#sbin-init)
-*   [`/lib/systemd/systemd-journald`](https://peteris.rocks/blog/htop/#lib-systemd-systemd-journald)
-*   [`/sbin/lvmetad -f`](https://peteris.rocks/blog/htop/#sbin-lvmetad-f)
-*   [`/lib/systemd/udevd`](https://peteris.rocks/blog/htop/#lib-systemd-udevd)
-*   [`/lib/systemd/timesyncd`](https://peteris.rocks/blog/htop/#lib-systemd-timesyncd)
-*   [`/usr/sbin/atd -f`](https://peteris.rocks/blog/htop/#usr-sbin-atd-f)
-*   [`/usr/lib/snapd/snapd`](https://peteris.rocks/blog/htop/#usr-lib-snapd-snapd)
-*   [`/usr/bin/dbus-daemon`](https://peteris.rocks/blog/htop/#usr-bin-dbus-daemon)
-*   [`/lib/systemd/systemd-logind`](https://peteris.rocks/blog/htop/#lib-systemd-systemd-logind)
-*   [`/usr/sbin/cron -f`](https://peteris.rocks/blog/htop/#usr-sbin-cron-f)
-*   [`/usr/sbin/rsyslogd -n`](https://peteris.rocks/blog/htop/#usr-sbin-rsyslogd-n)
-*   [`/usr/sbin/acpid`](https://peteris.rocks/blog/htop/#usr-sbin-acpid)
-*   [`/usr/bin/lxcfs /var/lib/lxcfs/`](https://peteris.rocks/blog/htop/#usr-bin-lxcfs-var-lib-lxcfs)
-*   [`/usr/lib/accountservice/accounts-daemon`](https://peteris.rocks/blog/htop/#usr-lib-accountservice-accounts-daemon)
-*   [`/sbin/mdadm`](https://peteris.rocks/blog/htop/#sbin-mdadm)
-*   [`/usr/lib/policykit-1/polkitd --no-debug`](https://peteris.rocks/blog/htop/#usr-lib-policykit-1-polkitd-no-debug)
-*   [`/usr/sbin/sshd -D`](https://peteris.rocks/blog/htop/#usr-sbin-sshd-d)
-*   [`/sbin/iscsid`](https://peteris.rocks/blog/htop/#sbin-iscsid)
-*   [`/sbin/agetty --noclear tty1 linux`](https://peteris.rocks/blog/htop/#sbin-agetty-noclear-tty1-linux)
-*   [`sshd: root@pts/0`&`-bash`&`htop`](https://peteris.rocks/blog/htop/#sshd-root-pts-0-bash-htop)
-*   [After](https://peteris.rocks/blog/htop/#after)
-
-*   [Appendix](https://peteris.rocks/blog/htop/#appendix)
-
-*   [Source code](https://peteris.rocks/blog/htop/#source-code)
-*   [File descriptors and redirection](https://peteris.rocks/blog/htop/#file-descriptors-and-redirection)
-*   [Colors in PuTTY](https://peteris.rocks/blog/htop/#colors-in-putty)
-*   [Shell in C](https://peteris.rocks/blog/htop/#shell-in-c)
-
-*   [TODO](https://peteris.rocks/blog/htop/#todo)
-*   [Updates](https://peteris.rocks/blog/htop/#updates)
-*   [Final remarks](https://peteris.rocks/blog/htop/#final-remarks)
-*   [T-shirt](https://peteris.rocks/blog/htop/#t-shirt)
+*   [htop на Ubuntu Server 16.04 x64]()
+*   [Uptime]()
+*   [Средняя нагрузка]()
+*   [Процессы]()
+*   [ID / PID процесса]()
+*   [Дерево процессов]()
+*   [Пользователь процесса]()
+*   [Состояние процесса]()
+*   [R - работает или работает (в очереди выполнения)]()
+*   [S - прерывистый сон (ожидание завершения события)]()
+*   [D - непрерывный сон (обычно IO)]()
+*   [Z - не существующий ("зомби") процесс, завершенный, но не собранный его родителем]()
+*   [T - остановлено сигналом управления работой]()
+*   [t - остановлен отладчиком во время трассировки]()
+*   [Время процесса]()
+*   [Любезность процессов и приоритеты]()
+*   [Использование памяти - VIRT/RES/SHR/MEM]()
+*   [VIRT/VSZ - виртуальный образ]()
+*   [RES/RSS - Размер резидента]()
+*   [SHR - размер общей памяти]()
+*   [MEM% - использование памяти]()
+*   [Процессы]()
+*   [До]()
+*   [`/sbin/init`]()
+*   [`/lib/systemd/systemd-journald`]()
+*   [`/sbin/lvmetad -f`]()
+*   [`/lib/systemd/udevd`]()
+*   [`/lib/systemd/timesyncd`]()
+*   [`/usr/sbin/atd -f`]()
+*   [`/usr/lib/snapd/snapd`]()
+*   [`/usr/bin/dbus-daemon`]()
+*   [`/lib/systemd/systemd-logind`]()
+*   [`/usr/sbin/cron -f`]()
+*   [`/usr/sbin/rsyslogd -n`]()
+*   [`/usr/sbin/acpid`]()
+*   [`/usr/bin/lxcfs /var/lib/lxcfs/`]()
+*   [`/usr/lib/accountservice/accounts-daemon`]()
+*   [`/sbin/mdadm`]()
+*   [`/usr/lib/policykit-1/polkitd --no-debug`]()
+*   [`/usr/sbin/sshd -D`]()
+*   [`/sbin/iscsid`]()
+*   [`/sbin/agetty --noclear tty1 linux`]()
+*   [`sshd: root@pts/0`&`-bash`&`htop`]()
+*   [После]()
+*   [аппендикс]()
+*   [Исходный код]()
+*   [Файловые дескрипторы и перенаправление]()
+*   [Цвета в PuTTY]()
+*   [Shell в C]()
+*   [TODO]()
+*   [Обновления]()
 
 ## htop on Ubuntu Server 16.04 x64
 
