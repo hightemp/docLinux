@@ -1,8 +1,8 @@
 # Как переместить докер из /var/lib/docker в другой каталог в Ubuntu / Debian Linux
 
-The following config will guide you through a process of changing the docker's default /var/lib/docker storage disk space to another directory. There are various reasons why you may want to change docker's default directory from which the most obvious could be that ran out of disk space. The following guide should work for both Ubuntu and Debian Linux or any other systemd system. Make sure to follow this guide in the exact order of execution.  
-  
-Let's get started by modifying systemd's docker start up script. Open file `/lib/systemd/system/docker.service` with your favorite text editor and replace the following line where `/new/path/docker` is a location of your new chosen docker directory:
+Следующая конфигурация проведет вас через процесс изменения дискового пространства по умолчанию для докера /var/lib/docker на другой каталог. Существуют различные причины, по которым вы можете захотеть изменить каталог докера по умолчанию, из которых наиболее очевидным может быть то, что не хватило места на диске. Следующее руководство должно работать как для Ubuntu, так и для Debian Linux или любой другой системы systemd. Обязательно следуйте этому руководству в точном порядке исполнения.
+  
+Давайте начнем с изменения сценария запуска докера systemd. Откройте файл `/lib/systemd/system/docker.service` в вашем любимом текстовом редакторе и замените следующую строку, где `/new/path/docker` - это местоположение вашего нового выбранного каталога докеров:
 
 ```
 FROM:
@@ -11,38 +11,38 @@ TO:
 ExecStart=/usr/bin/docker daemon -g /new/path/docker -H fd://
 ```
 
-When ready stop docker service:
+Когда будете готовы остановить сервис докеров:
 
 ```console
 $ systemctl stop docker
 ```
 
-It is important here that you have completely stopped docker daemon. The following [linux command](https://linuxconfig.org/linux-commands)will yield no output only if docker service is stopped:
+Здесь важно, чтобы вы полностью остановили демон Docker. Следующая [команда linux](https://linuxconfig.org/linux-commands) не выдаст никаких результатов, только если служба Docker остановлена:
 
 ```console
 $ ps aux | grep -i docker | grep -v grep
 ```
 
-If no output has been produced by the above command, reload systemd daemon:
+Если вышеприведенная команда не произвела никакого вывода, перезагрузите демон systemd:
 
 ```console
 $ systemctl daemon-reload
 ```
 
-Once this is done create a new directory you specified above and optionally `rsync` current docker data to a new directory:
+Как только это будет сделано, создайте новый каталог, который вы указали выше, и, необязательно, текущие данные докера rsync в новый каталог:
 
 ```console
 $ mkdir /new/path/docker
 $ rsync -aqxP /var/lib/docker/ /new/path/docker
 ```
 
-At this stage we can safely start docker daemon:
+На этом этапе мы можем безопасно запустить Docker Daemon:
 
 ```console
 $ systemctl start docker
 ```
 
-Confirm that docker runs within a new data directory:
+Убедитесь, что Docker работает в новом каталоге данных:
 
 ```console
 $  ps aux | grep -i docker | grep -v grep
@@ -50,8 +50,8 @@ root      2095  0.2  0.4 664472 36176 ?        Ssl  18:14   0:00 /usr/bin/docker
 root      2100  0.0  0.1 360300 10444 ?        Ssl  18:14   0:00 docker-containerd -l /var/run/docker/libcontainerd/docker-containerd.sock --runtime docker-runc
 ```
 
-All done.
+Все сделано.
 
 **********
-[Ubuntu](/tags/Ubuntu.md)
 [docker](/tags/docker.md)
+[Ubuntu](/tags/Ubuntu.md)
