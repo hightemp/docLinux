@@ -103,7 +103,7 @@ $ docker inspect b52 | jq .[0].Config
 
   
 
-## Факт 3: И для`CMD`, и для`ENTRYPOINT`существуют режимы_shell_и_exec_.
+## Факт 3: И для`CMD`, и для`ENTRYPOINT`существуют режимы _shell_ и _exec_.
 
   
 
