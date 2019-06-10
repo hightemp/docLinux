@@ -122,7 +122,7 @@ $ docker inspect b52 | jq .[0].Config
 
   
 
-Режим_"shell"_:
+Режим _"shell"_:
 
   
 
