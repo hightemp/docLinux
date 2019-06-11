@@ -947,33 +947,33 @@ renice -n niceness -p PID
 [http://askubuntu.com/questions/656771/process-niceness-vs-priority](http://askubuntu.com/questions/656771/process-niceness-vs-priority)
 
 <a id="17"></a>
-## Memory usage - VIRT/RES/SHR/MEM
+## Использование памяти - VIRT/RES/SHR/MEM
 
-A process has the illusion of being the only one in memory. This is accomplished by using virtual memory.
+У процесса есть иллюзия быть единственным в памяти. Это достигается с помощью виртуальной памяти.
 
-A process does not have direct access to the physical memory. Instead, it has its own virtual address space and the kernel translates the virtual memory addresses to physical memory or can map some of it to disk. This is why it can look like processes use more memory than you have installed on your computer.
+Процесс не имеет прямого доступа к физической памяти. Вместо этого у него есть собственное виртуальное адресное пространство, и ядро переводит адреса виртуальной памяти в физическую память или может отображать некоторые из них на диск. Вот почему может показаться, что процессы используют больше памяти, чем установлено на вашем компьютере.
 
-The point I want to make here is that it is not very straightforward to figure out how much memory a process takes up. Do you also want to count the shared libraries or disk mapped memory? But the kernel provides and`htop`shows some information that can help you estimate memory usage.
+Смысл, который я хочу здесь подчеркнуть, состоит в том, что не очень просто определить, сколько памяти занимает процесс. Вы также хотите посчитать общие библиотеки или дисковую память? Но ядро предоставляет и `htop` показывает некоторую информацию, которая может помочь вам оценить использование памяти.
 
-Here is what the memory usage colors mean:
+Вот что означают цвета использования памяти:
 
-*   Green: Used memory
-*   Blue: Buffers
-*   Orange: Cache
+* Зеленый: используемая память
+* Синий: буферы
+* Оранжевый: Кэш
 
 <a id="18"></a>
-### VIRT/VSZ - Virtual Image
+### VIRT/VSZ - виртуальный образ
 
-> The total amount of virtual memory used by the task. It includes all code, data and shared libraries plus pages that have been swapped out and pages that have been mapped but not used.
+> Общий объем виртуальной памяти, используемой задачей. Он включает в себя весь код, данные и общие библиотеки, а также страницы, которые были заменены, и страницы, которые были отображены, но не использовались.
 
-`VIRT`is virtual memory usage. It includes everything, including memory mapped files.
+`VIRT` - это использование виртуальной памяти. Он включает в себя все, включая файлы, отображенные в памяти.
 
-If an application requests 1 GB of memory but uses only 1 MB, then`VIRT`will report 1 GB. If it`mmap`s a 1 GB file and never uses it,`VIRT`will also report 1 GB.
+Если приложение запрашивает 1 ГБ памяти, но использует только 1 МБ, то `VIRT` выдаст 1 ГБ. Если он `mmap`ит 1 ГБ файл и никогда не использует его, `VIRT` также сообщит 1 ГБ.
 
-Most of the time, this is not a useful number.
+В большинстве случаев это бесполезные данные.
 
 <a id="19"></a>
-### RES/RSS - Resident size
+### RES/RSS - Размер резидента
 
 > The non-swapped physical memory a task has used.
 
