@@ -761,7 +761,7 @@ gcc zombie.c -o zombie
 
 ```
 
-Look at the process tree
+Посмотрите на дерево процессов
 
 ```
 $ ps f
@@ -774,7 +774,7 @@ $ ps f
 
 ```
 
-We got our zombie!
+Мы получили нашего зомби!
 
 When the parent process is done, the zombie is gone.
 
@@ -787,15 +787,14 @@ $ ps f
 
 ```
 
-If you replaced`sleep(20)`with`while (true) ;`then the zombie would be gone right away.
+Если вы замените `sleep (20)` на `while (true);`, то зомби сразу исчезнет.
+С помощью `exit` вся память и связанные с ней ресурсы освобождаются, чтобы их могли использовать другие процессы.
 
-With`exit`, all of the memory and resources associated with it are deallocated so they can be used by other processes.
+Зачем тогда держать процессы зомби?
 
-Why keep the zombie processes around then?
+У родительского процесса есть возможность узнать код завершения дочернего процесса (в обработчике сигналов) с помощью системного вызова `wait`. Если процесс спит, то ему нужно дождаться его пробуждения.
 
-The parent process has the option to find out its child process exit code (in a signal handler) with the`wait`system call. If a process is sleeping, then it needs to wait for it to wake up.
-
-Why not simply forcefully wake it up and kill it? For the same reason, you don't toss your child in the trash when you're tired of it. Bad things could happen.
+Почему бы просто не разбудить его силой и не убить? По той же причине вы не бросаете своего ребенка в мусорное ведро, когда вы устали от него. Могут случиться плохие вещи.
 
 <a id="13"></a>
 ### T - stopped by job control signal
