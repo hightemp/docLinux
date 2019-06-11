@@ -1100,27 +1100,27 @@ systemd-sysv: /sbin/init
 <a id="25"></a>
 ### `/lib/systemd/systemd-journald`
 
-> systemd-journald is a system service that collects and stores logging data. It creates and maintains structured, indexed journals based on logging information that is received from a variety of sources.
+> systemd-journald - системный сервис, который собирает и хранит данные журналов. Он создает и поддерживает структурированные, проиндексированные журналы на основе информации журнала, полученной из различных источников.
 
-In other words:
+Другими словами:
 
-> One of the main changes in journald was to replace simple plain text log files with a special file format optimized for log messages. This file format allows system administrators to access relevant messages more efficiently. It also brings some of the power of database-driven centralized logging implementations to individual systems.
+> Одним из основных изменений в journald было заменить простые текстовые файлы журнала специальным форматом, оптимизированным для сообщений журнала. Этот формат файлов позволяет системным администраторам более эффективно получать доступ к соответствующим сообщениям. Он также привносит некоторые возможности централизованного ведения журналов на основе баз данных в отдельные системы.
 
-You are supposed to use the`journalctl`command to query log files.
+Вы должны использовать команду `journalctl` для запроса файлов журнала.
 
-*   `journalctl _COMM=sshd`logs by sshd
-*   `journalctl _COMM=sshd -o json-pretty`logs by sshd in JSON
+*   `journalctl _COMM=sshd` логи по sshd
+*   `journalctl _COMM=sshd -o json-pretty` логи по sshd в JSON
 *   `journalctl --since "2015-01-10" --until "2015-01-11 03:00"`
 *   `journalctl --since 09:00 --until "1 hour ago"`
 *   `journalctl --since yesterday`
-*   `journalctl -b`logs since boot
-*   `journalctl -f`to follow logs
+*   `journalctl -b` логи с момента загрузки
+*   `journalctl -f` следить за журналами
 *   `journalctl --disk-usage`
 *   `journalctl --vacuum-size=1G`
 
-Pretty cool.
+Довольно круто.
 
-It looks like it is not possible to remove or disable this service, you can only turn off logging.
+Похоже, что невозможно удалить или отключить эту службу, вы можете только отключить ведение журнала.
 
 *   [https://www.freedesktop.org/software/systemd/man/systemd-journald.service.html](https://www.freedesktop.org/software/systemd/man/systemd-journald.service.html)
 *   [https://www.digitalocean.com/community/tutorials/how-to-use-journalctl-to-view-and-manipulate-systemd-logs](https://www.digitalocean.com/community/tutorials/how-to-use-journalctl-to-view-and-manipulate-systemd-logs)
@@ -1130,15 +1130,15 @@ It looks like it is not possible to remove or disable this service, you can only
 <a id="26"></a>
 ### `/sbin/lvmetad -f`
 
-> The lvmetad daemon caches LVM metadata, so that LVM commands can read metadata without scanning disks.
+> Демон lvmetad кэширует метаданные LVM, поэтому команды LVM могут читать метаданные без сканирования дисков.
 > 
-> Metadata caching can be an advantage because scanning disks is time consuming and may interfere with the normal work of the system and disks.
+> Кэширование метаданных может быть преимуществом, поскольку сканирование дисков отнимает много времени и может мешать нормальной работе системы и дисков.
 
-But what is LVM (Logical Volume Management)?
+Но что такое LVM (управление логическими томами)?
 
-> You can think of LVM as "dynamic partitions", meaning that you can create/resize/delete LVM "partitions" (they're called "Logical Volumes" in LVM-speak) from the command line while your Linux system is running: no need to reboot the system to make the kernel aware of the newly-created or resized partitions.
+> Вы можете думать о LVM как о «динамических разделах», что означает, что вы можете создавать / изменять размер / удалять «разделы» LVM (они называются «логическими томами» на языке LVM) из командной строки, когда ваша система Linux работает: нет необходимо перезагрузить систему, чтобы ядро узнало о вновь созданных или измененных разделах.
 
-It sounds like you should keep it if you are using LVM.
+Похоже, вы должны сохранить его, если вы используете LVM.
 
 ```
 $ lvscan
@@ -1152,13 +1152,13 @@ $ sudo apt remove lvm2 -y --purge
 <a id="27"></a>
 ### `/lib/systemd/udevd`
 
-> systemd-udevd listens to kernel uevents. For every event, systemd-udevd executes matching instructions specified in udev rules.
-> 
-> udev is a device manager for the Linux kernel. As the successor of devfsd and hotplug, udev primarily manages device nodes in the /dev directory.
+> systemd-udevd слушает события ядра. Для каждого события systemd-udevd выполняет соответствующие инструкции, указанные в правилах udev.
+>
+> udev - менеджер устройств для ядра Linux. Будучи преемником devfsd и hotplug, udev главным образом управляет узлами устройств в каталоге /dev.
 
-So this service manages`/dev`.
+Так что этот сервис управляет `/dev`.
 
-I am not sure if I need it running on a virtual server.
+Я не уверен, что мне нужно, чтобы он работал на виртуальном сервере.
 
 *   [https://www.freedesktop.org/software/systemd/man/systemd-udevd.service.html](https://www.freedesktop.org/software/systemd/man/systemd-udevd.service.html)
 *   [https://wiki.archlinux.org/index.php/udev](https://wiki.archlinux.org/index.php/udev)
@@ -1166,9 +1166,9 @@ I am not sure if I need it running on a virtual server.
 <a id="28"></a>
 ### `/lib/systemd/timesyncd`
 
-> systemd-timesyncd is a system service that may be used to synchronize the local system clock with a remote Network Time Protocol server.
+> systemd-timesyncd - это системная служба, которая может использоваться для синхронизации локальных системных часов с удаленным сервером протокола сетевого времени.
 
-So this replaces`ntpd`.
+Так что это заменяет `ntpd`.
 
 ```
 $ timedatectl status
@@ -1182,7 +1182,7 @@ NTP synchronized: yes
 
 ```
 
-If we take a look at the open ports on this server:
+Если мы посмотрим на открытые порты на этом сервере:
 
 ```
 $ sudo netstat -nlput
