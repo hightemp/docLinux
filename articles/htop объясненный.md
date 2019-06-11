@@ -797,9 +797,9 @@ $ ps f
 Почему бы просто не разбудить его силой и не убить? По той же причине вы не бросаете своего ребенка в мусорное ведро, когда вы устали от него. Могут случиться плохие вещи.
 
 <a id="13"></a>
-### T - stopped by job control signal
+### T - остановлен сигналом управления работой
 
-I have opened two terminal windows and I can look at my user's processes with`ps u`.
+Я открыл два окна терминала и могу просматривать процессы моего пользователя с помощью `ps u`.
 
 ```
 $ ps u
@@ -810,9 +810,9 @@ ubuntu    3528  0.0  0.6  36084  3316 pts/1    R+   07:28   0:00 ps u
 
 ```
 
-I will omit the`-bash`and`ps u`processes from the output below.
+Я опущу процессы `-bash` и `ps u` из вывода ниже.
 
-Now run`cat /dev/urandom > /dev/null`in one terminal window. Its state is`R+`which means that it is running.
+Теперь запустите `cat /dev/urandom> /dev/null` в одном окне терминала. Его состояние `R+` означает, что он работает.
 
 ```
 $ ps u
@@ -821,7 +821,7 @@ ubuntu    3540  103  0.1   6168   688 pts/1    R+   07:29   0:04 cat /dev/urando
 
 ```
 
-Press`CTRL`+`Z`to stop the process.
+Нажмите `CTRL` +` Z`, чтобы остановить процесс.
 
 ```
 $ # CTRL+Z
@@ -832,14 +832,14 @@ ubuntu    3540 86.8  0.1   6168   688 pts/1    T    07:29   0:15 cat /dev/urando
 
 ```
 
-Its state is now`T`.
+Его состояние теперь `T`.
 
-Run`fg`in the first terminal to resume it.
+Запустите `fg` в первом терминале, чтобы возобновить его.
 
-Another way to stop a process like this is to send the`STOP`signal with`kill`to the process. To resume the execution of the process, you can use the`CONT`signal.
+Другой способ остановить такой процесс - отправить сигнал `STOP` с `kill` процессу. Чтобы возобновить выполнение процесса, вы можете использовать сигнал `CONT`.
 
 <a id="14"></a>
-### t - stopped by debugger during the tracing
+### t - остановлен отладчиком во время трассировки
 
 First, install the GNU Debugger (gdb)
 
