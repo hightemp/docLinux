@@ -720,7 +720,7 @@ mount("8.8.8.8:/tmp", "/tmp", "nfs", 0, ...
 
 Вот наша программа.
 
-```С++
+```C++
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
@@ -746,14 +746,14 @@ int main() {
 
 ```
 
-Let's install the GNU C Compiler (GCC).
+Давайте установим компилятор GNU C (GCC).
 
 ```
 sudo apt install -y gcc
 
 ```
 
-Compile it and then run it
+Скомпилируйте и запустите
 
 ```
 gcc zombie.c -o zombie
