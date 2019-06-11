@@ -1055,18 +1055,18 @@ child    Child used extra 2M        5216 0
 
 Это `RES`, деленное на общее количество оперативной памяти, которое у вас есть.
 
-Если `RES` равно` 400M` и у вас 8 гигабайт оперативной памяти, `MEM%` будет `400/8192 * 100` \ =` 4.88% `.
+Если `RES` равно `400M` и у вас 8 гигабайт оперативной памяти, `MEM%` будет `400/8192 * 100`\ =`4.88%`.
 
 <a id="22"></a>
-## Processes
+## Процессы
 
-I launched a Digital Ocean droplet with Ubuntu Server.
+Я запустил дроплет Digital Ocean с Ubuntu Server.
 
-What are the processes that are started at boot?
+Какие процессы запускаются при загрузке?
 
-Do you actually need them?
+Вы действительно нуждаетесь в них?
 
-Here are my research notes on the processes that are run at startup on a fresh Digital Ocean droplet with Ubuntu Server 16.04.1 LTS x64.
+Вот мои исследовательские заметки о процессах, которые запускаются при запуске новой капли Digital Ocean с Ubuntu Server 16.04.1 LTS x64.
 
 <a id="23"></a>
 ### Before
