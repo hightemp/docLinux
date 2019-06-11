@@ -720,7 +720,7 @@ mount("8.8.8.8:/tmp", "/tmp", "nfs", 0, ...
 
 Вот наша программа.
 
-```С
+```С++
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
