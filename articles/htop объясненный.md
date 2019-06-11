@@ -975,24 +975,24 @@ renice -n niceness -p PID
 <a id="19"></a>
 ### RES/RSS - Размер резидента
 
-> The non-swapped physical memory a task has used.
+> Непеременная(non-swapped) физическая память, используемая задачей.
 
-`RES`is resident memory usage i.e. what's currently in the physical memory.
+RES - это резидентное использование памяти, то есть то, что в данный момент находится в физической памяти.
 
-While`RES`can be a better indicator of how much memory a process is using than`VIRT`, keep in mind that
+Хотя `RES` может быть лучшим индикатором того, сколько памяти использует процесс, чем `VIRT`, имейте в виду, что
 
-*   this does not include the swapped out memory
-*   some of the memory may be shared with other processes
+* это не включает выгруженную память
+* часть памяти может быть использована другими процессами
 
-If a process uses 1 GB of memory and it calls`fork()`, the result of forking will be two processes whose`RES`is both 1 GB but only 1 GB will actually be used since Linux uses copy-on-write.
+Если процесс использует 1 ГБ памяти и вызывает `fork ()`, результатом разветвления будут два процесса, для которых `RES` равен 1 ГБ, но фактически будет использоваться только 1 ГБ, поскольку Linux использует копирование при записи.
 
 <a id="20"></a>
-### SHR - Shared Mem size
+### SHR - размер общей(shared) памяти
 
-> The amount of shared memory used by a task.  
-> It simply reflects memory that could be potentially shared with other processes.
+> Объем разделяемой памяти, используемой задачей.
+> Он просто отражает память, которая потенциально может использоваться другими процессами.
 
-```
+```C++
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
