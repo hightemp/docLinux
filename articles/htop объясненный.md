@@ -1046,16 +1046,16 @@ child    Child used extra 2M        5216 0
 
 ```
 
-TODO: I should finish this.
+ТОДО: Я должен закончить это.
 
 <a id="21"></a>
-### MEM% - Memory usage
+### MEM% - использование памяти
 
-> A task's currently used share of available physical memory.
+> Используемая в настоящее время доля доступной физической памяти задачи.
 
-This is`RES`divided by the total RAM you have.
+Это `RES`, деленное на общее количество оперативной памяти, которое у вас есть.
 
-If`RES`is`400M`and you have 8 gigabytes of RAM,`MEM%`will be`400/8192*100`\=`4.88%`.
+Если `RES` равно` 400M` и у вас 8 гигабайт оперативной памяти, `MEM%` будет `400/8192 * 100` \ =` 4.88% `.
 
 <a id="22"></a>
 ## Processes
