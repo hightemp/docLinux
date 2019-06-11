@@ -1069,18 +1069,18 @@ child    Child used extra 2M        5216 0
 Вот мои исследовательские заметки о процессах, которые запускаются при запуске новой капли Digital Ocean с Ubuntu Server 16.04.1 LTS x64.
 
 <a id="23"></a>
-### Before
+### До
 
 ![](https://peteris.rocks/blog/htop/canyoukillit-before.png)
 
 <a id="24"></a>
 ### `/sbin/init`
 
-> The /sbin/init program (also called init) coordinates the rest of the boot process and configures the environment for the user.
-> 
-> When the init command starts, it becomes the parent or grandparent of all of the processes that start up automatically on the system.
+> Программа /sbin/init (также называемая init) координирует остальную часть процесса загрузки и настраивает среду для пользователя.
+>
+> Когда команда init запускается, она становится родителем или прародителем всех процессов, которые автоматически запускаются в системе.
 
-Is it systemd?
+Это systemd?
 
 ```
 $ dpkg -S /sbin/init
@@ -1088,11 +1088,11 @@ systemd-sysv: /sbin/init
 
 ```
 
-Yes, it is.
+Да, это так.
 
-What happens if you kill it?
+Что произойдет, если ты убьешь его?
 
-Nothing.
+Ничего.
 
 *   [https://wiki.ubuntu.com/SystemdForUpstartUsers](https://wiki.ubuntu.com/SystemdForUpstartUsers)
 *   [https://www.centos.org/docs/5/html/5.1/Installation\_Guide/s2-boot-init-shutdown-init.html](https://www.centos.org/docs/5/html/5.1/Installation_Guide/s2-boot-init-shutdown-init.html)
