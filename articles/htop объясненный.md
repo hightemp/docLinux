@@ -841,14 +841,14 @@ ubuntu    3540 86.8  0.1   6168   688 pts/1    T    07:29   0:15 cat /dev/urando
 <a id="14"></a>
 ### t - остановлен отладчиком во время трассировки
 
-First, install the GNU Debugger (gdb)
+Сначала установите GNU Debugger (gdb)
 
 ```
 sudo apt install -y gdb
 
 ```
 
-Run a program that will listen for incoming network connections on port 1234.
+Запустите программу, которая будет прослушивать входящие сетевые подключения через порт 1234.
 
 ```
 $ nc -l 1234 &
@@ -856,7 +856,7 @@ $ nc -l 1234 &
 
 ```
 
-It is sleeping meaning it is waiting for data from the network.
+Он спит, то есть ожидает данных из сети.
 
 ```
 $ ps u
@@ -865,14 +865,14 @@ ubuntu    3905  0.0  0.1   9184   896 pts/0    S    07:41   0:00 nc -l 1234
 
 ```
 
-Run the debugger and attach it to the process with ID`3905`.
+Запустите отладчик и присоедините его к процессу с идентификатором `3905`.
 
 ```
 sudo gdb -p 3905
 
 ```
 
-You will see that the state is`t`which means that this process is being traced in the debugger.
+Вы увидите, что состояние `t` означает, что этот процесс отслеживается в отладчике.
 
 ```
 $ ps u
@@ -882,67 +882,67 @@ ubuntu    3905  0.0  0.1   9184   896 pts/0    t    07:41   0:00 nc -l 1234
 ```
 
 <a id="15"></a>
-## Process time
+## Время процесса
 
-Linux is a multitasking operating system which means that even when you have a single CPU, you can run several processes at the same time. You can connect to your server via SSH and look at the output of`htop`while your web server is delivering the content of your blog to your readers over the internet.
+Linux является многозадачной операционной системой, что означает, что даже если у вас один ЦП, вы можете запускать несколько процессов одновременно. Вы можете подключиться к вашему серверу через SSH и посмотреть на вывод htop, пока ваш веб-сервер доставляет содержимое вашего блога вашим читателям через Интернет.
 
-How is that possible when a single CPU can only execute one instruction at a time?
+Как это возможно, когда один процессор может выполнять только одну инструкцию за раз?
 
-The answer is time sharing.
+Ответ - разделение времени.
 
-One process runs for a bit of time, then it is suspended while the other processes waiting to run take turns running for a while. The bit of time a process runs is called the time slice.
+Один процесс выполняется некоторое время, затем он приостанавливается, в то время как другие процессы, ожидающие запуска, по очереди работают некоторое время. Время, которое выполняется процессом, называется интервалом времени.
 
-The time slice is usually a few milliseconds so you don't really notice it that much when your system is not under high load. (It'd be really interesting to find out how long time slices usually are in Linux.)
+Временной интервал обычно составляет несколько миллисекунд, поэтому вы не особо замечаете это, когда ваша система не находится под высокой нагрузкой. (Было бы очень интересно узнать, как долго в Linux обычно работают срезы(time slice)).
 
-This should help explain why the load average is the average number of running processes. If you have just one core and the load average is`1.0`, the CPU has been utilized at 100%. If the load average is higher than`1.0`, it means that the number of processes wanting to run is higher than the CPU can run so you may experience slow downs or delays. If the load is lower than`1.0`, it means the CPU is sometimes idleing and not doing anything.
+Это должно помочь объяснить, почему средняя загрузка - это среднее число запущенных процессов. Если у вас есть только одно ядро, а средняя нагрузка равна `1,0`, загрузка ЦП была равна 100%. Если средняя нагрузка выше, чем `1,0`, это означает, что число процессов, которые нужно запустить, больше, чем может запустить ЦП, что может привести к замедлению или задержке. Если нагрузка ниже `1.0`, это означает, что процессор иногда бездействует и ничего не делает.
 
-This should also give you a clue why sometimes the running time of a process that's been running for 10 seconds is higher or lower than exactly 10 seconds.
+Это также должно дать вам понять, почему иногда время выполнения процесса, который выполнялся в течение 10 секунд, выше или ниже, чем ровно 10 секунд.
 
 <a id="16"></a>
-## Process niceness and priority
+## Уступчивость(niceness) и приоритет
 
-When you have more tasks to run than the number of available CPU cores, you somehow have to decide which tasks to run next and which ones to keep waiting. This is what the task scheduler is responsible for.
+Когда у вас есть больше задач для выполнения, чем количество доступных процессорных ядер, вам каким-то образом нужно решить, какие задачи запускать дальше, а какие продолжать ждать. За это отвечает планировщик задач.
 
-The scheduler in the Linux kernel is reponsible for choosing which process on a run queue to pick next and it depends on the scheduler algorithm used in the kernel.
+Планировщик в ядре Linux отвечает за выбор того, какой процесс в очереди выполнения выбрать следующим, и это зависит от алгоритма планировщика, используемого в ядре.
 
-You can't generally influence the scheduler but you can let it know which processes are more important to you and the scheduler may take it into account.
+Обычно вы не можете влиять на планировщик, но вы можете сообщить ему, какие процессы важнее для вас, и планировщик может принять это во внимание.
 
-Niceness (`NI`) is user-space priority to processes, ranging from -20 which is the highest priority to 19 which is the lowest priority. It can be confusing but you can think that a nice process yields to a less nice process. So the nicer a process is, the more it yields.
+Niceness (`NI`) - это приоритет процессов в пространстве пользователя, варьирующийся от -20, который является самым высоким приоритетом, до 19, который является самым низким приоритетом. Это может сбивать с толку, но вы можете думать, что хороший процесс уступает менее приятному процессу. Таким образом, чем приятнее процесс, тем больше он приносит результатов.
 
-From what I've pieced together by reading StackOverflow and other sites, a niceness level increase by 1 should yield a 10% more CPU time to the process.
+Из того, что я собрал, прочитав StackOverflow и другие сайты, повышение уровня полезности(niceness) на 1 должно увеличить процессное время на 10%.
 
-The priority (`PRI`) is the kernel-space priority that the Linux kernel is using. Priorities range from 0 to 139 and the range from 0 to 99 is real time and 100 to 139 for users.
+Приоритет (`PRI`) - это приоритет пространства ядра, который используется ядром Linux. Приоритеты варьируются от 0 до 139, а диапазон от 0 до 99 - в режиме реального времени и от 100 до 139 для пользователей.
 
-You can change the nicesness and the kernel takes it into account but you cannot change the priority.
+Вы можете изменить ограниченность, и ядро учитывает это, но вы не можете изменить приоритет.
 
-The relation between the nice value and priority is:
+Отношение между приятным значением и приоритетом:
 
 ```
 PR = 20 + NI
 
 ```
 
-so the value of`PR = 20 + (-20 to +19)`is 0 to 39 that maps 100 to 139.
+таким образом, значение `PR = 20 + (от -20 до +19)` составляет от 0 до 39, что отображает от 100 до 139.
 
-You can set the niceness of a process before launching it.
+Вы можете установить привлекательность процесса перед его запуском.
 
 ```
 nice -n niceness program
 
 ```
 
-Change the nicencess when a program is already running with`renice`.
+Измените значение, если программа уже запущена с `renice`.
 
 ```
 renice -n niceness -p PID
 
 ```
 
-Here is what the CPU usage colors mean:
+Вот что означают цвета использования процессора:
 
-*   Blue: Low priority threads (nice > 0)
-*   Green: Normal priority threads
-*   Red: Kernel threads
+* Синий: потоки с низким приоритетом (nice > 0)
+* Зеленый: потоки с нормальным приоритетом
+* Красный: потоки ядра
 
 [http://askubuntu.com/questions/656771/process-niceness-vs-priority](http://askubuntu.com/questions/656771/process-niceness-vs-priority)
 
