@@ -700,27 +700,27 @@ mount("8.8.8.8:/tmp", "/tmp", "nfs", 0, ...
 
 ```
 
-So the `mount` system call is blocking the process.
+Таким образом, системный вызов `mount` блокирует процесс.
 
 Если вам интересно, вы можете запустить `mount` с опцией `intr`, чтобы запустить как прерываемый: `sudo mount 8.8.8.8:/tmp /tmp -o intr`.
 
 <a id="12"></a>
-### Z - defunct ("zombie") process, terminated but not reaped by its parent
+### Z - не существующий ("зомби") процесс, завершенный, но не собранный его родителем
 
-When a process ends via`exit`and it still has child processes, the child processes become zombie processes.
+Когда процесс завершается через `exit` и у него все еще есть дочерние процессы, дочерние процессы становятся процессами-зомби.
 
-*   If zombie processes exist for a short time, it is perfectly normal
-*   Zombie processes that exist for a long time may indicate a bug in a program
-*   Zombie processes don't consume memory, just a process ID
-*   You can't`kill`a zombie process
-*   You can ask nicely the parent process to reap the zombies (the`SIGCHLD`signal)
-*   You can`kill`the zombie's parent process to get rid of the parent and its zombies
+* Если процессы зомби существуют в течение короткого времени, это совершенно нормально
+* Зомби-процессы, которые существуют долгое время, могут указывать на ошибку в программе
+* Процессы зомби не потребляют память, просто идентификатор процесса
+* Вы не можете "убить" процесс зомби
+* Вы можете попросить родительский процесс пожать(reap) зомби (сигнал `SIGCHLD`)
+* Вы можете "убить" родительский процесс зомби, чтобы избавиться от родителя и его зомби
 
-I am going to write some C code to show this.
+Я собираюсь написать код на C, чтобы показать это.
 
-Here is our program.
+Вот наша программа.
 
-```
+```С
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
@@ -1791,6 +1791,8 @@ Here is a list of non-minor corrections and updates since the post was published
 *   Rewrite the section about load averages (Dec 4, 2016)
 *   Fix:`kill 1234`by default sends`TERM`not`INT`(Dec 7, 2016)
 *   Explain CPU and memory color bars (Dec 7, 2016)
+
+
 
 **********
 [Ubuntu](/tags/Ubuntu.md)
