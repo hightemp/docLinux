@@ -1429,13 +1429,13 @@ sudo apt remove acpid -y --purge
 <a id="36"></a>
 ### `/usr/bin/lxcfs /var/lib/lxcfs/`
 
-> Lxcfs is a fuse filesystem mainly designed for use by lxc containers. On a Ubuntu 15.04 system, it will be used by default to provide two things: first, a virtualized view of some /proc files; and secondly, filtered access to the host’s cgroup filesystems.
+> Lxcfs - это файловая система fuse, в основном предназначенная для использования контейнерами lxc. В системе Ubuntu 15.04 она будет использоваться по умолчанию для обеспечения двух вещей: во-первых, виртуального просмотра некоторых файлов /proc; и во-вторых, фильтрованный доступ к файловым системам хоста cgroup.
 > 
-> In summary, on a 15.04 host, you can now create a container the usual way, lxc-create ... The resulting container will have “correct” results for uptime, top, etc.
+> Таким образом, теперь на хосте 15.04 вы можете создать контейнер обычным способом: lxc-create ... Полученный контейнер будет иметь «правильные» результаты для uptime, top и т. Д.
 > 
-> It’s basically a userspace workaround to changes which were deemed unreasonable to do in the kernel. It makes containers feel much more like separate systems than they would without it.
+> По сути, это обходной путь в пользовательском пространстве к изменениям, которые считались необоснованными в ядре. Это делает контейнеры более похожими на отдельные системы, чем без них.
 
-Not using LXC containers? You can remove it with
+Не используете контейнеры LXC? Вы можете удалить это с
 
 ```
 sudo apt remove lxcfs -y --purge
@@ -1448,29 +1448,29 @@ sudo apt remove lxcfs -y --purge
 <a id="37"></a>
 ### `/usr/lib/accountservice/accounts-daemon`
 
-> The AccountsService package provides a set of D-Bus interfaces for querying and manipulating user account information and an implementation of these interfaces based on the usermod(8), useradd(8) and userdel(8) commands.
+> Пакет AccountsService предоставляет набор интерфейсов D-Bus для запроса и обработки информации об учетных записях пользователей и реализации этих интерфейсов на основе команд usermod (8), useradd (8) и userdel (8).
 
-When I removed DBus it broke`timedatectl`, I wonder what removing this service will break.
+Когда я удалил DBus, он сломал `temedatectl`, интересно, что удалит этот сервис.
 
 ```
 sudo apt remove accountsservice -y --purge
 
 ```
 
-Time will tell.
+Время покажет.
 
 *   [http://www.linuxfromscratch.org/blfs/view/systemd/gnome/accountsservice.html](http://www.linuxfromscratch.org/blfs/view/systemd/gnome/accountsservice.html)
 
 <a id="38"></a>
 ### `/sbin/mdadm`
 
-> mdadm is a Linux utility used to manage and monitor software RAID devices.
-> 
-> The name is derived from the md (multiple device) device nodes it administers or manages, and it replaced a previous utility mdctl. The original name was "Mirror Disk", but was changed as the functionality increased.
-> 
-> RAID is a method of using multiple hard drives to act as one. There are two purposes of RAID: 1) Expand drive capacity: RAID 0. If you have 2 x 500 GB HDD then total space become 1 TB. 2) Prevent data loss in case of drive failure: For example RAID 1, RAID 5, RAID 6, and RAID 10.
+> mdadm - это утилита Linux, используемая для управления и мониторинга программных RAID-устройств.
+>
+> Имя получено из узлов устройства md (несколько устройств), которые оно администрирует или управляет, и оно заменило предыдущую утилиту mdctl. Первоначальное название было «Зеркальный диск», но было изменено по мере увеличения функциональности.
+>
+> RAID - это метод использования нескольких жестких дисков в качестве одного. Существует два назначения RAID: 1) Расширить емкость диска: RAID 0. Если у вас 2 х 500 ГБ жесткого диска, то общее пространство становится 1 ТБ. 2) Предотвращение потери данных в случае сбоя диска: например, RAID 1, RAID 5, RAID 6 и RAID 10.
 
-You can remove it with
+Вы можете удалить это с
 
 ```
 sudo apt remove mdadm -y --purge
@@ -1484,20 +1484,20 @@ sudo apt remove mdadm -y --purge
 <a id="39"></a>
 ### `/usr/lib/policykit-1/polkitd --no-debug`
 
-> polkitd — PolicyKit daemon
-> 
-> polkit - Authorization Framework
+> polkitd - PolicyKit daemon
+>
+> polkit - структура авторизации
 
-My understanding is that this is like fine-grained sudo. You can allow non privilegded users to do certain actions as root. For instance, reboot your computer when you're running Linux on a desktop computer.
+Насколько я понимаю, это похоже на детализированный sudo. Вы можете разрешить пользователям без привилегий выполнять определенные действия от имени пользователя root. Например, перезагрузите компьютер, когда вы используете Linux на настольном компьютере.
 
-But I'm running a server. You can remove it with
+Но я работаю на сервере. Вы можете удалить это с
 
 ```
 sudo apt remove policykit-1 -y --purge
 
 ```
 
-Still wondering if this breaks something.
+Все еще интересно, если это что-то ломает.
 
 *   [http://manpages.ubuntu.com/manpages/xenial/man8/polkitd.8.html](http://manpages.ubuntu.com/manpages/xenial/man8/polkitd.8.html)
 *   [http://manpages.ubuntu.com/manpages/xenial/man8/polkit.8.html](http://manpages.ubuntu.com/manpages/xenial/man8/polkit.8.html)
@@ -1507,30 +1507,30 @@ Still wondering if this breaks something.
 <a id="40"></a>
 ### `/usr/sbin/sshd -D`
 
-> sshd (OpenSSH Daemon) is the daemon program for ssh.
-> 
-> \-D When this option is specified, sshd will not detach and does not become a daemon. This allows easy monitoring of sshd.
+> sshd (OpenSSH Daemon) - это программа-демон для ssh.
+>
+> \-D Если указана эта опция, sshd не отсоединится и не станет демоном. Это позволяет легко контролировать sshd.
 
 *   [http://manpages.ubuntu.com/manpages/xenial/man8/sshd.8.html](http://manpages.ubuntu.com/manpages/xenial/man8/sshd.8.html)
 
 <a id="41"></a>
 ### `/sbin/iscsid`
 
-iscsid is the daemon (system service) that runs in the background, acting on iSCSI configuration, and managing the connections. From its manpage:
+iscsid - это демон (системная служба), который работает в фоновом режиме, воздействует на конфигурацию iSCSI и управляет соединениями. Из его справочной страницы:
 
-> The iscsid implements the control path of iSCSI protocol, plus some management facilities. For example, the daemon could be configured to automatically re-start discovery at startup, based on the contents of persistent iSCSI database.
+> Iscsid реализует путь управления по протоколу iSCSI, а также некоторые средства управления. Например, демон может быть настроен на автоматический перезапуск обнаружения при запуске на основе содержимого постоянной базы данных iSCSI.
 
 [http://unix.stackexchange.com/questions/216239/iscsi-vs-iscsid-services](http://unix.stackexchange.com/questions/216239/iscsi-vs-iscsid-services)
 
-I had never heard of iSCSI:
+Я никогда не слышал о iSCSI:
 
-> In computing, iSCSI (Listeni/aɪˈskʌzi/ eye-skuz-ee) is an acronym for Internet Small Computer Systems Interface, an Internet Protocol (IP)-based storage networking standard for linking data storage facilities.
+> В вычислительной технике iSCSI(Listeni/aɪˈskʌzi/ eye-skuz-ee) является аббревиатурой от интерфейса малых компьютерных систем Интернета, сетевого стандарта хранения данных на основе Интернет-протокола (IP) для связи средств хранения данных.
 > 
-> By carrying SCSI commands over IP networks, iSCSI is used to facilitate data transfers over intranets and to manage storage over long distances. iSCSI can be used to transmit data over local area networks (LANs), wide area networks (WANs), or the Internet and can enable location-independent data storage and retrieval.
+> Передавая команды SCSI по IP-сетям, iSCSI используется для облегчения передачи данных по интрасетям и для управления хранением на больших расстояниях. iSCSI может использоваться для передачи данных по локальным сетям (LAN), глобальным сетям (WAN) или Интернету и может обеспечивать независимое от местоположения хранение и поиск данных.
 > 
-> The protocol allows clients (called initiators) to send SCSI commands (CDBs) to SCSI storage devices (targets) on remote servers. It is a storage area network (SAN) protocol, allowing organizations to consolidate storage into data center storage arrays while providing hosts (such as database and web servers) with the illusion of locally attached disks.
+> Протокол позволяет клиентам (так называемые инициаторы) отправлять команды SCSI (CDB) на устройства хранения SCSI (цели) на удаленных серверах. Это протокол сети хранения данных (SAN), позволяющий организациям консолидировать хранилище в массивы хранения центров обработки данных, предоставляя хостам (таким как базы данных и веб-серверы) иллюзию локально подключенных дисков.
 
-You can remove it with
+Вы можете удалить это с
 
 ```
 sudo apt remove open-iscsi -y --purge
@@ -1540,17 +1540,17 @@ sudo apt remove open-iscsi -y --purge
 <a id="42"></a>
 ### `/sbin/agetty --noclear tty1 linux`
 
-> agetty - alternative Linux getty
+> agetty - альтернативный линукс getty
+>
+> getty, сокращение от «get tty», - это программа Unix, работающая на главном компьютере, который управляет физическими или виртуальными терминалами (TTY). Когда он обнаруживает соединение, он запрашивает имя пользователя и запускает программу «login» для аутентификации пользователя.
 > 
-> getty, short for "get tty", is a Unix program running on a host computer that manages physical or virtual terminals (TTYs). When it detects a connection, it prompts for a username and runs the 'login' program to authenticate the user.
-> 
-> Originally, on traditional Unix systems, getty handled connections to serial terminals (often Teletype machines) connected to a host computer. The tty part of the name stands for Teletype, but has come to mean any type of text terminal.
+> Первоначально в традиционных системах Unix getty обрабатывал соединения с последовательными терминалами (часто компьютерами Teletype), подключенными к главному компьютеру. Tty часть названия расшифровывается как Teletype, но стала обозначать любой тип текстового терминала.
 
-This allows you to log in when you are physically at the server. In Digital Ocean, you can click on`Console`in the droplet details and you will be able to interact with this terminal in your browser (it's a VNC connection I think).
+Это позволяет вам входить в систему, когда вы физически находитесь на сервере. В Digital Ocean вы можете щелкнуть «Консоль» в сведениях о дроплете, и вы сможете взаимодействовать с этим терминалом в своем браузере (я думаю, это VNC-соединение).
 
-In the old days, you'd see a bunch of ttys started a system boot (configured in`/etc/inittab`), but nowadays they are spun up on demand by systemd.
+В старые времена вы видели, как группа ttys запускала загрузку системы (настроенную в `/etc/inittab`), но в настоящее время они запускаются по требованию systemd.
 
-For fun, I removed this configuration file that launches and generates`agetty`:
+Ради интереса я удалил этот файл конфигурации, который запускает и генерирует `agetty`:
 
 ```
 sudo rm /etc/systemd/system/getty.target.wants/getty@tty1.service
@@ -1558,7 +1558,7 @@ sudo rm /lib/systemd/system/getty@.service
 
 ```
 
-When I rebooted the server, I could still connect to it via SSH but I was no longer able to log in from the Digital Ocean web console.
+Когда я перезагрузил сервер, я все еще мог подключиться к нему через SSH, но больше не мог войти в систему с веб-консоли Digital Ocean.
 
 ![Screenshot of htop](/images/e8aa0df424aec52f7a1e63fc5e29f8c8.png)
 
@@ -1570,15 +1570,15 @@ When I rebooted the server, I could still connect to it via SSH but I was no lon
 <a id="43"></a>
 ### `sshd: root@pts/0`&`-bash`&`htop`
 
-`sshd: root@pts/0`means that there has been an SSH session established for the user`root`at the #`0`pseudoterminal (`pts`). A pseudoterminal emulates a real text terminal.
+`sshd: root @ pts / 0` означает, что был установлен сеанс SSH для пользователя `root` на псевдотерминале # `0` (`pts`). Псевдотерминал эмулирует реальный текстовый терминал.
 
-`bash`is the shell that I am using.
+`bash` - это оболочка, которую я использую.
 
-Why is there a dash at the beginning? Reddit user hirnbrot helpfully explained it:
+Почему в начале есть тире? Пользователь Reddit hirnbrot услужливо объяснил это:
 
-> There's a dash at the beginning because launching it as "-bash" will make it a login shell. A login shell is one whose first character of argument zero is a -, or one started with the --login option. This will then cause it to read a different set of configuration files.
+> В начале есть тире, потому что запуск «-bash» превратит его в оболочку входа. Оболочка входа - это та, чей первый символ аргумента ноль -, или тот, который начинается с опции --login. Это тогда заставит читать другой набор файлов конфигурации.
 
-`htop`is an interactive process viewer tool that is running in the screenshot.
+htop - это интерактивный инструмент для просмотра процессов, который запускается на скриншоте.
 
 <a id="44"></a>
 ### After
