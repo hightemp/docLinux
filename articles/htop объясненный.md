@@ -1273,16 +1273,16 @@ sudo apt remove snapd -y --purge
 <a id="31"></a>
 ### `/usr/bin/dbus-daemon`
 
-> In computing, D-Bus or DBus is an inter-process communication (IPC) and remote procedure call (RPC) mechanism that allows communication between multiple computer programs (that is, processes) concurrently running on the same machine
+> В вычислениях D-Bus или DBus - это механизм межпроцессного взаимодействия (IPC) и удаленного вызова процедур (RPC), который позволяет осуществлять связь между несколькими компьютерными программами (то есть процессами), одновременно запущенными на одном компьютере.
 
-My understanding is that you need it for desktop environments but on a server to run web apps?
+Насколько я понимаю, вам это нужно для настольных сред, но на сервере для запуска веб-приложений?
 
 ```
 sudo apt remove dbus -y --purge
 
 ```
 
-I wonder what time it is and whether it is being synchronized with NTP?
+Интересно, который час и синхронизируется ли он с NTP?
 
 ```
 $ timedatectl status
@@ -1290,37 +1290,37 @@ Failed to create bus connection: No such file or directory
 
 ```
 
-Oops. Should probably keep this.
+К сожалению. Должен, вероятно, сохранить это.
 
 *   [https://en.wikipedia.org/wiki/D-Bus](https://en.wikipedia.org/wiki/D-Bus)
 
 <a id="32"></a>
 ### `/lib/systemd/systemd-logind`
 
-> systemd-logind is a system service that manages user logins.
+> systemd-logind - это системный сервис, который управляет логинами пользователей.
 
 *   [https://www.freedesktop.org/software/systemd/man/systemd-logind.service.html](https://www.freedesktop.org/software/systemd/man/systemd-logind.service.html)
 
 <a id="33"></a>
 ### `/usr/sbin/cron -f`
 
-> cron - daemon to execute scheduled commands (Vixie Cron)
-> 
-> `-f`Stay in foreground mode, don't daemonize.
+> cron - демон для выполнения запланированных команд (Vixie Cron)
+>
+> `-f` Оставайтесь в режиме переднего плана, не демонизируйте.
 
-You can schedule tasks to run periodically with cron.
+Вы можете запланировать выполнение задач периодически с помощью cron.
 
-Use`crontab -e`to edit the configuration for your user or on Ubuntu I tend to use the`/etc/cron.hourly`,`/etc/cron.daily`, etc. directories.
+Используйте `crontab -e` для редактирования конфигурации вашего пользователя или в Ubuntu. Я обычно использую каталоги `/etc/cron.hourly`, `/etc/cron.daily` и т.д.
 
-You can see the log files with
+Вы можете увидеть файлы журнала с
 
 *   `grep cron /var/log/syslog`or
 *   `journalctl _COMM=cron`or even
 *   `journalctl _COMM=cron --since="date" --until="date"`
 
-You'll probably want to keep cron.
+Вы, вероятно, хотите сохранить Cron.
 
-But if you don't, then you should stop and disable the service:
+Но если вы этого не сделаете, то вам следует остановить и отключить службу:
 
 ```
 sudo systemctl stop cron
@@ -1328,7 +1328,7 @@ sudo systemctl disable cron
 
 ```
 
-Because otherwise when trying to remove it with`apt remove cron`it will try to install postfix!
+Потому что в противном случае при попытке удалить его с помощью `apt remove cron` он попытается установить postfix!
 
 ```
 $ sudo apt remove cron
@@ -1339,7 +1339,7 @@ The following NEW packages will be installed:
 
 ```
 
-It looks like cron needs a mail transport agent (MTA) to send emails.
+Похоже, cron нужен почтовый агент (MTA) для отправки писем.
 
 ```
 $ apt show cron
@@ -1370,15 +1370,15 @@ cron
 <a id="34"></a>
 ### `/usr/sbin/rsyslogd -n`
 
-> Rsyslogd is a system utility providing support for message logging.
+> Rsyslogd - системная утилита, обеспечивающая поддержку регистрации сообщений.
 
-In another words, it's what populates log files in`/var/log/`like`/var/log/auth.log`for authentication messages like SSH login attempts.
+Другими словами, это то, что заполняет файлы журналов в `/var/log/`, например `/var/ log/auth.log`, для сообщений аутентификации, таких как попытки входа по SSH.
 
-The configuration files are in`/etc/rsyslog.d`.
+Файлы конфигурации находятся в `/etc/rsyslog.d`.
 
-You can also configure rsyslogd to send log files to a remote server and implement centralized logging.
+Вы также можете настроить rsyslogd для отправки файлов журнала на удаленный сервер и внедрения централизованного ведения журнала.
 
-You can use the`logger`command to log messages to`/var/log/syslog`in background scripts such as those that are run at boot.
+Вы можете использовать команду `logger` для записи сообщений в `/var/log/syslog` в фоновых скриптах, таких как те, которые запускаются при загрузке.
 
 ```
 #!/bin/bash
@@ -1389,11 +1389,11 @@ logger Done doing something
 
 ```
 
-Right, but we already have`systemd-journald`running. Do we need`rsyslogd`as well?
+Да, но у нас уже работает `systemd-journald`. Нужен ли нам также `rsyslogd`?
 
-> Rsyslog and Journal, the two logging applications present on your system, have several distinctive features that make them suitable for specific use cases. In many situations it is useful to combine their capabilities, for example to create structured messages and store them in a file database. A communication interface needed for this cooperation is provided by input and output modules on the side of Rsyslog and by the Journal's communication socket.
+> Rsyslog и Journal, два приложения для ведения журналов, представленные в вашей системе, имеют несколько отличительных особенностей, которые делают их подходящими для конкретных случаев использования. Во многих ситуациях полезно комбинировать их возможности, например, создавать структурированные сообщения и сохранять их в файловой базе данных. Интерфейс связи, необходимый для этого взаимодействия, обеспечивается модулями ввода и вывода на стороне Rsyslog и коммуникационным сокетом журнала.
 
-So, maybe? I am going to keep it just in case.
+Так что, может быть? Я оставлю это на всякий случай.
 
 *   [http://manpages.ubuntu.com/manpages/xenial/man8/rsyslogd.8.html](http://manpages.ubuntu.com/manpages/xenial/man8/rsyslogd.8.html)
 *   [http://manpages.ubuntu.com/manpages/xenial/man1/logger.1.html](http://manpages.ubuntu.com/manpages/xenial/man1/logger.1.html)
@@ -1404,15 +1404,15 @@ So, maybe? I am going to keep it just in case.
 <a id="35"></a>
 ### `/usr/sbin/acpid`
 
-> acpid - Advanced Configuration and Power Interface event daemon
-> 
-> acpid is designed to notify user-space programs of ACPI events. acpid should be started during the system boot, and will run as a background process, by default.
-> 
-> In computing, the Advanced Configuration and Power Interface (ACPI) specification provides an open standard that operating systems can use to perform discovery and configuration of computer hardware components, to perform power management by, for example, putting unused components to sleep, and to do status monitoring.
+> acpid - демон событий расширенной конфигурации и интерфейса питания
+>
+> acpid предназначен для уведомления программ пользовательского пространства о событиях ACPI. acpid должен быть запущен во время загрузки системы и по умолчанию будет работать как фоновый процесс.
+>
+> В вычислительной технике спецификация расширенного интерфейса конфигурации и питания (ACPI) предоставляет открытый стандарт, который операционные системы могут использовать для обнаружения и настройки компонентов аппаратного обеспечения компьютера, для управления питанием, например, переводя неиспользуемые компоненты в спящий режим и сделать мониторинг состояния.
 
-But I'm on a virtual server that I don't intend to suspend/resume.
+Но я на виртуальном сервере, который я не собираюсь приостанавливать/возобновлять.
 
-I am going to remove it for fun and see what happens.
+Я собираюсь удалить это для удовольствия и посмотреть, что произойдет.
 
 ```
 sudo apt remove acpid -y --purge
