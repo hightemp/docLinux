@@ -1778,18 +1778,18 @@ $ # press Enter
 <a id="51"></a>
 ## Updates
 
-Here is a list of non-minor corrections and updates since the post was published.
+Вот список несущественных исправлений и обновлений с момента публикации поста.
 
-*   Idle time in`/proc/uptime`is the sum of all cores (Dec 2, 2016)
-*   My parent/child`printf`in`zombie.c`was reversed (Dec 2, 2016)
-*   `apt remove cron`installs`postfix`because of a dependency to an MTA (Dec 3, 2016)
-*   `id`can load information from other sources (via`/etc/nsswitch.conf`), not just`/etc/passwd`(Dec 3, 2016)
-*   Describe`/etc/shadow`password hash format (Dec 3, 2016)
-*   Use`visudo`to edit the`/etc/sudoers`file to be safe (Dec 3, 2016)
-*   Explain`MEM%`(Dec 3, 2016)
-*   Rewrite the section about load averages (Dec 4, 2016)
-*   Fix:`kill 1234`by default sends`TERM`not`INT`(Dec 7, 2016)
-*   Explain CPU and memory color bars (Dec 7, 2016)
+* Время простоя в `/proc/uptime` является суммой всех ядер (2 декабря 2016 г.)
+* Мой родительский / дочерний `printf` в` zombie.c` был изменен (2 декабря 2016 г.)
+* `apt remove cron` устанавливает `postfix` из-за зависимости от MTA (3 декабря 2016 г.)
+* `id` может загружать информацию из других источников (через `/etc/nsswitch.conf`), а не только из `/etc/passwd` (3 декабря 2016 г.)
+* Опишите `/etc/shadow` формат хэша пароля (3 декабря 2016 г.)
+* Используйте `visudo` для редактирования файла `/etc/sudoers`, чтобы он был безопасным (3 декабря 2016 г.)
+* Объясните `MEM%` (3 декабря 2016 г.)
+* Перепишите раздел о средних значениях нагрузки (4 декабря 2016 г.)
+* Исправлено: `kill 1234` по умолчанию отправляет `TERM`, а не `INT` (7 декабря 2016 г.)
+* Объясните цветовые полосы процессора и памяти (7 декабря 2016 г.)
 
 
 
