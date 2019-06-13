@@ -1193,9 +1193,9 @@ tcp6       0      0 :::22                   :::*                    LISTEN      
 
 ```
 
-Lovely!
+Прекрасный!
 
-Previously on Ubuntu 14.04 it was
+Ранее в Ubuntu 14.04 это было
 
 ```
 $ sudo apt-get install ntp -y
@@ -1222,11 +1222,11 @@ Ugh.
 <a id="29"></a>
 ### `/usr/sbin/atd -f`
 
-> atd - run jobs queued for later execution. atd runs jobs queued by at.
-> 
-> at and batch read commands from standard input or a specified file which are to be executed at a later time
+> atd - запускать задания в очереди для последующего выполнения. atd запускает задания в очереди в.
+>
+> Команды at и batch read из стандартного ввода или указанного файла, которые должны быть выполнены позже
 
-Unlike cron, which schedules jobs that are repeated periodically,`at`runs a job at a specific time once.
+В отличие от cron, который планирует задания, которые периодически повторяются, `at` запускает задание в определенное время один раз.
 
 ```
 $ echo "touch /tmp/yolo.txt" | at now + 1 minute
@@ -1238,7 +1238,7 @@ $ sleep 60 && ls /tmp/yolo.txt
 
 ```
 
-I've actually never used it until now.
+Я на самом деле никогда не использовал его до сих пор.
 
 ```
 sudo apt remove at -y --purge
@@ -1252,15 +1252,15 @@ sudo apt remove at -y --purge
 <a id="30"></a>
 ### `/usr/lib/snapd/snapd`
 
-> Snappy Ubuntu Core is a new rendition of Ubuntu with transactional updates - a minimal server image with the same libraries as today’s Ubuntu, but applications are provided through a simpler mechanism.
+> Snappy Ubuntu Core - это новая версия Ubuntu с обновлениями транзакций - минимальный образ сервера с теми же библиотеками, что и в современной Ubuntu, но приложения предоставляются с помощью более простого механизма.
 
-What?
+Что?
 
-> Developers from multiple Linux distributions and companies today announced collaboration on the “snap” universal Linux package format, enabling a single binary package to work perfectly and securely on any Linux desktop, server, cloud or device.
+> Сегодня разработчики из нескольких дистрибутивов Linux и компаний объявили о сотрудничестве в универсальном формате пакетов Linux, позволяющем единому двоичному пакету работать идеально и безопасно на любом настольном компьютере, сервере, облаке или устройстве Linux.
 
-Apparently it is a simplified deb package and you're supposted to bundle all dependencies in a single snap that you can distribute.
+По всей видимости, это упрощенный пакет deb, и вы должны объединить все зависимости в одину оснастку(snap), которую вы можете распространять.
 
-I've never used snappy to deploy or distribute applications on servers.
+Я никогда не использовал snappy для развертывания или распространения приложений на серверах.
 
 ```
 sudo apt remove snapd -y --purge
@@ -1790,6 +1790,7 @@ Here is a list of non-minor corrections and updates since the post was published
 *   Rewrite the section about load averages (Dec 4, 2016)
 *   Fix:`kill 1234`by default sends`TERM`not`INT`(Dec 7, 2016)
 *   Explain CPU and memory color bars (Dec 7, 2016)
+
 
 
 
