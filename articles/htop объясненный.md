@@ -1597,7 +1597,7 @@ sudo apt remove policykit-1 -y --purge
 
 ![](/images/51caefaabba38203b1f580791be188b0.png)
 
-Extreme edition:
+Экстремальное издание:
 
 ```
 sudo apt remove dbus -y --purge
@@ -1611,9 +1611,9 @@ sudo rm /lib/systemd/system/getty@.service
 
 ![](/images/699c6840a56bbc575aafcf44d4f3b27e.png)
 
-I followed the instructions in my blog post[about unattended installation of WordPress on Ubuntu Server](https://peteris.rocks/blog/unattended-installation-of-wordpress-on-ubuntu-server/)and it works.
+Я следовал инструкциям в своем блоге [об автоматической установке WordPress на Ubuntu Server](https://peteris.rocks/blog/unattended-installation-of-wordpress-on-ubuntu-server/), и это работает.
 
-Here's nginx, PHP7 and MySQL.
+Вот nginx, PHP7 и MySQL.
 
 ![](/images/88fdbf4095313e9fc943b51d9379998e.png)
 
@@ -1623,11 +1623,11 @@ Here's nginx, PHP7 and MySQL.
 <a id="46"></a>
 ### Source code
 
-Sometimes looking at`strace`is not enough.
+Иногда смотреть на «strace» недостаточно.
 
-Another way to figure out what a program does is to look at its source code.
+Еще один способ выяснить, что делает программа, - посмотреть на ее исходный код.
 
-First, I need to find out where to start looking.
+Во-первых, мне нужно выяснить, с чего начать.
 
 ```
 $ which uptime
@@ -1637,40 +1637,40 @@ procps: /usr/bin/uptime
 
 ```
 
-Here we find out that`uptime`is actually located at`/usr/bin/uptime`and that on Ubuntu it is part of the`procps`package.
+Здесь мы обнаруживаем, что uptime на самом деле находится в `/usr/bin/uptime` и что в Ubuntu он является частью пакета `procps`.
 
-You can then go to[packages.ubuntu.com](http://packages.ubuntu.com/)and search for the package there.
+Затем вы можете перейти на [packages.ubuntu.com](http://packages.ubuntu.com/) и найти пакет там.
 
-Here is the page for`procps`:[http://packages.ubuntu.com/source/xenial/procps](http://packages.ubuntu.com/source/xenial/procps)
+Вот страница для `procps`:[http://packages.ubuntu.com/source/xenial/procps](http://packages.ubuntu.com/source/xenial/procps)
 
-If you scroll to the bottom of the page, you'll see links to the source code repositories:
+Если вы прокрутите страницу вниз, вы увидите ссылки на репозитории исходного кода:
 
-*   Debian Package Source Repository git://git.debian.org/collab-maint/procps.git
-*   Debian Package Source Repository (Browsable)[https://anonscm.debian.org/cgit/collab-maint/procps.git/](https://anonscm.debian.org/cgit/collab-maint/procps.git/)
+*   Исходный репозиторий пакетов Debian git://git.debian.org/collab-maint/procps.git
+*   Исходный репозиторий пакетов Debian (просматривается)[https://anonscm.debian.org/cgit/collab-maint/procps.git/](https://anonscm.debian.org/cgit/collab-maint/procps.git/)
 
 <a id="47"></a>
-### File descriptors and redirection
+### Файловые дескрипторы и перенаправление
 
-When you want to redirect standard error (stderr) to standard output (stdout), is it`2&>1`or`2>&1`?
+Если вы хотите перенаправить стандартную ошибку (stderr) на стандартный вывод (stdout), это `2&>1` или `2>&1`?
 
-You can memorize where the ampersand`&`goes by knowing that`echo something > file`will write`something`to the file`file`. It's the same as`echo something 1> file`. Now,`echo something 2> file`will write the stderr output to`file`.
+Вы можете запомнить, куда идет амперсанд `&`, зная, что `echo что-то> файл` запишет `что-то` в файл `file`. Это так же, как `echo что-то 1> файл`. Теперь `echo что-то 2> файл` запишет вывод stderr в файл `file`.
 
-If you write`echo something 2>1`, it means that you redirect stderr to a file with the name`1`. Add spaces to make it more clear:`echo something 2> 1`.
+Если вы пишете `echo что-то 2>1`, это означает, что вы перенаправляете stderr в файл с именем `1`. Добавьте пробелы, чтобы было понятнее: `echo что-то 2>1`.
 
-If you add`&`before`1`, it means that`1`is not a filename but the stream ID. So it's`echo something 2>&1`.
+Если вы добавите `&` перед `1`, это означает, что `1` - это не имя файла, а идентификатор потока. Так что это `echo что-то 2>&1`.
 
 <a id="48"></a>
-### Colors in PuTTY
+### Цвета в PuTTY
 
 ![](/images/0a14a854bc0d52de42b9270f6d56b942.png)
 
-If you have missing elements in htop when you are using PuTTY, here is how to solve it.
+Если у вас отсутствуют элементы в htop, когда вы используете PuTTY, вот как это решить.
 
-*   Right click on the title bar
-*   Click Change settings...
-*   Go to Window -> Colours
-*   Select the Both radio button
-*   Click Apply
+* Щелкните правой кнопкой мыши на строке заголовка
+* Нажмите Изменить настройки ...
+* Перейти к окну -> Цвета
+* Выберите переключатель оба
+* Нажмите Применить
 
 ![](/images/1c9f6024412d38830831a9bbfa1e5cf4.png)
 
