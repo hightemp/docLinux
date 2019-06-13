@@ -1419,9 +1419,9 @@ sudo apt remove acpid -y --purge
 
 ```
 
-I was able to successfully`reboot`the droplet but after`halt`Digital Ocean thought it was still on so I had to Power Off using the web interface.
+Я смог успешно "перезагрузить" дроплет, но после "остановки" Digital Ocean подумал, что он все еще включен, поэтому мне пришлось отключить питание с помощью веб-интерфейса.
 
-So I should probably keep this.
+Так что я, наверное, должен сохранить это.
 
 *   [http://manpages.ubuntu.com/manpages/xenial/man8/acpid.8.html](http://manpages.ubuntu.com/manpages/xenial/man8/acpid.8.html)
 *   [https://en.wikipedia.org/wiki/Advanced\_Configuration\_and\_Power\_Interface](https://en.wikipedia.org/wiki/Advanced_Configuration_and_Power_Interface)
