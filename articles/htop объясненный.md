@@ -1675,11 +1675,11 @@ procps: /usr/bin/uptime
 ![](/images/1c9f6024412d38830831a9bbfa1e5cf4.png)
 
 <a id="49"></a>
-### Shell in C
+### Shell в C
 
-Let's write a very simple shell in C that demonstrates the use of`fork`/`exec`/`wait`system calls. Here's the program`shell.c`.
+Давайте напишем очень простую оболочку на C, которая демонстрирует использование системных вызовов `fork`/`exec`/`wait`. Вот программа `shell.c`.
 
-```
+```C++
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
@@ -1720,14 +1720,14 @@ int main() {
 
 ```
 
-Compile the program.
+Скомпилируйте программу.
 
 ```
 gcc shell.c -o shell
 
 ```
 
-And run it.
+И запустить его.
 
 ```
 $ ./shell
@@ -1746,7 +1746,7 @@ Child exited with 1
 
 ```
 
-Have you ever wondered that when you launch a process in the background you only see that it has exited only after a while when you hit`Enter`?
+Задумывались ли вы, что когда вы запускаете процесс в фоновом режиме, вы видите, что он завершился только через некоторое время, когда вы нажали `Enter`?
 
 ```
 $ sleep 1 &
@@ -1756,24 +1756,24 @@ $ # press Enter
 
 ```
 
-That's because the shell is waiting for your input. Only when you enter a command does it check for the status of the background processes and show if they've been terminated.
+Это потому, что оболочка ждет вашего ввода. Только при вводе команды она проверяет состояние фоновых процессов и показывает, были ли они завершены.
 
 <a id="50"></a>
 ## TODO
 
-Here is what I'd like to find out more about.
+Вот о чем я хотел бы узнать больше.
 
-*   process state substatuses (`Ss`,`Ss+`,`R+`, etc.)
-*   kernel threads
-*   `/dev/pts`
-*   more about memory (`CODE`,`DATA`,`SWAP`)
-*   figure out time slices length
-*   Linux scheduler algorithm
-*   pinning proceses to cores
-*   write about manual pages
-*   cpu/memory colors in bars
-*   process ID limit & fork bomb
-*   `lsof`,`ionice`,`schedtool`
+* состояния процесса (`Ss`,`Ss+`,`R+`и т. д.)
+* потоки ядра
+* `/dev/pts`
+* больше о памяти (`CODE`,` DATA`, `SWAP`)
+* выяснить длину отрезков времени
+* алгоритм планировщика Linux
+* закрепление процессов за ядрами
+* написать о справочных страницах
+* цвета ЦП/памяти в барах
+* предел идентификатора процесса и форк бомба
+* `lsof`, `ionice`, `schedtool`
 
 <a id="51"></a>
 ## Updates
