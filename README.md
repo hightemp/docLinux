@@ -131,3 +131,4 @@
 [процессы](/tags/%D0%BF%D1%80%D0%BE%D1%86%D0%B5%D1%81%D1%81%D1%8B.md)
 [ps](/tags/ps.md)
 [top](/tags/top.md)
+[flame graph](/tags/flame%20graph.md)
