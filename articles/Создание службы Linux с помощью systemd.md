@@ -1,14 +1,14 @@
 # Создание службы Linux с помощью systemd
 
-While writing web applications, I often need to offload compute-heavy tasks to an asynchronous worker script, schedule tasks for later, or even write a daemon that listens to a socket to communicate with clients directly.
+При написании веб-приложений мне часто приходится выгружать сложные вычислительные задачи в асинхронный рабочий сценарий, планировать задачи на потом или даже писать демон, который прослушивает сокет для прямой связи с клиентами.
 
-While there might sometimes be better tools for the job — always consider using existing software first, such as a task queue server —writing your own service can give you a level of flexibility you’ll never get when bound by the constraints of third-party software.
+В то время как иногда могут быть более эффективные инструменты для работы - всегда рассматривайте сначала использование существующего программного обеспечения, например, сервер очереди задач - написание собственной службы может дать вам уровень гибкости, который вы никогда не получите, когда связаны ограничениями стороннего программного обеспечения.
 
-The cool thing is that it’s fairly easy to create a Linux service: use your favourite programming language to write a long-running program, and turn it into a service using systemd.
+Круто то, что создать службу Linux довольно легко: используйте свой любимый язык программирования для написания долго работающей программы и превратите ее в службу с помощью systemd.
 
-### The program
+### Программа
 
-Let’s create a small server using PHP. I can see your eyebrows rising, but it works surprisingly well. We’ll listen to UDP port 10000, and return any message received with a [ROT13](https://en.wikipedia.org/wiki/ROT13) transformation:
+Давайте создадим небольшой сервер с использованием PHP. Я вижу, как твои брови поднимаются, но это работает на удивление хорошо. Мы прослушаем UDP-порт 10000 и вернем любое сообщение, полученное с помощью преобразования [ROT13](https://en.wikipedia.org/wiki/ROT13):
 
 ```php
 <?php
@@ -23,13 +23,13 @@ for (;;) {
 }
 ```
 
-Let’s start it:
+Давайте начнем это:
 
 ```
 $ php server.php
 ```
 
-And test it in another terminal:
+И проверить это в другом терминале:
 
 ```
 $ nc -u 127.0.0.1 10000  
@@ -37,11 +37,11 @@ Hello, world!
 Uryyb, jbeyq!
 ```
 
-Cool, it works. Now we want this script to run at all times, be restarted in case of a failure (unexpected exit), and even survive server restarts. That’s where systemd comes into play.
+Круто, все работает. Теперь мы хотим, чтобы этот сценарий выполнялся постоянно, перезапускался в случае сбоя (неожиданного выхода) и даже выживал после перезапуска сервера. Вот где systemd вступает в игру.
 
-### Turning it into a service
+### Превращение в сервис
 
-Let’s create a file called`/etc/systemd/system/rot13.service`:
+Давайте создадим файл с именем `/etc/systemd/system/rot13.service`:
 
 ```
 [Unit]  
@@ -60,72 +60,72 @@ ExecStart=/usr/bin/env php /path/to/server.php
 WantedBy=multi-user.target
 ```
 
-You’ll need to:
+Вам необходимо:
 
-*   set your actual username after`User=`
-*   set the proper path to your script in`ExecStart=`
+* установите действительное имя пользователя после `User=`
+* установите правильный путь к вашему сценарию в `ExecStart=`
 
-That’s it. We can now start the service:
+Вот и все. Теперь мы можем запустить сервис:
 
 ```
 $ systemctl start rot13
 ```
 
-And automatically get it to start on boot:
+И автоматически заставить его запускаться при загрузке:
 
 ```
 $ systemctl enable rot13
 ```
 
-### Going further
+### Идти дальше
 
-Now that your service (hopefully) works, it may be important to dive a bit deeper into the configuration options, and ensure that it will always work as you expect it to.
+Теперь, когда ваш сервис (надеюсь) работает, может быть важно немного углубиться в параметры конфигурации и убедиться, что он всегда будет работать так, как вы ожидаете.
 
-#### Starting in the right order
+#### Начиная в правильном порядке
 
-You may have wondered what the`After=`directive did. It simply means that your service must be started_after_the network is ready. If your program expects the MySQL server to be up and running, you should add:
+Возможно, вы задавались вопросом, что сделала директива `After=`. Это просто означает, что ваш сервис должен быть запущен после того, как сеть готова. Если ваша программа ожидает, что сервер MySQL запущен и работает, вы должны добавить:
 
 ```
 After=mysqld.service
 ```
 
-#### Restarting on exit
+#### Перезапуск при выходе
 
-By default, systemd does not restart your service if the program exits for whatever reason. This is usually not what you want for a service that must be always available, so we’re instructing it to always restart on exit:
+По умолчанию systemd не перезапускает ваш сервис, если программа по какой-либо причине завершает работу. Обычно это не то, что вам нужно для службы, которая должна быть всегда доступна, поэтому мы советуем ей всегда перезапускаться при выходе:
 
 ```
 Restart=always
 ```
 
-You could also use`on-failure`to only restart if the exit status is not`0`.
+Вы также можете использовать `on-fault` только для перезапуска, если состояние выхода не равно` 0`.
 
-By default, systemd attempts a restart after 100ms. You can specify the number of seconds to wait before attempting a restart, using:
+По умолчанию systemd пытается перезапустить через 100 мс. Вы можете указать количество секунд ожидания перед попыткой перезапуска, используя:
 
 ```
 RestartSec=1
 ```
 
-#### Avoiding the trap: the start limit
+#### Как избежать ловушки: предел начала
 
-I personally fell into this one more than once. By default, when you configure`Restart=always`as we did,**systemd gives up restarting your service if it fails to start more than 5 times within a 10 seconds interval**. Forever.
+Я лично попадал в это не раз. По умолчанию, когда вы настраиваете `Restart=always`, как мы это делали, **systemd прекращает перезапуск службы, если она не запускается более 5 раз в течение 10 секунд **. Навсегда.
 
-There are two`[Unit]`configuration[options](https://www.freedesktop.org/software/systemd/man/systemd.unit.html#StartLimitIntervalSec=)responsible for this:
+За это отвечают две `[Unit]` конфигурации [опции](https://www.freedesktop.org/software/systemd/man/systemd.unit.html#StartLimitIntervalSec=):
 
 ```
 StartLimitBurst=5
 StartLimitIntervalSec=10
 ```
 
-The`RestartSec`directive also has an impact on the outcome: if you set it to restart after 3 seconds, then you can never reach 5 failed retries within 10 seconds.
+Директива `RestartSec` также влияет на результат: если вы установите перезапуск через 3 секунды, то вы не сможете достичь 5 неудачных попыток в течение 10 секунд.
 
-**The simple fix that always works is to set `StartLimitIntervalSec=0`.** This way, systemd will attempt to restart your service forever.
+**Простое исправление, которое всегда работает, - установить `StartLimitIntervalSec=0`. ** Таким образом, systemd будет пытаться перезапустить ваш сервис навсегда.
 
-It’s a good idea to set `RestartSec` to at least 1 second though, to avoid putting too much stress on your server when things start going wrong.
+Хорошей идеей будет установить `RestartSec` как минимум на 1 секунду, чтобы избежать чрезмерной нагрузки на сервер, когда что-то пойдет не так.
 
-As an alternative, you can leave the default settings, and ask systemd to restart your server if the start limit is reached, using `StartLimitAction=reboot`.
+В качестве альтернативы вы можете оставить настройки по умолчанию и попросить systemd перезапустить ваш сервер, если достигнут предел запуска, используя `StartLimitAction=reboot`.
 
-### Is that really it?
+### Это действительно так?
 
-That’s all it takes to create a Linux service with systemd: writing a small configuration file that references your long-running program.
+Вот и все, что нужно для создания службы Linux с помощью systemd: написание небольшого файла конфигурации, который ссылается на вашу давно работающую программу.
 
-Systemd has been the default init system in RHEL/CentOS, Fedora, Ubuntu, Debian and others for several years now, so chances are that your server is ready to host your homebrew services!
+В течение нескольких лет Systemd была стандартной системой инициализации в RHEL / CentOS, Fedora, Ubuntu, Debian и других, поэтому есть вероятность, что ваш сервер готов к размещению ваших доморощенных сервисов!
