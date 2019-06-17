@@ -93,3 +93,6 @@ sar,[perf-tools](https://github.com/brendangregg/perf-tools#contents),[bcc/BPF](
 *   [Метод ИСПОЛЬЗОВАНИЯ: Контрольный список производительности Linux](http://www.brendangregg.com/USEmethod/use-linux.html); также см. страницу [USE Method](http://www.brendangregg.com/usemethod.html) для описания этой методологии.
 *   [Метод анализа вне процессора](http://www.brendangregg.com/offcpuanalysis.html), где я демонстрирую эту методологию для Linux.
 *   [Производительность систем: предприятие и облако](http://www.brendangregg.com/sysperfbook.html) (Prentice Hall, 2013) использует дистрибутивы Linux в качестве основного примера.
+
+**********
+[flame graph](/tags/flame%20graph.md)
