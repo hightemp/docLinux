@@ -141,3 +141,4 @@
 [RedHat](/tags/RedHat.md)
 [Cygwin](/tags/Cygwin.md)
 [PAM](/tags/PAM.md)
+[уязвимости](/tags/%D1%83%D1%8F%D0%B7%D0%B2%D0%B8%D0%BC%D0%BE%D1%81%D1%82%D0%B8.md)
