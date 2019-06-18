@@ -276,9 +276,9 @@ xz-utils
 
 Хотя установленные группы пакетов зависят от вашего выбора, пакеты в группе `core` устанавливаются в каждом случае, а пакеты в группе `base` устанавливаются в каждом случае, кроме группы окружения `Minimal`.
 
-You may check what packages are contained in a group with command `yum groupinfo groupname` .
+Вы можете проверить, какие пакеты содержатся в группе, с помощью команды `yum groupinfo groupname`.
 
-The output looks like this:
+Вывод выглядит так:
 
 ```
 Group: Core
@@ -295,20 +295,20 @@ Group: Core
 
 ```
 
-We may find that each group may contain _mandatory_ , _default_ , _optional_ and _conditional_ packages.
+Мы можем обнаружить, что каждая группа может содержать пакеты _mandatory_, _default_, _optional_ и _conditional_.
 
-*    _Mandatory_ packages are always installed if the group is installed;
-*    _Default_ packages are selected by default when installing the group;
-*    _Optional_ packages are deselected by default when installing the group;
-*    _Conditional_ packages are mandatory if the packages require them are going to be installed.
+* _Mandatory_ пакеты всегда устанавливаются, если установлена группа;
+* _Default_ пакеты выбираются по умолчанию при установке группы;
+* _Optional_ пакеты отменяются по умолчанию при установке группы;
+* _Conditional_ пакеты обязательны, если пакеты требуют их установки.
 
-Packages in each group are defined in a comps XML file, which can be found in `/var/cache/yum/*/comps*.xml` . See [comps](https://fedorahosted.org/comps/) for details.
+Пакеты в каждой группе определены в файле comps XML, который можно найти в `/var/cache/yum/*/comps*.xml`. См. [Comps](https://fedorahosted.org/comps/) для деталей.
 
-###  [](https://zzz.buzz/notes/linux-default-packages/#redhat) RedHat
+### RedHat
 
-To check currently installed packages, run `rpm -qa` .
+Чтобы проверить установленные пакеты, запустите `rpm -qa`.
 
-Here is the default installed packages on Red Hat Enterprise Linux 7.2 on AWS (ami-0dd8f963):
+Вот установленные по умолчанию пакеты в Red Hat Enterprise Linux 7.2 на AWS (ami-0dd8f963):
 
 ```
 rhnsd-5.0.13-5.el7.x86_64
@@ -632,11 +632,11 @@ python-hwdata-1.7.3-4.el7.noarch
 
 ```
 
-###  [](https://zzz.buzz/notes/linux-default-packages/#centos) CentOS
+### CentOS
 
-To check currently installed packages, run `rpm -qa` .
+Чтобы проверить установленные пакеты, запустите `rpm -qa`.
 
-Here is the default installed packages on CentOS 7.2 on AWS (ami-0c567c62):
+Вот установленные по умолчанию пакеты на CentOS 7.2 в AWS (ami-0c567c62):
 
 ```
 libestr-0.1.9-2.el7.x86_64
@@ -948,11 +948,11 @@ python-pygments-1.4-9.el7.noarch
 
 ```
 
-##  [](https://zzz.buzz/notes/linux-default-packages/#cygwin) Cygwin
+## Cygwin
 
-The default packages installed with Cygwin are those in `Base`   category, which are chose by default when running setup.exe of Cygwin. 
+Пакеты по умолчанию, установленные вместе с Cygwin, относятся к категории `Base`, которые выбираются по умолчанию при запуске setup.exe из Cygwin.
 
- ![Base packages in Cygwin](/images/8577808c69b4b534904b1467520f480c.png) 
+![Base packages in Cygwin](/images/8577808c69b4b534904b1467520f480c.png) 
 
 ```
 _autorebase
