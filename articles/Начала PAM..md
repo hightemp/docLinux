@@ -840,3 +840,6 @@ int main(int argc, char \* const argv\[\])
     4. Выводы.
     
    Не правда ли PAM это здорово... :))
+
+**********
+[PAM](/tags/PAM.md)
