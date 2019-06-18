@@ -1,28 +1,27 @@
 # Пакеты Linux по умолчанию
 
-From time to time, I was wondering what packages are available by default on this and that system, so that I could write scripts which might depend on those packages with the confidence that they are always present.
+Время от времени мне было интересно, какие пакеты доступны по умолчанию в этой и той системе, чтобы я мог писать сценарии, которые могли бы зависеть от этих пакетов с уверенностью, что они всегда присутствуют.
 
-Here are the lists of packages installed by default on various linux distributions ( [Debian](https://zzz.buzz/notes/linux-default-packages/#debian) , [RedHat](https://zzz.buzz/notes/linux-default-packages/#redhat) , [CentOS](https://zzz.buzz/notes/linux-default-packages/#centos) , [Cygwin](https://zzz.buzz/notes/linux-default-packages/#cygwin) ).
+Вот списки пакетов, установленных по умолчанию в различных дистрибутивах Linux. ( [Debian](https://zzz.buzz/notes/linux-default-packages/#debian) , [RedHat](https://zzz.buzz/notes/linux-default-packages/#redhat) , [CentOS](https://zzz.buzz/notes/linux-default-packages/#centos) , [Cygwin](https://zzz.buzz/notes/linux-default-packages/#cygwin) ).
 
-##  [](https://zzz.buzz/notes/linux-default-packages/#deb-based-distributions) DEB based distributions
+## Дистрибутивы на основе DEB
 
-###  [](https://zzz.buzz/notes/linux-default-packages/#debian) Debian
+### Debian
 
- [Debian Policy](https://www.debian.org/doc/debian-policy/ch-binary.html#s3.7) documents the _base system_ of Debian system.
+ [Политика Debian](https://www.debian.org/doc/debian-policy/ch-binary.html#s3.7) документирует _base system_ системы Debian.
 
-> The base system consists of all those packages with priority `required` or `important` .
+> Базовая система состоит из всех пакетов с приоритетом `required` или `important`.
 
-Those are the default installed packages in every Debian system. And can be listed with the following commands:
+Это установленные по умолчанию пакеты в каждой системе Debian. И может быть перечислен с помощью следующих команд:
 
 ```
 aptitude search ~prequired -F"%p"
 aptitude search ~pimportant -F"%p"
-
 ```
 
- [This answer](http://unix.stackexchange.com/questions/90523/what-packages-are-installed-by-default-in-debian-is-there-a-term-for-that-set/90533#90533) on StackExchange has more details on this topic.
+ [Этот ответ](http://unix.stackexchange.com/questions/90523/what-packages-are-installed-by-default-in-debian-is-there-a-term-for-that-set/90533#90533) на StackExchange есть больше деталей по этой теме.
 
-Here is the list of `required` packages on Debian 8 (jessie):
+Вот список `обязательных`(`required`) пакетов в Debian 8 (jessie):
 
 ```
 base-files
@@ -92,7 +91,7 @@ zlib1g
 
 ```
 
-Here is the list of `important` packages on Debian 8 (jessie):
+Вот список «важных»(`important`) пакетов в Debian 8 (jessie):
 
 ```
 adduser
@@ -162,7 +161,7 @@ whiptail
 
 ```
 
-And most desktop installation will choose to include packages with `standard` priority. Here is the list of `standard` packages on Debian 8 (jessie), which is the output of `aptitude search ~pstandard -F"%p"` :
+И большинство настольных систем предпочитают включать пакеты с «стандартным»(`standard`) приоритетом. Вот список `стандартных`(`standard`) пакетов в Debian 8 (jessie), который является выводом `aptitude search ~pstandard -F"%p" `:
 
 ```
 apt-listchanges
@@ -271,11 +270,11 @@ xz-utils
 
 ```
 
-##  [](https://zzz.buzz/notes/linux-default-packages/#rpm-based-distributions) RPM based distributions
+## RPM-дистрибутивы
 
-When installing RedHat or CentOS, you are given the option to do software selection, among Environment Groups like _Minimal_ , _Basic Server_ , _Virtual Host_ , _Desktop_ and so on.
+При установке RedHat или CentOS вам предоставляется возможность сделать выбор программного обеспечения среди групп среды, таких как _Minimal_, _Basic Server_, _Virtual Host_, _Desktop_ и так далее.
 
-While the package groups installed depend on your choice, packages in `core` group get installed in every case, and packages in `base` group get installed in every case except for the `Minimal` environment group.
+Хотя установленные группы пакетов зависят от вашего выбора, пакеты в группе `core` устанавливаются в каждом случае, а пакеты в группе `base` устанавливаются в каждом случае, кроме группы окружения `Minimal`.
 
 You may check what packages are contained in a group with command `yum groupinfo groupname` .
 
