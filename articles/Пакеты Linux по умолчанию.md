@@ -996,3 +996,4 @@ which
 **********
 [Debian](/tags/Debian.md)
 [RedHat](/tags/RedHat.md)
+[CentOS](/tags/CentOS.md)
