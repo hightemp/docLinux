@@ -65,7 +65,6 @@ Consider a case where you have a directory `source` and that when you build the 
 The `--mount` and `-v` examples below produce the same result. You can’t run them both unless you remove the `devtest` container after running the first one.
 
 *    `--mount` 
-*    `-v` 
 
 ```
 $ docker run -d \
@@ -74,6 +73,16 @@ $ docker run -d \
   --mount type=bind,source="$(pwd)"/target,target=/app \
   nginx:latest
 
+```
+
+*    `-v` 
+
+```
+$ docker run -d \
+  -it \
+  --name devtest \
+  -v "$(pwd)"/target:/app \
+  nginx:latest
 ```
 
 Use `docker inspect devtest` to verify that the bind mount was created correctly. Look for the `Mounts` section:
@@ -96,11 +105,9 @@ This shows that the mount is a `bind` mount, it shows the correct source and des
 
 Stop the container:
 
-```
+```console
 $ docker container stop devtest
-
 $ docker container rm devtest
-
 ```
 
 ### Mount into a non-empty directory on the container
@@ -112,7 +119,6 @@ This example is contrived to be extreme, but replaces the contents of the contai
 The `--mount` and `-v` examples have the same end result.
 
 *    `--mount` 
-*    `-v` 
 
 ```
 $ docker run -d \
@@ -126,9 +132,22 @@ starting container process caused "exec: \"nginx\": executable file not found in
 
 ```
 
-The container is created but does not start. Remove it:
+*    `-v` 
 
 ```
+$ docker run -d \
+  -it \
+  --name broken-container \
+  -v /tmp:/usr \
+  nginx:latest
+
+docker: Error response from daemon: oci runtime error: container_linux.go:262:
+starting container process caused "exec: \"nginx\": executable file not found in $PATH".
+```
+
+The container is created but does not start. Remove it:
+
+```console
 $ docker container rm broken-container
 
 ```
