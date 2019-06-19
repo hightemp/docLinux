@@ -161,7 +161,6 @@ This example modifies the one above but mounts the directory as a read-only bind
 The `--mount` and `-v` examples have the same result.
 
 *    `--mount` 
-*    `-v` 
 
 ```
 $ docker run -d \
@@ -170,6 +169,16 @@ $ docker run -d \
   --mount type=bind,source="$(pwd)"/target,target=/app,readonly \
   nginx:latest
 
+```
+
+*    `-v` 
+
+```
+$ docker run -d \
+  -it \
+  --name devtest \
+  -v "$(pwd)"/target:/app:ro \
+  nginx:latest
 ```
 
 Use `docker inspect devtest` to verify that the bind mount was created correctly. Look for the `Mounts` section:
