@@ -66,7 +66,7 @@ The `--mount` and `-v` examples below produce the same result. You can’t run t
 
 *    `--mount` 
 
-```
+```console
 $ docker run -d \
   -it \
   --name devtest \
@@ -77,7 +77,7 @@ $ docker run -d \
 
 *    `-v` 
 
-```
+```console
 $ docker run -d \
   -it \
   --name devtest \
@@ -87,7 +87,7 @@ $ docker run -d \
 
 Use `docker inspect devtest` to verify that the bind mount was created correctly. Look for the `Mounts` section:
 
-```
+```json
 "Mounts": [
     {
         "Type": "bind",
@@ -120,7 +120,7 @@ The `--mount` and `-v` examples have the same end result.
 
 *    `--mount` 
 
-```
+```console
 $ docker run -d \
   -it \
   --name broken-container \
@@ -134,7 +134,7 @@ starting container process caused "exec: \"nginx\": executable file not found in
 
 *    `-v` 
 
-```
+```console
 $ docker run -d \
   -it \
   --name broken-container \
@@ -162,7 +162,7 @@ The `--mount` and `-v` examples have the same result.
 
 *    `--mount` 
 
-```
+```console
 $ docker run -d \
   -it \
   --name devtest \
@@ -173,7 +173,7 @@ $ docker run -d \
 
 *    `-v` 
 
-```
+```console
 $ docker run -d \
   -it \
   --name devtest \
@@ -183,7 +183,7 @@ $ docker run -d \
 
 Use `docker inspect devtest` to verify that the bind mount was created correctly. Look for the `Mounts` section:
 
-```
+```json
 "Mounts": [
     {
         "Type": "bind",
@@ -199,7 +199,7 @@ Use `docker inspect devtest` to verify that the bind mount was created correctly
 
 Stop the container:
 
-```
+```console
 $ docker container stop devtest
 
 $ docker container rm devtest
@@ -230,9 +230,8 @@ The following example mounts the `target/` directory into the container twice, a
 The `--mount` and `-v` examples have the same result.
 
 *    `--mount` 
-*    `-v` 
 
-```
+```console
 $ docker run -d \
   -it \
   --name devtest \
@@ -240,6 +239,17 @@ $ docker run -d \
   --mount type=bind,source="$(pwd)"/target,target=/app2,readonly,bind-propagation=rslave \
   nginx:latest
 
+```
+
+*    `-v` 
+
+```console
+$ docker run -d \
+  -it \
+  --name devtest \
+  -v "$(pwd)"/target:/app \
+  -v "$(pwd)"/target:/app2:ro,rslave \
+  nginx:latest
 ```
 
 Now if you create `/app/foo/` , `/app2/foo/` also exists.
@@ -259,7 +269,7 @@ This example sets the `z` option to specify that multiple containers can share t
 
 It is not possible to modify the selinux label using the `--mount` flag.
 
-```
+```console
 $ docker run -d \
   -it \
   --name devtest \
@@ -286,12 +296,21 @@ These options are completely ignored on all host operating systems except macOS.
 The `--mount` and `-v` examples have the same result.
 
 *    `--mount` 
-*    `-v` 
 
-```
+```console
 $ docker run -d \
   -it \
   --name devtest \
   --mount type=bind,source="$(pwd)"/target,destination=/app,consistency=cached \
+  nginx:latest
+```
+
+*    `-v` 
+
+```console
+$ docker run -d \
+  -it \
+  --name devtest \
+  -v "$(pwd)"/target:/app:cached \
   nginx:latest
 ```
