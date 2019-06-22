@@ -75,6 +75,7 @@
 * [Стандартные каталоги Linux](/articles/%D0%A1%D1%82%D0%B0%D0%BD%D0%B4%D0%B0%D1%80%D1%82%D0%BD%D1%8B%D0%B5%20%D0%BA%D0%B0%D1%82%D0%B0%D0%BB%D0%BE%D0%B3%D0%B8%20Linux.md)
 * [Как смонтировать каталог хоста в Docker-контейнере](/articles/%D0%9A%D0%B0%D0%BA%20%D1%81%D0%BC%D0%BE%D0%BD%D1%82%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D1%82%D1%8C%20%D0%BA%D0%B0%D1%82%D0%B0%D0%BB%D0%BE%D0%B3%20%D1%85%D0%BE%D1%81%D1%82%D0%B0%20%D0%B2%20Docker-%D0%BA%D0%BE%D0%BD%D1%82%D0%B5%D0%B9%D0%BD%D0%B5%D1%80%D0%B5.md)
 * [Как настроить службу systemd для периодического перезапуска?](/articles/%D0%9A%D0%B0%D0%BA%20%D0%BD%D0%B0%D1%81%D1%82%D1%80%D0%BE%D0%B8%D1%82%D1%8C%20%D1%81%D0%BB%D1%83%D0%B6%D0%B1%D1%83%20systemd%20%D0%B4%D0%BB%D1%8F%20%D0%BF%D0%B5%D1%80%D0%B8%D0%BE%D0%B4%D0%B8%D1%87%D0%B5%D1%81%D0%BA%D0%BE%D0%B3%D0%BE%20%D0%BF%D0%B5%D1%80%D0%B5%D0%B7%D0%B0%D0%BF%D1%83%D1%81%D0%BA%D0%B0%3F.md)
+* [Перезапуск Systemd = всегда не соблюдается](/articles/%D0%9F%D0%B5%D1%80%D0%B5%D0%B7%D0%B0%D0%BF%D1%83%D1%81%D0%BA%20Systemd%20%3D%20%D0%B2%D1%81%D0%B5%D0%B3%D0%B4%D0%B0%20%D0%BD%D0%B5%20%D1%81%D0%BE%D0%B1%D0%BB%D1%8E%D0%B4%D0%B0%D0%B5%D1%82%D1%81%D1%8F.md)
 ---
 [LVM](/tags/LVM.md)
 [OOM killer](/tags/OOM%20killer.md)
@@ -134,7 +135,6 @@
 [docker](/tags/docker.md)
 [flame graph](/tags/flame%20graph.md)
 [ps](/tags/ps.md)
-[systemd](/tags/systemd.md)
 [tcp](/tags/tcp.md)
 [top](/tags/top.md)
 [udp](/tags/udp.md)
@@ -145,5 +145,6 @@
 [уязвимости](/tags/%D1%83%D1%8F%D0%B7%D0%B2%D0%B8%D0%BC%D0%BE%D1%81%D1%82%D0%B8.md)
 [файловая система](/tags/%D1%84%D0%B0%D0%B9%D0%BB%D0%BE%D0%B2%D0%B0%D1%8F%20%D1%81%D0%B8%D1%81%D1%82%D0%B5%D0%BC%D0%B0.md)
 [ядро](/tags/%D1%8F%D0%B4%D1%80%D0%BE.md)
-[service](/tags/service.md)
 [unit](/tags/unit.md)
+[systemd](/tags/systemd.md)
+[service](/tags/service.md)
