@@ -148,8 +148,8 @@ Let's create a custom service example. Suppose we want to create a service which
 ```shell
 [Unit]
 Description=Force ens5f5 ethernet interface to 100Mbps
-Requires=Network.target
-After=Network.target
+Requires=network.target
+After=network.target
 
 [Service]
 Type=oneshot
@@ -192,6 +192,7 @@ In this tutorial we saw how a systemd service file is composed, what are its sec
 Since systemd, like it or not, has become the standard init system in the Linux world, it's important to become familiar to its way of doing things. The official systemd services documentation can be found[on the freedesktop website](https://www.freedesktop.org/software/systemd/man/systemd.service.html). You could also be interested in reading our article about[managing services with systemd](https://linuxconfig.org/start-stop-and-restart-services-on-systemd-rhel-7-linux-server).
 
 
+
 **********
-[systemd](/tags/systemd.md)
 [service](/tags/service.md)
+[systemd](/tags/systemd.md)
