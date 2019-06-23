@@ -4,8 +4,8 @@
 
 * [`/var`](http://www.tldp.org/LDP/Linux-Filesystem-Hierarchy/html/var.html) (данные)
 * [`/usr`](http://www.tldp.org/LDP/Linux-Filesystem-Hierarchy/html/usr.html) (данные)
-* [`/etc`](http://www.tldp.org/LDP/Linux-Filesystem-Hierarchy/html/etc.html) (настройка)
-* `~` (config)
+* [`/etc`](http://www.tldp.org/LDP/Linux-Filesystem-Hierarchy/html/etc.html) (настройки)
+* `~` (настройки)
 * `~/.config` (конфигурация, часто вместо `~`, поскольку это уменьшает беспорядок в домашнем каталоге пользователя).
 * вероятно, еще много ...
 
