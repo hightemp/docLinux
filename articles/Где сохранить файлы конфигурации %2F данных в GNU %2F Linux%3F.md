@@ -2,9 +2,9 @@
 
 Есть много мест, где можно сохранить файлы конфигурации / данных и т. Д.:
 
-* [`/ var`](http://www.tldp.org/LDP/Linux-Filesystem-Hierarchy/html/var.html) (данные)
-* [`/ usr`](http://www.tldp.org/LDP/Linux-Filesystem-Hierarchy/html/usr.html) (данные)
-* [`/ etc`](http://www.tldp.org/LDP/Linux-Filesystem-Hierarchy/html/etc.html) (настройка)
+* [`/var`](http://www.tldp.org/LDP/Linux-Filesystem-Hierarchy/html/var.html) (данные)
+* [`/usr`](http://www.tldp.org/LDP/Linux-Filesystem-Hierarchy/html/usr.html) (данные)
+* [`/etc`](http://www.tldp.org/LDP/Linux-Filesystem-Hierarchy/html/etc.html) (настройка)
 * `~` (config)
 * `~/.config` (конфигурация, часто вместо `~`, поскольку это уменьшает беспорядок в домашнем каталоге пользователя).
 * вероятно, еще много ...
