@@ -79,3 +79,6 @@ umake ide pycharm -r
  Ссылки:   
  Ubuntu Make на   [Github](https://github.com/ubuntu/ubuntu-make)  .   
  [Блог](http://blog.didrocks.fr/)   Didier Roche.
+
+**********
+[Ubuntu](/tags/Ubuntu.md)
