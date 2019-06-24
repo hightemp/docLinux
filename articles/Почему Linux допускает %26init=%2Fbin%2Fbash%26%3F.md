@@ -6,3 +6,4 @@
 
 **********
 [bash](/tags/bash.md)
+[ядро](/tags/%D1%8F%D0%B4%D1%80%D0%BE.md)
