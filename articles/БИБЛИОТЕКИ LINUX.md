@@ -7,7 +7,7 @@
 
 * [Что такое библиотеки?](https://losst.ru/biblioteki-linux#i "Что такое библиотеки?") 
 * [Как получить информацию о библиотеках?](https://losst.ru/biblioteki-linux#i-2 "Как получить информацию о библиотеках?") 
-*  [Основные библиотеки](https://losst.ru/biblioteki-linux#i-3 "Основные библиотеки") 
+* [Основные библиотеки](https://losst.ru/biblioteki-linux#i-3 "Основные библиотеки") 
 	* [Библиотеки кодеков](https://losst.ru/biblioteki-linux#i-4 "Библиотеки кодеков") 
   * [Звуковые библиотеки](https://losst.ru/biblioteki-linux#i-5 "Звуковые библиотеки") 
   * [Работа с архивами](https://losst.ru/biblioteki-linux#i-6 "Работа с архивами") 
