@@ -84,3 +84,4 @@ If you are using Linux with NetworkManager, it is very convenient to set up the 
 
 **********
 [ssh](/tags/ssh.md)
+[proxy](/tags/proxy.md)
