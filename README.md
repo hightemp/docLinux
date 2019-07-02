@@ -162,3 +162,4 @@
 [библиотеки](/tags/%D0%B1%D0%B8%D0%B1%D0%BB%D0%B8%D0%BE%D1%82%D0%B5%D0%BA%D0%B8.md)
 [ядро](/tags/%D1%8F%D0%B4%D1%80%D0%BE.md)
 [ssh](/tags/ssh.md)
+[proxy](/tags/proxy.md)
