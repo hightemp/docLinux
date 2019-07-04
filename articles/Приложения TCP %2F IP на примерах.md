@@ -262,5 +262,5 @@ $ ncat -c "head -c 1000000 /dev/urandom | cat response1.txt -" -lp 8080 -k
 If you try again opening the page with Chrome, you see a lot of gibberish (like with Firefox) instead of an "invalid response" message. You can also try to increase the amount of data and see if you can crash Chrome that way. Try other browsers too, you may be able to invoke more interesting behaviour (like segmentation faults) with lesser-known browsers.
 
 **********
-[ncat](/tags/ncat.md)
 [bash](/tags/bash.md)
+[ncat](/tags/ncat.md)
