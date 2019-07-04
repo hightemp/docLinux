@@ -263,3 +263,4 @@ If you try again opening the page with Chrome, you see a lot of gibberish (like 
 
 **********
 [ncat](/tags/ncat.md)
+[bash](/tags/bash.md)
