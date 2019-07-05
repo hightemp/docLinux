@@ -261,3 +261,4 @@ $ man optipng
 [epel](/tags/epel.md)
 [RHEL](/tags/RHEL.md)
 [Fedora](/tags/Fedora.md)
+[RedHat](/tags/RedHat.md)
