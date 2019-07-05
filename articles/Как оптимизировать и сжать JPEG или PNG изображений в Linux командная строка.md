@@ -254,3 +254,4 @@ $ man optipng
 
 **********
 [jpegoptim](/tags/jpegoptim.md)
+[OptiPNG](/tags/OptiPNG.md)
