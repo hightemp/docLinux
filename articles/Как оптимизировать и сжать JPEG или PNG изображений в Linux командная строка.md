@@ -256,3 +256,4 @@ $ man optipng
 [CentOS](/tags/CentOS.md)
 [jpegoptim](/tags/jpegoptim.md)
 [OptiPNG](/tags/OptiPNG.md)
+[Ubuntu](/tags/Ubuntu.md)
