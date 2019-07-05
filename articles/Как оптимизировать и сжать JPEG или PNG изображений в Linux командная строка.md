@@ -260,3 +260,4 @@ $ man optipng
 [OptiPNG](/tags/OptiPNG.md)
 [epel](/tags/epel.md)
 [RHEL](/tags/RHEL.md)
+[Fedora](/tags/Fedora.md)
