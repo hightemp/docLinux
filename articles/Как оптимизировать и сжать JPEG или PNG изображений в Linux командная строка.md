@@ -251,3 +251,6 @@ For more details about **optipng** check man pages.
 ```console
 $ man optipng
 ```
+
+**********
+[jpegoptim](/tags/jpegoptim.md)
