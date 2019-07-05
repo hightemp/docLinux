@@ -1,73 +1,73 @@
 # Как оптимизировать и сжать JPEG или PNG изображений в Linux командная строка
 
-You have a lot of images, and want to optimize and compress the images without losing its original quality before uploading them to any cloud or local storages? There are plenty of GUI applications available which will help you to optimize the images. However, here are two simple command line utilities to optimize images and they are:
+У вас много изображений, и вы хотите оптимизировать и сжать изображения, не теряя при этом исходного качества, прежде чем загружать их в какое-либо облачное или локальное хранилище? Существует множество приложений с графическим интерфейсом, которые помогут вам оптимизировать изображения. Тем не менее, вот две простые утилиты командной строки для оптимизации изображений:
 
-1.   **jpegoptim** – is a utility to optimize/compress JPEG files without loosing quality.
-2.   **OptiPNG** – is a small program that optimize PNG images to smaller size without losing any information.
+1. **jpegoptim** - это утилита для оптимизации / сжатия файлов JPEG без потери качества.
+2. **OptiPNG** - небольшая программа, которая оптимизирует изображения PNG до меньшего размера без потери какой-либо информации.
 
-### Compress or Optimize JPEG Images from Command Line
+### Сжатие или оптимизация изображений JPEG из командной строки
 
- **jpegoptim** is a command line tool that can be used to optimize and compress JPEG, JPG and JFIF files without losing its actual quality. This tool supports lossless optimization, which is based on optimizing the Huffman tables.
+ **jpegoptim** - инструмент командной строки, который можно использовать для оптимизации и сжатия файлов JPEG, JPG и JFIF без потери его фактического качества. Этот инструмент поддерживает оптимизацию без потерь, которая основана на оптимизации таблиц Хаффмана.
 
-#### Install jpegoptim in Linux
+#### Установите jpegoptim в Linux
 
-To install **jpegoptim** on your Linux systems, run the following command from your terminal.
+Чтобы установить **jpegoptim** в своих системах Linux, выполните следующую команду на своем терминале.
 
-##### On Debian and it’s Derivatives
+##### Debian и его производных
 
 ```console
 # apt-get install jpegoptim
 $ sudo apt-get install jpegoptim
 ```
 
-##### On RedHat based Systems
+##### В системах на основе RedHat
 
-On RPM based systems like **RHEL** , **CentOS** , **Fedora** etc., you need to [install and enable EPEL repository](https://www.tecmint.com/how-to-enable-epel-repository-for-rhel-centos-6-5/) or alternatively, you can install the epel repository directly from the commandline as shown:
+В системах на основе RPM, таких как **RHEL**, **CentOS**, **Fedora** и т. Д., Вам необходимо [установить и включить репозиторий EPEL](https://www.tecmint.com/how-to- enable-epel-repository-for-rhel-centos-6-5 /) или, альтернативно, вы можете установить репозиторий epel непосредственно из командной строки, как показано ниже:
 
 ```console
 # yum install epel-release
 # dnf install epel-release    \[On  **Fedora 22+**  versions\]
 ```
 
-Next install jpegoptim program from the repository as shown:
+Затем установите программу jpegoptim из репозитория, как показано ниже:
 
 ```console
 # yum install jpegoptim
 # dnf install jpegoptim    \[On  **Fedora 22+**  versions\]
 ```
 
-#### How to Use Jpegoptim Image Optimizer
+#### Как использовать Jpegoptim Image Optimizer
 
-The syntax of jpegoptm is:
+Синтаксис jpegoptm:
 
 ```console
 $ jpegoptim filename.jpeg
 $ jpegoptim \[options\] filename.jpeg
 ```
 
-Let’s now compress the following `tecmint.jpeg` image, but before optimizing the image, first find out the actual size of the image using [du command](https://www.tecmint.com/check-linux-disk-usage-of-files-and-directories/) as shown.
+Теперь давайте сжимаем следующее изображение `tecmint.jpeg`, но прежде чем оптимизировать изображение, сначала узнайте фактический размер изображения с помощью команды [du command](https://www.tecmint.com/check-linux- использование диска и файлов / каталогов /), как показано на рисунке.
 
 ```console
 $ du -sh tecmint.jpeg 
+
+6.2M	tecmint.jpeg
 ```
 
- **6.2M	tecmint.jpeg** 
-
-Here the actual file size is **6.2MB** , now compress this file by running:
+Здесь фактический размер файла **6,2 МБ**, теперь сожмите этот файл, выполнив:
 
 ```console
 $ jpegoptim tecmint.jpeg 
 ```
 
- [ ![Optimize JPEG Image in Linux](/images/e747ec58ecc03bef96d6faf8c8e3ff8d.png) ](https://www.tecmint.com/wp-content/uploads/2016/01/Optimize-JPEG-Image-in-Linux.png) 
+ [ ![Оптимизируйте изображение JPEG в Linux](/images/e747ec58ecc03bef96d6faf8c8e3ff8d.png) ](https://www.tecmint.com/wp-content/uploads/2016/01/Optimize-JPEG-Image-in-Linux.png) 
 
-Optimize JPEG Image in Linux
+Оптимизируйте изображение JPEG в Linux
 
-Open the compressed image in any image viewer application, you will not find any major differences. The source and compressed images will have the same quality.
+Откройте сжатое изображение в любом приложении для просмотра изображений, вы не найдете каких-либо серьезных отличий. Исходное и сжатое изображения будут иметь одинаковое качество.
 
-The above command optimizes the images to the maximum possible size. However, you can compress the given image to a specific size to, but it disables the lossless optimization.
+Приведенная выше команда оптимизирует изображения до максимально возможного размера. Тем не менее, вы можете сжать данное изображение до определенного размера, но это отключает оптимизацию без потерь.
 
-For example, let us compress above the image from **5.6MB** to around **250k** .
+Например, давайте сжимаем выше изображения с ** 5,6 МБ ** до ** 250k **.
 
 ```console
 $ jpegoptim --size=250k tecmint.jpeg
@@ -252,8 +252,9 @@ For more details about **optipng** check man pages.
 $ man optipng
 ```
 
+
 **********
 [CentOS](/tags/CentOS.md)
+[Ubuntu](/tags/Ubuntu.md)
 [jpegoptim](/tags/jpegoptim.md)
 [OptiPNG](/tags/OptiPNG.md)
-[Ubuntu](/tags/Ubuntu.md)
