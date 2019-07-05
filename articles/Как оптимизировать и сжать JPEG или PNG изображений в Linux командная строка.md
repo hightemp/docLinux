@@ -67,19 +67,19 @@ $ jpegoptim tecmint.jpeg
 
 Приведенная выше команда оптимизирует изображения до максимально возможного размера. Тем не менее, вы можете сжать данное изображение до определенного размера, но это отключает оптимизацию без потерь.
 
-Например, давайте сжимаем выше изображения с ** 5,6 МБ ** до ** 250k **.
+Например, давайте сжимаем выше изображения с **5,6 МБ** до **250k**.
 
 ```console
 $ jpegoptim --size=250k tecmint.jpeg
 ```
 
- [ ![Optimize Image Fix Size](/images/66b123f55ebecd423d377c5dba495fcd.png) ](https://www.tecmint.com/wp-content/uploads/2016/01/Optimize-Image-Fix-Size.png) 
+ [ ![Оптимизировать размер изображения Fix](/images/66b123f55ebecd423d377c5dba495fcd.png) ](https://www.tecmint.com/wp-content/uploads/2016/01/Optimize-Image-Fix-Size.png) 
 
-Optimize Image Fix Size
+Оптимизировать размер изображения Fix
 
-#### Batch JPEG Image Compression and Optimization
+#### Пакетное сжатие и оптимизация изображений JPEG
 
-You might ask how to compress the images in the entire directory, that’s not difficult too. Go to the directory where you have the images.
+Вы можете спросить, как сжать изображения во всем каталоге, это тоже не сложно. Перейдите в каталог, где у вас есть изображения.
 
 ```console
 tecmint@tecmint \~ $ cd img/
@@ -97,7 +97,7 @@ total 65184
 -rwxr----- 1 tecmint tecmint 5931738 Jan 19 12:21 DSC\_0319.JPG
 ```
 
-And then run the following command to compress all images at once.
+А затем выполните следующую команду, чтобы сжать все изображения одновременно.
 
 ```console
 tecmint@tecmint \~/img $ jpegoptim \*.JPG
@@ -113,7 +113,7 @@ DSC\_0318.JPG 6000x4000 24bit N Exif  \[OK\] 6614855 --> 6016006 bytes (9.05%), 
 DSC\_0319.JPG 6000x4000 24bit N Exif  \[OK\] 5931738 --> 5337023 bytes (10.03%), optimized.
 ```
 
-You can also compress multiple selected images at once:
+Вы также можете сжать несколько выбранных изображений одновременно:
 
 ```console
 $ jpegoptim DSC\_0310.JPG DSC\_0311.JPG DSC\_0312.JPG
@@ -122,55 +122,55 @@ DSC\_0311.JPG 6000x4000 24bit N Exif  \[OK\] 6846248 --> 6167842 bytes (9.91%), 
 DSC\_0312.JPG 6000x4000 24bit N Exif  \[OK\] 7174430 --> 6536500 bytes (8.89%), optimized.
 ```
 
-For more details about **jpegoptim** tool, check out the man pages.
+Более подробную информацию об инструменте **jpegoptim** можно найти на страницах руководства.
 
 ```console
 $ man jpegoptim 
 ```
 
-### Compress or Optimize PNG Images from Command Line
+### Сжатие или оптимизация изображений PNG из командной строки
 
- **OptiPNG** is a command line tool used to optimize and compress PNG (portable network graphics) files without losing its original quality.
+ **OptiPNG** - инструмент командной строки, используемый для оптимизации и сжатия файлов PNG (переносимая сетевая графика) без потери исходного качества.
 
-The installation and usage of **OptiPNG** is very similar to **jpegoptim** .
+Установка и использование **OptiPNG** очень похожи на **jpegoptim**.
 
-#### Install OptiPNG in Linux
+#### Установите OptiPNG в Linux
 
-To install **OptiPNG** on your Linux systems, run the following command from your terminal.
+Чтобы установить **OptiPNG** в своих системах Linux, выполните следующую команду на своем терминале.
 
-##### On Debian and it’s Derivatives
+##### Debian и его производных
 
 ```console
 # apt-get install optipng
 $ sudo apt-get install optipng
 ```
 
-##### On RedHat based Systems
+##### В системах на основе RedHat
 
 ```console
 # yum install optipng
 # dnf install optipng    \[On Fedora  **22+**  versions\]
 ```
 
- **Note** : You must have **epel repository** enabled on your **RHEL/CentOS** based systems to install **optipng** program.
+**Примечание**: Для установки программы **optipng** у вас должно быть включено **хранилище epel** в ваших системах на основе **RHEL / CentOS**.
 
-#### How to Use OptiPNG Image Optimizer
+#### Как использовать Оптимизатор изображений OptiPNG
 
-The general syntax of **optipng** is:
+Общий синтаксис **optipng**:
 
 ```console
 $ optipng filename.png
 $ optipng \[options\] filename.png
 ```
 
-Let us compress the `tecmint.png` image, but before optimizing, first check the actual size of the image as shown:
+Давайте сжимаем изображение `tecmint.png`, но перед оптимизацией сначала проверим фактический размер изображения, как показано:
 
 ```console
 tecmint@tecmint \~/img $ ls -lh tecmint.png 
 -rw------- 1 tecmint tecmint  **350K**  Jan 19 12:54 tecmint.png
 ```
 
-Here the actual file size of above image is **350K** , now compress this file by running:
+Здесь фактический размер файла выше изображения **350K**, теперь сожмите этот файл, запустив:
 
 ```console
 tecmint@tecmint \~/img $ optipng tecmint.png
@@ -193,18 +193,18 @@ Output IDAT size = 249211 bytes (108314 bytes decrease)
 Output file size = 249268 bytes (108830 bytes = 30.39% decrease)
 ```
 
-As you see in the above output, the size of the **tecmint.png** file has been reduced up to **30.39%** . Now verify the file size again using:
+Как видно из вышеприведенного вывода, размер файла **tecmint.png** был уменьшен до **30,39%**. Теперь проверьте размер файла еще раз, используя:
 
 ```console
 tecmint@tecmint \~/img $ ls -lh tecmint.png
 -rw-r--r-- 1 tecmint tecmint  **244K**  Jan 19 12:56 tecmint.png
 ```
 
-Open the compressed image in any image viewer application, you will not find any major differences between the original and compressed files. The source and compressed images will have the same quality.
+Откройте сжатое изображение в любом приложении для просмотра изображений, вы не найдете каких-либо существенных различий между исходным и сжатым файлами. Исходное и сжатое изображения будут иметь одинаковое качество.
 
-#### Batch PNG Image Compression and Optimization
+#### Пакетное сжатие и оптимизация изображений PNG
 
-To compress batch or multiple PNG images at once, just go the directory where all images resides and run the following command to compress.
+Чтобы сжать пакетные или несколько изображений PNG одновременно, просто перейдите в каталог, в котором находятся все изображения, и выполните следующую команду для сжатия.
 
 ```console
 tecmint@tecmint \~ $ cd img/
@@ -246,7 +246,7 @@ Output file size = 217035 bytes (43018 bytes = 16.54% decrease)
 ....
 ```
 
-For more details about **optipng** check man pages.
+Для получения более подробной информации о **optipng** проверьте справочные страницы.
 
 ```console
 $ man optipng
