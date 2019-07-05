@@ -256,9 +256,9 @@ $ man optipng
 **********
 [CentOS](/tags/CentOS.md)
 [Ubuntu](/tags/Ubuntu.md)
+[RedHat](/tags/RedHat.md)
 [jpegoptim](/tags/jpegoptim.md)
 [OptiPNG](/tags/OptiPNG.md)
 [epel](/tags/epel.md)
 [RHEL](/tags/RHEL.md)
 [Fedora](/tags/Fedora.md)
-[RedHat](/tags/RedHat.md)
