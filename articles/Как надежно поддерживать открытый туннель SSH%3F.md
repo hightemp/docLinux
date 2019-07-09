@@ -12,3 +12,6 @@ autossh -M 20000 -f -N your_public_server -R 1234:localhost:22 -C
 Подробнее о параметре -M [здесь](http://www.debianadmin.com/autossh-automatically-restart-ssh-sessions-and-tunnels.html)
 
 `autossh -f -nNT -i ~/keypair.pem -R 2000:localhost:22 username@myoutsidebox.com`  Вы можете заметить, что я настроил это, используя -nNT, который не создает удаленный терминал, чтобы я мог поместить autossh в фоновый режим, и опцию -i для SSH, чтобы использовать файл .pem. Если вы собираетесь постоянно держать соединение открытым, я определенно рекомендую пройти дополнительную настройку.
+
+**********
+[ssh](/tags/ssh.md)
