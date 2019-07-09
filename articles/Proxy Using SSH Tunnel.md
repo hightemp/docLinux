@@ -82,6 +82,8 @@ If you are using Linux with NetworkManager, it is very convenient to set up the 
 
  ![](/images/fd9d21a01d3788f1d8c166454930cf2b.png)
 
+
 **********
 [ssh](/tags/ssh.md)
 [proxy](/tags/proxy.md)
+[НЕ ПЕРЕВЕДЕНО](/tags/%D0%9D%D0%95%20%D0%9F%D0%95%D0%A0%D0%95%D0%92%D0%95%D0%94%D0%95%D0%9D%D0%9E.md)
