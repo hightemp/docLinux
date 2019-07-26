@@ -532,3 +532,4 @@ $ sealert -a /var/log/audit/audit.log
 [sealert](/tags/sealert.md)
 [aureport](/tags/aureport.md)
 [chattr](/tags/chattr.md)
+[firewalld](/tags/firewalld.md)
