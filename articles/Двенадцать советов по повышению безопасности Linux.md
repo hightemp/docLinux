@@ -529,3 +529,4 @@ $ sealert -a /var/log/audit/audit.log
 
 **********
 [sudo](/tags/sudo.md)
+[sealert](/tags/sealert.md)
