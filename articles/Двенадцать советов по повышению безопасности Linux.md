@@ -1,4 +1,4 @@
-# Двенадцать советов по повышению безопасности Linux
+# Двенадцать советов по повышению безопасности Linux 1
 
 ## Защита терминала
 
@@ -527,11 +527,12 @@ $ sealert -a /var/log/audit/audit.log
  ![](/images/6de5475aa1b3a3f5403af0eaa9f33b57.png)   
  Самое интересное тут то, что в оповещениях можно найти советы о том, как решать соответствующие проблемы.
 
+
 **********
-[sudo](/tags/sudo.md)
-[sealert](/tags/sealert.md)
 [aureport](/tags/aureport.md)
 [chattr](/tags/chattr.md)
 [firewalld](/tags/firewalld.md)
 [iptables](/tags/iptables.md)
+[sealert](/tags/sealert.md)
+[sudo](/tags/sudo.md)
 [tripwire](/tags/tripwire.md)
