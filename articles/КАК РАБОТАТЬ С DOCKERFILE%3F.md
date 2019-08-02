@@ -127,10 +127,12 @@ ENTRYPOINT usr/bin/mongod
 
  [ ![Как работать с Dockerfile?](/images/b6a29eaa205885158c7f8cc1a7f7f04d.png) ](https://wiki.merionet.ru/images/kak-rabotat-s-dockerfile/1.png) 
 
+```
 #########
 # Dockerfile to build MongoDB container images
 # Based on Ubuntu
 #########
+```
 
 FROM ubuntu
 
