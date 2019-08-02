@@ -82,29 +82,40 @@ RUN echo «Hello from Merionet!!»
 
 Для начала создадим пустой файл и откроем его с помощью **vim** :
 
+```console
 vim Dockerfile
+```
 
 Затем мы можем указать комментариями для чего данный Докерфайл будет использоваться и все такое — это не обязательно, но может быть полезно в дальнейшем. На всякий случай напомню — все комментарии начинаются с символа **#** .
 
+```
 ########
 # Dockerfile to build MongoDB container images
 # Based on Ubuntu
 ########
+```
 
 Далее, укажем базовый образ:
 
+```
 FROM ubuntu
+```
 
 Затем, укажем автора:
 
+```
 MAINTAINER Merionet\_Translation
+```
 
 После чего обновим репозитории(данный шаг совершенно необязателен, учитывая, что мы не будем их использовать ) :
 
+```
 RUN apt-get update
+```
 
 После укажем команды и аргументы для скачивания **MongoDB** (установку проводим в соответствии с гайдом на официальном сайте):
 
+```
 RUN apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 7F0CEB10
 
 RUN echo 'deb http://downloads-distro.mongodb.org/repo/ubuntu-upstart dist 10gen' | tee /etc/apt/sources.list.d/mongodb.list
@@ -114,14 +125,17 @@ RUN apt-get update
 RUN apt-get install -y mongodb-10gen
 
 RUN mkdir -p /data/db
+```
 
 После чего укажем дефолтный порт для MongoDB:
 
+```
 EXPOSE 27017
 
 CMD \[«--port 27017»\]
 
 ENTRYPOINT usr/bin/mongod
+```
 
 Вот как должен выглядеть у вас финальный файл — проверьте и, затем, можно сохранить изменения и закрыть файл:
 
@@ -132,7 +146,6 @@ ENTRYPOINT usr/bin/mongod
 # Dockerfile to build MongoDB container images
 # Based on Ubuntu
 #########
-```
 
 FROM ubuntu
 
@@ -156,6 +169,7 @@ EXPOSE 27017
 CMD \["--port 27017"\]
 
 ENTRYPOINT usr/bin/mongod
+```
 
 * * *
 
