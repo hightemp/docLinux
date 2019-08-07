@@ -191,3 +191,4 @@
 [iptables](/tags/iptables.md)
 [tripwire](/tags/tripwire.md)
 [Java](/tags/Java.md)
+[sysctl](/tags/sysctl.md)
