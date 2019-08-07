@@ -91,3 +91,4 @@ screen -dmS rtor rtorrent
 
 **********
 [screen](/tags/screen.md)
+[ssh](/tags/ssh.md)
