@@ -88,3 +88,6 @@ screen -dmS rtor rtorrent
 *    [Еще немного о screen](http://boombick.org/blog/posts/26 "http://boombick.org/blog/posts/26") 
 *    [Screen — текстовый оконный менеджер](http://habrahabr.ru/blogs/personal/27315/ "http://habrahabr.ru/blogs/personal/27315/") 
 *    [Тема на ubuntu.ru](http://forum.ubuntu.ru/index.php?topic=27099.msg188959#msg188959 "http://forum.ubuntu.ru/index.php?topic=27099.msg188959#msg188959")
+
+**********
+[screen](/tags/screen.md)
