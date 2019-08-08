@@ -40,3 +40,6 @@ ProxyCommand connect -S proxy.server.name:1080 %h %p
 If you use a Linux file system, the file permission of `~/.ssh/config` must be 600, but on a standard NTFS windows partition, these kind of permissions do not exist.
 
 If your proxy requires NTLM authentication, you can use [cntlm](http://cntlm.sourceforge.net/) , see also [this answer](https://stackoverflow.com/a/15343300/33499) .
+
+**********
+[ssh](/tags/ssh.md)
