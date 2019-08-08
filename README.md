@@ -195,3 +195,4 @@
 [Java](/tags/Java.md)
 [sysctl](/tags/sysctl.md)
 [screen](/tags/screen.md)
+[kexec](/tags/kexec.md)
