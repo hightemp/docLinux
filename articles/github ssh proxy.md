@@ -1,8 +1,8 @@
 # github ssh proxy
 
-Setting `http.proxy` will not work for ssh. You need to proxy your ssh connection. See [this](http://returnbooleantrue.blogspot.com/2009/06/using-github-through-draconian-proxies.html) description. To summarize:
+Установка `http.proxy` не будет работать для ssh. Вам необходимо прокси-соединение вашего SSH. См. [Это](http://returnbooleantrue.blogspot.com/2009/06/using-github-through-draconian-proxies.html) описание. Подвести итоги:
 
-Start `git-cmd.bat` and create `~/.ssh/config` ( `notepad %home%\.ssh\config.` )
+Запустите `git-cmd.bat` и создайте `~/.ssh/config` (`notepad %home%\.ssh\config`).
 
 ```
 ProxyCommand /bin/connect.exe -H proxy.server.name:3128 %h %p
@@ -25,21 +25,22 @@ Host ssh.github.com
 
 ```
 
-(set the correct proxy hostname:port, and the path to id\_rsa. When you use git-bash, use slashes in the path to id\_rsa)  
-(My version of [msysgit](https://github.com/msysgit/msysgit/releases) includes `connect.exe` , so I do not need to download and compile [connect.c](https://web.archive.org/web/20130731110457/http://www.meadowy.org/~gotoh/ssh/connect.c) ). A precompiled exe is also available [here](https://web.archive.org/web/20130516045959/http://www.meadowy.org/~gotoh/ssh/connect.exe) .
+(установите правильное имя хоста прокси: порт и путь к id\_rsa. Когда вы используете git-bash, используйте косую черту в пути к id\_rsa)
+(Моя версия [msysgit](https://github.com/msysgit/msysgit/releases) включает в себя `connect.exe`, поэтому мне не нужно скачивать и компилировать [connect.c](https://web.archive.org/web/20130731110457/http://www.meadowy.org/~gotoh/ssh/connect.c)). Предварительно скомпилированный exe также доступен [здесь](https://web.archive.org/web/20130516045959/http://www.meadowy.org/~gotoh/ssh/connect.exe).
 
-Now `ssh github.com` should work
+Теперь `ssh github.com` должен работать
 
-Note that if you want to connect via a socks5 proxy, then change `-H` to `-S` .
+Обратите внимание, что если вы хотите подключиться через прокси socks5, измените `-H` на `-S`.
 
 ```
 ProxyCommand connect -S proxy.server.name:1080 %h %p
 
 ```
 
-If you use a Linux file system, the file permission of `~/.ssh/config` must be 600, but on a standard NTFS windows partition, these kind of permissions do not exist.
+Если вы используете файловую систему Linux, разрешение файла `~/.ssh/config` должно быть 600, но для стандартного раздела Windows NTFS такого рода разрешения не существует.
 
-If your proxy requires NTLM authentication, you can use [cntlm](http://cntlm.sourceforge.net/) , see also [this answer](https://stackoverflow.com/a/15343300/33499) .
+Если вашему прокси-серверу требуется NTLM-аутентификация, вы можете использовать [cntlm](http://cntlm.sourceforge.net/), см. Также [этот ответ](https://stackoverflow.com/a/15343300/33499).
+
 
 **********
 [ssh](/tags/ssh.md)
