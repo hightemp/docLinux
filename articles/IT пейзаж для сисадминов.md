@@ -1,4 +1,6 @@
 # IT пейзаж для сисадминов
+https://sysadmin.it-landscape.info/
+
 ## Протоколы
 
 ### IMAP/POP3
@@ -171,297 +173,297 @@ PowerGate - это простое веб-приложение, созданно�
 
  **PowerDNS**  (  [https://www.powerdns.com/](https://www.powerdns.com/)  ) 
 
-DNS server with a variety of data storage back-ends and load balancing features.
+DNS-сервер с множеством серверных хранилищ данных и функциями балансировки нагрузки.
 
  **Designate**  (  [https://wiki.openstack.org/wiki/Designate](https://wiki.openstack.org/wiki/Designate)  ) 
 
-DNS REST API that support several DNS servers as its backend.
+DNS REST API, поддерживающий несколько DNS-серверов в качестве бэкэнда.
 
  **NSD**  (  [http://www.nlnetlabs.nl/projects/nsd/](http://www.nlnetlabs.nl/projects/nsd/)  ) 
 
-Authoritative only, high performance, simple name server.
+Только авторитетный, высокая производительность, простой сервер имен.
 
  **Knot**  (  [https://www.knot-dns.cz/](https://www.knot-dns.cz/)  ) 
 
-High performance authoritative-only DNS server.
+Высокопроизводительный авторитетный DNS-сервер.
 
  **Bind**  (  [https://www.isc.org/downloads/bind/](https://www.isc.org/downloads/bind/)  ) 
 
-The most widely used name server software.
+Наиболее широко используемое программное обеспечение сервера имен.
 
  **dnsmasq**  (  [http://www.thekelleys.org.uk/dnsmasq/doc.html](http://www.thekelleys.org.uk/dnsmasq/doc.html)  ) 
 
-A lightweight service providing DNS, DHCP and TFTP services to small-scale networks.
+Облегченный сервис, предоставляющий услуги DNS, DHCP и TFTP для небольших сетей.
 
  **Unbound**  (  [http://unbound.net/](http://unbound.net/)  ) 
 
-Validating, recursive, and caching DNS resolver.
+Проверка, рекурсивный и кэширующий распознаватель DNS.
 
  **Yadifa**  (  [http://yadifa.eu/](http://yadifa.eu/)  ) 
 
-Lightweight authoritative Name Server with DNSSEC capabilities powering the .eu top-level domain.
+Облегченный авторитетный сервер имен с возможностями DNSSEC, обеспечивающий работу домена верхнего уровня .eu.
 
  **djbdns**  (  [http://cr.yp.to/djbdns.html](http://cr.yp.to/djbdns.html)  ) 
 
-A collection of DNS applications, including tinydns.
+Коллекция приложений DNS, в том числе tinydns.
 
  **TinyDNS**  (  [https://cr.yp.to/djbdns/tinydns.html](https://cr.yp.to/djbdns/tinydns.html)  ) 
 
-TinyDNS is an lightweight nameserver which is easy to setup.
+TinyDNS - это легкий сервер имен, который прост в настройке.
 
  **gdnsd**  (  [http://gdnsd.org/](http://gdnsd.org/)  ) 
 
-gdnsd is an Authoritative-only DNS server which does geographic (or other sorts of) balancing, redirection, weighting, and service-state-conscious failover at the DNS layer.
+gdnsd - это DNS-сервер с полномочными полномочиями, который выполняет географическую (или другие виды) балансировку, перенаправление, взвешивание и аварийное переключение с учетом состояния обслуживания на уровне DNS.
 
 ### LDAP
 
  **Fusion Directory**  (  [http://www.fusiondirectory.org](http://www.fusiondirectory.org/)  ) 
 
-Improve the Management of the services and the company directory based on OpenLDAP.
+Улучшить управление сервисами и каталогами компаний на основе OpenLDAP.
 
  **pGina**  (  [http://pgina.org/](http://pgina.org/)  ) 
 
-Pluggable credential Provider.
+Подключаемый провайдер учетных данных.
 
  **OpenLDAP**  (  [http://openldap.org/](http://openldap.org/)  ) 
 
-Developed by the OpenLDAP Project.
+Разработано проектом OpenLDAP.
 
  **FreeIPA**  (  [http://www.freeipa.org](http://www.freeipa.org/)  ) 
 
-FreeIPA is an integrated security information management solution combining Linux (Fedora), 389 Directory Server, MIT Kerberos, NTP, DNS, Dogtag (Certificate System).
+FreeIPA - это интегрированное решение для управления информацией о безопасности, объединяющее Linux (Fedora), 389 Directory Server, MIT Kerberos, NTP, DNS, Dogtag (система сертификатов).
 
  **389 Directory Server**  (  [http://port389.org](http://port389.org/)  ) 
 
-Developed by Red Hat.
+Разработано Red Hat.
 
  **OpenDJ**  (  [http://opendj.forgerock.org/](http://opendj.forgerock.org/)  ) 
 
-Fork of OpenDS.
+Вилка OpenDS.
 
  **Apache Directory Server**  (  [http://directory.apache.org/](http://directory.apache.org/)  ) 
 
-Apache Software Foundation project written in Java.
+Проект Apache Software Foundation, написанный на Java.
 
  **OpenDS**  (  [https://opends.java.net/](https://opends.java.net/)  ) 
 
-Another directory server written in Java.
+Еще один сервер каталогов, написанный на Java.
 
 ### SSH
 
  **autossh**  (  [http://www.harding.motd.ca/autossh/](http://www.harding.motd.ca/autossh/)  ) 
 
-Automatically respawn ssh session after network interruption.
+Автоматически перезапускает сессию ssh после прерывания сети.
 
  **sshmux**  (  [https://github.com/joushou/sshmux](https://github.com/joushou/sshmux)  ) 
 
-SSH multiplexing library, allowing you to write "jump host" style proxies.
+Библиотека мультиплексирования SSH, позволяющая писать прокси в стиле «Jump Host».
 
  **ssh-cert-authority**  (  [https://github.com/cloudtools/ssh-cert-authority](https://github.com/cloudtools/ssh-cert-authority)  ) 
 
-A democratic SSH certificate authority.
+Демократический центр сертификации SSH.
 
  **Mosh**  (  [http://mosh.mit.edu/](http://mosh.mit.edu/)  ) 
 
-The mobile shell.
+Мобильная оболочка.
 
  **Clustershell**  (  [http://cea-hpc.github.io/clustershell/](http://cea-hpc.github.io/clustershell/)  ) 
 
-Run commands on multiple hosts in parallel. Clustershell can operate on predefined groups of hosts.
+Запускайте команды на нескольких хостах параллельно. Clustershell может работать на предопределенных группах хостов.
 
  **DSH**  (  [http://www.netfort.gr.jp/\~dancer/software/dsh.html.en](http://www.netfort.gr.jp/~dancer/software/dsh.html.en)  ) 
 
-Dancer's shell / distributed shell - Wrapper for executing multiple remote shell commands from one command line.
+Оболочка / распределенная оболочка Dancer - оболочка для выполнения нескольких команд удаленной оболочки из одной командной строки.
 
  **putty**  (  [http://www.chiark.greenend.org.uk/\~sgtatham/putty/](http://www.chiark.greenend.org.uk/~sgtatham/putty/)  ) 
 
-Free and open source terminal emulator.
+Бесплатный эмулятор терминала с открытым исходным кодом.
 
  **Dropbear**  (  [https://matt.ucc.asn.au/dropbear/dropbear.html](https://matt.ucc.asn.au/dropbear/dropbear.html)  ) 
 
-Dropbear is a relatively small SSH server and client. It runs on a variety of POSIX-based platforms.
+Dropbear - это относительно небольшой SSH-сервер и клиент. Он работает на различных платформах POSIX.
 
  **mRemoteNG**  (  [https://mremoteng.org/](https://mremoteng.org/)  ) 
 
-A fast, easy to use GUI using putty as its base. NEW 
+Быстрый, простой в использовании графический интерфейс с использованием putty в качестве основы. NEW
 
 ### VPN
 
  **FreeLan**  (  [https://github.com/freelan-developers/freelan](https://github.com/freelan-developers/freelan)  ) 
 
-Full-mesh, secure, easy-to-setup, multi-platform, open-source, highly-configurable VPN software.
+Полноячеистое, безопасное, простое в настройке, мультиплатформенное, свободно конфигурируемое программное обеспечение VPN с открытым исходным кодом.
 
  **SoftEther**  (  [https://www.softether.org/](https://www.softether.org/)  ) 
 
-Multi-protocol software VPN with advanced features.
+Многопротокольное программное обеспечение VPN с расширенными функциями.
 
  **Pritunl**  (  [http://pritunl.com/](http://pritunl.com/)  ) 
 
-OpenVPN based solution. Easy to set up.
+Решение на основе OpenVPN. Легко настроить.
 
  **PeerVPN**  (  [https://github.com/peervpn/peervpn](https://github.com/peervpn/peervpn)  ) 
 
-Virtual network built by PeerVPN uses a full mesh topology.
+Виртуальная сеть, построенная PeerVPN, использует топологию полной сетки.
 
  **OpenVPN**  (  [https://community.openvpn.net](https://community.openvpn.net/)  ) 
 
-Uses a custom security protocol that utilizes SSL/TLS for key exchange.
+Использует собственный протокол безопасности, который использует SSL / TLS для обмена ключами.
 
  **strongSwan**  (  [http://www.strongswan.org/](http://www.strongswan.org/)  ) 
 
-Complete IPsec implementation for Linux.
+Полная реализация IPsec для Linux.
 
  **tinc**  (  [http://www.tinc-vpn.org/](http://www.tinc-vpn.org/)  ) 
 
-Distributed p2p VPN.
+Распределенный p2p VPN.
 
  **OpenConnect VPN Server**  (  [https://www.infradead.org/ocserv/](https://www.infradead.org/ocserv/)  ) 
 
-OpenConnect server is an SSL VPN server. Its purpose is to be a secure, small, fast and configurable VPN server.
+Сервер OpenConnect является сервером SSL VPN. Его цель - быть защищенным, небольшим, быстрым и настраиваемым VPN-сервером.
 
  **sshuttle**  (  [https://github.com/sshuttle/sshuttle](https://github.com/sshuttle/sshuttle)  ) 
 
-Transparent proxy server that works as a poor man VPN.
+Прозрачный прокси-сервер, который работает как бедный человек VPN.
 
-## Cloud and Virtualization
+## Облака и виртуализация
 
-### Cloud Computing
+### Облачные вычисления
 
  **OpenNode**  (  [http://opennodecloud.com](http://opennodecloud.com/)  ) 
 
-Builds open-source infrastructure management software and implements cloud systems.
+Создает программное обеспечение для управления инфраструктурой с открытым исходным кодом и внедряет облачные системы.
 
  **The Foreman**  (  [http://theforeman.org/](http://theforeman.org/)  ) 
 
-Foreman is a complete lifecycle management tool for physical and virtual servers. FOSS.
+Foreman - это полный инструмент управления жизненным циклом физических и виртуальных серверов. FOSS.
 
  **OpenStack**  (  [https://www.openstack.org/](https://www.openstack.org/)  ) 
 
-Open source software for building private and public clouds.
+Программное обеспечение с открытым исходным кодом для создания частных и общедоступных облаков.
 
  **CoreOS**  (  [https://coreos.com/](https://coreos.com/)  ) 
 
-Open Source Projects for Linux Containers
+Проекты с открытым исходным кодом для контейнеров Linux
 
  **OpenNebula**  (  [http://opennebula.org/](http://opennebula.org/)  ) 
 
-An user-driven cloud management platform for sysadmins and devops.
+Управляемая пользователем платформа управления облаком для системных администраторов и разработчиков.
 
  **Tsuru**  (  [https://tsuru.io](https://tsuru.io/)  ) 
 
-Tsuru is an extensible and open source Platform as a Service software.
+Tsuru - это расширяемая платформа с открытым исходным кодом как сервис.
 
  **Flynn**  (  [https://flynn.io](https://flynn.io/)  ) 
 
-Open source PaaS
+PaaS с открытым исходным кодом
 
  **Mesos**  (  [http://mesos.apache.org/](http://mesos.apache.org/)  ) 
 
-Develop and run resource-efficient distributed systems.
+Разработка и запуск ресурсоэффективных распределенных систем.
 
  **CloudStack**  (  [http://cloudstack.apache.org/](http://cloudstack.apache.org/)  ) 
 
-Cloud computing software for creating, managing, and deploying infrastructure cloud services.
+Программное обеспечение для облачных вычислений для создания, управления и развертывания инфраструктуры облачных сервисов.
 
  **Archipel**  (  [http://archipelproject.org/](http://archipelproject.org/)  ) 
 
-Manage and supervise virtual machines using Libvirt.
+Управляйте виртуальными машинами и контролируйте их с помощью Libvirt.
 
  **AppScale**  (  [http://github.com/AppScale/appscale](http://github.com/AppScale/appscale)  ) 
 
-Open source cloud software with Google App Engine compatibility.
+Облачное программное обеспечение с открытым исходным кодом и совместимостью с Google App Engine.
 
  **OpenShift**  (  [http://www.openshift.org](http://www.openshift.org/)  ) 
 
-OpenShift is a platform as a service product from Red Hat.
+OpenShift - это платформа как сервисный продукт от Red Hat.
 
  **Cobbler**  (  [http://www.cobblerd.org/](http://www.cobblerd.org/)  ) 
 
-Cobbler is a Linux installation server that allows for rapid setup of network installation environments.
+Cobbler - это установочный сервер Linux, который позволяет быстро настроить среды сетевой установки.
 
  **Eucalyptus**  (  [https://www.eucalyptus.com/](https://www.eucalyptus.com/)  ) 
 
-Open source private cloud software with AWS compatibility.
+Программное обеспечение частного облака с открытым исходным кодом и совместимостью с AWS.
 
  **Cracow Cloud One**  (  [https://github.com/cc1-cloud/cc1/](https://github.com/cc1-cloud/cc1/)  ) 
 
-The CC1 system provides a complete solution for Private Cloud Computing.
+Система CC1 предоставляет комплексное решение для частных облачных вычислений.
 
  **Project-FiFo**  (  [https://project-fifo.net](https://project-fifo.net/)  ) 
 
-Open source SmartOS cloud management with a focus on availability.
+Облачное управление SmartOS с открытым исходным кодом с акцентом на доступность.
 
  **Cloud Foundry**  (  [https://www.cloudfoundry.org/](https://www.cloudfoundry.org/)  ) 
 
-Cloud Foundry, similar to OpenShift NEW 
+Cloud Foundry, похожий на OpenShift NEW
 
-### Cloud Orchestration
+### Оркестрация облачными серверами
 
  **Mina**  (  [http://nadarei.co/mina/](http://nadarei.co/mina/)  ) 
 
-Really fast deployer and server automation tool (rake based).
+Действительно быстрый инструмент для развертывания и автоматизации серверов (на основе граблей).
 
  **Overcast**  (  [http://andrewchilds.github.io/overcast/](http://andrewchilds.github.io/overcast/)  ) 
 
-Deploy VMs across different cloud providers, and run commands and scripts across any or all of them in parallel via SSH.
+Развертывайте виртуальные машины в разных облачных провайдерах и запускайте команды и сценарии для всех или нескольких из них параллельно через SSH.
 
  **Rundeck**  (  [http://rundeck.org/](http://rundeck.org/)  ) 
 
-Simple orchestration tool.
+Простой инструмент оркестровки.
 
  **SaltStack**  (  [http://www.saltstack.com/](http://www.saltstack.com/)  ) 
 
-Extremely fast and scalable systems and configuration management software.
+Чрезвычайно быстрое и масштабируемое программное обеспечение для управления системами и конфигурацией.
 
  **BOSH**  (  [http://docs.cloudfoundry.org/bosh/](http://docs.cloudfoundry.org/bosh/)  ) 
 
-IaaS orchestration platform originally written for deploying and managing Cloud Foundry PaaS, but also useful for general purpose distributed systems.
+Платформа оркестровки IaaS, изначально созданная для развертывания и управления облачным литейным PaaS, но также полезная для распределенных систем общего назначения.
 
  **Juju**  (  [https://juju.ubuntu.com/](https://juju.ubuntu.com/)  ) 
 
-Cloud orechestration tool which manages services as charms, YAML configuration and deployment script bundles.
+Инструмент облачной обработки данных, который управляет сервисами в виде брелоков, конфигураций YAML и пакетов сценариев развертывания.
 
  **MCollective**  (  [http://puppetlabs.com/mcollective](http://puppetlabs.com/mcollective)  ) 
 
-Ruby framework to manage server orchestration, developed by Puppet labs.
+Ruby Framework для управления оркестровкой серверов, разработанный Puppet labs.
 
  **Open-O**  (  [https://www.open-o.org/](https://www.open-o.org/)  ) 
 
-OPEN-O enables telecommunications and cable operators to effectively deliver end-to-end services.
+OPEN-O позволяет операторам связи и кабельного телевидения эффективно предоставлять комплексные услуги.
 
  **Cloudify**  (  [http://www.getcloudify.org/](http://www.getcloudify.org/)  ) 
 
-Open source TOSCA-based cloud orchestration software platform written in Python and YAML.
+Программная платформа с открытым исходным кодом, основанная на TOSCA, написанная на Python и YAML.
 
  **Rocketeer**  (  [http://rocketeer.autopergamene.eu/](http://rocketeer.autopergamene.eu/)  ) 
 
-PHP task runner and deployment tool.
+PHP Runner Task и инструмент развертывания.
 
  **CloudSlang**  (  [http://www.cloudslang.io](http://www.cloudslang.io/)  ) 
 
-Flow-based orchestration tool for managing deployed applications, with Docker capabilities.
+Инструмент управления на основе потоков для управления развернутыми приложениями с возможностями Docker.
 
  **Capistrano**  (  [http://www.capistranorb.com/](http://www.capistranorb.com/)  ) 
 
-Deploy your application to any number of machines simultaneously, in sequence or as a rolling set via SSH (rake based).
+Разверните свое приложение на любое количество машин одновременно, последовательно или в виде скользящего набора по SSH (на основе граблей).
 
  **StackStorm**  (  [http://stackstorm.com/](http://stackstorm.com/)  ) 
 
-Event Driven Operations and ChatOps platform for infrastructure management. Written in Python.
+Event Driven Operations и ChatOps платформа для управления инфраструктурой. Написано на Python.
 
  **Marathon**  (  [https://mesosphere.github.io/marathon/](https://mesosphere.github.io/marathon/)  ) 
 
-A cluster-wide init and control system for services in cgroups or Docker containers.
+Общекластерная система инициализации и управления для сервисов в cgroups или контейнерах Docker.
 
  **Xen Orchestra**  (  [https://xen-orchestra.com](https://xen-orchestra.com/)  ) 
 
-Xen Orchestra offers a powerful web UI for controlling a complete XenServer or Xen infrastructure.
+Xen Orchestra предлагает мощный веб-интерфейс для управления полной инфраструктурой XenServer или Xen.
 
-### Cloud Storage
+### Облачное хранилище
 
  **sandstorm**  (  [https://github.com/sandstorm-io/sandstorm](https://github.com/sandstorm-io/sandstorm)  ) 
 
-Personal Cloud Sandbox, install apps to create documents, spreadsheets, blogs, git repos, task lists and more.
+Персональная облачная песочница, установка приложений для создания документов, электронных таблиц, блогов, git-репозиториев, списков задач и многого другого.
 
  **Syncthing**  (  [http://syncthing.net/](http://syncthing.net/)  ) 
 
