@@ -467,41 +467,41 @@ Xen Orchestra предлагает мощный веб-интерфейс для
 
  **Syncthing**  (  [http://syncthing.net/](http://syncthing.net/)  ) 
 
-Open Source system for private, encrypted and authenticated distrobution of data.
+Система с открытым исходным кодом для частного, зашифрованного и аутентифицированного распространения данных.
 
  **Nextcloud**  (  [https://nextcloud.com/](https://nextcloud.com/)  ) 
 
-Next cloud is a fork of OwnCloud.
+Следующее облако - это форк OwnCloud.
 
  **Pydio**  (  [https://pyd.io](https://pyd.io/)  ) 
 
-Pydio is a mature open source software solution for file sharing and synchronization.
+Pydio - это зрелое программное обеспечение с открытым исходным кодом для обмена файлами и синхронизации.
 
  **ownCloud**  (  [https://owncloud.org](https://owncloud.org/)  ) 
 
-Provides universal access to your files via the web, your computer or your mobile devices.
+Обеспечивает универсальный доступ к вашим файлам через Интернет, ваш компьютер или мобильные устройства.
 
  **git-annex assistant**  (  [http://git-annex.branchable.com/assistant/](http://git-annex.branchable.com/assistant/)  ) 
 
-A synchronised folder on each of your OSX and Linux computers, Android devices, removable drives, NAS appliances, and cloud services.
+Синхронизированная папка на каждом из компьютеров OSX и Linux, устройствах Android, съемных дисках, устройствах NAS и облачных службах.
 
  **Swift**  (  [http://docs.openstack.org/developer/swift/](http://docs.openstack.org/developer/swift/)  ) 
 
-A highly available, distributed, eventually consistent object/blob store.
+Высокодоступное, распределенное, в конечном итоге согласованное хранилище объектов / блобов.
 
  **Seafile**  (  [http://seafile.com](http://seafile.com/)  ) 
 
-Another Open Source Cloud Storage solution.
+Еще одно решение с открытым исходным кодом для облачных хранилищ.
 
  **SparkleShare**  (  [http://sparkleshare.org/](http://sparkleshare.org/)  ) 
 
-Provides cloud storage and file synchronization services. By default, it uses Git as a storage backend.
+Предоставляет облачное хранилище и сервисы синхронизации файлов. По умолчанию он использует Git в качестве хранилища данных.
 
  **Minio**  (  [https://minio.io/](https://minio.io/)  ) 
 
-Minio is an object storage server built for cloud application developers and devops.
+Minio - это сервер хранения объектов, созданный для разработчиков облачных приложений и разработчиков.
 
-### Virtualization
+### Виртуализация
 
  **Ganeti**  (  [https://code.google.com/p/ganeti/](https://code.google.com/p/ganeti/)  ) 
 
