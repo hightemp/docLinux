@@ -32,3 +32,6 @@ host unix.stackexchange.com | awk '/has address/ { print $4 ; exit }'
 nslookup unix.stackexchange.com | awk '/^Address: / { print $2 ; exit }'
 dig unix.stackexchange.com | awk '/^;; ANSWER SECTION:$/ { getline ; print $5 ; exit }'
 ```
+
+**********
+[bash](/tags/bash.md)
