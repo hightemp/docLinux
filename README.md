@@ -202,3 +202,5 @@
 [kexec](/tags/kexec.md)
 [github](/tags/github.md)
 [git](/tags/git.md)
+[getent](/tags/getent.md)
+[dig](/tags/dig.md)
