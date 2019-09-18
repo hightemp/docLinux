@@ -35,3 +35,4 @@ dig unix.stackexchange.com | awk '/^;; ANSWER SECTION:$/ { getline ; print $5 ; 
 
 **********
 [bash](/tags/bash.md)
+[getent](/tags/getent.md)
