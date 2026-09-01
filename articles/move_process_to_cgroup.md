@@ -1,5 +1,7 @@
 # Перенос процесса в контрольную группу
 
+Источник: [Moving a Process to a Control Group](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/html/resource_management_guide/sec-Moving_a_Process_to_a_Control_Group)
+
 Чтобы перенести процесс в контрольную группу, выполните команду `cgclassify`. Например:
 
 ```console

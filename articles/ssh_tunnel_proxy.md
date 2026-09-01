@@ -1,5 +1,7 @@
 # Прокси через SSH-туннель
 
+Источник: [Setting Up a SOCKS Proxy Over SSH Tunnels](https://www.systutorials.com/proxy-using-ssh-tunnel/)
+
 ## Простой пример
 
 Начнём с простого примера. Предположим, у нас есть доступ к SSH-серверу `sshd_server`, который мы хотим использовать как прокси-сервер SOCKS5. Для этого достаточно выполнить команду:

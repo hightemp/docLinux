@@ -1,5 +1,7 @@
 # Как использовать `logger` в Linux
 
+Источник: [How to use logger on Linux](https://www.networkworld.com/article/965762/using-logger-on-linux.html)
+
 Команда `logger` в [Linux](https://www.networkworld.com/article/3215226/linux/what-is-linux-uses-featres-products-operating-systems.html) позволяет легко добавлять записи в `/var/log/syslog` — из командной строки, сценариев или других файлов. В этой статье рассмотрим, как она работает.
 
 ## Насколько это просто?
