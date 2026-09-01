@@ -1,5 +1,7 @@
 # GRUB2 конфигурация
 
+Источник: [GRUB2 конфигурация](https://hertzog.pages.debian.net/debian-handbook/ru-RU/sect.config-bootloader.html)
+
 ## /etc/default/grub
 
 Часто модифицируемые опции:

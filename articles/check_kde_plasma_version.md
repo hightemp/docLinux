@@ -1,5 +1,7 @@
 # Как проверить версию плазмы?
 
+Источник: [Как проверить версию плазмы?](https://forum.kde.org/viewtopic.php%3Ff%3D67%26t%3D126986.html)
+
 ```console
 $ plasmashell --version   
 kf5.kiconthemes: "Theme tree: (El General)"   

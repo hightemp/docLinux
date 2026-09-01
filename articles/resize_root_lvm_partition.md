@@ -1,5 +1,7 @@
 ## Изменение размера root lvm раздела
 
+Источник: [Изменение размера root lvm раздела](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/7/html/logical_volume_manager_administration/)
+
 ### Подготовим временный раздел 
 
 ```bash

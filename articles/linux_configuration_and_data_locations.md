@@ -1,5 +1,7 @@
 # Где сохранить файлы конфигурации / данных в GNU / Linux?
 
+Источник: [Где сохранить файлы конфигурации / данных в GNU / Linux?](https://stackoverflow.com/questions/47819464/where-to-save-configuration-data-files-on-gnu-linux)
+
 Есть много мест, где можно сохранить файлы конфигурации / данных и т. Д.:
 
 * [`/var`](http://www.tldp.org/LDP/Linux-Filesystem-Hierarchy/html/var.html) (данные)

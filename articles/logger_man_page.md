@@ -2,6 +2,8 @@ LOGGER(1)                       User Commands                      LOGGER(1)
 
 ## [](http://man7.org/linux/man-pages/man1/logger.1.html#NAME)NAME        
 
+Источник: [logger(1) — Linux manual page](https://man7.org/linux/man-pages/man1/logger.1.html)
+
        logger - enter messages into the system log
 
 ## [](http://man7.org/linux/man-pages/man1/logger.1.html#SYNOPSIS)SYNOPSIS        

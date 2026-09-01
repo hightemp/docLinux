@@ -1,5 +1,7 @@
 # Оптимизация настроек MySQL с помощью Mysqltuner
 
+Источник: [Оптимизация настроек MySQL с помощью Mysqltuner](https://vpsup.ru/stati/bazyi-dannyix-i-kesh-na-vps/optimizacziya-nastroek-mysql-s-pomoshhyu-mysqltuner.html)
+
 Mysqltuner — это perl-скрипт, который анализирует статистику работы Mysql и выдает свои рекомендации по оптимизации настроек Mysql сервера.
 
 Скачать скрипт можно следующим образом:

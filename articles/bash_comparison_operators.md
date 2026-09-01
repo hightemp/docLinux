@@ -1,5 +1,7 @@
 # Операции сравнения
 
+Источник: [Операции сравнения](https://www.opennet.ru/docs/RUS/bash_scripting_guide/)
+
 ## Сравнение целых чисел
 
 * **\-eq**

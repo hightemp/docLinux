@@ -1,5 +1,7 @@
 # Пакеты Linux по умолчанию
 
+Источник: [Пакеты Linux по умолчанию](https://zzz.buzz/notes/linux-default-packages/)
+
 Время от времени мне было интересно, какие пакеты доступны по умолчанию в этой и той системе, чтобы я мог писать сценарии, которые могли бы зависеть от этих пакетов с уверенностью, что они всегда присутствуют.
 
 Вот списки пакетов, установленных по умолчанию в различных дистрибутивах Linux. ( [Debian](https://zzz.buzz/notes/linux-default-packages/#debian) , [RedHat](https://zzz.buzz/notes/linux-default-packages/#redhat) , [CentOS](https://zzz.buzz/notes/linux-default-packages/#centos) , [Cygwin](https://zzz.buzz/notes/linux-default-packages/#cygwin) ).

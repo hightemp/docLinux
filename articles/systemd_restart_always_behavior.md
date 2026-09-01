@@ -1,5 +1,7 @@
 # Перезапуск Systemd = всегда не соблюдается
 
+Источник: [Перезапуск Systemd = всегда не соблюдается](https://unix.stackexchange.com/questions/289629/systemd-restart-always-is-not-honored)
+
 Вы можете указать повторить попытку через `x` секунд в разделе `[Service]`,
 
 ```

@@ -1,5 +1,7 @@
 # Начала PAM.
 
+Источник: [Начала PAM.](https://www.opennet.ru/docs/RUS/pam_begin/)
+
 Stanislav Ievlev, \[1\]inger@linux.ru.net
 Первая публикация произошла на \[2\]linux.ru.net
    

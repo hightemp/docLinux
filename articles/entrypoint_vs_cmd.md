@@ -1,5 +1,7 @@
 # ENTRYPOINT vs CMD: назад к основам
 
+Источник: [ENTRYPOINT vs CMD: назад к основам](https://habr.com/ru/companies/slurm/articles/329138/)
+
 Название `ENTRYPOINT` всегда меня смущало. Это название подразумевает, что каждый контейнер должен иметь определенную инструкцию `ENTRYPOINT`. Но после прочтения [официальной документации](https://docs.docker.com/engine/reference/builder/#entrypoint) я понял, что это не соответствует действительности.
 
   

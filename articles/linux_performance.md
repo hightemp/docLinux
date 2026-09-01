@@ -1,5 +1,7 @@
 # Производительность Linux
 
+Источник: [Производительность Linux](https://www.brendangregg.com/linuxperf.html)
+
 http://www.brendangregg.com/linuxperf.html
 
 hi-res: observability + static + perf-tools/bcc ([svg](http://www.brendangregg.com/Perf/linux_perf_tools_full.svg))  

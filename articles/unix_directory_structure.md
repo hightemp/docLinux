@@ -1,5 +1,7 @@
 # Значение каталогов в Unix и Unix-подобных системах
 
+Источник: [Значение каталогов в Unix и Unix-подобных системах](https://unix.stackexchange.com/questions/11790/meaning-of-directories-on-unix-and-unix-like-systems)
+
 Для получения дополнительных сведений о компоновке файловых систем Linux см. [Стандарт иерархии файловых систем](http://www.pathname.com/fhs/) (теперь версия 2.3, с [beta 3.0](http: / /www.linuxbase.org/betaspecs/fhs/fhs.txt) версия, развернутая на самых последних дистрибутивах). Это объясняет, откуда пришли имена:
 
 *   **[/bin](http://www.linuxbase.org/betaspecs/fhs/fhs/ch03s04.html)** \- Бинарники (**Bin**aries).

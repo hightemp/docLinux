@@ -1,5 +1,7 @@
 # Есть ли способ использовать strace для отслеживания различных частей командного конвейера?
 
+Источник: [Есть ли способ использовать strace для отслеживания различных частей командного конвейера?](https://unix.stackexchange.com/questions/467407/is-there-a-way-to-use-strace-to-trace-different-parts-of-a-command-pipeline)
+
 Вы можете получить трасировку с:
 
 ```console

@@ -1,4 +1,6 @@
 # Руководство по упаковке RPM
+
+Источник: [Руководство по упаковке RPM](https://rpm-packaging-guide-ru.github.io/)
 Adam Miller, Maxim Svistunov, Marie Doleželová, et al.
 
 ## Вступление

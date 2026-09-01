@@ -1,5 +1,7 @@
 # github ssh proxy
 
+Источник: [github ssh proxy](http://returnbooleantrue.blogspot.com/2009/06/using-github-through-draconian-proxies.html)
+
 Установка `http.proxy` не будет работать для ssh. Вам необходимо прокси-соединение вашего SSH. См. [Это](http://returnbooleantrue.blogspot.com/2009/06/using-github-through-draconian-proxies.html) описание. Подвести итоги:
 
 Запустите `git-cmd.bat` и создайте `~/.ssh/config` (`notepad %home%\.ssh\config`).

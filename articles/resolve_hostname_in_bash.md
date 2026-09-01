@@ -1,5 +1,7 @@
 # Как мне разрешить имя хоста в IP-адрес в скрипте Bash?
 
+Источник: [Как мне разрешить имя хоста в IP-адрес в скрипте Bash?](https://unix.stackexchange.com/questions/20784/how-can-i-resolve-a-hostname-to-an-ip-address-in-a-bash-script)
+
 Вы можете использовать `getent`, который поставляется с `glibc` (так что вы почти наверняка имеете его в Linux). Это решается с помощью gethostbyaddr / gethostbyname2, а также проверяет `/etc/hosts` /NIS/etc:
 
 ```bash

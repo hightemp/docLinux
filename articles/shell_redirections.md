@@ -1,3 +1,5 @@
+Источник: [Перенаправления Bash](https://askubuntu.com/questions/420981/how-do-i-save-terminal-output-to-a-file)
+
 | Syntax  | visible in terminal StdOut  |  visible in terminal StdErr  |  visible in file StdOut  |  visible in file StdErr  |   existing file   |
 | -------- | -------- | -------- | -------- | -------- | -------- | 
 |    >     |    no    |   yes    |   yes    |    no    | overwrite |

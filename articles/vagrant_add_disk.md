@@ -1,5 +1,7 @@
 # vagrant: добавить еще диск
 
+Источник: [vagrant: добавить еще диск](https://gist.github.com/leifg/4713995)
+
 ```ruby
 Vagrant.configure("2") do |config|
 

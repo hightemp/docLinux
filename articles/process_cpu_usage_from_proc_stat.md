@@ -1,5 +1,7 @@
 # Как получить общее использование ЦП приложения из /proc/pid/stat?
 
+Источник: [Как получить общее использование ЦП приложения из /proc/pid/stat?](https://stackoverflow.com/questions/16726779/how-do-i-get-the-total-cpu-usage-of-an-application-from-proc-pid-stat)
+
 # Подготовка
 
 Чтобы вычислить использование ЦП для конкретного процесса, вам понадобится следующее:
