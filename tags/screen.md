@@ -1,1 +1,1 @@
-* [Screen](/articles/Screen.md)
+* [Screen](/articles/screen.md)

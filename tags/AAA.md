@@ -1,1 +1,1 @@
-* [AAA](/articles/AAA.md)
+* [AAA](/articles/aaa.md)

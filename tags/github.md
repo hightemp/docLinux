@@ -1,1 +1,1 @@
-* [github ssh proxy](/articles/github%20ssh%20proxy.md)
+* [github ssh proxy](/articles/github_ssh_proxy.md)
