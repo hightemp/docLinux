@@ -111,6 +111,8 @@
     - [Установка последней версии Virtualbox с помощью PPA на Ubuntu](/articles/install_virtualbox_ppa_ubuntu.md)
     - [vagrant: добавить еще диск](/articles/vagrant_add_disk.md)
 - Сети
+  - Беспроводные сети
+    - [DFS (динамический выбор частоты)](/articles/dfs_dynamic_frequency_selection.md)
   - TCP/IP и порты
     - [Приложения TCP/IP на примерах](/articles/tcp_ip_applications_examples.md)
     - [Привязка Портов](/articles/port_binding.md)
