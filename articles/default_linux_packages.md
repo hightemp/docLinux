@@ -994,7 +994,7 @@ which
 ```
 
 **********
-[CentOS](/tags/CentOS.md)
-[Debian](/tags/Debian.md)
-[RedHat](/tags/RedHat.md)
-[Cygwin](/tags/Cygwin.md)
+[CentOS](/tags/centos.md)
+[Debian](/tags/debian.md)
+[RedHat](/tags/red_hat.md)
+[Cygwin](/tags/cygwin.md)

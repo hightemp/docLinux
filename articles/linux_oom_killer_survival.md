@@ -52,4 +52,4 @@ while read -r pid comm; do [ -f /proc/$pid/oom_score ] && [ $(cat /proc/$pid/oom
 5.   [Вызов убийцы OOM вручную](https://www.lynxbee.com/how-to-invoke-oom-killer-manually-for-understanding-which-process-gets-killed-first/)
 
 **********
-[OOM killer](/tags/OOM%20killer.md)
+[OOM killer](/tags/oom_killer.md)

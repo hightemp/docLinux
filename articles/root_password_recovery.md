@@ -83,6 +83,6 @@ passwd
 [http://itshaman.ru/articles/12/passwd-root-linux](http://itshaman.ru/articles/12/passwd-root-linux)
 
 **********
-[Ubuntu](/tags/Ubuntu.md)
-[CentOS](/tags/CentOS.md)
-[Debian](/tags/Debian.md)
+[Ubuntu](/tags/ubuntu.md)
+[CentOS](/tags/centos.md)
+[Debian](/tags/debian.md)

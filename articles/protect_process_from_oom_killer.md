@@ -32,4 +32,4 @@ pgrep -f "/usr/sbin/sshd" | while read PID; do echo -17 > /proc/$PID/oom_adj; do
 
 
 **********
-[OOM killer](/tags/OOM%20killer.md)
+[OOM killer](/tags/oom_killer.md)

@@ -42,4 +42,4 @@
 * vm.oom_kill_allocating_task — убивать процесс, процесс которому не хватило памяти, без выбора самого плохого;
 * vm.panic_on_oom — считать запуск OOM критической ошибкой.
 **********
-[OOM killer](/tags/OOM%20killer.md)
+[OOM killer](/tags/oom_killer.md)

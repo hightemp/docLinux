@@ -38,4 +38,4 @@ line vty 0 15
 *    _Accounting_ (учёт) — слежение за потреблением ресурсов (преимущественно сетевых) пользователем. В accounting включается также и запись фактов получения доступа к системе ( [англ.](https://ru.wikipedia.org/wiki/%D0%90%D0%BD%D0%B3%D0%BB%D0%B8%D0%B9%D1%81%D0%BA%D0%B8%D0%B9_%D1%8F%D0%B7%D1%8B%D0%BA "Английский язык")   access logs ).
 
 **********
-[AAA](/tags/AAA.md)
+[AAA](/tags/aaa.md)

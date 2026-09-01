@@ -81,4 +81,4 @@ umake ide pycharm -r
  [Блог](http://blog.didrocks.fr/)   Didier Roche.
 
 **********
-[Ubuntu](/tags/Ubuntu.md)
+[Ubuntu](/tags/ubuntu.md)

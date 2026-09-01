@@ -249,5 +249,5 @@ ADD target/$JAVA_APP_JAR /deployments/
 
 **********
 [docker](/tags/docker.md)
-[Dockerfile](/tags/Dockerfile.md)
-[Java](/tags/Java.md)
+[Dockerfile](/tags/dockerfile.md)
+[Java](/tags/java.md)

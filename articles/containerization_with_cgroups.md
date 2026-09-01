@@ -417,5 +417,5 @@ Cgroup v2 монтируется при помощи следующей ком�
 *   [https://www.youtube.com/watch?v=PzpG40WiEfM](https://www.youtube.com/watch?v=PzpG40WiEfM)— лекция Течжена Хе о нововведениях cgroup v2;
 *   [https://events.linuxfoundation.org/sites/events/files/slides/2014-KLF.pdf](https://events.linuxfoundation.org/sites/events/files/slides/2014-KLF.pdf)— презентация доклада о cgroup v2 с подробными разъяснениями всех нововведений и изменений.
 **********
-[OOM killer](/tags/OOM%20killer.md)
+[OOM killer](/tags/oom_killer.md)
 [cgroups](/tags/cgroups.md)

@@ -36,5 +36,5 @@ sudo apt-get install virtualbox-6.0
 
 
 **********
-[Ubuntu](/tags/Ubuntu.md)
+[Ubuntu](/tags/ubuntu.md)
 [virtualbox](/tags/virtualbox.md)

@@ -165,7 +165,7 @@ Centos 7
 https://github.com/major/MySQLTuner-perl
 
 **********
-[Ubuntu](/tags/Ubuntu.md)
-[CentOS](/tags/CentOS.md)
-[MySQL](/tags/MySQL.md)
+[Ubuntu](/tags/ubuntu.md)
+[CentOS](/tags/centos.md)
+[MySQL](/tags/mysql.md)
 [mysqltuner](/tags/mysqltuner.md)

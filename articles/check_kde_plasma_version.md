@@ -14,4 +14,4 @@ Plasma Desktop Shell: 4.11.16
 ```
 
 **********
-[KDE](/tags/KDE.md)
+[KDE](/tags/kde.md)

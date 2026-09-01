@@ -1795,5 +1795,5 @@ $ # press Enter
 
 
 **********
-[Ubuntu](/tags/Ubuntu.md)
+[Ubuntu](/tags/ubuntu.md)
 [htop](/tags/htop.md)

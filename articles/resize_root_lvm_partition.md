@@ -129,5 +129,5 @@ s/.img//g"` --force; done
 > *** Creating initramfs image file '/boot/initramfs-3.10.0-862.2.3.el7.x86_64.img' done ***      
 
 **********
-[LVM](/tags/LVM.md)
+[LVM](/tags/lvm.md)
 [root](/tags/root.md)

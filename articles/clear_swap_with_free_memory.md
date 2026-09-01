@@ -60,5 +60,5 @@ sudo swapon --all
 
 **********
 [swap](/tags/swap.md)
-[Ubuntu](/tags/Ubuntu.md)
+[Ubuntu](/tags/ubuntu.md)
 [sysctl](/tags/sysctl.md)

@@ -86,4 +86,4 @@ docker run --rm hello
 
 **********
 [docker](/tags/docker.md)
-[Dockerfile](/tags/Dockerfile.md)
+[Dockerfile](/tags/dockerfile.md)

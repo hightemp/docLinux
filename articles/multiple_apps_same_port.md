@@ -13,6 +13,6 @@
 Ссылка: Stevens & Wright, _TCP/IP Illustrated,_ Volume II.
 
 **********
-[сеть](/tags/%D1%81%D0%B5%D1%82%D1%8C.md)
+[сеть](/tags/networking.md)
 [tcp](/tags/tcp.md)
 [udp](/tags/udp.md)

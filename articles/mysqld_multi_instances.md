@@ -220,5 +220,5 @@ $ innobackupex --defaults-file=/etc/my.cnf --defaults-group=mysqld7 --socket=/va
 Я надеюсь, что мы охватили основные моменты относительно mysqld\_multi здесь, но не стесняйтесь оставить нам сообщение ниже, если у вас есть еще что-то добавить или каких-либо комментариев, чтобы внести свой вклад.
 
 **********
-[MySQL](/tags/MySQL.md)
+[MySQL](/tags/mysql.md)
 [mysqld_multi](/tags/mysqld_multi.md)

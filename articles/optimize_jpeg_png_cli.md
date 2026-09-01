@@ -254,12 +254,12 @@ $ man optipng
 
 
 **********
-[CentOS](/tags/CentOS.md)
-[Ubuntu](/tags/Ubuntu.md)
-[RedHat](/tags/RedHat.md)
+[CentOS](/tags/centos.md)
+[Ubuntu](/tags/ubuntu.md)
+[RedHat](/tags/red_hat.md)
 [jpegoptim](/tags/jpegoptim.md)
-[OptiPNG](/tags/OptiPNG.md)
+[OptiPNG](/tags/optipng.md)
 [epel](/tags/epel.md)
-[RHEL](/tags/RHEL.md)
-[Fedora](/tags/Fedora.md)
-[Debian](/tags/Debian.md)
+[RHEL](/tags/rhel.md)
+[Fedora](/tags/fedora.md)
+[Debian](/tags/debian.md)

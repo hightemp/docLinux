@@ -133,5 +133,5 @@ user = jani
 See section [4.1.2 Файлы параметров\`my.cnf'](http://www.mysql.ru/docs/man/Option_files.html).
 
 **********
-[MySQL](/tags/MySQL.md)
+[MySQL](/tags/mysql.md)
 [mysqld_multi](/tags/mysqld_multi.md)

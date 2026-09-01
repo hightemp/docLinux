@@ -174,4 +174,4 @@ PAM обеспечивает различные функциональные в�
 *   Используйте в своем следующем проекте разработки для Linux [ознакомительные версии программного обеспечения IBM](http://www.ibm.com/developerworks/downloads/?S_TACT=105AGX99&S_CMP=CP) , которые можно скачать непосредственно с developerWorks.(EN)
 
 **********
-[PAM](/tags/PAM.md)
+[PAM](/tags/pam.md)
