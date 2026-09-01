@@ -1,4 +1,3 @@
-* [Стандарт иерархии файловой системы](/articles/filesystem_hierarchy_standard.md)
 * [man logger](/articles/logger_man_page.md)
 * [Как использовать logger в Linux](/articles/linux_logger_usage.md)
 * [Как создать сервисный модуль systemd в Linux](/articles/create_systemd_service_unit.md)
