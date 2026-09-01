@@ -1,5 +1,7 @@
 # Стандарт иерархии файловой системы
 
+Источник: [Filesystem Hierarchy Standard 2.3](https://refspecs.linuxfoundation.org/FHS_2.3/fhs-2.3.html)
+
 **FHS (Filesystem Hierarchy Standard)**
 
 Под редакцией Расти Рассела, Даниэля Куинлана и Кристофера Йео.
