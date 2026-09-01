@@ -1,1 +1,1 @@
-* [Proxy Using SSH Tunnel](/articles/ssh_tunnel_proxy.md)
+* [Прокси через SSH-туннель](/articles/ssh_tunnel_proxy.md)

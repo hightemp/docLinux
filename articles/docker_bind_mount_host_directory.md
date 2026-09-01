@@ -1,70 +1,68 @@
 # Как смонтировать каталог хоста в Docker-контейнере
 
-The user of this question was using `Docker version 0.9.1, build 867b2a9` , I will give you an answer for docker version >= 17.06.
+Автор вопроса использовал `Docker version 0.9.1, build 867b2a9`. Ниже приведён ответ для Docker версии 17.06 и новее.
 
-What you want, keep local directory synchronized within container directory, is accomplished by mounting the volume with type `bind` . This will bind the source (your system) and the target (at the docker container) directories. It's almost the same as mounting a directory on linux.
+Чтобы синхронизировать локальный каталог с каталогом внутри контейнера, подключите его как монтирование типа `bind`. Оно связывает исходный каталог в основной системе с целевым каталогом в Docker-контейнере. Это почти то же самое, что и обычное монтирование каталога в Linux.
 
- [According to Docker documentation](https://docs.docker.com/engine/admin/volumes/bind-mounts/#start-a-container-with-a-bind-mount) , the appropriate command to mount is now `mount` instead of `-v` . Here's its documentation:
+Согласно [документации Docker](https://docs.docker.com/engine/admin/volumes/bind-mounts/#start-a-container-with-a-bind-mount), теперь для монтирования рекомендуется использовать параметр `--mount` вместо `-v`. Он устроен следующим образом:
 
-*    `--mount` : Consists of multiple key-value pairs, separated by commas. Each key/value pair takes the form of a `<key>=<value>` tuple. The `--mount` syntax is more verbose than `-v` or `--volume` , but the order of the keys is not significant, and the value of the flag is easier to understand.
-    
-*   The `type` of the mount, which can be `bind` , `volume` , or `tmpfs` . _(We are going to use **bind** )_ 
-    
-*   The `source` of the mount. For bind mounts, this is the path to the file or directory on the Docker daemon host. May be specified as `source` or `src` .
-    
-*   The `destination` takes as its value the path where the file or directory will be mounted in the container. May be specified as `destination` , `dst` , or `target` .
-    
+- `--mount` состоит из нескольких пар «ключ — значение», разделённых запятыми. Каждая пара имеет вид `<key>=<value>`. Синтаксис `--mount` подробнее, чем `-v` или `--volume`, но порядок ключей не имеет значения, а назначение параметров проще понять.
+- `type` задаёт тип монтирования: `bind`, `volume` или `tmpfs`. В этой статье используется `bind`.
+- `source` задаёт источник монтирования. Для bind-монтирования это путь к файлу или каталогу на хосте, где работает демон Docker. Ключ можно записать как `source` или `src`.
+- `destination` задаёт путь внутри контейнера, куда будет смонтирован файл или каталог. Ключ можно записать как `destination`, `dst` или `target`.
 
-So, to mount the the current directory (source) with `/test_container` (target) we are going to use:
+Чтобы смонтировать текущий каталог (источник) в `/test_container` (цель), выполните:
 
 ```console
 $ docker run -it --mount src="$(pwd)",target=/test_container,type=bind k3_s3
 ```
 
-If these mount parameters have spaces you must put quotes around them. When I know they don't, I would use `` `pwd` `` instead:
+Если в параметрах монтирования есть пробелы, заключите их в кавычки. Если пробелов точно нет, вместо этого можно использовать `` `pwd` ``:
 
 ```console
 $ docker run -it --mount src=`pwd`,target=/test_container,type=bind k3_s3
 ```
 
-You will also have to deal with file permission, see [this article](https://denibertovic.com/posts/handling-permissions-with-docker-volumes/) .
+Также потребуется учитывать права доступа к файлам. Подробнее об этом рассказано в [статье о правах доступа для томов Docker](https://denibertovic.com/posts/handling-permissions-with-docker-volumes/).
 
-## Choose the -v or --mount flag
+## Выбор параметра `-v` или `--mount`
 
-Originally, the `-v` or `--volume` flag was used for standalone containers and the `--mount` flag was used for swarm services. However, starting with Docker 17.06, you can also use `--mount` with standalone containers. In general, `--mount` is more explicit and verbose. The biggest difference is that the `-v` syntax combines all the options together in one field, while the `--mount` syntax separates them. Here is a comparison of the syntax for each flag.
+Изначально параметр `-v`, или `--volume`, использовался для отдельных контейнеров, а `--mount` — для сервисов Docker Swarm. Начиная с Docker 17.06 параметр `--mount` можно использовать и с отдельными контейнерами. Обычно его синтаксис более явный и подробный. Главное различие состоит в том, что синтаксис `-v` объединяет все параметры в одном поле, а `--mount` разделяет их. Ниже приведено сравнение синтаксиса этих параметров.
 
->  **Tip** : New users should use the `--mount` syntax. Experienced users may be more familiar with the `-v` or `--volume` syntax, but are encouraged to use `--mount` , because research has shown it to be easier to use.
+> **Совет.** Новым пользователям рекомендуется синтаксис `--mount`. Опытные пользователи могут быть лучше знакомы с `-v` или `--volume`, однако им также рекомендуется `--mount`, поскольку исследования показали, что этот синтаксис проще в использовании.
 
-*    ** `-v` or `--volume` ** : Consists of three fields, separated by colon characters ( `:` ). The fields must be in the correct order, and the meaning of each field is not immediately obvious.
-    *   In the case of bind mounts, the first field is the path to the file or directory on the **host machine** .
-    *   The second field is the path where the file or directory is mounted in the container.
-    *   The third field is optional, and is a comma-separated list of options, such as `ro` , `consistent` , `delegated` , `cached` , `z` , and `Z` . These options are discussed below.
-*    ** `--mount` ** : Consists of multiple key-value pairs, separated by commas and each consisting of a `<key>=<value>` tuple. The `--mount` syntax is more verbose than `-v` or `--volume` , but the order of the keys is not significant, and the value of the flag is easier to understand.
-    *   The `type` of the mount, which can be `bind` , `volume` , or `tmpfs` . This topic discusses bind mounts, so the type is always `bind` .
-    *   The `source` of the mount. For bind mounts, this is the path to the file or directory on the Docker daemon host. May be specified as `source` or `src` .
-    *   The `destination` takes as its value the path where the file or directory is mounted in the container. May be specified as `destination` , `dst` , or `target` .
-    *   The `readonly` option, if present, causes the bind mount to be [mounted into the container as read-only](https://docs.docker.com/storage/bind-mounts/#use-a-read-only-bind-mount) .
-    *   The `bind-propagation` option, if present, changes the [bind propagation](https://docs.docker.com/storage/bind-mounts/#configure-bind-propagation) . May be one of `rprivate` , `private` , `rshared` , `shared` , `rslave` , `slave` .
-    *   The [ `consistency` ](https://docs.docker.com/storage/bind-mounts/#configure-mount-consistency-for-macos) option, if present, may be one of `consistent` , `delegated` , or `cached` . This setting only applies to Docker Desktop for Mac, and is ignored on all other platforms.
-    *   The `--mount` flag does not support `z` or `Z` options for modifying selinux labels.
+- `-v` или `--volume` состоит из трёх полей, разделённых двоеточиями (`:`). Поля должны располагаться в правильном порядке, а назначение каждого из них не всегда очевидно.
+  - При bind-монтировании первое поле содержит путь к файлу или каталогу на хосте.
+  - Второе поле содержит путь, по которому файл или каталог монтируется в контейнере.
+  - Третье поле необязательно. Оно содержит список разделённых запятыми параметров, например `ro`, `consistent`, `delegated`, `cached`, `z` и `Z`. Эти параметры рассматриваются ниже.
+- `--mount` состоит из нескольких разделённых запятыми пар `<key>=<value>`. Синтаксис `--mount` подробнее, чем `-v` или `--volume`, но порядок ключей не имеет значения, а назначение параметров проще понять.
+  - `type` задаёт тип монтирования: `bind`, `volume` или `tmpfs`. В этой статье рассматривается bind-монтирование, поэтому тип всегда равен `bind`.
+  - `source` задаёт источник монтирования. Для bind-монтирования это путь к файлу или каталогу на хосте, где работает демон Docker. Ключ можно записать как `source` или `src`.
+  - `destination` задаёт путь внутри контейнера, куда монтируется файл или каталог. Ключ можно записать как `destination`, `dst` или `target`.
+  - Параметр `readonly` подключает [монтирование к контейнеру в режиме только для чтения](https://docs.docker.com/storage/bind-mounts/#use-a-read-only-bind-mount).
+  - Параметр `bind-propagation` изменяет [распространение bind-монтирования](https://docs.docker.com/storage/bind-mounts/#configure-bind-propagation). Допустимые значения: `rprivate`, `private`, `rshared`, `shared`, `rslave` и `slave`.
+  - Параметр [`consistency`](https://docs.docker.com/storage/bind-mounts/#configure-mount-consistency-for-macos) может принимать значения `consistent`, `delegated` и `cached`. Эта настройка применяется только в Docker Desktop для Mac и игнорируется на остальных платформах.
+  - Параметр `--mount` не поддерживает `z` и `Z` для изменения меток SELinux.
 
-The examples below show both the `--mount` and `-v` syntax where possible, and `--mount` is presented first.
+В примерах ниже, где это возможно, показаны оба варианта синтаксиса. Вариант с `--mount` приводится первым.
 
-### Differences between `-v` and `--mount` behavior
+### Различия в поведении `-v` и `--mount`
 
-Because the `-v` and `--volume` flags have been a part of Docker for a long time, their behavior cannot be changed. This means that **there is one behavior that is different between `-v` and `--mount` .** 
+Параметры `-v` и `--volume` давно входят в состав Docker, поэтому их поведение нельзя изменить. Из-за этого между `-v` и `--mount` есть одно важное различие.
 
-If you use `-v` or `--volume` to bind-mount a file or directory that does not yet exist on the Docker host, `-v` creates the endpoint for you. **It is always created as a directory.** 
+Если с помощью `-v` или `--volume` выполнить bind-монтирование файла или каталога, которого ещё нет на хосте Docker, параметр `-v` создаст конечный объект. Он всегда создаётся как каталог.
 
-If you use `--mount` to bind-mount a file or directory that does not yet exist on the Docker host, Docker does **not** automatically create it for you, but generates an error.
+Если с помощью `--mount` попытаться выполнить bind-монтирование файла или каталога, которого ещё нет на хосте Docker, Docker не создаст его автоматически, а вернёт ошибку.
 
-## Start a container with a bind mount
+## Запуск контейнера с bind-монтированием
 
-Consider a case where you have a directory `source` and that when you build the source code, the artifacts are saved into another directory, `source/target/` . You want the artifacts to be available to the container at `/app/` , and you want the container to get access to a new build each time you build the source on your development host. Use the following command to bind-mount the `target/` directory into your container at `/app/` . Run the command from within the `source` directory. The `$(pwd)` sub-command expands to the current working directory on Linux or macOS hosts.
+Предположим, что у вас есть каталог `source`, а при сборке исходного кода артефакты сохраняются в другом каталоге — `source/target/`. Нужно, чтобы артефакты были доступны контейнеру в `/app/`, а после каждой сборки на хосте разработки контейнер получал доступ к её результатам.
 
-The `--mount` and `-v` examples below produce the same result. You can’t run them both unless you remove the `devtest` container after running the first one.
+Следующая команда выполняет bind-монтирование каталога `target/` в `/app/` внутри контейнера. Запустите её из каталога `source`. В Linux и macOS подкоманда `$(pwd)` подставляет текущий рабочий каталог.
 
-*    `--mount` 
+Примеры с `--mount` и `-v` дают одинаковый результат. Их нельзя выполнить один за другим, не удалив контейнер `devtest` после первого запуска.
+
+- `--mount`
 
 ```console
 $ docker run -d \
@@ -72,10 +70,9 @@ $ docker run -d \
   --name devtest \
   --mount type=bind,source="$(pwd)"/target,target=/app \
   nginx:latest
-
 ```
 
-*    `-v` 
+- `-v`
 
 ```console
 $ docker run -d \
@@ -85,7 +82,7 @@ $ docker run -d \
   nginx:latest
 ```
 
-Use `docker inspect devtest` to verify that the bind mount was created correctly. Look for the `Mounts` section:
+Чтобы убедиться, что bind-монтирование создано правильно, выполните `docker inspect devtest` и найдите раздел `Mounts`:
 
 ```json
 "Mounts": [
@@ -98,27 +95,26 @@ Use `docker inspect devtest` to verify that the bind mount was created correctly
         "Propagation": "rprivate"
     }
 ],
-
 ```
 
-This shows that the mount is a `bind` mount, it shows the correct source and destination, it shows that the mount is read-write, and that the propagation is set to `rprivate` .
+Вывод показывает, что создано монтирование типа `bind` с правильными исходным и целевым путями. Оно доступно для чтения и записи, а для распространения задано значение `rprivate`.
 
-Stop the container:
+Остановите и удалите контейнер:
 
 ```console
 $ docker container stop devtest
 $ docker container rm devtest
 ```
 
-### Mount into a non-empty directory on the container
+### Монтирование в непустой каталог контейнера
 
-If you bind-mount into a non-empty directory on the container, the directory’s existing contents are obscured by the bind mount. This can be beneficial, such as when you want to test a new version of your application without building a new image. However, it can also be surprising and this behavior differs from that of [docker volumes](https://docs.docker.com/storage/volumes/) .
+Если выполнить bind-монтирование в непустой каталог контейнера, существующее содержимое каталога будет скрыто подключённым монтированием. Это может быть полезно, например для тестирования новой версии приложения без сборки нового образа. Однако такое поведение может оказаться неожиданным и отличается от поведения [томов Docker](https://docs.docker.com/storage/volumes/).
 
-This example is contrived to be extreme, but replaces the contents of the container’s `/usr/` directory with the `/tmp/` directory on the host machine. In most cases, this would result in a non-functioning container.
+Следующий пример намеренно доведён до крайности: содержимое каталога `/usr/` внутри контейнера заменяется содержимым каталога `/tmp/` на хосте. В большинстве случаев после этого контейнер работать не сможет.
 
-The `--mount` and `-v` examples have the same end result.
+Примеры с `--mount` и `-v` дают одинаковый конечный результат.
 
-*    `--mount` 
+- `--mount`
 
 ```console
 $ docker run -d \
@@ -129,10 +125,9 @@ $ docker run -d \
 
 docker: Error response from daemon: oci runtime error: container_linux.go:262:
 starting container process caused "exec: \"nginx\": executable file not found in $PATH".
-
 ```
 
-*    `-v` 
+- `-v`
 
 ```console
 $ docker run -d \
@@ -145,22 +140,21 @@ docker: Error response from daemon: oci runtime error: container_linux.go:262:
 starting container process caused "exec: \"nginx\": executable file not found in $PATH".
 ```
 
-The container is created but does not start. Remove it:
+Контейнер будет создан, но не запустится. Удалите его:
 
 ```console
 $ docker container rm broken-container
-
 ```
 
-## Use a read-only bind mount
+## Bind-монтирование только для чтения
 
-For some development applications, the container needs to write into the bind mount, so changes are propagated back to the Docker host. At other times, the container only needs read access.
+В некоторых сценариях разработки контейнер должен записывать данные в bind-монтирование, чтобы изменения передавались обратно на хост Docker. В других случаях контейнеру достаточно доступа только для чтения.
 
-This example modifies the one above but mounts the directory as a read-only bind mount, by adding `ro` to the (empty by default) list of options, after the mount point within the container. Where multiple options are present, separate them by commas.
+Следующий пример изменяет предыдущий: каталог подключается только для чтения. Для этого после точки монтирования внутри контейнера в список параметров, по умолчанию пустой, добавляется `ro`. Если параметров несколько, разделяйте их запятыми.
 
-The `--mount` and `-v` examples have the same result.
+Примеры с `--mount` и `-v` дают одинаковый результат.
 
-*    `--mount` 
+- `--mount`
 
 ```console
 $ docker run -d \
@@ -168,10 +162,9 @@ $ docker run -d \
   --name devtest \
   --mount type=bind,source="$(pwd)"/target,target=/app,readonly \
   nginx:latest
-
 ```
 
-*    `-v` 
+- `-v`
 
 ```console
 $ docker run -d \
@@ -181,7 +174,7 @@ $ docker run -d \
   nginx:latest
 ```
 
-Use `docker inspect devtest` to verify that the bind mount was created correctly. Look for the `Mounts` section:
+Чтобы убедиться, что bind-монтирование создано правильно, выполните `docker inspect devtest` и найдите раздел `Mounts`:
 
 ```json
 "Mounts": [
@@ -194,42 +187,41 @@ Use `docker inspect devtest` to verify that the bind mount was created correctly
         "Propagation": "rprivate"
     }
 ],
-
 ```
 
-Stop the container:
+Остановите и удалите контейнер:
 
 ```console
 $ docker container stop devtest
-
 $ docker container rm devtest
-
 ```
 
-## Configure bind propagation
+## Настройка распространения bind-монтирования
 
-Bind propagation defaults to `rprivate` for both bind mounts and volumes. It is only configurable for bind mounts, and only on Linux host machines. Bind propagation is an advanced topic and many users never need to configure it.
+По умолчанию и для bind-монтирований, и для томов используется режим распространения `rprivate`. Настроить его можно только для bind-монтирований и только на хостах Linux. Распространение монтирования — сложная тема, и большинству пользователей не приходится его настраивать.
 
-Bind propagation refers to whether or not mounts created within a given bind-mount or named volume can be propagated to replicas of that mount. Consider a mount point `/mnt` , which is also mounted on `/tmp` . The propagation settings control whether a mount on `/tmp/a` would also be available on `/mnt/a` . Each propagation setting has a recursive counterpoint. In the case of recursion, consider that `/tmp/a` is also mounted as `/foo` . The propagation settings control whether `/mnt/a` and/or `/tmp/a` would exist.
+Распространение определяет, передаются ли монтирования, созданные внутри bind-монтирования или именованного тома, его копиям. Предположим, что точка `/mnt` также смонтирована в `/tmp`. Настройка распространения определяет, будет ли монтирование `/tmp/a` доступно также как `/mnt/a`.
 
-| Propagation setting | Description |
+У каждого режима распространения есть рекурсивный вариант. Предположим, что `/tmp/a` также смонтирован в `/foo`. В этом случае настройки распространения определяют, будут ли существовать `/mnt/a` и `/tmp/a`.
+
+| Режим | Описание |
 | --- | --- |
-|  `shared`  | Sub-mounts of the original mount are exposed to replica mounts, and sub-mounts of replica mounts are also propagated to the original mount. |
-|  `slave`  | similar to a shared mount, but only in one direction. If the original mount exposes a sub-mount, the replica mount can see it. However, if the replica mount exposes a sub-mount, the original mount cannot see it. |
-|  `private`  | The mount is private. Sub-mounts within it are not exposed to replica mounts, and sub-mounts of replica mounts are not exposed to the original mount. |
-|  `rshared`  | The same as shared, but the propagation also extends to and from mount points nested within any of the original or replica mount points. |
-|  `rslave`  | The same as slave, but the propagation also extends to and from mount points nested within any of the original or replica mount points. |
-|  `rprivate`  | The default. The same as private, meaning that no mount points anywhere within the original or replica mount points propagate in either direction. |
+| `shared` | Подмонтирования исходного монтирования доступны его копиям, а подмонтирования копий также распространяются на исходное монтирование. |
+| `slave` | Аналогичен `shared`, но действует только в одном направлении. Если в исходном монтировании появляется подмонтирование, оно доступно копии. Если подмонтирование появляется в копии, исходное монтирование его не видит. |
+| `private` | Монтирование изолировано. Его подмонтирования не доступны копиям, а подмонтирования копий не доступны исходному монтированию. |
+| `rshared` | Аналогичен `shared`, но распространение также охватывает точки монтирования, вложенные в любые исходные точки или их копии. |
+| `rslave` | Аналогичен `slave`, но распространение также охватывает точки монтирования, вложенные в любые исходные точки или их копии. |
+| `rprivate` | Значение по умолчанию. Аналогичен `private`: точки монтирования внутри исходного монтирования или его копий не распространяются ни в одном направлении. |
 
-Before you can set bind propagation on a mount point, the host filesystem needs to already support bind propagation.
+Прежде чем задавать распространение для точки монтирования, убедитесь, что файловая система хоста уже поддерживает эту возможность.
 
-For more information about bind propagation, see the [Linux kernel documentation for shared subtree](https://www.kernel.org/doc/Documentation/filesystems/sharedsubtree.txt) .
+Подробнее см. в [документации ядра Linux по общим поддеревьям](https://www.kernel.org/doc/Documentation/filesystems/sharedsubtree.txt).
 
-The following example mounts the `target/` directory into the container twice, and the second mount sets both the `ro` option and the `rslave` bind propagation option.
+Следующий пример дважды монтирует каталог `target/` в контейнер. Для второго монтирования заданы и режим `ro`, и режим распространения `rslave`.
 
-The `--mount` and `-v` examples have the same result.
+Примеры с `--mount` и `-v` дают одинаковый результат.
 
-*    `--mount` 
+- `--mount`
 
 ```console
 $ docker run -d \
@@ -238,10 +230,9 @@ $ docker run -d \
   --mount type=bind,source="$(pwd)"/target,target=/app \
   --mount type=bind,source="$(pwd)"/target,target=/app2,readonly,bind-propagation=rslave \
   nginx:latest
-
 ```
 
-*    `-v` 
+- `-v`
 
 ```console
 $ docker run -d \
@@ -252,22 +243,22 @@ $ docker run -d \
   nginx:latest
 ```
 
-Now if you create `/app/foo/` , `/app2/foo/` also exists.
+Теперь при создании `/app/foo/` также появится `/app2/foo/`.
 
-## Configure the selinux label
+## Настройка метки SELinux
 
-If you use `selinux` you can add the `z` or `Z` options to modify the selinux label of the **host file or directory** being mounted into the container. This affects the file or directory on the host machine itself and can have consequences outside of the scope of Docker.
+При использовании SELinux параметры `z` и `Z` позволяют изменить метку SELinux файла или каталога на хосте, который монтируется в контейнер. Это влияет непосредственно на объект в основной системе и может иметь последствия за пределами Docker.
 
-*   The `z` option indicates that the bind mount content is shared among multiple containers.
-*   The `Z` option indicates that the bind mount content is private and unshared.
+- Параметр `z` означает, что содержимое bind-монтирования используется совместно несколькими контейнерами.
+- Параметр `Z` означает, что содержимое bind-монтирования является закрытым и не используется совместно.
 
-Use **extreme** caution with these options. Bind-mounting a system directory such as `/home` or `/usr` with the `Z` option renders your host machine inoperable and you may need to relabel the host machine files by hand.
+Используйте эти параметры с особой осторожностью. Bind-монтирование системного каталога, например `/home` или `/usr`, с параметром `Z` может сделать хост неработоспособным, после чего метки файлов основной системы придётся восстанавливать вручную.
 
->  **Important** : When using bind mounts with services, selinux labels ( `:Z` and `:z` ), as well as `:ro` are ignored. See [moby/moby #32579](https://github.com/moby/moby/issues/32579) for details.
+> **Важно.** При использовании bind-монтирований с сервисами метки SELinux (`:Z` и `:z`), а также `:ro` игнорируются. Подробнее см. в [moby/moby #32579](https://github.com/moby/moby/issues/32579).
 
-This example sets the `z` option to specify that multiple containers can share the bind mount’s contents:
+В следующем примере параметр `z` разрешает нескольким контейнерам совместно использовать содержимое bind-монтирования.
 
-It is not possible to modify the selinux label using the `--mount` flag.
+Изменить метку SELinux с помощью параметра `--mount` невозможно.
 
 ```console
 $ docker run -d \
@@ -275,27 +266,23 @@ $ docker run -d \
   --name devtest \
   -v "$(pwd)"/target:/app:z \
   nginx:latest
-
 ```
 
-## Configure mount consistency for macOS
+## Настройка согласованности монтирования в macOS
 
-Docker Desktop for Mac uses `osxfs` to propagate directories and files shared from macOS to the Linux VM. This propagation makes these directories and files available to Docker containers running on Docker Desktop for Mac.
+Docker Desktop для Mac использует `osxfs`, чтобы передавать каталоги и файлы из macOS в виртуальную машину Linux. Благодаря этому общие каталоги и файлы становятся доступны Docker-контейнерам, запущенным в Docker Desktop для Mac.
 
-By default, these shares are fully-consistent, meaning that every time a write happens on the macOS host or through a mount in a container, the changes are flushed to disk so that all participants in the share have a fully-consistent view. Full consistency can severely impact performance in some cases. Docker 17.05 and higher introduce options to tune the consistency setting on a per-mount, per-container basis. The following options are available:
+По умолчанию такие общие ресурсы полностью согласованы: при каждой записи на хосте macOS или через монтирование внутри контейнера изменения сбрасываются на диск, поэтому все участники видят одинаковое состояние данных. В некоторых случаях полная согласованность может серьёзно снижать производительность. Начиная с Docker 17.05 согласованность можно настраивать отдельно для каждого монтирования и контейнера. Доступны следующие варианты:
 
-*    `consistent` or `default` : The default setting with full consistency, as described above.
-    
-*    `delegated` : The container runtime’s view of the mount is authoritative. There may be delays before updates made in a container are visible on the host.
-    
-*    `cached` : The macOS host’s view of the mount is authoritative. There may be delays before updates made on the host are visible within a container.
-    
+- `consistent` или `default` — полная согласованность, используемая по умолчанию и описанная выше.
+- `delegated` — состояние монтирования, которое видит среда выполнения контейнера, считается основным. Изменения из контейнера могут появляться на хосте с задержкой.
+- `cached` — состояние монтирования, которое видит хост macOS, считается основным. Изменения на хосте могут появляться в контейнере с задержкой.
 
-These options are completely ignored on all host operating systems except macOS.
+Во всех операционных системах хоста, кроме macOS, эти параметры полностью игнорируются.
 
-The `--mount` and `-v` examples have the same result.
+Примеры с `--mount` и `-v` дают одинаковый результат.
 
-*    `--mount` 
+- `--mount`
 
 ```console
 $ docker run -d \
@@ -305,7 +292,7 @@ $ docker run -d \
   nginx:latest
 ```
 
-*    `-v` 
+- `-v`
 
 ```console
 $ docker run -d \
@@ -315,8 +302,6 @@ $ docker run -d \
   nginx:latest
 ```
 
+---
 
-
-**********
 [docker](/tags/docker.md)
-[НЕ ПЕРЕВЕДЕНО](/tags/untranslated.md)

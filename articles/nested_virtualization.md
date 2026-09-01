@@ -1,54 +1,51 @@
 # Вложенная виртуализация
 
-# Introduction
+## Введение
 
-It is possible to run Virtual Machines inside Virtual Machines (VMs). That is called Nested Virtualization. [\[1\]](https://www.whonix.org/wiki/Nested_Virtualization#cite_note-1)
+Виртуальные машины можно запускать внутри других виртуальных машин. Это называется вложенной виртуализацией.[^1]
 
-# Qubes
+## Qubes
 
-Running VirtualBox, KVM or Qubes inside Qubes is difficult. Not offically supported by the Qubes developers. It is unrelated to Whonix ™. You can learn more about the current state of things by searching the qubes-devel and qubes-users mailing lists for terms such as VirtualBox, KVM and/or nested virtualization.
+Запустить VirtualBox, KVM или Qubes внутри Qubes непросто. Разработчики Qubes официально не поддерживают такую конфигурацию, и к Whonix™ она отношения не имеет.
 
-# KVM
+Подробнее о текущем состоянии вложенной виртуализации можно узнать в списках рассылки `qubes-devel` и `qubes-users`. Ищите сообщения по запросам `VirtualBox`, `KVM` и `nested virtualization`.
 
-TODO document
+## KVM
 
-*   [https://www.whonix.org/wiki/Dev/KVM#Nested\_Virtualization](https://www.whonix.org/wiki/Dev/KVM#Nested_Virtualization)
-*   [https://forums.whonix.org/t/nested-virtulization-needs-64-bit-whonx-guest](https://forums.whonix.org/t/nested-virtulization-needs-64-bit-whonx-guest)
+Раздел необходимо дополнить.
 
-# VirtualBox inside VirtualBox
+- [Вложенная виртуализация в Whonix KVM](https://www.whonix.org/wiki/Dev/KVM#Nested_Virtualization)
+- [Обсуждение необходимости 64-битной гостевой системы Whonix](https://forums.whonix.org/t/nested-virtulization-needs-64-bit-whonx-guest)
 
-Be sure to change your host key._VirtualBox → Preferences → Input → Host Key_. The "outside" and the "inside" Host Key must differ, otherwise you can not leave the VM "inside" anymore.
+## VirtualBox внутри VirtualBox
 
-Using ACPI[\[2\]](https://www.whonix.org/wiki/Nested_Virtualization#cite_note-2)and IOAPIC[\[3\]](https://www.whonix.org/wiki/Nested_Virtualization#cite_note-3)[\[4\]](https://www.whonix.org/wiki/Nested_Virtualization#cite_note-4)for all VM's, speeds up the "inside" VM a lot. These settings are in use for Whonix ™ VMs by default.
+Обязательно измените клавишу хоста: *VirtualBox → Preferences → Input → Host Key*. Клавиши хоста для внешней и внутренней виртуальных машин должны различаться, иначе выйти из внутренней виртуальной машины не получится.
 
-VirtualBox does not support VT in VT yet.[\[5\]](https://www.whonix.org/wiki/Nested_Virtualization#cite_note-5)So the "inside" VM might be slow depending on your host's performance. Inside the "inside" VM, disable VT._VirtualBox → right click on VM → Settings → System → Acceleration → uncheck "Enable VT-x/AMD-V"_
+Использование ACPI[^2] и IOAPIC[^3][^4] для всех виртуальных машин значительно ускоряет внутреннюю виртуальную машину. В виртуальных машинах Whonix™ эти параметры включены по умолчанию.
 
-Oracle VM VirtualBox supportsnested virtualizationon host systems that run AMD CPUs. This feature enables the passthrough of hardware virtualization functions to the guest VM. That means that you can install a hypervisor, such as Oracle VM VirtualBox, Oracle VM Server or KVM, on an Oracle VM VirtualBox guest. You can then create and run VMs within the guest VM.
+VirtualBox пока не поддерживает VT внутри VT.[^5] Поэтому производительность внутренней виртуальной машины зависит от быстродействия хоста и может быть низкой. Отключите VT во внутренней виртуальной машине: *VirtualBox → правый щелчок по виртуальной машине → Settings → System → Acceleration → снимите флажок Enable VT-x/AMD-V*.
 
-You can enable the nested virtualization feature in one of the following ways:
+Oracle VM VirtualBox поддерживает вложенную виртуализацию на хостах с процессорами AMD. Эта возможность предоставляет гостевой виртуальной машине доступ к функциям аппаратной виртуализации. Благодаря этому в гостевой системе Oracle VM VirtualBox можно установить гипервизор, например Oracle VM VirtualBox, Oracle VM Server или KVM, а затем создавать и запускать в ней виртуальные машины.
 
-*   From the VirtualBox Manager, select theEnable Nested VT-x/AMD-Vcheck box on theProcessortab. To disable the feature, deselect the check box.
-    
-*   Use the `--nested-hw-virt` option of theVBoxManage modifyvmcommand to enable or disable nested virtualization. See [VBoxManage modifyvm](https://docs.oracle.com/cd/E97728_01/E97727/html/vboxmanage-modifyvm.html).
+Вложенную виртуализацию можно включить одним из следующих способов:
 
-Forum discussion:  
-[https://forums.whonix.org/t/nested-visualization-with-whonix-vbox-windows-7-inside-whonix-ws](https://forums.whonix.org/t/nested-visualization-with-whonix-vbox-windows-7-inside-whonix-ws)
+- В VirtualBox Manager на вкладке *Processor* установите флажок *Enable Nested VT-x/AMD-V*. Чтобы отключить эту возможность, снимите флажок.
+- Используйте параметр `--nested-hw-virt` команды `VBoxManage modifyvm`, чтобы включить или отключить вложенную виртуализацию. Подробнее см. в документации по [`VBoxManage modifyvm`](https://docs.oracle.com/cd/E97728_01/E97727/html/vboxmanage-modifyvm.html).
 
-# See Also
+Обсуждение на форуме: [вложенная виртуализация в Whonix VBox — Windows 7 внутри Whonix-WS](https://forums.whonix.org/t/nested-visualization-with-whonix-vbox-windows-7-inside-whonix-ws).
 
-*   [Other Operating Systems](https://www.whonix.org/wiki/Other_Operating_Systems "Other Operating Systems")
+## См. также
 
-# Footnotes
+- [Другие операционные системы](https://www.whonix.org/wiki/Other_Operating_Systems "Другие операционные системы")
 
-1.  http://en.wikipedia.org/wiki/Nested_virtualization
-2.  vboxmanage "Whonix-Workstation" modifyvm --acpi on
-3.  VirtualBox → right click on VM → Settings → System → uncheck "Enable IO APIC"
-4.  vboxmanage "Whonix-Workstation" modifyvm --ioapic on
-5.  https://www.virtualbox.org/ticket/4032
+## Примечания
 
+[^1]: [Вложенная виртуализация](http://en.wikipedia.org/wiki/Nested_virtualization)
+[^2]: `vboxmanage "Whonix-Workstation" modifyvm --acpi on`
+[^3]: *VirtualBox → правый щелчок по виртуальной машине → Settings → System → снимите флажок Enable IO APIC*.
+[^4]: `vboxmanage "Whonix-Workstation" modifyvm --ioapic on`
+[^5]: [Задача VirtualBox № 4032](https://www.virtualbox.org/ticket/4032)
 
+---
 
-
-**********
 [виртуализация](/tags/virtualization.md)
-[НЕ ПЕРЕВЕДЕНО](/tags/untranslated.md)

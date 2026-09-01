@@ -1,93 +1,89 @@
-# ПЕРЕНОС ПРОЦЕССА В КОНТРОЛЬНУЮ ГРУППУ
+# Перенос процесса в контрольную группу
 
-Move a process into a cgroup by running the  `cgclassify`  command, for example:
+Чтобы перенести процесс в контрольную группу, выполните команду `cgclassify`. Например:
 
-```
+```console
 cgclassify -g cpu,memory:group1 1701
 ```
 
-The syntax for  `cgclassify`  is:
+Синтаксис команды `cgclassify`:
 
-```
+```text
 cgclassify -g subsystems:path_to_cgroup pidlist
 ```
 
-where:
+Где:
 
-*   _subsystems_ is a comma‑separated list of subsystems, or  `*`  to launch the process in the hierarchies associated with all available subsystems. Note that if cgroups of the same name exist in multiple hierarchies, the  `-g`  option moves the processes in each of those groups. Ensure that the cgroup exists within each of the hierarchies whose subsystems you specify here.
-    
-*   _path\_to\_cgroup_ is the path to the cgroup within its hierarchies.
-    
-*   _pidlist_ is a space-separated list of _process identifier_ (PIDs).
-    
+- `subsystems` — список подсистем, разделённых запятыми, или `*`, если процесс нужно запустить в иерархиях, связанных со всеми доступными подсистемами. Если контрольные группы с одинаковыми именами существуют в нескольких иерархиях, параметр `-g` переместит процессы в каждую из этих групп. Убедитесь, что контрольная группа существует в каждой иерархии, подсистема которой указана в этой команде.
+- `path_to_cgroup` — путь к контрольной группе внутри её иерархий.
+- `pidlist` — список идентификаторов процессов (PID), разделённых пробелами.
 
-If the  `-g`  option is not specified,  `cgclassify` automatically searches the `/etc/cgrules.conf` file (see [Section 2.8.1, “The cgred Service”](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/html/resource_management_guide/sec-Moving_a_Process_to_a_Control_Group#The_cgred_Service) ) and uses the first applicable configuration line. According to this line, `cgclassify` determines the hierarchies and cgroups to move the process under. Note that for the move to be successful, the destination hierarchies must exist. The subsystems specified in `/etc/cgrules.conf` also have to be properly configured for the corresponding hierarchy in `/etc/cgconfig.conf` .
+Если параметр `-g` не указан, `cgclassify` автоматически просматривает файл `/etc/cgrules.conf` (см. раздел [«Служба cgred»](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/html/resource_management_guide/sec-Moving_a_Process_to_a_Control_Group#The_cgred_Service)) и использует первую подходящую строку конфигурации. По этой строке `cgclassify` определяет иерархии и контрольные группы, в которые нужно переместить процесс. Для успешного переноса целевые иерархии должны существовать. Подсистемы, указанные в `/etc/cgrules.conf`, также должны быть правильно настроены для соответствующих иерархий в `/etc/cgconfig.conf`.
 
-You can also add the `--sticky` option before the_pid_to keep any child processes in the same cgroup. If you do not set this option and the **cgred** service is running, child processes are allocated to cgroups based on the settings found in `/etc/cgrules.conf` . However, the parent process remains in the cgroup in which it was first started.
+Параметр `--sticky` можно указать перед `pidlist`, чтобы все дочерние процессы оставались в той же контрольной группе. Если этот параметр не задан и служба **cgred** запущена, дочерние процессы распределяются по контрольным группам на основании настроек из `/etc/cgrules.conf`. Родительский процесс при этом остаётся в контрольной группе, в которой он был первоначально запущен.
 
-Using `cgclassify` , you can move several processes simultaneously. For example, this command moves the processes with PIDs `1701` and `1138` into cgroup `group1/` :
+С помощью `cgclassify` можно одновременно переместить несколько процессов. Например, следующая команда перемещает процессы с PID `1701` и `1138` в контрольную группу `group1/`:
 
-~\]#  `cgclassify -g cpu,memory:group1 1701 1138` 
-
-Note that the PIDs to be moved are separated by spaces and that the specified groups should be in different hierarchies.
-
-### Alternative method
-
-To move a process into a cgroup directly, write its PID to the `tasks` file of the cgroup. For example, to move a process with the PID `1701` into a cgroup at `/cgroup/cpu_and_mem/group1/` :
-
+```console
+cgclassify -g cpu,memory:group1 1701 1138
 ```
+
+Обратите внимание: переносимые PID разделяются пробелами, а указанные группы должны находиться в разных иерархиях.
+
+## Альтернативный способ
+
+Чтобы переместить процесс в контрольную группу напрямую, запишите его PID в файл `tasks` этой группы. Например, чтобы переместить процесс с PID `1701` в контрольную группу `/cgroup/cpu_and_mem/group1/`, выполните:
+
+```console
 echo 1701 > /cgroup/cpu_and_mem/group1/tasks
 ```
 
-### 2.8.1. The cgred Service
+## Служба cgred
 
- **Cgred** is a service (which starts the `cgrulesengd` service) that moves tasks into cgroups according to parameters set in the `/etc/cgrules.conf` file. Entries in the `/etc/cgrules.conf` file can take one of these two forms:
+**Cgred** — это служба, запускающая `cgrulesengd` и перемещающая задачи в контрольные группы в соответствии с параметрами из файла `/etc/cgrules.conf`. Записи в `/etc/cgrules.conf` могут иметь одну из двух форм:
 
-```
+```text
 user subsystems control\group
 
 user:command subsystems control\group
 ```
 
-Replace_user_with a user name or a group name prefixed with the "@" character. Replace_subsystems_with a comma‑separated list of subsystem names, _control\_group_ represents a path to the cgroup, and_command_stands for a process name or a full command path of a process.
+Замените `user` именем пользователя или именем группы с префиксом `@`. Вместо `subsystems` укажите список имён подсистем, разделённых запятыми. `control_group` обозначает путь к контрольной группе, а `command` — имя процесса или полный путь к команде процесса.
 
-For example:
+Например:
 
-```
+```text
 maria			devices		/usergroup/staff
 ```
 
-This entry specifies that any processes that belong to the user named `maria` access the `devices` subsystem according to the parameters specified in the `/usergroup/staff` cgroup. To associate particular commands with particular cgroups, add the_command_parameter, as follows:
+Эта запись указывает, что все процессы пользователя `maria` получают доступ к подсистеме `devices` в соответствии с параметрами контрольной группы `/usergroup/staff`. Чтобы связать определённые команды с определёнными контрольными группами, добавьте параметр `command`:
 
-```
+```text
 maria:ftp		devices		/usergroup/staff/ftp
 ```
 
-The entry now specifies that when the user named `maria` uses the `ftp` command, the process is automatically moved to the `/usergroup/staff/ftp` cgroup in the hierarchy that contains the `devices` subsystem. Note, however, that the daemon moves the process to the cgroup only after the appropriate condition is fulfilled. Therefore, the `ftp` process might run for a short time in the wrong group. Furthermore, if the process quickly spawns children while in the wrong group, these children might not be moved.
+Теперь эта запись указывает, что, когда пользователь `maria` выполняет команду `ftp`, процесс автоматически перемещается в контрольную группу `/usergroup/staff/ftp` иерархии, содержащей подсистему `devices`. Однако демон перемещает процесс в контрольную группу только после выполнения соответствующего условия. Поэтому процесс `ftp` может некоторое время работать не в той группе. Кроме того, если за это время процесс быстро создаст дочерние процессы, они могут не быть перемещены.
 
-Entries in the `/etc/cgrules.conf` file can include the following extra notation:
+В записях файла `/etc/cgrules.conf` можно использовать следующие дополнительные обозначения:
 
-*    `@` — indicates a group instead of an individual user. For example, `@admins` are all users in the `admins` group.
-    
-*    `*` — represents "all". For example, `*` in the `subsystem` field represents all mounted subsystems.
-    
-*    `%` — represents an item that is the same as the item on the line above.
-    
+- `@` — обозначает группу вместо отдельного пользователя. Например, `@admins` означает всех пользователей группы `admins`.
+- `*` — означает «все». Например, `*` в поле `subsystem` обозначает все смонтированные подсистемы.
+- `%` — обозначает тот же элемент, что и в строке выше.
 
-For example, the entries specified in the `/etc/cgrules.conf` file can have the following form:
+Например, записи в `/etc/cgrules.conf` могут выглядеть так:
 
-```
+```text
 @adminstaff		devices		/admingroup
 @labstaff		%		%
 ```
 
-The above configuration ensures that processes owned by the `adminstaff` and `labstaff` access the `devices` subsystem according to the limits set in the `admingroup` cgroup.
+Эта конфигурация гарантирует, что процессы пользователей из групп `adminstaff` и `labstaff` получают доступ к подсистеме `devices` в соответствии с ограничениями контрольной группы `admingroup`.
 
-Rules specified in `/etc/cgrules.conf` can be linked to templates configured either in the `/etc/cgconfig.conf` file or in configuration files stored in the `/etc/cgconfig.d/` directory, allowing for flexible cgroup assignment and creation.
+Правила из `/etc/cgrules.conf` можно связать с шаблонами, настроенными в файле `/etc/cgconfig.conf` или в конфигурационных файлах каталога `/etc/cgconfig.d/`. Это позволяет гибко назначать и создавать контрольные группы.
 
-For example, specify the following template in `/etc/cgconfig.conf` :
+Например, добавьте в `/etc/cgconfig.conf` следующий шаблон:
 
-```
+```text
 template users/%g/%u {
 	 cpuacct{
 	 }
@@ -98,33 +94,23 @@ template users/%g/%u {
 }
 ```
 
-Then use the_users/%g/%u_template in the third row of a `/etc/cgrules.conf` entry, which can look as follows:
+Затем используйте шаблон `users/%g/%u` в третьем поле записи `/etc/cgrules.conf`:
 
-```
+```text
 peter:ftp		cpu		users/%g/%u
 ```
 
-The `%g` and `%u` variables used above are automatically replaced with group and user name depending on the owner of the  `ftp` process. If the process belongs to `peter` from the `adminstaff` group, the above path is translated to `users/adminstaff/peter` . The `cgred` service then searches for this directory, and if it does not exist, `cgred` creates it and assigns the process to `users/adminstaff/peter/tasks` . Note that template rules apply only to definitions of templates in configuration files, so even if "_group users/adminstaff/peter_" was defined in `/etc/cgconfig.conf` , it would be ignored in favor of "_template users/%g/%u_".
+Переменные `%g` и `%u` автоматически заменяются именами группы и пользователя, которым принадлежит процесс `ftp`. Если процесс принадлежит пользователю `peter` из группы `adminstaff`, приведённый выше путь преобразуется в `users/adminstaff/peter`. Затем служба `cgred` ищет этот каталог и, если он не существует, создаёт его и назначает процесс файлу `users/adminstaff/peter/tasks`. Правила шаблонов применяются только к определениям `template` в конфигурационных файлах. Поэтому, даже если в `/etc/cgconfig.conf` определена группа `group users/adminstaff/peter`, она будет проигнорирована в пользу шаблона `template users/%g/%u`.
 
-There are several other variables that can be used for specifying cgroup paths in templates:
+В путях к контрольным группам внутри шаблонов можно использовать и другие переменные:
 
-*    `%u` — is replaced with the name of the user who owns the current process. If name resolution fails, UID is used instead.
-    
-*    `%U` — is replaced with the UID of the specified user who owns the current process.
-    
-*    `%g` — is replaced with the name of the user group that owns the current process, or with the GID if name resolution fails.
-    
-*    `%G` — is replaced with the GID of the cgroup that owns the current process.
-    
-*    `%p` — is replaced with the name of the current process. PID is used in case of name resolution failure.
-    
-*    `%P` — is replaced with the PID of the current processes.
+- `%u` — заменяется именем пользователя, которому принадлежит текущий процесс. Если определить имя не удаётся, используется UID.
+- `%U` — заменяется UID пользователя, которому принадлежит текущий процесс.
+- `%g` — заменяется именем группы пользователя, которому принадлежит текущий процесс. Если определить имя не удаётся, используется GID.
+- `%G` — заменяется GID группы, которой принадлежит текущий процесс.
+- `%p` — заменяется именем текущего процесса. Если определить имя не удаётся, используется PID.
+- `%P` — заменяется PID текущего процесса.
 
+---
 
-
-
-
-
-**********
 [cgroups](/tags/cgroups.md)
-[НЕ ПЕРЕВЕДЕНО](/tags/untranslated.md)

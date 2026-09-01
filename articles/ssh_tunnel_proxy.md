@@ -1,89 +1,112 @@
-# Proxy Using SSH Tunnel
+# Прокси через SSH-туннель
 
-###  A simple example
+## Простой пример
 
-Let’s start with a simple example. We can access a sshd server  _sshd\_server_  and we want to use it as a socks5 proxy server. It is simple by using ssh:
+Начнём с простого примера. Предположим, у нас есть доступ к SSH-серверу `sshd_server`, который мы хотим использовать как прокси-сервер SOCKS5. Для этого достаточно выполнить команду:
 
-$ ssh -D 8080 username@sshd\_server
+```bash
+ssh -D 8080 username@sshd_server
+```
 
-After that, set the browser such as firefox’s proxy option to use socks5 proxy 127.0.0.1:8080. That’s it!
+После этого укажите в настройках прокси браузера, например Firefox, SOCKS5-прокси `127.0.0.1:8080`. Готово!
 
-Then, check whether your IP is from the proxy from the websites’ view:  [Who am I](http://www.pkill.info/whoami/) .
+Проверить, какой IP-адрес видят сайты при работе через прокси, можно на странице [«Кто я?»](http://www.pkill.info/whoami/).
 
-###  Making ssh proxy 
+## Настройка прокси через SSH
 
-We can set up a more complex proxy server through ssh. For example, we have a sshd server s2 and another server s1 as the proxy server. Then we can set up a proxy server system using ssh tunnel. s1 will act as the proxy server, while s2 connects to the service provider (s3). The overall system can be shown as this:
+Через SSH можно настроить и более сложную схему. Например, у нас есть SSH-сервер `s2` и ещё один узел `s1`, который будет выступать в роли прокси-сервера. Узел `s1` принимает подключения клиентов, а `s2` подключается к серверу назначения `s3`. Общая схема выглядит так:
 
+```text
 c0:p0 <--> s1:p1 <==> s2:p2 <--> s3
+```
 
-Maybe most of the time c0 and s1 are the same machines as the simple example at the beginning of the post.
+Как и в простом примере выше, чаще всего `c0` и `s1` — один и тот же компьютер.
 
-Using ssh as a proxy to browse the web is very useful under some situation: Local access restriction such as behind a strict firewall in some country, company or school; You are in a insecure  [network](https://www.systutorials.com/category/tutorial/network/)  environment while you want to login to your account.
+Использовать SSH в качестве прокси для просмотра веб-страниц удобно в нескольких случаях:
 
-Now let’s look at how to set up proxy by using ssh tunnel. This uses ssh’s “dynamic” port forwarding function by using parameter “-D”. ssh allocates a socket to listen to port on the local side, optionally bound to the specified ip address. Whenever a connection is made to this port, the connection is forwarded over the ssh channel, and the application protocol is then used to determine where to connect to from the remote machine.
+- локальный доступ ограничен, например строгим межсетевым экраном в стране, компании или учебном заведении;
+- вы находитесь в небезопасном [сетевом окружении](https://www.systutorials.com/category/tutorial/network/) и хотите войти в свою учётную запись.
 
-####  1) Proxy listening to localhost port only 
+Рассмотрим настройку прокси через SSH-туннель. Для этого используется динамическая переадресация портов SSH, которая включается параметром `-D`. SSH создаёт на локальной стороне сокет, прослушивающий заданный порт; при необходимости сокет можно привязать к определённому IP-адресу. Каждое подключение к этому порту передаётся по SSH-каналу, после чего прикладной протокол определяет, к какому адресу следует подключиться с удалённого узла.
 
-This proxy server can only be used on localhost, which means the other users can not use it. c0 and s1 in the graph above are the same machine.  
-The command is:
+### 1. Прокси, доступный только через localhost
 
-$ ssh -D p1 username@sshd\_server
+Такой прокси-сервер можно использовать только на локальном компьютере: другим пользователям он недоступен. В приведённой выше схеме `c0` и `s1` являются одним компьютером.
 
-p1 is the port on localhost. Any port larger than 1024 can be chosen as p1. After setting up this proxy tunnel, set the proxy option in browser to  _127.0.0.1:p1_  and using socks5. Then it is done. Enjoy it now :) .
+Команда:
 
-####  2) Proxy listening to specific IP 
+```bash
+ssh -D p1 username@sshd_server
+```
 
-This kind of proxy server can provide service to other users. Users (and include yourself of course) can use this socks5 proxy with address  _s1\_ip_  and port  _p1_ .  
-The command is:
+Здесь `p1` — порт на локальном компьютере. В качестве `p1` можно выбрать любой порт с номером больше 1024. После создания прокси-туннеля укажите в настройках браузера SOCKS5-прокси `127.0.0.1:p1`. На этом настройка завершена.
 
-$ ssh -D s1\_ip:p1 username@sshd\_server
+### 2. Прокси, привязанный к определённому IP-адресу
 
-This command sets up a socks5 proxy server on s1. The proxy address is:  _s1\_ip:p1_ .
+Такой прокси-сервер может обслуживать и других пользователей. Они, включая вас, смогут подключаться к нему по адресу `s1_ip` и порту `p1`.
 
-*   Some useful ssh arguments
-    
+Команда:
 
-There are some other ssh arguments that can make the port forwarding more convenient for us:
+```bash
+ssh -D s1_ip:p1 username@sshd_server
+```
 
-\-C  Requests gzip compression of all data
--T  Disable pseudo-tty allocation
--N  Do not execute a remote command. This is useful for just forwarding ports.
--f  Requests ssh to go to background just before command execution.
--n  Redirects stdin from /dev/null (actually, prevents reading from stdin).
--q  Quiet mode. Causes most warning and diagnostic messages to be suppressed.
+Команда создаёт на `s1` прокси-сервер SOCKS5 с адресом `s1_ip:p1`.
 
-These arguments can be used with -D for different usages. I like to use this combination:
+### Полезные параметры SSH
 
-$ ssh -CnfND 8080 username@sshd\_server
+Следующие параметры SSH делают переадресацию портов удобнее:
 
-When I want to close the ssh proxy tunnel, I need to find the  _pid_  of it by
+- `-C` — включает gzip-сжатие всех данных;
+- `-T` — отключает выделение псевдотерминала;
+- `-N` — не выполняет команду на удалённом узле, что удобно при использовании SSH только для переадресации портов;
+- `-f` — переводит SSH в фоновый режим непосредственно перед выполнением команды;
+- `-n` — перенаправляет стандартный ввод из `/dev/null`, то есть запрещает чтение из стандартного ввода;
+- `-q` — включает тихий режим и подавляет большинство предупреждений и диагностических сообщений.
 
-$ ps aux | grep ssh
+Эти параметры можно использовать вместе с `-D` в разных сочетаниях. Например:
 
-and then kill it.
+```bash
+ssh -CnfND 8080 username@sshd_server
+```
 
-Or let it run in the shell:
+Чтобы закрыть такой SSH-туннель, сначала найдите идентификатор процесса (`PID`):
 
-$ ssh -CTND 8080 username@sshd\_server
+```bash
+ps aux | grep ssh
+```
 
-You can also configure it to listen on all addresses on the host by:
+Затем завершите найденный процесс.
 
-$ ssh -D "\*:8080" username@sshd\_server
+Можно также оставить SSH запущенным в текущей оболочке:
 
-###  Port forwarding squid proxy 
+```bash
+ssh -CTND 8080 username@sshd_server
+```
 
-This post mainly focus on using ssh to build up the proxy system. But the connection between the client and the other kind of proxy server such as squid can also make use of ssh tunnel. I only provides a simple example here, while more details of ssh port forwarding can be found from  [Port Forwarding using ssh Tunnel](https://www.systutorials.com/b/818/port-forwarding-using-ssh-tunnel/) . For example, the proxy server and port is  _proxy:port_ . Now we can port forwards port 8080 on localhost to it by this:
+Чтобы принимать подключения на всех адресах узла, выполните:
 
-$ ssh -L 8080:proxy:port username@sshd\_server
+```bash
+ssh -D "*:8080" username@sshd_server
+```
 
-####  Global Proxy in GNOME with NetworkManager on  [Linux](https://www.systutorials.com/category/tutorial/linux/)   [∞](https://www.systutorials.com/944/proxy-using-ssh-tunnel/#global-proxy-in-gnome-with-networkmanager-on-linux "Link to this section")  
+## Переадресация порта прокси-сервера Squid
 
-If you are using Linux with NetworkManager, it is very convenient to set up the global proxy of GNOME to use the socks proxy created by SSH.
+Эта статья посвящена главным образом созданию прокси с помощью SSH. Однако SSH-туннель можно использовать и для подключения клиента к прокси-серверу другого типа, например Squid. Здесь приведён только простой пример; подробнее о переадресации портов через SSH рассказано в статье [«Переадресация портов через SSH-туннель»](https://www.systutorials.com/b/818/port-forwarding-using-ssh-tunnel/).
 
- ![](/images/fd9d21a01d3788f1d8c166454930cf2b.png)
+Предположим, адрес и порт прокси-сервера — `proxy:port`. Перенаправить к нему локальный порт `8080` можно так:
 
+```bash
+ssh -L 8080:proxy:port username@sshd_server
+```
 
-**********
+## Глобальный прокси GNOME с NetworkManager в Linux [∞](https://www.systutorials.com/944/proxy-using-ssh-tunnel/#global-proxy-in-gnome-with-networkmanager-on-linux "Ссылка на этот раздел")
+
+Если вы используете [Linux](https://www.systutorials.com/category/tutorial/linux/) с NetworkManager, можно настроить глобальный прокси GNOME для работы через SOCKS-прокси, созданный с помощью SSH.
+
+![Настройка прокси в GNOME](/images/fd9d21a01d3788f1d8c166454930cf2b.png)
+
+---
+
 [ssh](/tags/ssh.md)
 [proxy](/tags/proxy.md)
-[НЕ ПЕРЕВЕДЕНО](/tags/untranslated.md)

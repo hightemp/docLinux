@@ -1,5 +1,5 @@
 * [Dockerfile и коммуникация между контейнерами](/articles/dockerfile_container_communication.md)
-* [Ограничить ресурсы контейнера](/articles/docker_container_resource_limits.md)
+* [Ограничение ресурсов контейнера](/articles/docker_container_resource_limits.md)
 * [Как переместить докер по умолчанию /var/lib/docker в другой каталог в Ubuntu / Debian Linux](/articles/move_docker_data_directory.md)
 * [ENTRYPOINT vs CMD: назад к основам](/articles/entrypoint_vs_cmd.md)
 * [Как смонтировать каталог хоста в Docker-контейнере](/articles/docker_bind_mount_host_directory.md)

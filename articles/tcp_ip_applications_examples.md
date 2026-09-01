@@ -1,176 +1,158 @@
 # Приложения TCP/IP на примерах
 
-In this tutorial we'll implement some simple TCP/IP applications with `ncat` , `bash` and some other standard UNIX tools. The principles learned here can be used to implement networking applications in other languages.
+В этом руководстве мы реализуем несколько простых приложений TCP/IP с помощью `ncat`, `bash` и других стандартных инструментов UNIX. Рассмотренные здесь принципы можно использовать для создания сетевых приложений на других языках.
 
-The `$` or `#` in front of command line examples denotes the system prompt. Do not type it yourself.
+Символы `$` и `#` перед примерами команд обозначают системное приглашение. Вводить их не нужно.
 
-To run the examples, you need an operating system conforming to POSIX (eg. \*BSD or macOS) or Linux. The `ncat` program, usually bundled with `nmap` , is also required.
+Для запуска примеров потребуется операционная система, совместимая с POSIX (например, \*BSD или macOS), либо Linux. Также нужна программа `ncat`, которая обычно входит в состав `nmap`.
 
-You can install `nmap` differently on different systems; on Ubuntu and other Debian-based distros, the following command should work:
+Способ установки `nmap` зависит от системы. В Ubuntu и других дистрибутивах на базе Debian подойдёт следующая команда:
 
-```
+```bash
 $ sudo apt install nmap
-
 ```
 
-> USE THESE EXAMPLES AT YOUR OWN RISK. Examples may have vulnerabilities, and should never be exposed to public Internet. Configure your firewall properly before proceeding.
+> **Используйте эти примеры на свой страх и риск.** В них могут быть уязвимости, поэтому созданные сервисы ни в коем случае нельзя открывать в публичный Интернет. Перед продолжением правильно настройте межсетевой экран.
 
-#  [](https://gist.github.com/ilmoeuro/11284639#basic-usage-of-ncat) Basic usage of `ncat` 
+## [Основы использования `ncat`](https://gist.github.com/ilmoeuro/11284639#basic-usage-of-ncat)
 
-Ncat is a simple tool for command line network I/O. It can be used either as a client or as a server. It's similar to the popular `netcat` program, but offers simultaneous connections for server use.
+Ncat — простой инструмент для сетевого ввода-вывода из командной строки. Он может работать как клиент или как сервер. Ncat похож на популярную программу `netcat`, но в серверном режиме поддерживает несколько одновременных подключений.
 
-The program works by opening a network connection, sending all standard input to that network connection and printing all incoming data to standard output.
+Программа открывает сетевое соединение, отправляет в него весь стандартный ввод и выводит все входящие данные в стандартный вывод.
 
-To use as a client, use the following command:
+Для работы в режиме клиента используйте следующую команду:
 
-```
-$ ncat <target-address> <target-port> 
-
-```
-
-To use as a server, use as follows:
-
-```
-$ ncat -lp <listen-port> 
-
+```bash
+$ ncat <target-address> <target-port>
 ```
 
-The listening socket is closed when you quit the program, for example withCtrl\-C.
+Для работы в режиме сервера запустите:
 
-Let's try it out! From one shell (terminal window), type:
-
-```
-$ ncat -lp 10101 
-
+```bash
+$ ncat -lp <listen-port>
 ```
 
-From other shell, enter the following command:
+Прослушивающий сокет закрывается при завершении программы, например после нажатия `Ctrl+C`.
 
+Попробуем это на практике. В одной командной оболочке (окне терминала) введите:
+
+```bash
+$ ncat -lp 10101
 ```
-$ ncat localhost 10101 
 
+В другой оболочке выполните следующую команду:
+
+```bash
+$ ncat localhost 10101
 ```
 
-Now you can type something into one shell and it shows up in the other. TypeCtrl\-Dfrom the client side to quit.
+Теперь текст, введённый в одной оболочке, появляется в другой. Чтобы выйти, на стороне клиента нажмите `Ctrl+D`.
 
-If you want to learn more, read the `ncat` man page:
+Подробнее можно узнать на странице руководства `ncat`:
 
-```
+```bash
 $ man ncat
-
 ```
 
-#  [](https://gist.github.com/ilmoeuro/11284639#example-1-motd-server) Example 1: MOTD-server
+## [Пример 1: MOTD-сервер](https://gist.github.com/ilmoeuro/11284639#example-1-motd-server)
 
-The simplest possible server is one that sends a fixed message to the client when connected to. Example session:
+Простейший сервер при подключении отправляет клиенту фиксированное сообщение. Пример сеанса:
 
+```text
+КЛИЕНТ                      СЕРВЕР
+|                           прослушивает порт
+|                           |
+*  ----- подключение ---->  *
+|                           |
+|                           |
+*  <----- сообщение ------  *
+|                           |
+|                           |
+*  -- закрытие соединения > *
+|                           |
+|                           |
 ```
 
-CLIENT                      SERVER
-|                           listening
-|                           |
-*  ------- connect ------>  *
-|                           |
-|                           |
-*  <------ message -------  *
-|                           |
-|                           |
-*  -- close connection -->  *
-|                           |
-|                           |
+Для реализации сервера воспользуемся специальным параметром Ncat `-c`:
 
-
+```bash
+$ ncat -c "echo hello world" -lp 10101
 ```
 
-To implement the server, we'll use the magic `-c` option of Ncat:
+Когда удалённый клиент подключается к Ncat, программа запускает указанную команду (`echo hello world`). Вывод команды отправляется клиенту.
 
-```
-$ ncat -c "echo hello world" -lp 10101 
+Отдельная клиентская программа не нужна — достаточно запустить Ncat в режиме клиента:
 
-```
-
-This runs the given command ( `echo hello world` ) when a remote client connects to Ncat. The output of the command is sent to the client.
-
-There's no need for a separate client, just use client mode:
-
-```
+```console
 $ ncat localhost 10101
 hello world
-
 ```
 
-To end the session, type Control-D.
+Чтобы завершить сеанс, нажмите `Ctrl+D`.
 
-Now, the server exits after one client connection. This can be changed with the `-k` (keep open) option.
+Сейчас сервер завершает работу после подключения одного клиента. Это поведение можно изменить с помощью параметра `-k`, который оставляет сервер открытым для новых соединений.
 
-#  [](https://gist.github.com/ilmoeuro/11284639#example-2-echo-server) Example 2: Echo server
+## [Пример 2: эхо-сервер](https://gist.github.com/ilmoeuro/11284639#example-2-echo-server)
 
-Echo server just echoes everything sent to it back to the client. An UNIX program that does the same thing (without parameters) is called `cat` . So, can we use `cat` to implement an echo server? Type this to the "server" console:
+Эхо-сервер отправляет клиенту обратно всё, что от него получает. В UNIX есть программа, которая без параметров делает то же самое, — `cat`. Попробуем использовать `cat` для реализации эхо-сервера. Введите в консоли сервера:
 
-```
+```bash
 $ ncat -c cat -lp 10101 -k
-
 ```
 
-Let's use the same client as last time:
+Воспользуемся тем же клиентом, что и в предыдущем примере:
 
-```
+```bash
 $ ncat localhost 10101
-
 ```
 
-Now everything we type is echoed back after newline!
+Теперь после перевода строки весь введённый текст возвращается обратно:
 
-```
+```console
 $ ncat localhost 10101
 is this on?
 is this on?
 this is echoed.
 this is echoed.
-
 ```
 
-#  [](https://gist.github.com/ilmoeuro/11284639#example-3-chat-server) Example 3: Chat server
+## [Пример 3: чат-сервер](https://gist.github.com/ilmoeuro/11284639#example-3-chat-server)
 
-Echo server is fun, but it only echoes to the same client that sent the message. If we echoed the message to all clients, we could implement a simple chat/relay server. The problem is, all `ncat -c` connections run in separate processes, so we need a way to communicate between processes. Files and `tail -f` is perharps the simplest way to do real-time communication between processes.
+Эхо-сервер интересен, но возвращает сообщение только тому клиенту, который его отправил. Если пересылать сообщение всем клиентам, получится простой чат-сервер, или сервер-ретранслятор. Проблема в том, что каждое соединение `ncat -c` обслуживается отдельным процессом, поэтому нужен способ обмена данными между процессами. Вероятно, самый простой способ организовать такой обмен в реальном времени — использовать файлы и `tail -f`.
 
-Our chat server will have two components. One that receives messages and appends them to our shared file:
+Наш чат-сервер будет состоять из двух компонентов. Первый получает сообщения и добавляет их в общий файл:
 
-```
+```bash
 cat >>messages
-
 ```
 
-And one that listens to the shared file and sends forward all the messages added to it. The `-f` switch makes `tail` keep listening to `messages` and outputting any new lines added to it:
+Второй следит за общим файлом и пересылает все добавленные в него сообщения. Параметр `-f` заставляет `tail` продолжать следить за файлом `messages` и выводить каждую новую добавленную строку:
 
-```
+```bash
 tail -f messages
-
 ```
 
-If we combine them, we got our relay server!
+Объединив эти компоненты, получим сервер-ретранслятор:
 
-```
+```bash
 $ ncat -c "cat >>messages | tail -f messages" -lp 10101 -k
-
 ```
 
-Now open _two_ new shells/terminal windows and open a client in both:
+Откройте два новых окна оболочки или терминала и в каждом запустите клиент:
 
-```
+```bash
 $ ncat localhost 10101
-
 ```
 
-Now the two clients can chat with each other. One problem with this chat client is that you see the messages you send twice. We'll fix that problem in a later example.
+Теперь два клиента могут общаться друг с другом. У этого чат-клиента есть один недостаток: каждое отправленное сообщение отображается дважды. Исправим это в одном из следующих примеров.
 
-#  [](https://gist.github.com/ilmoeuro/11284639#example-4-simple-http-server) Example 4: Simple HTTP server
+## [Пример 4: простой HTTP-сервер](https://gist.github.com/ilmoeuro/11284639#example-4-simple-http-server)
 
-HTTP is a text-based protocol, so it's pretty easy to read and write HTTP messages. It's also a _request-response_ protocol: Each interaction between the client and the server is the client sending a _request_ to the server and the server responding with a _response_ . If the server always responds with the same response, we can just simply write it in a file and just send it every time.
+HTTP — текстовый протокол, поэтому сообщения HTTP довольно легко читать и составлять. Кроме того, это протокол типа «запрос — ответ»: при каждом взаимодействии клиент отправляет серверу запрос, а сервер возвращает ответ. Если сервер всегда возвращает один и тот же ответ, его можно записать в файл и отправлять при каждом запросе.
 
-Let's write a simple HTTP response:
+Составим простой ответ HTTP:
 
-```
+```http
 HTTP/1.0 200 OK
 Content-type: text/html; charset=utf-8
 Connection: close
@@ -184,84 +166,77 @@ Connection: close
 <img src="http://placecage.com/500/500" alt="">
 </body>
 </html>
-
 ```
 
-Save the response to a file named `response.txt` . Now we can implement our server. Type the following in the same directory where `responses.txt` is:
+Сохраните ответ в файл `response.txt`. Теперь можно реализовать сервер. Выполните следующую команду в каталоге, где находится `response.txt`:
 
-```
+```bash
 $ ncat -c "cat response.txt" -lp 8080 -k
-
 ```
 
-Now open your web browser, surf to `http://localhost:8080/` , and enjoy your "hello world" page!
+Откройте в браузере `http://localhost:8080/` — вы увидите страницу с приветствием.
 
-#  [](https://gist.github.com/ilmoeuro/11284639#example-5-improved-chat-server) Example 5: Improved chat server
+## [Пример 5: улучшенный чат-сервер](https://gist.github.com/ilmoeuro/11284639#example-5-improved-chat-server)
 
-This version of the chat server has an identifier for each participant, so people can have conversations. Because `ncat` starts a new process for each client, we can use the process ID as the identifier. We can also filter outgoing messages based on the ID, so the problem with duplicate messages goes away.
+В этой версии чат-сервера у каждого участника есть идентификатор, поэтому собеседников можно различать. Поскольку `ncat` запускает для каждого клиента новый процесс, идентификатором может служить ID процесса. Кроме того, исходящие сообщения можно фильтровать по этому ID, устранив дублирование.
 
-We add 2 more programs to the pipeline of example 3 to accomplish this. The first one is added to the front, and it appends the process ID (available in environment variable `$PPID` ) to each incoming line. The `-u` flag turns off buffering in `sed` , so it works with interactive input/output from the network.
+Для этого добавим в конвейер из примера 3 ещё две программы. Первую поместим в начало конвейера: она добавляет ID процесса, доступный в переменной окружения `$PPID`, к каждой входящей строке. Параметр `-u` отключает буферизацию в `sed`, что позволяет работать с интерактивным сетевым вводом и выводом.
 
-```
+```bash
 sed -ue "s/^/$PPID: /"
-
 ```
 
-The second one is added to the end of the pipeline, and it filters out all the messages that start with the process ID ( `$PPID` ). We need to turn off buffering here too, with `--line-buffered` . The flag `-v` makes `grep` remove the matching lines instead of retaining them.
+Вторую программу добавим в конец конвейера. Она отфильтровывает все сообщения, которые начинаются с ID процесса (`$PPID`). Здесь тоже нужно отключить буферизацию — с помощью параметра `--line-buffered`. Параметр `-v` заставляет `grep` удалять совпавшие строки, а не сохранять их.
 
-```
+```bash
 grep --line-buffered -v "^$PPID:"
-
 ```
 
-Now, let's run the complete chat server that looks like this:
+Запустим готовый чат-сервер:
 
-```
+```bash
 $ ncat -c 'sed -ue "s/^/$PPID: /"  | cat >>messages | tail -f messages | grep --line-buffered -v "^$PPID:"' -lp 10101 -k
-
 ```
 
-Now open _two_ new shells/terminal windows and open a client in both:
+Откройте два новых окна оболочки или терминала и в каждом запустите клиент:
 
-```
+```bash
 $ ncat localhost 10101
-
 ```
 
-The two clients can chat with each other. Now we have fixed the problems present in example 3.
+Теперь два клиента могут общаться друг с другом, а проблемы из примера 3 устранены.
 
-#  [](https://gist.github.com/ilmoeuro/11284639#example-6-fuzz-testing) Example 6: Fuzz testing
+## [Пример 6: фаззинг](https://gist.github.com/ilmoeuro/11284639#example-6-fuzz-testing)
 
-Fuzz testing means feeding random input to a program, hopefully triggering edge cases in input processing and exposing bugs or vulnerabilities. `ncat` can be used for simple fuzz testing, there's more specialized programs for more advanced use cases. First, you need something to fuzz test. `ncat` can act both as a client and a server, so you can test both kinds of programs. Let's fuzz test our browser first! We can fuzz two parts of our program separately: the HTTP engine and the HTML engine. Let's first test the HTTP engine by just returning random (invalid) HTTP responses. This command will respond to requests with 1 000 000 bytes of random data ( `head -c` reads the given number of bytes from the file given as a parameter, and `/dev/urandom` is a file containing an infinite amount of random data).
+Фаззинг заключается в передаче программе случайных входных данных, которые могут затронуть крайние случаи обработки ввода и обнаружить ошибки или уязвимости. `ncat` подходит для простого фаззинга; для более сложных сценариев существуют специализированные программы.
 
-```
+Сначала нужен объект тестирования. `ncat` может работать и как клиент, и как сервер, поэтому с его помощью можно проверять программы обоих типов. Для начала проведём фаззинг браузера. Отдельно можно протестировать два его компонента: обработчик HTTP и обработчик HTML. Начнём с обработчика HTTP, возвращая случайные, заведомо некорректные ответы HTTP. Следующая команда отвечает на запросы 1 000 000 байт случайных данных (`head -c` считывает из указанного файла заданное количество байт, а `/dev/urandom` представляет собой файл с бесконечным потоком случайных данных):
+
+```bash
 $ ncat -c "head -c 1000000 /dev/urandom" -lp 8080 -k
-
 ```
 
-Open a new browser and browse to `http://localhost:8080/` . In my tests, Firefox showed a lot of gibberish, and Chrome displayed an "invalid HTTP response" page. **I increased the amount of data to 1 000 000 000 bytes, and managed to crash my Firefox** .
+Откройте новое окно браузера и перейдите по адресу `http://localhost:8080/`. В моих тестах Firefox показал множество бессмысленных символов, а Chrome — страницу с сообщением о некорректном ответе HTTP. **Когда я увеличил объём данных до 1 000 000 000 байт, мне удалось вызвать аварийное завершение Firefox.**
 
-Let's use the "header" part of the response from example 4, but instead of a fixed HTML message, we output random gibberish. First save the header part in a file named `response1.txt` , **note the empty lines in the end** :
+Теперь воспользуемся частью ответа с заголовками из примера 4, но вместо фиксированного HTML-сообщения выведем случайный набор символов. Сначала сохраните заголовки в файл `response1.txt`. **Обратите внимание на пустые строки в конце:**
 
-```
+```http
 HTTP/1.0 200 OK
 Content-type: text/html; charset=utf-8
 Connection: close
 
 
-
 ```
 
-Now we can serve random data with the correct HTTP header part:
+Теперь можно возвращать случайные данные с корректными заголовками HTTP:
 
-```
+```bash
 $ ncat -c "head -c 1000000 /dev/urandom | cat response1.txt -" -lp 8080 -k
-
 ```
 
-If you try again opening the page with Chrome, you see a lot of gibberish (like with Firefox) instead of an "invalid response" message. You can also try to increase the amount of data and see if you can crash Chrome that way. Try other browsers too, you may be able to invoke more interesting behaviour (like segmentation faults) with lesser-known browsers.
+Если снова открыть страницу в Chrome, вместо сообщения о некорректном ответе вы увидите множество бессмысленных символов, как и в Firefox. Можно увеличить объём данных и проверить, удастся ли таким способом вызвать аварийное завершение Chrome. Попробуйте и другие браузеры: в менее распространённых программах могут проявиться более интересные сбои, например ошибка сегментации.
 
-**********
+---
+
 [bash](/tags/bash.md)
 [ncat](/tags/ncat.md)
-[НЕ ПЕРЕВЕДЕНО](/tags/untranslated.md)

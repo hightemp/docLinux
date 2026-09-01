@@ -49,7 +49,7 @@
     - [Ограничение использования процессора с помощью nice, cpulimit и cgroups](/articles/limit_cpu_with_nice_cpulimit_cgroups.md)
     - [Как ограничить использование процессора и памяти с помощью групп в Debian/Ubuntu](/articles/cgroups_resource_limits_debian_ubuntu.md)
     - [Механизмы контейнеризации: cgroups](/articles/containerization_with_cgroups.md)
-    - [ПЕРЕНОС ПРОЦЕССА В КОНТРОЛЬНУЮ ГРУППУ](/articles/move_process_to_cgroup.md)
+    - [Перенос процесса в контрольную группу](/articles/move_process_to_cgroup.md)
     - [Борьба за ресурсы](/articles/linux_resource_contention.md)
   - Память, swap и OOM
     - [OOM killer](/articles/oom_killer.md)
@@ -103,7 +103,7 @@
   - Администрирование Docker
     - [Полное практическое руководство по Docker: с нуля до кластера на AWS](/articles/docker_practical_guide.md)
     - [Автоматически запускать контейнеры](/articles/docker_container_autostart.md)
-    - [Ограничить ресурсы контейнера](/articles/docker_container_resource_limits.md)
+    - [Ограничение ресурсов контейнера](/articles/docker_container_resource_limits.md)
     - [Как смонтировать каталог хоста в Docker-контейнере](/articles/docker_bind_mount_host_directory.md)
     - [Как переместить докер по умолчанию /var/lib/docker в другой каталог в Ubuntu / Debian Linux](/articles/move_docker_data_directory.md)
   - Виртуализация
@@ -112,14 +112,14 @@
     - [vagrant: добавить еще диск](/articles/vagrant_add_disk.md)
 - Сети
   - TCP/IP и порты
-    - [Приложения TCP / IP на примерах](/articles/tcp_ip_applications_examples.md)
+    - [Приложения TCP/IP на примерах](/articles/tcp_ip_applications_examples.md)
     - [Привязка Портов](/articles/port_binding.md)
     - [Могут ли два приложения прослушивать один и тот же порт?](/articles/multiple_apps_same_port.md)
     - [И еще о специальном файле устройства /dev/tcp (TCP/IP), встроенном в bash](/articles/bash_dev_tcp.md)
     - [Как открыть TCP-/UDP-сокет средствами командной оболочки bash](/articles/bash_tcp_udp_sockets.md)
     - [Как мне разрешить имя хоста в IP-адрес в скрипте Bash?](/articles/resolve_hostname_in_bash.md)
   - SSH и прокси
-    - [Proxy Using SSH Tunnel](/articles/ssh_tunnel_proxy.md)
+    - [Прокси через SSH-туннель](/articles/ssh_tunnel_proxy.md)
     - [Как надежно поддерживать открытый туннель SSH?](/articles/persistent_ssh_tunnel.md)
     - [github ssh proxy](/articles/github_ssh_proxy.md)
 - Безопасность и доступ

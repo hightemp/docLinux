@@ -9,5 +9,5 @@
 * [Как открыть TCP-/UDP-сокет средствами командной оболочки bash](/articles/bash_tcp_udp_sockets.md)
 * [И еще о специальном файле устройства /dev/tcp (TCP/IP), встроенном в bash](/articles/bash_dev_tcp.md)
 * [Почему Linux допускает "init=/bin/bash"?](/articles/linux_init_bin_bash.md)
-* [Приложения TCP / IP на примерах](/articles/tcp_ip_applications_examples.md)
+* [Приложения TCP/IP на примерах](/articles/tcp_ip_applications_examples.md)
 * [Как мне разрешить имя хоста в IP-адрес в скрипте Bash?](/articles/resolve_hostname_in_bash.md)

@@ -1,162 +1,151 @@
-# Ограничить ресурсы контейнера
-https://docs.docker.com/config/containers/resource_constraints/
+# Ограничение ресурсов контейнера
 
-By default, a container has no resource constraints and can use as much of a given resource as the host’s kernel scheduler allows. Docker provides ways to control how much memory, or CPU a container can use, setting runtime configuration flags of the`docker run`command. This section provides details on when you should set such limits and the possible implications of setting them.
+Источник: [Ограничение ресурсов контейнеров](https://docs.docker.com/config/containers/resource_constraints/)
 
-Many of these features require your kernel to support Linux capabilities. To check for support, you can use the[`docker info`](https://docs.docker.com/engine/reference/commandline/info/)command. If a capability is disabled in your kernel, you may see a warning at the end of the output like the following:
+По умолчанию ресурсы контейнера ничем не ограничены, и он может использовать столько ресурсов, сколько ему позволяет планировщик ядра хоста. Docker позволяет управлять объёмом памяти и процессорного времени, доступным контейнеру, с помощью параметров команды `docker run`. Ниже рассказано, когда следует задавать такие ограничения и к каким последствиям это может привести.
+
+Для работы многих из этих возможностей ядро должно поддерживать соответствующие функции Linux. Проверить их наличие можно командой [`docker info`](https://docs.docker.com/engine/reference/commandline/info/). Если какая-либо возможность отключена в ядре, в конце вывода может появиться такое предупреждение:
 
 ```none
 WARNING: No swap limit support
-
 ```
 
-Consult your operating system’s documentation for enabling them.[Learn more](https://docs.docker.com/install/linux/linux-postinstall/#your-kernel-does-not-support-cgroup-swap-limit-capabilities).
+Чтобы включить необходимые возможности, обратитесь к документации своей операционной системы. [Подробнее](https://docs.docker.com/install/linux/linux-postinstall/#your-kernel-does-not-support-cgroup-swap-limit-capabilities).
 
-## Memory
+## Память
 
-### Understand the risks of running out of memory
+### Риски нехватки памяти
 
-It is important not to allow a running container to consume too much of the host machine’s memory. On Linux hosts, if the kernel detects that there is not enough memory to perform important system functions, it throws an`OOME`, or`Out Of Memory Exception`, and starts killing processes to free up memory. Any process is subject to killing, including Docker and other important applications. This can effectively bring the entire system down if the wrong process is killed.
+Важно не допускать, чтобы работающий контейнер потреблял слишком много памяти хоста. Если ядро Linux обнаруживает, что памяти недостаточно для выполнения важных системных функций, возникает исключение из-за нехватки памяти (OOME), после чего ядро начинает завершать процессы, чтобы освободить память. Завершён может быть любой процесс, в том числе Docker и другие важные приложения. Если ядро выберет не тот процесс, вся система может фактически перестать работать.
 
-Docker attempts to mitigate these risks by adjusting the OOM priority on the Docker daemon so that it is less likely to be killed than other processes on the system. The OOM priority on containers is not adjusted. This makes it more likely for an individual container to be killed than for the Docker daemon or other system processes to be killed. You should not try to circumvent these safeguards by manually setting`--oom-score-adj`to an extreme negative number on the daemon or a container, or by setting`--oom-kill-disable`on a container.
+Docker старается снизить этот риск, изменяя OOM-приоритет демона Docker так, чтобы вероятность его завершения была ниже, чем у других системных процессов. OOM-приоритет контейнеров при этом не изменяется. Поэтому ядро с большей вероятностью завершит отдельный контейнер, а не демон Docker или другой системный процесс. Не пытайтесь обходить эти меры защиты: не задавайте демону или контейнеру чрезмерно большое отрицательное значение `--oom-score-adj` и не используйте для контейнера параметр `--oom-kill-disable`.
 
-For more information about the Linux kernel’s OOM management, see[Out of Memory Management](https://www.kernel.org/doc/gorman/html/understand/understand016.html).
+Подробнее об управлении OOM в ядре Linux см. в документации [«Управление при нехватке памяти»](https://www.kernel.org/doc/gorman/html/understand/understand016.html).
 
-You can mitigate the risk of system instability due to OOME by:
+Снизить риск нестабильности системы из-за OOME можно следующим образом:
 
-*   Perform tests to understand the memory requirements of your application before placing it into production.
-*   Ensure that your application runs only on hosts with adequate resources.
-*   Limit the amount of memory your container can use, as described below.
-*   Be mindful when configuring swap on your Docker hosts. Swap is slower and less performant than memory but can provide a buffer against running out of system memory.
-*   Consider converting your container to a[service](https://docs.docker.com/engine/swarm/services/), and using service-level constraints and node labels to ensure that the application runs only on hosts with enough memory
+- Перед развёртыванием приложения в рабочей среде проведите тесты и определите, сколько памяти ему требуется.
+- Запускайте приложение только на хостах с достаточным количеством ресурсов.
+- Ограничьте объём памяти, доступный контейнеру, как описано ниже.
+- Внимательно настраивайте подкачку на хостах Docker. Подкачка медленнее оперативной памяти и снижает производительность, но может дать системе запас при нехватке памяти.
+- Рассмотрите возможность преобразовать контейнер в [сервис](https://docs.docker.com/engine/swarm/services/) и с помощью ограничений уровня сервиса и меток узлов обеспечить запуск приложения только на хостах с достаточным объёмом памяти.
 
-### Limit a container’s access to memory
+### Ограничение доступа контейнера к памяти
 
-Docker can enforce hard memory limits, which allow the container to use no more than a given amount of user or system memory, or soft limits, which allow the container to use as much memory as it needs unless certain conditions are met, such as when the kernel detects low memory or contention on the host machine. Some of these options have different effects when used alone or when more than one option is set.
+Docker поддерживает жёсткие ограничения памяти, которые не позволяют контейнеру использовать больше заданного объёма пользовательской или системной памяти, и мягкие ограничения. При мягком ограничении контейнер может использовать столько памяти, сколько ему требуется, пока не возникнут определённые условия — например, ядро обнаружит нехватку памяти или конкуренцию за неё на хосте. Некоторые параметры действуют по-разному в зависимости от того, используются ли они отдельно или вместе.
 
-Most of these options take a positive integer, followed by a suffix of`b`,`k`,`m`,`g`, to indicate bytes, kilobytes, megabytes, or gigabytes.
+Большинство этих параметров принимают положительное целое число с суффиксом `b`, `k`, `m` или `g`, обозначающим байты, килобайты, мегабайты или гигабайты соответственно.
 
-| Option | Description |
+| Параметр | Описание |
 | --- | --- |
-| `-m`or`--memory=` | The maximum amount of memory the container can use. If you set this option, the minimum allowed value is`4m`(4 megabyte). |
-| `--memory-swap`\* | The amount of memory this container is allowed to swap to disk. See[`--memory-swap`details](https://docs.docker.com/config/containers/resource_constraints/#--memory-swap-details). |
-| `--memory-swappiness` | By default, the host kernel can swap out a percentage of anonymous pages used by a container. You can set`--memory-swappiness`to a value between 0 and 100, to tune this percentage. See[`--memory-swappiness`details](https://docs.docker.com/config/containers/resource_constraints/#--memory-swappiness-details). |
-| `--memory-reservation` | Allows you to specify a soft limit smaller than`--memory`which is activated when Docker detects contention or low memory on the host machine. If you use`--memory-reservation`, it must be set lower than`--memory`for it to take precedence. Because it is a soft limit, it does not guarantee that the container doesn’t exceed the limit. |
-| `--kernel-memory` | The maximum amount of kernel memory the container can use. The minimum allowed value is`4m`. Because kernel memory cannot be swapped out, a container which is starved of kernel memory may block host machine resources, which can have side effects on the host machine and on other containers. See[`--kernel-memory`details](https://docs.docker.com/config/containers/resource_constraints/#--kernel-memory-details). |
-| `--oom-kill-disable` | By default, if an out-of-memory (OOM) error occurs, the kernel kills processes in a container. To change this behavior, use the`--oom-kill-disable`option. Only disable the OOM killer on containers where you have also set the`-m/--memory`option. If the`-m`flag is not set, the host can run out of memory and the kernel may need to kill the host system’s processes to free memory. |
+| `-m` или `--memory=` | Максимальный объём памяти, который может использовать контейнер. Минимально допустимое значение — `4m` (4 мегабайта). |
+| `--memory-swap`\* | Объём памяти, который контейнер может выгрузить на диск. См. [подробное описание `--memory-swap`](https://docs.docker.com/config/containers/resource_constraints/#--memory-swap-details). |
+| `--memory-swappiness` | По умолчанию ядро хоста может выгружать в пространство подкачки некоторую долю анонимных страниц, используемых контейнером. Параметр `--memory-swappiness` принимает значение от 0 до 100 и позволяет регулировать эту долю. См. [подробное описание `--memory-swappiness`](https://docs.docker.com/config/containers/resource_constraints/#--memory-swappiness-details). |
+| `--memory-reservation` | Позволяет задать мягкое ограничение меньше значения `--memory`. Оно начинает действовать, когда Docker обнаруживает конкуренцию за память или её нехватку на хосте. Чтобы `--memory-reservation` имел приоритет, его значение должно быть меньше `--memory`. Поскольку это мягкое ограничение, оно не гарантирует, что контейнер его не превысит. |
+| `--kernel-memory` | Максимальный объём памяти ядра, который может использовать контейнер. Минимально допустимое значение — `4m`. Память ядра нельзя выгрузить в пространство подкачки, поэтому контейнер, которому её не хватает, может заблокировать ресурсы хоста. Это способно повлиять как на сам хост, так и на другие контейнеры. См. [подробное описание `--kernel-memory`](https://docs.docker.com/config/containers/resource_constraints/#--kernel-memory-details). |
+| `--oom-kill-disable` | По умолчанию при нехватке памяти (OOM) ядро завершает процессы в контейнере. Изменить это поведение позволяет параметр `--oom-kill-disable`. Отключайте OOM killer только для контейнеров, которым также задан параметр `-m/--memory`. Если флаг `-m` не установлен, на хосте может закончиться память, и ядру придётся завершать системные процессы хоста, чтобы её освободить. |
 
-For more information about cgroups and memory in general, see the documentation for[Memory Resource Controller](https://www.kernel.org/doc/Documentation/cgroup-v1/memory.txt).
+Дополнительные сведения о cgroups и памяти см. в документации [«Контроллер ресурсов памяти»](https://www.kernel.org/doc/Documentation/cgroup-v1/memory.txt).
 
-### `--memory-swap`details
+### Подробное описание `--memory-swap`
 
-`--memory-swap`is a modifier flag that only has meaning if`--memory`is also set. Using swap allows the container to write excess memory requirements to disk when the container has exhausted all the RAM that is available to it. There is a performance penalty for applications that swap memory to disk often.
+`--memory-swap` — это модифицирующий флаг, который имеет смысл только вместе с `--memory`. Подкачка позволяет контейнеру записывать избыточные данные из памяти на диск, когда вся доступная ему оперативная память исчерпана. Приложения, которые часто выгружают память на диск, работают медленнее.
 
-Its setting can have complicated effects:
+Значение этого параметра может давать неоднозначные результаты:
 
-*   If`--memory-swap`is set to a positive integer, then both`--memory`and`--memory-swap`must be set.`--memory-swap`represents the total amount of memory and swap that can be used, and`--memory`controls the amount used by non-swap memory. So if`--memory="300m"`and`--memory-swap="1g"`, the container can use 300m of memory and 700m (`1g - 300m`) swap.
-    
-*   If`--memory-swap`is set to`0`, the setting is ignored, and the value is treated as unset.
-    
-*   If`--memory-swap`is set to the same value as`--memory`, and`--memory`is set to a positive integer,**the container does not have access to swap**. See[Prevent a container from using swap](https://docs.docker.com/config/containers/resource_constraints/#prevent-a-container-from-using-swap).
-    
-*   If`--memory-swap`is unset, and`--memory`is set, the container can use twice as much swap as the`--memory`setting, if the host container has swap memory configured. For instance, if`--memory="300m"`and`--memory-swap`is not set, the container can use 300m of memory and 600m of swap.
-    
-*   If`--memory-swap`is explicitly set to`-1`, the container is allowed to use unlimited swap, up to the amount available on the host system.
-    
-*   Inside the container, tools like`free`report the host’s available swap, not what’s available inside the container. Don’t rely on the output of`free`or similar tools to determine whether swap is present.
-    
+- Если `--memory-swap` задан положительным целым числом, необходимо также задать `--memory`. Параметр `--memory-swap` определяет суммарный объём оперативной памяти и пространства подкачки, а `--memory` — объём оперативной памяти без учёта подкачки. Например, при `--memory="300m"` и `--memory-swap="1g"` контейнер может использовать 300 МБ оперативной памяти и 700 МБ (`1g - 300m`) пространства подкачки.
+- Если `--memory-swap` равен `0`, параметр игнорируется и считается незаданным.
+- Если `--memory-swap` равен `--memory`, а `--memory` задан положительным целым числом, **контейнер не может использовать пространство подкачки**. См. раздел [Запрет использования подкачки контейнером](https://docs.docker.com/config/containers/resource_constraints/#prevent-a-container-from-using-swap).
+- Если `--memory-swap` не задан, а `--memory` задан, контейнер может использовать пространство подкачки в объёме, вдвое превышающем значение `--memory`, при условии что подкачка настроена на хосте. Например, если задано `--memory="300m"`, а `--memory-swap` не задан, контейнер может использовать 300 МБ оперативной памяти и 600 МБ пространства подкачки.
+- Если явно задать `--memory-swap=-1`, контейнер сможет использовать пространство подкачки без ограничений, в пределах доступного на хосте объёма.
+- Внутри контейнера такие инструменты, как `free`, показывают доступное пространство подкачки хоста, а не контейнера. Не полагайтесь на вывод `free` или подобных инструментов при определении наличия подкачки.
 
-#### PREVENT A CONTAINER FROM USING SWAP
+#### Запрет использования подкачки контейнером
 
-If`--memory`and`--memory-swap`are set to the same value, this prevents containers from using any swap. This is because`--memory-swap`is the amount of combined memory and swap that can be used, while`--memory`is only the amount of physical memory that can be used.
+Если параметрам `--memory` и `--memory-swap` присвоено одинаковое значение, контейнер не сможет использовать пространство подкачки. Причина в том, что `--memory-swap` задаёт суммарный объём оперативной памяти и пространства подкачки, а `--memory` — только объём физической памяти.
 
-### `--memory-swappiness`details
+### Подробное описание `--memory-swappiness`
 
-*   A value of 0 turns off anonymous page swapping.
-*   A value of 100 sets all anonymous pages as swappable.
-*   By default, if you do not set`--memory-swappiness`, the value is inherited from the host machine.
+- Значение 0 отключает выгрузку анонимных страниц в пространство подкачки.
+- Значение 100 разрешает выгружать все анонимные страницы.
+- Если `--memory-swappiness` не задан, по умолчанию наследуется значение хоста.
 
-### `--kernel-memory`details
+### Подробное описание `--kernel-memory`
 
-Kernel memory limits are expressed in terms of the overall memory allocated to a container. Consider the following scenarios:
+Ограничения памяти ядра задаются с учётом общего объёма памяти, выделенного контейнеру. Рассмотрим следующие сценарии:
 
-*   **Unlimited memory, unlimited kernel memory**: This is the default behavior.
-*   **Unlimited memory, limited kernel memory**: This is appropriate when the amount of memory needed by all cgroups is greater than the amount of memory that actually exists on the host machine. You can configure the kernel memory to never go over what is available on the host machine, and containers which need more memory need to wait for it.
-*   **Limited memory, unlimited kernel memory**: The overall memory is limited, but the kernel memory is not.
-*   **Limited memory, limited kernel memory**: Limiting both user and kernel memory can be useful for debugging memory-related problems. If a container is using an unexpected amount of either type of memory, it runs out of memory without affecting other containers or the host machine. Within this setting, if the kernel memory limit is lower than the user memory limit, running out of kernel memory causes the container to experience an OOM error. If the kernel memory limit is higher than the user memory limit, the kernel limit does not cause the container to experience an OOM.
+- **Неограниченная общая память, неограниченная память ядра.** Поведение по умолчанию.
+- **Неограниченная общая память, ограниченная память ядра.** Такой вариант подходит, если всем cgroups суммарно требуется больше памяти, чем физически имеется на хосте. Можно настроить память ядра так, чтобы её потребление никогда не превышало доступный на хосте объём; контейнерам, которым требуется больше памяти, придётся ждать её освобождения.
+- **Ограниченная общая память, неограниченная память ядра.** Общий объём памяти ограничен, но объём памяти ядра — нет.
+- **Ограниченная общая память, ограниченная память ядра.** Ограничение как пользовательской памяти, так и памяти ядра может быть полезно при отладке проблем с памятью. Если контейнер неожиданно потребляет слишком много памяти любого из этих типов, память закончится только у него, не затрагивая другие контейнеры и хост. Если при такой настройке лимит памяти ядра ниже лимита пользовательской памяти, исчерпание памяти ядра приведёт к ошибке OOM в контейнере. Если лимит памяти ядра выше лимита пользовательской памяти, контейнер не столкнётся с OOM из-за ограничения памяти ядра.
 
-When you turn on any kernel memory limits, the host machine tracks “high water mark” statistics on a per-process basis, so you can track which processes (in this case, containers) are using excess memory. This can be seen per process by viewing`/proc/<PID>/status`on the host machine.
+При включении любого ограничения памяти ядра хост начинает собирать для каждого процесса статистику максимального потребления. Благодаря этому можно определить, какие процессы — в данном случае контейнеры — используют слишком много памяти. Статистику отдельного процесса можно посмотреть в файле `/proc/<PID>/status` на хосте.
 
-## CPU
+## Процессор
 
-By default, each container’s access to the host machine’s CPU cycles is unlimited. You can set various constraints to limit a given container’s access to the host machine’s CPU cycles. Most users use and configure the[default CFS scheduler](https://docs.docker.com/config/containers/resource_constraints/#configure-the-default-cfs-scheduler). In Docker 1.13 and higher, you can also configure the[realtime scheduler](https://docs.docker.com/config/containers/resource_constraints/#configure-the-realtime-scheduler).
+По умолчанию доступ каждого контейнера к процессорному времени хоста не ограничен. Можно задать различные ограничения на использование процессора отдельным контейнером. Большинство пользователей применяют и настраивают [планировщик CFS по умолчанию](https://docs.docker.com/config/containers/resource_constraints/#configure-the-default-cfs-scheduler). В Docker 1.13 и новее также можно настроить [планировщик реального времени](https://docs.docker.com/config/containers/resource_constraints/#configure-the-realtime-scheduler).
 
-### Configure the default CFS scheduler
+### Настройка планировщика CFS по умолчанию
 
-The CFS is the Linux kernel CPU scheduler for normal Linux processes. Several runtime flags allow you to configure the amount of access to CPU resources your container has. When you use these settings, Docker modifies the settings for the container’s cgroup on the host machine.
+CFS — планировщик процессорного времени ядра Linux для обычных процессов. Несколько параметров запуска позволяют настроить объём процессорных ресурсов, доступных контейнеру. При использовании этих параметров Docker изменяет настройки cgroup контейнера на хосте.
 
-| Option | Description |
+| Параметр | Описание |
 | --- | --- |
-| `--cpus=<value>` | Specify how much of the available CPU resources a container can use. For instance, if the host machine has two CPUs and you set`--cpus="1.5"`, the container is guaranteed at most one and a half of the CPUs. This is the equivalent of setting`--cpu-period="100000"`and`--cpu-quota="150000"`. Available in Docker 1.13 and higher. |
-| `--cpu-period=<value>` | Specify the CPU CFS scheduler period, which is used alongside`--cpu-quota`. Defaults to 100 micro-seconds. Most users do not change this from the default. If you use Docker 1.13 or higher, use`--cpus`instead. |
-| `--cpu-quota=<value>` | Impose a CPU CFS quota on the container. The number of microseconds per`--cpu-period`that the container is limited to before throttled. As such acting as the effective ceiling. If you use Docker 1.13 or higher, use`--cpus`instead. |
-| `--cpuset-cpus` | Limit the specific CPUs or cores a container can use. A comma-separated list or hyphen-separated range of CPUs a container can use, if you have more than one CPU. The first CPU is numbered 0. A valid value might be`0-3`(to use the first, second, third, and fourth CPU) or`1,3`(to use the second and fourth CPU). |
-| `--cpu-shares` | Set this flag to a value greater or less than the default of 1024 to increase or reduce the container’s weight, and give it access to a greater or lesser proportion of the host machine’s CPU cycles. This is only enforced when CPU cycles are constrained. When plenty of CPU cycles are available, all containers use as much CPU as they need. In that way, this is a soft limit.`--cpu-shares`does not prevent containers from being scheduled in swarm mode. It prioritizes container CPU resources for the available CPU cycles. It does not guarantee or reserve any specific CPU access. |
+| `--cpus=<value>` | Задаёт долю доступных процессорных ресурсов, которую может использовать контейнер. Например, если на хосте два процессора и указано `--cpus="1.5"`, контейнер гарантированно сможет использовать не более полутора процессоров. Это эквивалентно сочетанию `--cpu-period="100000"` и `--cpu-quota="150000"`. Доступен в Docker 1.13 и новее. |
+| `--cpu-period=<value>` | Задаёт период планировщика CPU CFS и используется вместе с `--cpu-quota`. Значение по умолчанию — 100 микросекунд. Большинству пользователей менять его не требуется. В Docker 1.13 и новее вместо этого параметра используйте `--cpus`. |
+| `--cpu-quota=<value>` | Задаёт квоту CPU CFS для контейнера: количество микросекунд в пределах каждого периода `--cpu-period`, по истечении которого использование процессора контейнером ограничивается. Таким образом, параметр устанавливает фактический верхний предел. В Docker 1.13 и новее вместо него используйте `--cpus`. |
+| `--cpuset-cpus` | Ограничивает набор процессоров или ядер, которые может использовать контейнер. Если процессоров несколько, их задают списком через запятую или диапазоном через дефис. Нумерация начинается с 0. Например, значение `0-3` разрешает использовать первый, второй, третий и четвёртый процессоры, а `1,3` — второй и четвёртый. |
+| `--cpu-shares` | Значение больше или меньше стандартного значения 1024 соответственно увеличивает или уменьшает вес контейнера и предоставляет ему большую или меньшую долю процессорного времени хоста. Ограничение применяется только при нехватке процессорного времени. Если его достаточно, каждый контейнер использует столько, сколько ему необходимо. Поэтому это мягкое ограничение. Параметр `--cpu-shares` не мешает планировать запуск контейнеров в режиме Swarm. Он задаёт приоритет контейнера при распределении доступного процессорного времени, но не гарантирует и не резервирует определённую долю ресурсов процессора. |
 
-If you have 1 CPU, each of the following commands guarantees the container at most 50% of the CPU every second.
+Если имеется один процессор, каждая из следующих команд гарантирует контейнеру не более 50 % его времени в секунду.
 
-**Docker 1.13 and higher**:
+**Docker 1.13 и новее:**
 
 ```
 docker run -it --cpus=".5" ubuntu /bin/bash
-
 ```
 
-**Docker 1.12 and lower**:
+**Docker 1.12 и старше:**
 
 ```
 $ docker run -it --cpu-period=100000 --cpu-quota=50000 ubuntu /bin/bash
-
 ```
 
-### Configure the realtime scheduler
+### Настройка планировщика реального времени
 
-In Docker 1.13 and higher, you can configure your container to use the realtime scheduler, for tasks which cannot use the CFS scheduler. You need to[make sure the host machine’s kernel is configured correctly](https://docs.docker.com/config/containers/resource_constraints/#configure-the-host-machines-kernel)before you can[configure the Docker daemon](https://docs.docker.com/config/containers/resource_constraints/#configure-the-docker-daemon)or[configure individual containers](https://docs.docker.com/config/containers/resource_constraints/#configure-individual-containers).
+В Docker 1.13 и новее контейнер можно настроить на использование планировщика реального времени для задач, которым не подходит CFS. Прежде чем [настраивать демон Docker](https://docs.docker.com/config/containers/resource_constraints/#configure-the-docker-daemon) или [отдельные контейнеры](https://docs.docker.com/config/containers/resource_constraints/#configure-individual-containers), [убедитесь, что ядро хоста настроено правильно](https://docs.docker.com/config/containers/resource_constraints/#configure-the-host-machines-kernel).
 
-> **Warning**: CPU scheduling and prioritization are advanced kernel-level features. Most users do not need to change these values from their defaults. Setting these values incorrectly can cause your host system to become unstable or unusable.
+> **Предупреждение.** Планирование и приоритизация процессорного времени — расширенные функции уровня ядра. Большинству пользователей не требуется изменять их стандартные значения. Неправильные настройки могут привести к нестабильности или полной неработоспособности хоста.
 
-#### CONFIGURE THE HOST MACHINE’S KERNEL
+#### Настройка ядра хоста
 
-Verify that`CONFIG_RT_GROUP_SCHED`is enabled in the Linux kernel by running`zcat /proc/config.gz | grep CONFIG_RT_GROUP_SCHED`or by checking for the existence of the file`/sys/fs/cgroup/cpu.rt_runtime_us`. For guidance on configuring the kernel realtime scheduler, consult the documentation for your operating system.
+Убедитесь, что в ядре Linux включён параметр `CONFIG_RT_GROUP_SCHED`. Для этого выполните `zcat /proc/config.gz | grep CONFIG_RT_GROUP_SCHED` или проверьте наличие файла `/sys/fs/cgroup/cpu.rt_runtime_us`. Инструкции по настройке планировщика реального времени ядра приведены в документации вашей операционной системы.
 
-#### CONFIGURE THE DOCKER DAEMON
+#### Настройка демона Docker
 
-To run containers using the realtime scheduler, run the Docker daemon with the`--cpu-rt-runtime`flag set to the maximum number of microseconds reserved for realtime tasks per runtime period. For instance, with the default period of 1000000 microseconds (1 second), setting`--cpu-rt-runtime=950000`ensures that containers using the realtime scheduler can run for 950000 microseconds for every 1000000-microsecond period, leaving at least 50000 microseconds available for non-realtime tasks. To make this configuration permanent on systems which use`systemd`, see[Control and configure Docker with systemd](https://docs.docker.com/config/daemon/systemd/).
+Чтобы запускать контейнеры с планировщиком реального времени, запустите демон Docker с флагом `--cpu-rt-runtime`, указав максимальное количество микросекунд, зарезервированных для задач реального времени в каждом периоде работы планировщика. Например, если период по умолчанию равен 1000000 микросекунд (1 секунде), значение `--cpu-rt-runtime=950000` позволяет контейнерам с планировщиком реального времени выполняться 950000 микросекунд из каждого периода длительностью 1000000 микросекунд. При этом для остальных задач остаётся не менее 50000 микросекунд. Чтобы сделать такую конфигурацию постоянной в системах с `systemd`, см. раздел [Управление и настройка Docker с помощью systemd](https://docs.docker.com/config/daemon/systemd/).
 
-#### CONFIGURE INDIVIDUAL CONTAINERS
+#### Настройка отдельных контейнеров
 
-You can pass several flags to control a container’s CPU priority when you start the container using`docker run`. Consult your operating system’s documentation or the`ulimit`command for information on appropriate values.
+При запуске контейнера командой `docker run` можно передать несколько флагов, управляющих его процессорным приоритетом. Подходящие значения описаны в документации вашей операционной системы и в справке по команде `ulimit`.
 
-| Option | Description |
+| Параметр | Описание |
 | --- | --- |
-| `--cap-add=sys_nice` | Grants the container the`CAP_SYS_NICE`capability, which allows the container to raise process`nice`values, set real-time scheduling policies, set CPU affinity, and other operations. |
-| `--cpu-rt-runtime=<value>` | The maximum number of microseconds the container can run at realtime priority within the Docker daemon’s realtime scheduler period. You also need the`--cap-add=sys_nice`flag. |
-| `--ulimit rtprio=<value>` | The maximum realtime priority allowed for the container. You also need the`--cap-add=sys_nice`flag. |
+| `--cap-add=sys_nice` | Предоставляет контейнеру системную возможность `CAP_SYS_NICE`, которая позволяет увеличивать значения `nice` процессов, задавать политики планирования реального времени, устанавливать привязку к процессорам и выполнять другие операции. |
+| `--cpu-rt-runtime=<value>` | Максимальное количество микросекунд, в течение которого контейнер может работать с приоритетом реального времени в пределах периода планировщика реального времени демона Docker. Также требуется флаг `--cap-add=sys_nice`. |
+| `--ulimit rtprio=<value>` | Максимальный приоритет реального времени, разрешённый контейнеру. Также требуется флаг `--cap-add=sys_nice`. |
 
-The following example command sets each of these three flags on a`debian:jessie`container.
+Следующая команда задаёт все три флага для контейнера `debian:jessie`:
 
 ```
 $ docker run -it --cpu-rt-runtime=950000 \
                   --ulimit rtprio=99 \
                   --cap-add=sys_nice \
                   debian:jessie
-
 ```
 
-If the kernel or Docker daemon is not configured correctly, an error occurs.
+Если ядро или демон Docker настроены неправильно, возникнет ошибка.
 
+---
 
-
-**********
 [docker](/tags/docker.md)
-[НЕ ПЕРЕВЕДЕНО](/tags/untranslated.md)
