@@ -1,0 +1,4 @@
+interface:
+  display_name: "Добавление статьи в docLinux"
+  short_description: "Добавляет статьи и поддерживает строгий каталог"
+  default_prompt: "Используй $doclinux-add-article, чтобы добавить новую статью в репозиторий docLinux."
