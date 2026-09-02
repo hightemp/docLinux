@@ -1,5 +1,19 @@
 # docLinux
 
+- Ядро и внутренности Linux (Kernel Internals)
+  - Основы (Fundamentals)
+    - Введение и Общие концепции (Introduction and General Concepts)
+      - [Основы Linux: пользовательское пространство, пространство ядра и системные вызовы](/articles/linux_fundamentals_user_kernel_space.md)
+      - [Режим сна Linux (гибернация)](/articles/linux_bedtime_routine.md)
+    - Время и Таймеры (Timekeeping and Clocks)
+      - [Учёт времени и часы в Linux](/articles/linux_timekeeping_and_clocks.md)
+  - Архитектура (Architecture)
+    - Управление памятью (Memory Management)
+      - Общие концепции (General Concepts)
+        - [Числа и байты: как работает память в Linux?](/articles/linux_memory_numbers_and_bytes.md)
+        - [Управление памятью в Linux](/articles/linux_memory_management.md)
+      - Виртуальная и Физическая память (Virtual and Physical Memory)
+        - [Что такое виртуальная память в Linux?](/articles/virtual_memory_in_linux.md)
 - Системное администрирование
   - Загрузка и восстановление
     - [GRUB2 конфигурация](/articles/grub2_configuration.md)
