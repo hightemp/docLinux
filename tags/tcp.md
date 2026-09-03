@@ -1,3 +1,4 @@
-* [Могут ли два приложения прослушивать один и тот же порт?](/articles/multiple_apps_same_port.md)
-* [Как открыть TCP-/UDP-сокет средствами командной оболочки bash](/articles/bash_tcp_udp_sockets.md)
-* [И еще о специальном файле устройства /dev/tcp (TCP/IP), встроенном в bash](/articles/bash_dev_tcp.md)
+* [FQ - Fair Queuing](/articles/fq_fair_queuing.md)
+* [TCP BBR: быстрый и простой способ ускорения загрузки страниц. Доклад Яндекса](/articles/tcp_bbr_bystryi_i_prostoi_sposob_uskoreniya_zagruzki_stranits_doklad_y.md)
+* [TCP Congestion Control или Почему скорость прыгает](/articles/tcp_congestion_control_ili_pochemu_skorost_prygaet.md)
+* [Как работает TCP congestion control: Reno, Cubic, BBR простыми словами](/articles/kak_rabotaet_tcp_congestion_control_reno_cubic_bbr_prostymi_slovami.md)

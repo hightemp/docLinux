@@ -1,0 +1,7 @@
+* [Nix: воспроизводимая сборка](/articles/nix_vosproizvodimaya_sborka.md)
+* [NixOS — установка и настройка](/articles/nixos_ustanovka_i_nastroika.md)
+* [Воспроизводимая среда разработки с Nix](/articles/vosproizvodimaya_sreda_razrabotki_s_nix.md)
+* [Как создать песочницу и опакетить программу в NixOS?](/articles/kak_sozdat_pesochnitsu_i_opaketit_programmu_v_nixos.md)
+* [Мои приключения с NixOS, часть 1: начало работы](/articles/moi_priklyucheniya_s_nixos_chast_1_nachalo_raboty.md)
+* [Немного о NixOS. Часть 1. Общая информация и установка](/articles/nemnogo_o_nixos_chast_1_obshchaya_informatsiya_i_ustanovka.md)
+* [Сборка пакета для Nix](/articles/sborka_paketa_dlya_nix.md)

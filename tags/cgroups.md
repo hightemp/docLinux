@@ -1,6 +1,1 @@
-* [Ограничение использования процессора с помощью nice, cpulimit и cgroups](/articles/limit_cpu_with_nice_cpulimit_cgroups.md)
-* [Механизмы контейнеризации: cgroups](/articles/containerization_with_cgroups.md)
-* [Как ограничить использование процессора и памяти с помощью групп в Debian/Ubuntu](/articles/cgroups_resource_limits_debian_ubuntu.md)
-* [Перенос процесса в контрольную группу](/articles/move_process_to_cgroup.md)
-* [Борьба за ресурсы](/articles/linux_resource_contention.md)
-* [Файл подкачки, ограничения памяти и cgroups](/articles/swap_memory_limits_cgroups.md)
+

@@ -1,8 +1,1 @@
-* [Ограничение использования процессора с помощью nice, cpulimit и cgroups](/articles/limit_cpu_with_nice_cpulimit_cgroups.md)
-* [ЧТЕНИЕ И НАСТРОЙКА ЛОГОВ LINUX В UBUNTU И CENTOS](/articles/linux_log_configuration_ubuntu_centos.md)
-* [Оптимизация настроек Mysql с помощью Mysqltuner](/articles/mysql_optimization_with_mysqltuner.md)
-* [GRUB2 конфигурация](/articles/grub2_configuration.md)
-* [Восстановление пароля root](/articles/root_password_recovery.md)
-* [Как сбросить забытый пароль root на серверах CentOS 7](/articles/reset_root_password_centos_7.md)
-* [Пакеты Linux по умолчанию](/articles/default_linux_packages.md)
-* [Как оптимизировать и сжать JPEG или PNG изображений в Linux командная строка](/articles/optimize_jpeg_png_cli.md)
+

@@ -1,2 +1,3 @@
-* [Основы Linux: пользовательское пространство, пространство ядра и системные вызовы](/articles/linux_fundamentals_user_kernel_space.md)
-* [Режим сна Linux (гибернация)](/articles/linux_bedtime_routine.md)
+
+* [Как работает clock_gettime](/articles/how_does_clock_gettime_work.md)
+* [Файловые дескрипторы](/articles/file_descriptors.md)

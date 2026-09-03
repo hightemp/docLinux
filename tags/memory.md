@@ -1,3 +1,6 @@
-* [Числа и байты: как работает память в Linux?](/articles/linux_memory_numbers_and_bytes.md)
 * [Управление памятью в Linux](/articles/linux_memory_management.md)
+* [Числа и байты: как работает память в Linux?](/articles/linux_memory_numbers_and_bytes.md)
 * [Что такое виртуальная память в Linux?](/articles/virtual_memory_in_linux.md)
+* [vDSO](/articles/vdso.md)
+* [Шпаргалка по поиску узких мест в Linux: топ утилит на все случаи жизни](/articles/shpargalka_po_poisku_uzkikh_mest_v_linux_top_utilit_na_vse_sluchai_zhi.md)
+* [Сжатие RAM в Linux](/articles/ram_compression_on_linux.md)

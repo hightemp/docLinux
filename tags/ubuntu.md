@@ -1,11 +1,2 @@
-* [Аудит системных событий в Linux](/articles/linux_system_event_audit.md)
-* [Как ограничить использование процессора и памяти с помощью групп в Debian/Ubuntu](/articles/cgroups_resource_limits_debian_ubuntu.md)
-* [ЧТЕНИЕ И НАСТРОЙКА ЛОГОВ LINUX В UBUNTU И CENTOS](/articles/linux_log_configuration_ubuntu_centos.md)
-* [Оптимизация настроек Mysql с помощью Mysqltuner](/articles/mysql_optimization_with_mysqltuner.md)
-* [Восстановление пароля root](/articles/root_password_recovery.md)
-* [htop объясненный](/articles/htop_explained.md)
-* [Как очистить своп при наличии свободной оперативной памяти?](/articles/clear_swap_with_free_memory.md)
-* [Установка последней версии Virtualbox с помощью PPA на Ubuntu](/articles/install_virtualbox_ppa_ubuntu.md)
-* [Как переместить докер по умолчанию /var/lib/docker в другой каталог в Ubuntu / Debian Linux](/articles/move_docker_data_directory.md)
-* [Ubuntu Make — разработчику в помощь](/articles/ubuntu_make_for_developers.md)
-* [Как оптимизировать и сжать JPEG или PNG изображений в Linux командная строка](/articles/optimize_jpeg_png_cli.md)
+
+* [Как использовать ZRAM в Ubuntu 24.04](/articles/how_to_use_zram_on_ubuntu_2404.md)

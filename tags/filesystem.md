@@ -1,9 +1,1 @@
-* [mount - примеры](/articles/mount_examples.md)
-* [Можно ли использовать косую черту в имени файла?](/articles/slash_in_filename.md)
-* [Как мне создать имя файла с недопустимыми символами, такими как:?>?](/articles/filenames_with_invalid_characters.md)
-* [Значение каталогов в Unix и Unix-подобных системах](/articles/unix_directory_structure.md)
-* [Стандартные каталоги Linux](/articles/linux_standard_directories.md)
-* [Где хранить данные приложения (не для пользователя) в Linux](/articles/linux_application_data_location.md)
-* [Где сохранить файлы конфигурации / данных в GNU / Linux?](/articles/linux_configuration_and_data_locations.md)
-* [Стандарт иерархии файловой системы](/articles/filesystem_hierarchy_standard.md)
-* [Хаки при работе с большим числом мелких файлов](/articles/handling_many_small_files.md)
+

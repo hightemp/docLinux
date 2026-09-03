@@ -1,12 +1,1 @@
-* [Dockerfile и коммуникация между контейнерами](/articles/dockerfile_container_communication.md)
-* [Ограничение ресурсов контейнера](/articles/docker_container_resource_limits.md)
-* [Как переместить докер по умолчанию /var/lib/docker в другой каталог в Ubuntu / Debian Linux](/articles/move_docker_data_directory.md)
-* [ENTRYPOINT vs CMD: назад к основам](/articles/entrypoint_vs_cmd.md)
-* [Как смонтировать каталог хоста в Docker-контейнере](/articles/docker_bind_mount_host_directory.md)
-* [Привязка Портов](/articles/port_binding.md)
-* [Автоматически запускать контейнеры](/articles/docker_container_autostart.md)
-* [Полное практическое руководство по Docker: с нуля до кластера на AWS](/articles/docker_practical_guide.md)
-* [КАК РАБОТАТЬ С DOCKERFILE?](/articles/dockerfile_guide.md)
-* [Создание собственных образов](/articles/docker_custom_images.md)
-* [Создание базового изображения](/articles/docker_base_image.md)
-* [Java и Docker: это должен знать каждый](/articles/java_and_docker.md)
+

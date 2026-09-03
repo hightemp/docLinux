@@ -1,0 +1,5 @@
+* [Resolv.conf](/articles/resolvconf.md)
+* [Resolve IP адресов в Linux: понятное и детальное описание](/articles/resolve_ip_adresov_v_linux_ponyatnoe_i_detalnoe_opisanie.md)
+* [Взаимоотношения dhcpclient и resolv.conf'а в Linux](/articles/vzaimootnosheniya_dhcpclient_i_resolvconfa_v_linux.md)
+* [Как работает DNS в Linux. Часть 1: от getaddrinfo до resolv.conf](/articles/kak_rabotaet_dns_v_linux_chast_1_ot_getaddrinfo_do_resolvconf.md)
+* [Служба доменных имен (DNS)](/articles/sluzhba_domennykh_imen_dns.md)

@@ -1,0 +1,25 @@
+**vDSO** (**virtual dynamic shared object**) is a kernel mechanism for exporting a carefully selected set of [kernel space](https://en.wikipedia.org/wiki/Kernel_space "Kernel space") routines to [user space](https://en.wikipedia.org/wiki/User_space "User space") applications so that applications can call these kernel space routines in-process, without incurring the performance penalty of a [mode switch](https://en.wikipedia.org/wiki/Mode_switch_\(computing\) "Mode switch \(computing\)") from [user mode](https://en.wikipedia.org/wiki/User_mode "User mode") to [kernel mode](https://en.wikipedia.org/wiki/Kernel_mode "Kernel mode") that is inherent when calling these same kernel space routines by means of the [system call](https://en.wikipedia.org/wiki/System_call "System call") interface.[1][2]
+
+vDSO uses standard mechanisms for [linking](https://en.wikipedia.org/wiki/Linker_\(computing\) "Linker \(computing\)") and [loading](https://en.wikipedia.org/wiki/Loader_\(computing\) "Loader \(computing\)") i.e. standard [Executable and Linkable Format](https://en.wikipedia.org/wiki/Executable_and_Linkable_Format "Executable and Linkable Format") (ELF) format.[3][4] vDSO is a memory area allocated in user space which exposes some kernel functionalities. vDSO is [dynamically allocated](https://en.wikipedia.org/wiki/Dynamic_allocation "Dynamic allocation"), offers improved safety through [address space layout randomization](https://en.wikipedia.org/wiki/Address_space_layout_randomization "Address space layout randomization"), and supports more than four system calls. Some [C standard libraries](https://en.wikipedia.org/wiki/C_standard_libraries "C standard libraries"), like [glibc](https://en.wikipedia.org/wiki/Glibc "Glibc"), may provide vDSO links so that if the kernel does not have vDSO support, a traditional [syscall](https://en.wikipedia.org/wiki/Syscall "Syscall") is made.[5] vDSO helps to reduce the calling overhead on simple kernel routines, and it also can work as a way to select the best system-call method on some [computer architectures](https://en.wikipedia.org/wiki/Computer_architectures "Computer architectures") such as [IA-32](https://en.wikipedia.org/wiki/IA-32 "IA-32").[6] An advantage over other methods is that such exported routines can provide proper [DWARF](https://en.wikipedia.org/wiki/DWARF "DWARF") (Debug With Attributed Record Format) debugging information. Implementation generally implies hooks in the dynamic linker to find the vDSOs.
+
+vDSO was developed to offer the **vsyscall** features while overcoming its limitations: a small amount of [statically allocated](https://en.wikipedia.org/wiki/Static_memory_allocation "Static memory allocation") memory, which allows only four system calls, and the same addresses [application binary interface](https://en.wikipedia.org/wiki/Application_binary_interface "Application binary interface") (ABI) in each process, which compromises security. This security issue has been mitigated by [emulating a virtual system call](https://en.wikipedia.org/wiki/Sigreturn-oriented_programming#Vsyscall_emulation "Sigreturn-oriented programming"), but the emulation introduces additional latency.[5]
+
+[glibc](https://en.wikipedia.org/wiki/Glibc "Glibc") has support for `getrandom()` vDSO.[7]
+
+## References
+
+[[edit](/w/index.php?title=VDSO&action=edit&section=1 "Edit section: References")]
+
+  1. ↑ Enrico Perla; Massimiliano Oldani (16 December 2016). [_Kernel Hacking: Exploits verstehen, schreiben und abwehren: Schwachstellen in Kernel-Architekturen erkennen und Gegenmaßnahmen ergreifen_](https://books.google.com/books?id=9cZ2DwAAQBAJ&pg=PA466) (in German). Franzis Verlag. pp. 466–. [ISBN](https://en.wikipedia.org/wiki/ISBN_\(identifier\) "ISBN \(identifier\)") [978-3-645-20503-0](https://en.wikipedia.org/wiki/Special:BookSources/978-3-645-20503-0 "Special:BookSources/978-3-645-20503-0").
+  2. ↑ ["vDSO - overview of the virtual ELF dynamic shared object"](https://web.archive.org/web/20160304114048/http://manpages.ubuntu.com/manpages/wily/man7/vdso.7.html). Canonical. Archived from [the original](http://manpages.ubuntu.com/manpages/wily/man7/vdso.7.html) on 4 March 2016. Retrieved 10 December 2015.
+  3. ↑ ["Creating a vDSO: the Colonel's Other Chicken"](http://www.linuxjournal.com/content/creating-vdso-colonels-other-chicken). Linuxjournal.com. Retrieved 16 February 2015.
+  4. ↑ Corbet, Jonathan (8 June 2011). ["On vsyscalls and the vDSO"](https://lwn.net/Articles/446528/). Lwn.net. Retrieved 16 February 2015.
+  5. 1 2 ["Community answer to question "What are vDSO and vsyscall?""](https://stackoverflow.com/q/19938324). Retrieved 19 November 2016.
+  6. ↑ Drysdale, David (16 July 2014). ["Anatomy of a system call, part 2"](https://lwn.net/Articles/604515/). Lwn.net. Retrieved 19 November 2018.
+  7. ↑ ["sourceware.org Git - glibc.git/commit"](https://sourceware.org/git/?p=glibc.git;a=commit;h=461cab1de747f3842f27a5d24977d78d561d45f9). _sourceware.org_. Retrieved 13 November 2024.
+
+**********
+
+[Linux](/tags/linux.md)
+[память](/tags/memory.md)
+[vDSO](/tags/vdso.md)
