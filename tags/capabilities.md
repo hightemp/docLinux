@@ -2,4 +2,5 @@
 * [setcap](/articles/setcap.md)
 * [В двух словах о привилегиях Linux (capabilities)](/articles/v_dvukh_slovakh_o_privilegiyakh_linux_capabilities.md)
 * [Замена setuid-бита на capabilities для системных программ в Linux](/articles/zamena_setuid_bita_na_capabilities_dlya_sistemnykh_programm_v_linux.md)
+* [Команда capsh](/articles/capsh_command.md)
 * [Лишение пользователя root привилегий](/articles/lishenie_polzovatelya_root_privilegii.md)

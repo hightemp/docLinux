@@ -1,1 +1,5 @@
-
+* [Systemd за пять минут](/articles/systemd_in_five_minutes.md)
+* [Как написать systemd unit-файл для автозагрузки своего сервиса](/articles/systemd_service_autostart_unit.md)
+* [Как настроить службу systemd для периодического перезапуска?](/articles/systemd_periodic_service_restart.md)
+* [Настройка самовосстанавливающихся служб с systemd](/articles/set_up_self-healing_services_with_systemd.md)
+* [Перезапуск Systemd = всегда не соблюдается](/articles/systemd_restart_always_behavior.md)

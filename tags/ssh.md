@@ -1,2 +1,8 @@
 * [SSH Pilot - Современный менеджер SSH сессий для Linux](/articles/ssh_pilot_sovremennyi_menedzher_ssh_sessii_dlya_linux_russkoyazychnyi_.md)
+* [SSH: локальная переадресация портов](/articles/ssh_local_port_forwarding.md)
+* [Screen](/articles/screen.md)
 * [fail2ban ssh i bruteforce attack](/articles/fail2ban_ssh_i_bruteforce_attack.md)
+* [github ssh proxy](/articles/github_ssh_proxy.md)
+* [Как надежно поддерживать открытый туннель SSH?](/articles/persistent_ssh_tunnel.md)
+* [Как с помощью SSHFS подключать удалённые файловые системы по SSH](/articles/how_to_use_sshfs_to_mount_remote_file_systems_over_ssh.md)
+* [Почему перенос SSH на порт, отличный от 22, — плохая идея](/articles/why_putting_ssh_on_another_port_than_22_is_bad_idea.md)

@@ -1,1 +1,11 @@
-
+* [FHS (Filesystem Hierarchy Standard); стандарт иерархии файловой системы](/articles/fhs_filesystem_hierarchy_standard_standart_ierarkhii_failovoi_sistemy.md)
+* [mount_examples](/articles/mount_examples.md)
+* [Где сохранить файлы конфигурации / данных в GNU / Linux?](/articles/linux_configuration_and_data_locations.md)
+* [Где хранить данные приложения (не для пользователя) в Linux](/articles/linux_application_data_location.md)
+* [Значение каталогов в Unix и Unix-подобных системах](/articles/unix_directory_structure.md)
+* [Как вывести список файлов каталога с 8 миллионами файлов (но не с помощью ls)](/articles/you_can_list_a_directory_containing_8_million_files_but_not_with_ls.md)
+* [Как мне создать имя файла с недопустимыми символами, такими как:?>?](/articles/filenames_with_invalid_characters.md)
+* [Каталог /dev в Linux](/articles/understanding_the_dev_directory_in_linux.md)
+* [Можно ли использовать косую черту в имени файла?](/articles/slash_in_filename.md)
+* [Стандартные каталоги Linux](/articles/linux_standard_directories.md)
+* [Хаки при работе с большим числом мелких файлов](/articles/handling_many_small_files.md)

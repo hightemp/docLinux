@@ -1,2 +1,6 @@
-
 * [Команда logger в Linux: подробное руководство](/articles/master_the_linux_logger_command.md)
+* [Лог файлы Linux по порядку](/articles/linux_log_files_overview.md)
+* [Логгируем все команды на сервере](/articles/log_all_server_commands.md)
+* [Руководство для начинающих по syslog в Linux](/articles/beginners_guide_to_syslogs_in_linux.md)
+* [Системное логирование в Linux](/articles/linux_system_logging.md)
+* [ЧТЕНИЕ И НАСТРОЙКА ЛОГОВ LINUX В UBUNTU И CENTOS](/articles/linux_log_configuration_ubuntu_centos.md)

@@ -2,3 +2,4 @@
 * [Глубокое погружение в Linux namespaces, часть 3](/articles/glubokoe_pogruzhenie_v_linux_namespaces_chast_3.md)
 * [Глубокое погружение в Linux namespaces, часть 4](/articles/glubokoe_pogruzhenie_v_linux_namespaces_chast_4.md)
 * [Глубокое погружение в Linux namespaces](/articles/glubokoe_pogruzhenie_v_linux_namespaces.md)
+* [Запуск контейнеров systemd-nspawn с VPN-интерфейсом](/articles/running_systemd-nspawn_containers_with_a_vpn_interface.md)

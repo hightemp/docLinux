@@ -1,2 +1,6 @@
+* [Linux TCP SO_REUSEPORT: использование и реализация](/articles/linux_tcp_so_reuseport_usage_and_implementation.md)
+* [Балансировка TCP-соединений в ядре Linux](/articles/loadbalancing_tcp_connections_in_the_linux_kernel.md)
 * [Когда один TCP-порт может быть поделён](/articles/kogda_odin_tcp_port_mozhet_byt_podelen.md)
+* [Масштабируемое мультиплексирование событий: epoll против kqueue](/articles/scalable_event_multiplexing_epoll_vs_kqueue.md)
 * [Увеличиваем производительность с помощью SO_REUSEPORT в NGINX 1.9.1](/articles/uvelichivaem_proizvoditelnost_s_pomoshchyu_so_reuseport_v_nginx_191.md)
+* [Что такое сокет?](/articles/what_is_a_socket.md)

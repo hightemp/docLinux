@@ -1,3 +1,5 @@
+* [Rolling-релизы VyOS](/articles/vyos_rolling_release.md)
+* [VPN-туннель между маршрутизаторами Cisco и VyOS с использованием VTI](/articles/vpn_tunnel_between_cisco_and_vyos_routers_using_vtis.md)
 * [VyOS OpenSource Router](/articles/vyos_opensource_router.md)
 * [VyOS](/articles/vyos.md)
 * [Программная маршрутизация с VyOS в условиях санкций](/articles/programmnaya_marshrutizatsiya_s_vyos_v_usloviyakh_sanktsii.md)

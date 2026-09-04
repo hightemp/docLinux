@@ -1,1 +1,8 @@
-
+* [GRUB2 конфигурация](/articles/grub2_configuration.md)
+* [Восстановление пароля root](/articles/root_password_recovery.md)
+* [Как оптимизировать и сжать JPEG или PNG изображений в Linux командная строка](/articles/optimize_jpeg_png_cli.md)
+* [Как сбросить забытый пароль root на серверах CentOS 7](/articles/reset_root_password_centos_7.md)
+* [Ограничение использования процессора с помощью nice, cpulimit и cgroups](/articles/limit_cpu_with_nice_cpulimit_cgroups.md)
+* [Оптимизация настроек MySQL с помощью Mysqltuner](/articles/mysql_optimization_with_mysqltuner.md)
+* [Пакеты Linux по умолчанию](/articles/default_linux_packages.md)
+* [ЧТЕНИЕ И НАСТРОЙКА ЛОГОВ LINUX В UBUNTU И CENTOS](/articles/linux_log_configuration_ubuntu_centos.md)

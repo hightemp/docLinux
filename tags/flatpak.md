@@ -1,0 +1,1 @@
+* [Сборка кросс-дистрибутивных Linux-приложений с Flatpak — практическое руководство: среды выполнения и SDK, `flatpak-builder`, манифест, `finish-args`, права песочницы и публикация подписанного репозитория](/articles/building_cross-distribution_linux_applications_with_flatpak.md)

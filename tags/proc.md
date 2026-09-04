@@ -1,3 +1,6 @@
 * [Изучаем файловую систему proc](/articles/izuchaem_failovuyu_sistemu_proc.md)
+* [Как получить общее использование ЦП приложения из /proc/pid/stat?](/articles/process_cpu_usage_from_proc_stat.md)
+* [Как рассчитывается время и процент использования ЦП Linux](/articles/linux_cpu_time_and_usage_calculation.md)
+* [Каталог /dev в Linux](/articles/understanding_the_dev_directory_in_linux.md)
 * [Каталог /proc в Linux](/articles/katalog_proc_v_linux.md)
 * [Файловые системы /dev и /proc в Linux 2.4](/articles/failovye_sistemy_dev_i_proc_v_linux_24.md)
