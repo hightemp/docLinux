@@ -1,15 +1,30 @@
 ---
 name: doclinux-add-article
-description: Add or import articles into the docLinux repository while maintaining article files, sources, tags, README navigation, and a topic-pure category hierarchy. Use when creating a new article, importing or translating an external article, or registering an existing article in the catalog. Do not use for edits that do not add or recategorize articles.
+description: Add or import articles into the docLinux repository while preventing duplicate imports and maintaining valid filenames, sources, tags, README navigation, and a topic-pure category hierarchy. Use when creating a new article, importing or translating an external article, or registering an existing article in the catalog. Do not use for edits that do not add or recategorize articles.
 ---
 
 # Add an article to docLinux
 
 Work only in a repository that contains `README.md`, `articles/`, and `tags/`. Read the current catalog before choosing a location; do not infer its structure from tags alone.
 
+## Preflight: filename and duplicates
+
+Before creating a file, choose its Russian H1, original source URL, and target path. Then run:
+
+```bash
+python3 .agents/skills/doclinux-add-article/scripts/validate_catalog.py \
+  --candidate-path articles/article_slug.md \
+  --candidate-title 'Название статьи' \
+  --candidate-source-url 'https://example.com/original'
+```
+
+Treat a matching normalized source URL or H1 as a duplicate candidate. Inspect the existing article before proceeding; do not create a second file or catalog entry for the same material. If distinct articles legitimately have similar titles, give the new H1 a precise, source-supported distinction.
+
+The target path must match `articles/[a-z0-9]+(?:_[a-z0-9]+)*\.md`: lowercase ASCII letters and digits separated by single underscores. Do not use spaces, hyphens, uppercase letters, repeated underscores, or leading/trailing underscores. Existing legacy filenames do not set a precedent for new files.
+
 ## Article file
 
-1. Create the file under `articles/` with a descriptive English `snake_case.md` name. Allow only lowercase ASCII letters, digits, and underscores.
+1. Create the file under `articles/` with a descriptive English `snake_case.md` name that satisfies the preflight rule.
 2. Start with one Russian H1 title.
 3. Put exactly one source line immediately after the title:
 
@@ -83,10 +98,12 @@ If the article implements an item from `missing_topics.md`, remove that item fro
 
 ## Verification
 
-Run the bundled validator from the repository root:
+Run the bundled validator from the repository root for the new article:
 
 ```bash
 python3 .agents/skills/doclinux-add-article/scripts/validate_catalog.py --article articles/article_slug.md
 ```
+
+This post-import check rejects an invalid filename and searches the existing corpus for duplicates by normalized source URL, normalized H1, and substantial body-text overlap. A possible content duplicate must be reviewed rather than ignored or automatically deleted.
 
 Then run `git diff --check`. Also review the rendered nesting visually; the validator can detect mixed node types, but it cannot decide whether a category is semantically too broad.
