@@ -4,3 +4,4 @@
 * [Каталог /dev в Linux](/articles/understanding_the_dev_directory_in_linux.md)
 * [Каталог /proc в Linux](/articles/katalog_proc_v_linux.md)
 * [Файловые системы /dev и /proc в Linux 2.4](/articles/failovye_sistemy_dev_i_proc_v_linux_24.md)
+* [Что такого особенного в Linux Capabilities?](/articles/whats_the_big_deal_with_linux_capabilities.md)

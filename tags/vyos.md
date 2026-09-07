@@ -1,6 +1,8 @@
+* [Homelab: миграция и обновление Proxmox + Debian + VyOS](/articles/homelab_proxmox_debian_vyos_upgrade_migration.md)
 * [Rolling-релизы VyOS](/articles/vyos_rolling_release.md)
 * [VPN-туннель между маршрутизаторами Cisco и VyOS с использованием VTI](/articles/vpn_tunnel_between_cisco_and_vyos_routers_using_vtis.md)
 * [VyOS OpenSource Router](/articles/vyos_opensource_router.md)
+* [VyOS с нуля: маршрутизация и VPS](/articles/vyos_from_scratch_routing_and_vps_edition.md)
 * [VyOS](/articles/vyos.md)
 * [Программная маршрутизация с VyOS в условиях санкций](/articles/programmnaya_marshrutizatsiya_s_vyos_v_usloviyakh_sanktsii.md)
 * [Программная маршрутизация с VyOS](/articles/programmnaya_marshrutizatsiya_s_vyos.md)

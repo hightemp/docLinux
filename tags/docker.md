@@ -3,6 +3,7 @@
 * [Java и Docker: это должен знать каждый](/articles/java_and_docker.md)
 * [Автоматически запускать контейнеры](/articles/docker_container_autostart.md)
 * [Анатомия DNS-запроса в Linux — часть IV](/articles/anatomy_of_a_linux_dns_lookup_part_iv.md)
+* [Дешёвые Docker-образы с Nix](/articles/cheap_docker_images_with_nix.md)
 * [КАК РАБОТАТЬ С DOCKERFILE?](/articles/dockerfile_guide.md)
 * [Как переместить докер из /var/lib/docker в другой каталог в Ubuntu / Debian Linux](/articles/move_docker_data_directory.md)
 * [Полное практическое руководство по Docker: с нуля до кластера на AWS](/articles/docker_practical_guide.md)

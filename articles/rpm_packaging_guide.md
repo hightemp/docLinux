@@ -2594,3 +2594,4 @@ RPM Documentation - The official RPM documentation.
 Fedora Packaging Guidelines - The official packaging guidelines for Fedora, useful for all RPM-based distributions.
 **********
 [rpm](/tags/rpm.md)
+[НЕ ПЕРЕВЕДЕНО](/tags/untranslated.md)

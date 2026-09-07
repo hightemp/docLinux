@@ -19,19 +19,29 @@
       - Время и Таймеры
         - [Учёт времени и часы в Linux](/articles/linux_timekeeping_and_clocks.md)
     - Архитектура
+      - Cgroups
+        - [Linux cgroup с нуля](/articles/linux_cgroup_from_first_principles.md)
       - ELF Файлы и Библиотеки
         - ELF Файлы
           - [Рецепты для ELFов](/articles/retsepty_dlya_elfov.md)
         - Библиотеки
           - [musl FAQ — официальный FAQ по musl libc](/articles/musl_faq_ofitsialnyy_faq_po_musl_libc_chto_delaet_c-biblioteka_v_linux_userspace.md)
+          - [Что такое файл разделяемых объектов](/articles/what_is_a_shared_object_file.md)
       - Namespaces
         - [Глубокое погружение в Linux namespaces](/articles/glubokoe_pogruzhenie_v_linux_namespaces.md)
         - [Глубокое погружение в Linux namespaces, часть 2](/articles/glubokoe_pogruzhenie_v_linux_namespaces_chast_2.md)
         - [Глубокое погружение в Linux namespaces, часть 3](/articles/glubokoe_pogruzhenie_v_linux_namespaces_chast_3.md)
         - [Глубокое погружение в Linux namespaces, часть 4](/articles/glubokoe_pogruzhenie_v_linux_namespaces_chast_4.md)
       - Потоки
+        - [Как работают потоки и конкурентность в системах Linux](/articles/how_threads_and_concurrency_work_in_linux_systems.md)
         - [Потоки в Linux: подробное руководство](/articles/threads_in_linux_a_comprehensive_guide.md)
+        - [Разница между процессом и потоком в Linux](/articles/difference_between_process_and_thread_in_linux.md)
       - Управление памятью
+        - Аппаратные аспекты
+          - MMU
+            - [Как работает блок управления памятью (MMU)](/articles/how_does_the_memory_management_unit_mmu_work.md)
+        - Виртуальная и Физическая память
+          - [Understanding the Linux Virtual Memory Manager — Глава 2: Описание физической памяти](/articles/understanding_the_linux_virtual_memory_manager_chapter_2_describing_ph.md)
         - Общие концепции
           - Адресные пространства процессов
             - ASLR
@@ -45,18 +55,25 @@
           - [Шпаргалка по поиску узких мест в Linux: топ утилит на все случаи жизни](/articles/shpargalka_po_poisku_uzkikh_mest_v_linux_top_utilit_na_vse_sluchai_zhi.md)
         - Специфические возможности
           - vDSO
+            - [vdso(7) — справочная страница Linux](/articles/vdso7_linux_manual_page.md)
             - [Загадка Linux: linux-vdso.so.1](/articles/linux_mystery_linux-vdsoso1.md)
             - [Понимание linux-vDSO](/articles/understanding_linux-vdsoso1.md)
-          - vDSO
             - [vdso](/articles/vdso.md)
             - [Как работает clock_gettime](/articles/how_does_clock_gettime_work.md)
     - Ввод-Вывод
       - Асинхронный ввод-вывод
         - io_uring
+          - [io_uring против epoll: что лучше в сетевом программировании?](/articles/io_uring_vs_epoll_which_is_better_in_network_programming.md)
+          - [io_uring снова здесь — на этот раз в виде руткита](/articles/io_uring_is_back_this_time_as_a_rootkit.md)
+          - [Революция в бэкенде, или Почему io_uring так важен](/articles/the_backend_revolution_or_why_io_uring_is_so_important.md)
+          - [Стремительный рост io_uring](/articles/the_rapid_growth_of_io_uring.md)
+          - [Что такое io_uring? Высокопроизводительный ввод-вывод в Linux](/articles/what_is_io_uring_highperformance_io_in_linux.md)
           - [Проблема в Linux io_uring ведет к скрытым атакам руткитов](/articles/problema_v_linux_io_uring_vedet_k_skrytym_atakam_rutkitov.md)
       - Мультиплексирование
         - epoll
+          - [Epoll принципиально сломан 1/2](/articles/epoll_is_fundamentally_broken_12.md)
           - [Epoll фундаментально сломан — часть 2](/articles/epoll_is_fundamentally_broken_2.md)
+          - [epoll(7) — справочная страница Linux](/articles/epoll7_linux_manual_page.md)
           - [epoll: API, на котором работает современный интернет](/articles/epoll_the_api_that_powers_the_modern_internet.md)
         - select
           - [select фундаментально сломан](/articles/select_is_fundamentally_broken.md)
@@ -67,17 +84,18 @@
         - SO_REUSEPORT
           - [Когда один TCP-порт может быть поделён](/articles/kogda_odin_tcp_port_mozhet_byt_podelen.md)
           - [Увеличиваем производительность с помощью SO_REUSEPORT в NGINX 1.9.1](/articles/uvelichivaem_proizvoditelnost_s_pomoshchyu_so_reuseport_v_nginx_191.md)
-          - [Балансировка TCP-соединений в ядре Linux](/articles/loadbalancing_tcp_connections_in_the_linux_kernel.md)
-        - SO_REUSEPORT
           - [Linux TCP SO_REUSEPORT: использование и реализация](/articles/linux_tcp_so_reuseport_usage_and_implementation.md)
+          - [Балансировка TCP-соединений в ядре Linux](/articles/loadbalancing_tcp_connections_in_the_linux_kernel.md)
+          - [Идеальная локальность и три эпичных SystemTap-скрипта](/articles/perfect_locality_and_three_epic_systemtap_scripts.md)
+          - [Квантовое состояние TCP-порта](/articles/the_quantum_state_of_a_tcp_port.md)
         - Общее
-          - [Что такое сокет?](/articles/what_is_a_socket.md)      - Остальное
+          - [Что такое сокет?](/articles/what_is_a_socket.md)
+      - Остальное
         - [Отладка блочного ввода-вывода в Linux](/articles/linux_block_io_debugging.md)
-
     - Пакетирование и распространение приложений
       - Flatpak
-        - [Копаем глубже в Flatpak с NVIDIA](/articles/digging_further_into_flatpak_with_nvidia.md)
         - [Использование хостового NVIDIA-драйвера с Flatpak](/articles/using_host_nvidia_driver_with_flatpak_podrobnyy_razbor_rasshireniy_gl-drayverov_f.md)
+        - [Копаем глубже в Flatpak с NVIDIA](/articles/digging_further_into_flatpak_with_nvidia.md)
     - Сетевые технологии
       - Высокопроизводительные
         - BPF eBPF
@@ -86,21 +104,26 @@
           - [Infiniband](/articles/infiniband.md)
       - Общее
         - DNS
+          - Default Address Selection
+            - [RFC 3484 в Linux — выбор адресов по Ульриху Дрепперу](/articles/rfc_3484_on_linux.md)
           - gaiconf
             - [/etc/gai.conf — это совсем не то, что вы думаете](/articles/etcgaiconf_it_aint_what_you_think_it_is.md)
             - [Какие правила добавить в /etc/gai.conf](/articles/finding_out_what_rules_to_add_to_etcgaiconf_prakticheskiy_razbor_nastroyki_etcgai.md)
           - Основное
             - [Resolve IP адресов в Linux: понятное и детальное описание](/articles/resolve_ip_adresov_v_linux_ponyatnoe_i_detalnoe_opisanie.md)
             - [Анатомия DNS-запроса в Linux — часть IV](/articles/anatomy_of_a_linux_dns_lookup_part_iv.md)
+            - [Анатомия DNS-запроса в Linux. Часть I](/articles/anatomy_of_a_linux_dns_lookup_part_i.md)
+            - [Анатомия DNS-запроса в Linux. Часть II](/articles/anatomy_of_a_linux_dns_lookup_part_ii.md)
             - [Анатомия DNS-запроса в Linux. Часть III](/articles/anatomy_of_a_linux_dns_lookup_part_iii.md)
-            - [Как работает DNS в Linux. Часть 1: от getaddrinfo до resolv.conf](/articles/kak_rabotaet_dns_v_linux_chast_1_ot_getaddrinfo_do_resolvconf.md)          - Default Address Selection
-            - [RFC 3484 в Linux — выбор адресов по Ульриху Дрепперу](/articles/rfc_3484_on_linux.md)
-
+            - [Как работает DNS в Linux. Часть 1: от getaddrinfo до resolv.conf](/articles/kak_rabotaet_dns_v_linux_chast_1_ot_getaddrinfo_do_resolvconf.md)
+            - [Трассировка разрешения имён хостов в Linux](/articles/tracing_linux_hostname_resolution.md)
       - Протоколы
         - TCP
+          - Socket lookup на приёме
+            - [Сокеты в ядре Linux — Часть 3: поиск TCP-сокета на приёме](/articles/sockets_in_the_linux_kernel_-_part_3_tcp_socket_lookup_on_rx_razbor_poiska_soketa.md)
           - TCP Congestion Control
             - [Внутреннее устройство управления перегрузкой TCP в Linux](/articles/linux_tcp_congestion_control_internals.md)
-          - TCP Congestion Control
+            - [Как переключать алгоритмы контроля перегрузки TCP в Linux](/articles/how_to_switch_tcp_congestion_control_algorithms_on_linux.md)
             - [TCP Congestion Control или Почему скорость прыгает](/articles/tcp_congestion_control_ili_pochemu_skorost_prygaet.md)
             - [Как работает TCP congestion control: Reno, Cubic, BBR простыми словами](/articles/kak_rabotaet_tcp_congestion_control_reno_cubic_bbr_prostymi_slovami.md)
           - Алгоритмы управления перегрузками
@@ -110,15 +133,23 @@
           - Планировщики пакетов
             - fq
               - [FQ - Fair Queuing](/articles/fq_fair_queuing.md)
+              - [pkt_sched: fq: планировщик пакетов Fair Queue](/articles/pkt_sched_fq_fair_queue_packet_scheduler.md)
+            - Основное
+              - [Пейсинг пакетов в Linux: fq против tbf](/articles/packet_pacing_on_linux_fq_vs_tbf.md)
+    - Системное администрирование
+      - Время и Синхронизация
+        - [Clock Mini-HOWTO: как Linux отслеживает время](/articles/how_linux_keeps_track_of_time.md)
     - Системное администрирование и утилиты
       - Блокировки flock
         - [flock](/articles/flock_blokirovki_v_shell_skriptakh_russkoyazychnaya_statya_o_zashchite.md)
+        - [Продолжение: блокировка bash-скриптов с flock](/articles/follow_up_bash_script_locking_with_flock.md)
       - Быстрые клавиши
         - Терминал
           - [Горячие клавиши терминала Linux](/articles/goryachie_klavishi_terminala_linux.md)
       - Планировщики задач
         - cron
           - [Почему cron](/articles/pochemu_cron_samyi_opasnyi_instrument_v_linux_prakticheskii_razbor_ris.md)
+          - [crontab в Linux](/articles/crontab_in_linux.md)
         - systemd timers
           - [systemd/Timers](/articles/systemdtimers_russkoyazychnaya_stranitsa_archwiki_po_systemd_taimeram_.md)
           - [Использование таймеров systemd вместо заданий cron](/articles/ispolzovanie_taimerov_systemd_vmesto_zadanii_cron_perevod_stati_david_.md)
@@ -128,25 +159,38 @@
           - [Linux — работа с ACL](/articles/linux_rabota_s_acl.md)
           - [Быть или не быть ACL в администрировании Linux](/articles/byt_ili_ne_byt_acl_v_administrirovanii_linux.md)
           - [Совместное использование файлов с помощью ACL](/articles/sharing_files_with_acls.md)
+          - [Глава 20. Списки контроля доступа (ACL)](/articles/chapter_20_access_control_lists.md)
+        - Основное
+          - [Группы и права пользователей в Linux](/articles/linux_user_groups_and_permissions_guide.md)
       - Утилиты командной строки
         - logger
           - [Команда logger: опции, ключи и примеры использования](/articles/komanda_logger_optsii_klyuchi_i_primery_ispolzovaniya_russkoyazychnaya.md)
+          - [Команда logger в Linux: подробное руководство](/articles/master_the_linux_logger_command.md)
+          - [Команда logger: руководство по системному администрированию Linux](/articles/the_logger_command_linux_system_administration_guide.md)
         - ncat
           - [Ncat, Netcat, nc](/articles/ncat_netcat_nc.md)
         - nproc
           - [Введение в команду nproc в Linux](/articles/intro_to_nproc_command_in_linux.md)
-      - Блокировки flock
-        - [Продолжение: блокировка bash-скриптов с flock](/articles/follow_up_bash_script_locking_with_flock.md)
-      - Логирование
-        - syslog
-          - [Руководство для начинающих по syslog в Linux](/articles/beginners_guide_to_syslogs_in_linux.md)        - Общее
-          - [Системное логирование в Linux](/articles/linux_system_logging.md)
-
-      - Утилиты командной строки
         - killall
           - [killall(1) — справочная страница Linux](/articles/killall1_linux_manual_page.md)
-        - logger
-          - [Команда logger в Linux: подробное руководство](/articles/master_the_linux_logger_command.md)
+        - mtr
+          - [Команда MTR в Linux](/articles/linux_mtr_command.md)
+          - [Продвинутая диагностика сети: My Traceroute (MTR)](/articles/advanced_network_troubleshooting_using_my_traceroute_mtr.md)
+        - [Лучшие альтернативы Netcat-листенеру](/articles/hacking_articles.md)
+      - Логирование
+        - syslog
+          - [Как настроить централизованное логирование в Linux с помощью Rsyslog](/articles/how_to_set_up_centralized_logging_on_linux_with_rsyslog.md)
+          - [Как собирать, обрабатывать и пересылать логи с помощью Rsyslog](/articles/how_to_collect_process_and_ship_log_data_with_rsyslog.md)
+          - [Руководство для начинающих по syslog в Linux](/articles/beginners_guide_to_syslogs_in_linux.md)
+        - Общее
+          - [Основы логирования в Linux](/articles/linux_logging_basics.md)
+          - [Системное логирование в Linux](/articles/linux_system_logging.md)
+          - [Файлы журналов, джоналы и системы логирования](/articles/log_files_journals_and_logging_systems.md)
+    - Системные вызовы
+      - eventfd
+        - [eventfd(2) — man-страница Linux](/articles/eventfd2_linux_manual_page.md)
+      - Основное
+        - [Создание процессов и потоков в Linux: архитектура системных вызовов](/articles/linux_process_and_thread_creation_system_call_architecture.md)
     - Файловая система
       - btrfs
         - [BTRFS для самых маленьких](/articles/btrfs_dlya_samykh_malenkikh.md)
@@ -158,10 +202,10 @@
         - [Что такое ZFS? И почему люди от неё без ума?](/articles/chto_takoe_zfs_i_pochemu_lyudi_ot_nee_bez_uma.md)
       - Общее
         - [FHS (Filesystem Hierarchy Standard); стандарт иерархии файловой системы](/articles/fhs_filesystem_hierarchy_standard_standart_ierarkhii_failovoi_sistemy.md)
+        - [Файлы и файловые системы](/articles/files_and_filesystems.md)
       - Специальные ФС (dev, proc)
         - dev
           - [Каталог /dev в Linux](/articles/understanding_the_dev_directory_in_linux.md)
-      - Специальные ФС (dev, proc)
         - proc
           - [Изучаем файловую систему proc](/articles/izuchaem_failovuyu_sistemu_proc.md)
           - [Каталог /proc в Linux](/articles/katalog_proc_v_linux.md)
@@ -172,6 +216,7 @@
       - [Релиз Linux 6.13](/articles/reliz_linux_613.md)
     - Ядро и Разработка
       - Разработка модулей и драйверов
+        - [Внутренности ядра и разработка модулей ядра в Fedora Linux](/articles/kernel_internals_and_kernel_module_development_in_fedora_linux.md)
         - [План обучения написанию драйверов устройств для Linux](/articles/roadmap_to_learning_linux_device_drivers.md)
       - Сборка ядра
         - [Собираем и запускаем минимальное ядро Linux](/articles/sobiraem_i_zapuskaem_minimalnoe_yadro_linux.md)
@@ -184,15 +229,20 @@
       - [Мои приключения с NixOS, часть 1: начало работы](/articles/moi_priklyucheniya_s_nixos_chast_1_nachalo_raboty.md)
       - [Немного о NixOS. Часть 1. Общая информация и установка](/articles/nemnogo_o_nixos_chast_1_obshchaya_informatsiya_i_ustanovka.md)
       - [Сборка пакета для Nix](/articles/sborka_paketa_dlya_nix.md)
-    - NixOS
       - [Запуск и автообновление Docker-контейнеров на NixOS](/articles/run_and_auto-update_docker_containers_on_nixos.md)
     - Остальное
+      - [Дешёвые Docker-образы с Nix](/articles/cheap_docker_images_with_nix.md)
       - [Изолированные окружения для разработки с помощью Nix](/articles/isolated_development_environment_using_nix.md)
   - POSIX
     - Сигналы
       - [Сигналы (signal)](/articles/signaly_signal_konspekt_hse_caos_po_posix_signalam_signal_sigaction_ki.md)
     - Потоки
       - [Что такое поток?](/articles/what_is_a_thread.md)
+      - [Библиотеки потоков POSIX (pthread)](/articles/posix_thread_pthread_libraries.md)
+      - [Многопоточное программирование: учебник по POSIX pthreads](/articles/multithreaded_programming_posix_pthreads_tutorial.md)
+      - [Потоки POSIX](/articles/posix_threads.md)
+  - RabbitMQ
+    - [Как установить сервер RabbitMQ в Linux (краткое руководство)](/articles/how_to_install_rabbitmq_server_on_linux_quick_guide.md)
   - RDP
     - xrdp
       - [Как установить Xrdp Server (удалённый рабочий стол) на Ubuntu 20.04](/articles/how_to_install_xrdp_on_ubuntu.md)
@@ -201,9 +251,14 @@
       - [fail2ban ssh i bruteforce attack](/articles/fail2ban_ssh_i_bruteforce_attack.md)
     - GUI-клиенты
       - [SSH Pilot - Современный менеджер SSH сессий для Linux](/articles/ssh_pilot_sovremennyi_menedzher_ssh_sessii_dlya_linux_russkoyazychnyi_.md)
+    - ssh config
+      - [Как использовать файл конфигурации SSH](/articles/how_to_use_the_ssh_config_file.md)
     - tunnels
       - [SSH: локальная переадресация портов](/articles/ssh_local_port_forwarding.md)
+    - Туннели
+      - [Наглядное руководство по SSH-туннелям: локальная и удалённая переадресация портов](/articles/a_visual_guide_to_ssh_tunnels_local_and_remote_port_forwarding.md)
     - Остальное
+      - [Мультиплексирование в OpenSSH](/articles/opensshcookbookmultiplexing.md)
       - [Почему перенос SSH на порт, отличный от 22, — плохая идея](/articles/why_putting_ssh_on_another_port_than_22_is_bad_idea.md)
   - systemd
     - healthcheck
@@ -211,21 +266,26 @@
     - journald
       - [Journalctl — анализ логов Linux](/articles/journalctl_analiz_logov_linux.md)
       - [Использование journalctl для просмотра и анализа логов: подробный гайд](/articles/ispolzovanie_journalctl_dlya_prosmotra_i_analiza_logov_podrobnyi_gaid.md)
+      - [Как использовать journalctl для просмотра и обработки журналов systemd](/articles/how_to_use_journalctl_to_view_and_manipulate_systemd_logs.md)
     - systemd-nspawn
       - machinectl
         - [Из дневника разработчика: автологин в machinectl](/articles/machinectl_auto_login.md)
       - Основное
         - [Systemd и контейнеры: знакомство с systemd-nspawn](/articles/systemd_i_konteinery_znakomstvo_s_systemd_nspawn.md)
-      - [systemd-nspawn](/articles/systemd_nspawn_jimmyg.md)      - Остальное
+      - Остальное
         - [Запуск контейнеров systemd-nspawn с VPN-интерфейсом](/articles/running_systemd-nspawn_containers_with_a_vpn_interface.md)
-
+      - [systemd-nspawn](/articles/systemd_nspawn_jimmyg.md)
     - Основное
       - [Systemd для начинающих: разбор юнитов и их функций](/articles/systemd_dlya_nachinayushchikh_razbor_yunitov_i_ikh_funktsii.md)
       - [systemd десять лет спустя. Историческая и техническая ретроспектива](/articles/systemd_desyat_let_spustya_istoricheskaya_i_tekhnicheskaya_retrospekti.md)
     - Остальное
       - [systemd Watchdog для любого сервиса](/articles/systemd_watchdog_for_any_service.md)
       - [systemd для администраторов, часть XXI: интеграция с контейнерами](/articles/systemd_for_administrators_part_xxi.md)
+      - [systemd: хорошие части](/articles/systemd_the_good_parts.md)
   - VyOS
+    - Homelab
+      - [Homelab: миграция и обновление Proxmox + Debian + VyOS](/articles/homelab_proxmox_debian_vyos_upgrade_migration.md)
+      - [VyOS с нуля: маршрутизация и VPS](/articles/vyos_from_scratch_routing_and_vps_edition.md)
     - Основное
       - [VyOS](/articles/vyos.md)
     - Остальное
@@ -255,6 +315,7 @@
   - Диски
     - [[Пошагово] Клонирование диска Clonezilla с большего на меньший](/articles/poshagovo_klonirovanie_diska_clonezilla_s_bolshego_na_menshii.md)
   - Подборки
+    - [30 эмуляторов терминала для Linux](/articles/30_linux_terminal_emulators.md)
     - [Руководство по мониторингу системы в Linux: top, htop, btop и glances](/articles/a_guide_to_linux_system_monitoring_top_htop_btop_and_glances.md)
   - Привилегии и capabilities
     - setcap и getcap
@@ -264,11 +325,16 @@
       - [Лишение пользователя root привилегий](/articles/lishenie_polzovatelya_root_privilegii.md)
     - Остальное
       - [В двух словах о привилегиях Linux (capabilities)](/articles/v_dvukh_slovakh_o_privilegiyakh_linux_capabilities.md)
+      - [В чём суть Linux Capabilities? (Часть 2)](/articles/whats_the_big_deal_with_linux_capabilities_part_2.md)
+      - [Что такого особенного в Linux Capabilities?](/articles/whats_the_big_deal_with_linux_capabilities.md)
     - capsh
       - [Команда capsh](/articles/capsh_command.md)
   - Сеть
     - Количество соединений
       - [Что ограничивает максимальное число соединений на Linux-сервере?](/articles/what_limits_max_connections_on_linux_server.md)
+  - Сеть network
+    - Количество соединений
+      - [Максимизируем число одновременных подключений к веб-серверу](/articles/maximize_your_concurrent_web_server_connections.md)
   - Системы мониторинга
     - Zabbix
       - [Развертывание Zabbix 4.4 с nginx, php-fpm и MySQL Percona в Docker](/articles/razvertyvanie_zabbix_44_s_nginx_php_fpm_i_mysql_percona_v_docker.md)
@@ -280,18 +346,41 @@
       - [Служба доменных имен (DNS)](/articles/sluzhba_domennykh_imen_dns.md)
   - Утилиты
     - proxychains
-  - rsync
-    - [rsync, статья 2: окружение (2022)](/articles/rsync_article_2_surroundings_2022.md)
       - [Настройка proxychains](/articles/nastroika_proxychains.md)
     - rsync
+      - [rsync, статья 1: сценарии использования (2022)](/articles/rsync_article_1_scenarios_2022.md)
+      - [rsync, статья 2: окружение (2022)](/articles/rsync_article_2_surroundings_2022.md)
       - [rsync, статья 3: как работает rsync? (2022)](/articles/rsync_article_3_how_does_rsync_work_2022.md)
   - Файрволы
     - ufw
       - [Как настроить файрвол с UFW в Ubuntu](/articles/kak_nastroit_fairvol_s_ufw_v_ubuntu.md)
   - Остальное
+    - [Drop-in (.d) каталоги в Linux: более безопасный способ управления конфигурационными файлами](/articles/drop-in_d_directories_in_linux_explained_a_safer_way_to_manage_config_files.md)
+    - [Linux Kernel Labs: сетевая подсистема](/articles/linux_kernel_labs_networking_lab.md)
     - [Linux-телефоны сейчас важнее, чем когда-либо](/articles/linux_telefony_seichas_vazhnee_chem_kogda_libo.md)
+    - [Livepatch: runtime-патчинг функций ядра без перезагрузки](/articles/livepatch_ofitsialnaya_dokumentatsiya_yadra_linux_o_runtime-patchinge_funktsiy_bez_reb.md)
+    - [Podman на edge: поддержание жизни сервисов с помощью пользовательских действий healthcheck](/articles/podman_at_the_edge_keeping_services_alive_with_custom_healthcheck_actions.md)
+    - [Unix domain sockets: локальный IPC через AF_UNIX](/articles/unix_domain_sockets_razbor_lokalnogo_ipc_cherez_af_unix_sock_streamsock_dgramsoc.md)
+    - [dup, dup2, dup3 — дублирование файлового дескриптора](/articles/dup_dup2_dup3_-_duplicate_a_file_descriptor.md)
+    - [syslog-ng](/articles/syslog-ng.md)
+    - [zram: сжатые блочные устройства в оперативной памяти](/articles/zram_compressed_ram-based_block_devices.md)
+    - [Блокировка критических секций в shell-скриптах](/articles/locking_critical_sections_in_shell_scripts_prakticheskaya_statya_o_zashchite_kritiches.md)
+    - [Выбор адреса по умолчанию. Часть 1](/articles/default_address_selection_part_1_vvodnaya_statya_pro_vybor_ipv6-adresov_v_linux_r.md)
+    - [Выбор адреса по умолчанию. Часть 2](/articles/default_address_selection_part_2_razbor_vybora_adresa_istochnika_v_yadre_linux_mar.md)
+    - [Глубокое понимание механизма взаимодействия RDMA между программным и аппаратным обеспечением](/articles/an_in-depth_understanding_of_rdma_interaction_mechanism.md)
+    - [Запуск NixOS из любого дистрибутива Linux в контейнерах systemd-nspawn](/articles/running_nixos_from_any_linux_distro_in_systemd-nspawn_containers.md)
+    - [Использование lock-файлов для управления заданиями в bash-скриптах](/articles/using_lock_files_for_job_control_in_bash_scripts_obzor_lock_files_dlya_shell-skri.md)
     - [Как вывести список файлов каталога с 8 миллионами файлов (но не с помощью ls)](/articles/you_can_list_a_directory_containing_8_million_files_but_not_with_ls.md)
+    - [Методы смягчения эксплойтов — Часть 3: рандомизация раскладки адресного пространства (ASLR)](/articles/exploit_mitigation_techniques_part_3_address_space_layout_randomization.md)
+    - [Как обойти базовые механизмы защиты от эксплойтов — Часть 0x03: ASLR](/articles/how_to_bypass_basic_exploit_mitigation_part_0x03_aslr_prakticheskiy_x86-64_razbor.md)
     - [Мой первый контейнер без Docker](/articles/moi_pervyi_konteiner_bez_docker.md)
+    - [Настройка контейнеров с systemd-nspawn](/articles/setting_up_containers_with_systemd-nspawn.md)
+    - [Песочница — вики Flatpak](/articles/sandbox_wiki_flatpak_s_razborom_realizatsii_pesochnits.md)
+    - [Сборка кросс-дистрибутивных Linux-приложений с Flatpak — практическое руководство: среды выполнения и SDK, `flatpak-builder`, манифест, `finish-args`, права песочницы и публикация подписанного репозитория](/articles/building_cross-distribution_linux_applications_with_flatpak.md)
+    - [Сокеты в ядре Linux — Часть 2: поиск UDP-сокета на приёме](/articles/sockets_in_the_linux_kernel_part_2_udp_socket_lookup_on_rx.md)
+    - [Сокеты в ядре Linux. Часть 1: демультиплексирование L4-протоколов на приёме](/articles/sockets_in_the_linux_kernel_-_part_1_l4_protocol_demultiplexing_on_rx_razbor_vyb.md)
+    - [Шаг в будущее управления конфигурацией и инфраструктурой с Nix](/articles/a_step_towards_the_future_of_configuration_and_infrastructure_management_with_ni.md)
+    - [Эволюция формата объектных файлов ELF](/articles/evolution_of_the_elf_object_file_format.md)
 
 - Системное администрирование
   - Загрузка и восстановление

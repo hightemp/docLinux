@@ -1,2 +1,7 @@
+* [io_uring против epoll: что лучше в сетевом программировании?](/articles/io_uring_vs_epoll_which_is_better_in_network_programming.md)
+* [io_uring снова здесь — на этот раз в виде руткита](/articles/io_uring_is_back_this_time_as_a_rootkit.md)
 * [Масштабируемое мультиплексирование событий: epoll против kqueue](/articles/scalable_event_multiplexing_epoll_vs_kqueue.md)
 * [Проблема в Linux io_uring ведет к скрытым атакам руткитов](/articles/problema_v_linux_io_uring_vedet_k_skrytym_atakam_rutkitov.md)
+* [Революция в бэкенде, или Почему io_uring так важен](/articles/the_backend_revolution_or_why_io_uring_is_so_important.md)
+* [Стремительный рост io_uring](/articles/the_rapid_growth_of_io_uring.md)
+* [Что такое io_uring? Высокопроизводительный ввод-вывод в Linux](/articles/what_is_io_uring_highperformance_io_in_linux.md)

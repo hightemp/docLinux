@@ -3,3 +3,4 @@
 * [Глубокое погружение в Linux namespaces, часть 4](/articles/glubokoe_pogruzhenie_v_linux_namespaces_chast_4.md)
 * [Глубокое погружение в Linux namespaces](/articles/glubokoe_pogruzhenie_v_linux_namespaces.md)
 * [Запуск контейнеров systemd-nspawn с VPN-интерфейсом](/articles/running_systemd-nspawn_containers_with_a_vpn_interface.md)
+* [Песочница — вики Flatpak](/articles/sandbox_wiki_flatpak_s_razborom_realizatsii_pesochnits.md)

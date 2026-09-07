@@ -1,2 +1,8 @@
+* [Библиотеки потоков POSIX (pthread)](/articles/posix_thread_pthread_libraries.md)
+* [Как работают потоки и конкурентность в системах Linux](/articles/how_threads_and_concurrency_work_in_linux_systems.md)
+* [Многопоточное программирование: учебник по POSIX pthreads](/articles/multithreaded_programming_posix_pthreads_tutorial.md)
+* [Потоки POSIX](/articles/posix_threads.md)
 * [Потоки в Linux: подробное руководство](/articles/threads_in_linux_a_comprehensive_guide.md)
+* [Разница между процессом и потоком в Linux](/articles/difference_between_process_and_thread_in_linux.md)
+* [Создание процессов и потоков в Linux: архитектура системных вызовов](/articles/linux_process_and_thread_creation_system_call_architecture.md)
 * [Что такое поток?](/articles/what_is_a_thread.md)
