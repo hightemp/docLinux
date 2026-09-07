@@ -11,7 +11,7 @@ from pathlib import Path
 
 
 ARTICLE_LINK_RE = re.compile(
-    r"^\[([^\]]+)\]\((/articles/[a-z0-9_]+\.md)\)$"
+    r"^\[(.+)\]\((/articles/[a-z0-9_-]+\.md)\)$"
 )
 TAG_LINK_RE = re.compile(r"^\[([^\]]+)\]\((/tags/[a-z0-9_]+\.md)\)$")
 SOURCE_RE = re.compile(r"^Источник: \[[^\]]+\]\(https?://[^\s)]+\)$")
