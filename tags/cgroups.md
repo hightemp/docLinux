@@ -1,3 +1,4 @@
+* [systemd и cgroup](/articles/systemd_and_cgroup.md)
 * [Борьба за ресурсы](/articles/linux_resource_contention.md)
 * [Как ограничить использование процессора и памяти с помощью групп в Debian/Ubuntu](/articles/cgroups_resource_limits_debian_ubuntu.md)
 * [Механизмы контейнеризации: cgroups](/articles/containerization_with_cgroups.md)

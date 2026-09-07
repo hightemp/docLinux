@@ -1,5 +1,6 @@
 * [Nix: воспроизводимая сборка](/articles/nix_vosproizvodimaya_sborka.md)
 * [NixOS — установка и настройка](/articles/nixos_ustanovka_i_nastroika.md)
+* [NixOS — хорошая серверная ОС, кроме случаев, когда это не так](/articles/nixos_is_a_good_server_os_except_when_it_isnt.md)
 * [Воспроизводимая среда разработки с Nix](/articles/vosproizvodimaya_sreda_razrabotki_s_nix.md)
 * [Дешёвые Docker-образы с Nix](/articles/cheap_docker_images_with_nix.md)
 * [Запуск NixOS из любого дистрибутива Linux в контейнерах systemd-nspawn](/articles/running_nixos_from_any_linux_distro_in_systemd-nspawn_containers.md)

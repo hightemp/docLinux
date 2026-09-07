@@ -5,3 +5,5 @@
 * [io_uring против epoll: что лучше в сетевом программировании?](/articles/io_uring_vs_epoll_which_is_better_in_network_programming.md)
 * [Асинхронный ввод-вывод в Linux: select, poll и epoll](/articles/io_multiplexing_select_vs_poll_vs_epollkqueue.md)
 * [Масштабируемое мультиплексирование событий: epoll против kqueue](/articles/scalable_event_multiplexing_epoll_vs_kqueue.md)
+* [Метод безумия epoll](/articles/the_method_to_epolls_madness.md)
+* [Что такое epoll](/articles/what_is_epoll.md)

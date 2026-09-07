@@ -3,6 +3,7 @@
 * [Linux Kernel Labs: сетевая подсистема](/articles/linux_kernel_labs_networking_lab.md)
 * [RFC 3484 в Linux: сортировка `getaddrinfo()` в glibc, выбор адреса источника в ядре, проблемы IPv6 site-local/ULA, таблицы `label`/`precedence` и `/etc/gai.conf`](/articles/rfc_3484_on_linux.md)
 * [Rolling-релизы VyOS](/articles/vyos_rolling_release.md)
+* [SSH port forwarding для начинающих](/articles/ssh_port_forwarding_for_beginners.md)
 * [VPN-туннель между маршрутизаторами Cisco и VyOS с использованием VTI](/articles/vpn_tunnel_between_cisco_and_vyos_routers_using_vtis.md)
 * [VyOS с нуля: маршрутизация и VPS](/articles/vyos_from_scratch_routing_and_vps_edition.md)
 * [epoll: API, на котором работает современный интернет](/articles/epoll_the_api_that_powers_the_modern_internet.md)
@@ -33,4 +34,5 @@
 * [Продвинутая диагностика сети: My Traceroute (MTR)](/articles/advanced_network_troubleshooting_using_my_traceroute_mtr.md)
 * [Революция в бэкенде, или Почему io_uring так важен](/articles/the_backend_revolution_or_why_io_uring_is_so_important.md)
 * [Трассировка разрешения имён хостов в Linux](/articles/tracing_linux_hostname_resolution.md)
+* [Увеличение скорости интернета в Linux с TCP BBR](/articles/increase_linux_internet_speed_with_tcp_bbr.md)
 * [Что ограничивает максимальное число соединений на Linux-сервере?](/articles/what_limits_max_connections_on_linux_server.md)
