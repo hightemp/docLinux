@@ -162,38 +162,6 @@ TCP congestion control — это баланс между скоростью и 
 
 Понимание этих алгоритмов важно при настройке серверов, балансировщиков и высоконагруженных систем, потому что от них напрямую зависит latency и пропускная способность.
 
-## На этой странице
-
-  * Базовая идея
-  * Как TCP понимает, что сеть перегружена
-  * TCP Reno
-  * TCP Cubic
-  * TCP BBR
-  * Сравнение
-  * Итог
-
-Не пропустить падение сайта
-
-Мгновенные уведомления на емейл, в Телеграм и MAX
-
-[Начать мониторинг](/registration)
-
-Опубликовано 22 марта 2026·5 минут чтения·[Анастасия Левина](/blog/authors/anastasiya-levina)·
-
-Средний рейтинг статьи — 4.8
-
-Наверх
-
-## Похожие статьи
-
-[![Алгоритмы рейт-лимитинга: token bucket, leaky bucket, sliding window](/images/4a8176ca41e3a81d27540333583766ab.png)Алгоритмы рейт-лимитинга: token bucket, leaky bucket, sliding windowРазбираем три основных алгоритма rate limiting: как они работают, в чём различия, какие плюсы и минусы у каждого и где их применять в продакшене.3 марта 20266 мин](/blog/algoritmy-reyt-limitinga-token-bucket-leaky-bucket-sliding-window)[![Как работает HTTP caching. ETag, Cache-Control, stale-while-revalidate простыми словами](/images/1512a75be15b5ae16c5f2b1473970f15.png)Как работает HTTP caching. ETag, Cache-Control, stale-while-revalidate простыми словамиПодробно объясняем принципы HTTP caching, механизмы валидации через ETag, управление кэшем через Cache-Control и сценарии stale-while-revalidate в реальных системах.17 мая 20269 мин](/blog/kak-rabotaet-http-caching-etag-cache-control-stale-while-revalidate-prostymi-slovami)[![Мониторинг очередей TCP и сокетов Linux. Listen queue, accept queue и переполнение backlog](/images/96adc96d10df1410f94ab02d27919466.png)Мониторинг очередей TCP и сокетов Linux. Listen queue, accept queue и переполнение backlogПодробно объясняем, как работают TCP-очереди в Linux, чем отличаются SYN queue и accept queue, что означает переполнение backlog, какими командами посмотреть их состояние и какие метрики завести в мониторинг.26 июля 202610 мин](/blog/monitoring-ocheredey-tcp-i-soketov-linux-listen-queue-accept-queue-i-perepolnenie-backlog)
-
-## Настроить мониторинг за 30 секунд
-
-Надежные оповещения о даунтаймах. Без ложных срабатываний
-
-[Начать мониторинг](/registration)
-
 **********
 
 [Linux](/tags/linux.md)

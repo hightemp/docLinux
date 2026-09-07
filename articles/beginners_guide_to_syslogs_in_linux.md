@@ -155,7 +155,7 @@ Sep 6 09:22:21 workstation su[21153]: FAILED su for studio by david
 
 Теперь, когда вы знаете самое необходимое о syslog в Linux, работа с журналами будет даваться вам чуть легче.
 
-Эта статья — отрывок из книги [Linux in Action Дэвида Клинтона](http://mng.bz/e7dP?ref=linuxhandbook.com). Она издана Manning Publication, и вы можете **получить скидку 30%** на любые книги Manning, **используя код nlitsfoss22** при оформлении заказа.
+Эта статья — отрывок из книги «Linux in Action» Дэвида Клинтона.
 
 Приятного изучения Linux.
 

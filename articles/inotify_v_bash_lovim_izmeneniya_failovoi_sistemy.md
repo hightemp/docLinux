@@ -149,31 +149,6 @@ done
 
 Как видите, всё достаточно просто. Если необходимо работать с файлами, имена которых содержат пробелы, вы можете использовать параметр «--csv» и разделять поля по запятой, а не по пробелу, как в примере, или добавить какой-то другой символ в строку шаблона вывода. Основной принцип работы при этом не изменится.
 
-### Похожие посты:
-
-  * [Параллельное выполнение в bash](https://mnorin.com/parallelnoe-vypolnenie-v-bash.html)
-  * [Скрипт, который работает и в Linux, и в Windows](https://mnorin.com/skript-kotory-j-rabotaet-i-v-linux-i-v-windows.html)
-  * [Проверка сертификата сервера из bash](https://mnorin.com/proverka-sertifikata-servera-iz-bash.html)
-  * [Объединение нескольких файловых систем без создания массива](https://mnorin.com/ob-edinenie-neskol-kih-fajlovy-h-sis.html)
-  * [Система мониторинга на bash'е](https://mnorin.com/sistema-monitoringa-na-bashe.html)
-  * [Bash. Как обойтись без goto](https://mnorin.com/bash-kak-obojtis-bez-goto.html)
-  * [Использование образов дисков VDI в Linux](https://mnorin.com/ispol-zovanie-obrazov-diskov-vdi-v-linux.html)
-  * [Linux: управление квотами дискового пространства](https://mnorin.com/linux-upravlenie-kvotami-diskovogo-prostranstva.html)
-  * [etckeeper: сохранение системных настроек](https://mnorin.com/etckeeper-sohranenie-sistemny-h-nastroek.html)
-  * [Сохраняем входящую и исходящую почту в postfix](https://mnorin.com/postfix-milter-saving-mail.html)
-
-  * [ Поделиться на Facebook (Открывается в новом окне) Facebook ](https://mnorin.com/inotify-v-bash.html?share=facebook)
-  * [ Поделиться в LinkedIn (Открывается в новом окне) LinkedIn ](https://mnorin.com/inotify-v-bash.html?share=linkedin)
-  * [ Поделиться в Reddit (Открывается в новом окне) Reddit ](https://mnorin.com/inotify-v-bash.html?share=reddit)
-  * [ Поделиться в Х (Открывается в новом окне) X ](https://mnorin.com/inotify-v-bash.html?share=twitter)
-  * [ Поделиться записями на Tumblr (Открывается в новом окне) Tumblr ](https://mnorin.com/inotify-v-bash.html?share=tumblr)
-  * [ Поделиться в Pinterest (Открывается в новом окне) Pinterest ](https://mnorin.com/inotify-v-bash.html?share=pinterest)
-  * [ Поделиться в Telegram (Открывается в новом окне) Telegram ](https://mnorin.com/inotify-v-bash.html?share=telegram)
-  * [ Поделиться в WhatsApp (Открывается в новом окне) WhatsApp ](https://mnorin.com/inotify-v-bash.html?share=jetpack-whatsapp)
-  *
-
-Запись опубликована [18.12.2016](https://mnorin.com/inotify-v-bash.html "12:57") автором [Maxim Norin](https://mnorin.com/author/admin "Посмотреть все записи автора Maxim Norin") в рубрике [Статьи](https://mnorin.com/category/articles) с метками [bash](https://mnorin.com/tag/bash), [debian](https://mnorin.com/tag/debian), [inotify](https://mnorin.com/tag/inotify), [inotifywait](https://mnorin.com/tag/inotifywait), [inotifywatch](https://mnorin.com/tag/inotifywatch), [linux](https://mnorin.com/tag/linux), [ubuntu](https://mnorin.com/tag/ubuntu).
-
 **********
 
 [inotify](/tags/inotify.md)

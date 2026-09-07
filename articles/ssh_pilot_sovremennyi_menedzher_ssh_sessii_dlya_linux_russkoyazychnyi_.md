@@ -4,28 +4,6 @@
 
 ![SSH Pilot - Современный менеджер SSH сессий для Linux](/images/21486940416d9eac80118996d20945a1.png)
 
-S
-
-# SSH Pilot - Современный менеджер SSH сессий для Linux
-
-25.01.2026
-
-7 мин.
-
-1347 слов
-
-Категории:
-
-[Полезное ПО](/categories/software/)
-
-Теги:
-
-[#ssh ](/tags/ssh/)[#linux ](/tags/linux/)[#gui ](/tags/gui/)[#open-source ](/tags/open-source/)[#cybersecurity ](/tags/cybersecurity/)[#review](/tags/review/)
-
-Уровень: Простой
-
-Автор: [Иван Чёрный](https://r4ven.me/about/)
-
 ### Содержание:
 
   * Предисловие
@@ -54,10 +32,6 @@ S
 В этой заметке я расскажу вам про SSH Pilot - современный менеджер SSH соединений для Linux, написанный на Python и GTK.
 
 📝 Также доступна версия для MacOS.
-
-##### 🖐️Эй!
-
-Подписывайтесь на наш телеграм [@r4ven_me](https://t.me/r4ven_me)📱, чтобы не пропустить новые публикации на сайте😉. А если есть вопросы или желание пообщаться по тематике - заглядывайте в Вороний чат [@r4ven_me_chat](https://t.me/r4ven_me_chat)🧐. Также в блоге теперь доступно [соавторство](https://r4ven.me/co-authors/) 🐧🐧🐧.
 
 ## Предисловие
 
@@ -91,9 +65,7 @@ S
 
 Отдельно стоит отметить отличную интеграцию приложения со стандартным конфиг файлом SSH: `~/.ssh/config`.
 
-Подробнее про его использование смотрите в отдельной статье:
-
-[![SSH – Тонкая настройка клиента в Linux: config файл и ssh-agent](/images/52e6e1d7ee4c784e3b539f68f8854858.png) SSH – Тонкая настройка клиента в Linux: config файл и ssh-agentВороний блогr4ven.me/linux/ssh-tonkaya-nastrojka-klienta-v-linux/](https://r4ven.me/linux/ssh-tonkaya-nastrojka-klienta-v-linux/)
+Подробнее про его использование рассказано в статье [«SSH — тонкая настройка клиента в Linux: config-файл и ssh-agent»](https://r4ven.me/linux/ssh-tonkaya-nastrojka-klienta-v-linux/).
 
 В качестве графического тулкита тут используется современный **GTK4** с использованием **libadwaita**. Отчего приложение в Linux🐧 среде выглядит нативно и аккуратно😌. Логика работы приложения реализована на Python🐍.
 
@@ -122,10 +94,6 @@ GtkSourceView| 5.0
 
 Ниже приведу пример установки SSH Pilot в Linux Mint Debian Edition 7 (Debian 13) с помощью подключения официального [репозитория](https://r4ven.me/it-theory/repozitorij-programmnogo-obespecheniya/):
 
-BASH
-
-Свернуть Копировать
-
 ```c
 # Add GPG key
 curl -fsSL https://mfat.github.io/sshpilot-ppa/pubkey.gpg | \
@@ -142,8 +110,6 @@ echo "deb [signed-by=/usr/share/keyrings/sshpilot-ppa.gpg arch=amd64] https://mf
 # Install
 sudo apt update && sudo apt install sshpilot
 ```
-
-Нажмите, чтобы развернуть и увидеть больше
 
 Скачать SSH Pilot можно также со [страницы релизов](https://github.com/mfat/sshpilot/releases) на GitHub или с [официального сайта](https://sshpilot.app/) в соответствующем разделе.
 
@@ -328,20 +294,6 @@ sudo apt update && sudo apt install sshpilot
   * [SSH — Проброс портов: прямые и обратные туннели](https://r4ven.me/networking/ssh-probros-portov-pryamye-i-obratnye-tunneli/)
   * [Forced command в SSH: запуск только одной команды без доступа к оболочке](https://r4ven.me/networking/forced-command-v-ssh-zapusk-tolko-odnoy-komandy-bez-dostupa-k-obolochke/)
 
-##### 👨‍💻Ну и…
-
-Не забывайте про нашу [телегу](https://t.me/r4ven_me)📱и [чат](https://t.me/r4ven_me_chat) 💬
-
-Или может хотите стать соавтором? [Тогда клик сюда](https://r4ven.me/co-authors/)🔗
-
-Всех благ✌️
-
-> That should be it. If not, check the logs 🙂
-
-##  Комментарии
-
-[ Открыть чат в Telegram](https://t.me/r4ven_me_chat)
-
 ### Авторские права
 
 **Автор:** Иван Чёрный
@@ -351,14 +303,6 @@ sudo apt update && sudo apt install sshpilot
 **Лицензия:** [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/)
 
 Использование материалов блога разрешается при условии: указания авторства/источника, некоммерческого использования и сохранения лицензии.
-
-[ ПредыдущаяКоллекция плейбуков Ansible 22.01](/automation/kollekciya-pleybukov-ansible/)
-
-[Следующая Универсальный поиск и использование CLI-команд через rofi01.02 ](/automation/universalnyy-poisk-i-ispolzovanie-cli-komand-cherez-rofi/)
-
-## Похожие статьи
-
-### [Удобное и надёжное хранение паролей — KeePass](/software/udobnoe-i-nadyozhnoe-hranenie-parolej-keepass/)### [Ollama — Локальный ИИ на вашем Linux ПК](/software/ollama-lokalnyj-ii-na-vashem-linux-pk/)### [SSH – Тонкая настройка клиента в Linux: config файл и ssh-agent](/linux/ssh-tonkaya-nastrojka-klienta-v-linux/)
 
 **********
 

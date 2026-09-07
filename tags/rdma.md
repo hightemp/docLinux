@@ -1,1 +1,0 @@
-* [Infiniband](/articles/infiniband.md)

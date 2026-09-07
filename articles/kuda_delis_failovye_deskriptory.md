@@ -88,60 +88,6 @@ fs.file-nr = 1056    0    147398
 
 Держите свои серверы в порядке и не теряйте открытые файловые дескрипторы ;-)
 
-#### Возможно, вам будет интересно
-
-![](/images/c1fd9285cf49f06b73851fceb814fe60.png)
-
-Изменение пароля root
-
-[Читать](https://firstvds.ru/technology/izmenenie-parolya-root)
-
-#### Было интересно?
-
-__ Да __ Нет Неактуально Недостоверно Непонятно
-
-#### Теги
-
-  * [ Терминал ](/search?search_api_views_fulltext=Терминал&hashtags=Терминал)
-
-[ __Назад к списку](/blog?tab=articles)
-
-#### Другие статьи
-
-  * Статья 31 августа 2026
-
-[Лучшие нейросети для генерации кода и программирования](/blog/luchshie-neyroseti-dlya-koda-i-programmirovaniya)
-
-  * Статья 6 августа 2026
-
-[Анатомия дата-центра: как устроены ЦОДы изнутри](/blog/anatomiya-data-centra-kak-ustroeny-cody-iznutri)
-
-  * Статья 4 августа 2026
-
-[DDoS-атаки 2026: эволюция угрозы. Кто находится в зоне риска?](/blog/ddos-ataki-2026-evolyuciya-ugrozy-kto-nakhoditsya-v-zone-riska)
-
-  * Статья 30 июля 2026
-
-[Первый закон об ИИ в России: что изменится для разработчиков и пользователей](/blog/pervyy-zakon-ob-ii-v-rossii-chto-izmenitsya-dlya-razrabotchikov-i-polzovateley)
-
-  * Статья 24 июля 2026
-
-[10 ИИ-приложений и сервисов, чтобы залипнуть в свободное время ](/blog/10-ii-prilozheniy-i-servisov-chtoby-zalipnut-v-svobodnoe-vremya)
-
-#### Сообщить об ошибке
-
-##### Опишите проблему
-
-если хотите, чтобы вам ответили
-
-Отправить
-
-__ ![](/images/79612b8929e0ddd94eb9cf872fd8f44f.png)
-
-Скидка новым клиентам
-
-Закажите сервер сегодня и получите скидку на первый месяц аренды!
-
 **********
 
 [файловые дескрипторы](/tags/failovye_deskriptory.md)

@@ -425,12 +425,6 @@ stdenv.mkDerivation rec {
 
 В следующей статье я постараюсь описать как собирать свой собственный `NixOS` дистрибутив с шахматами и балеринами.
 
-[ __C++: Приведение Enum структур к общему виду в шаблонах](../cpp-enum/)   [ C# .Net Core для Linux __](../netcore/)
-
-## Comments
-
-Please enable JavaScript to view the [comments powered by Disqus.](http://disqus.com/?ref_noscript) [comments powered by Disqus](http://disqus.com)
-
 **********
 
 [nix](/tags/nix.md)

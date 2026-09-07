@@ -492,8 +492,6 @@ TCP-PORT  FASTREUSE  #OWNERS
 
 До следующего раза ?.
 
-Если вам нравится ломать голову, читая исходный код ядра Linux, — [мы нанимаем](https://www.cloudflare.com/careers/).
-
 **********
 
 [linux](/tags/linux.md)

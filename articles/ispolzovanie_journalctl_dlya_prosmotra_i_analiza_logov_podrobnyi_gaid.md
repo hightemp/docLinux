@@ -238,10 +238,6 @@ SystemMaxUse=50M
 
 Служба журналирования логов journald очень мощный и гибкий инструмент, и если вы знаете как его использовать, он может сделать вашу жизнь намного проще во время поиска причин проблем с системой или ее сервисами.
 
-[![](/images/de9b9d186e1b1e5bb93b1457bc20c53c.png)](https://ruvds.com/ru-rub/news/read/126)
-
-[![](/images/bf3cf717dc3ee42cb160b29fe658b5fc.png)](http://ruvds.com/ru-rub?utm_source=habr&utm_medium=article&utm_campaign=yura&utm_content=journalctl#order)
-
 **********
 
 [systemd](/tags/systemd.md)

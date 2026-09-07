@@ -250,25 +250,6 @@ git commit -a -m "don't track testfile"
 
 Безусловно у любой VCS гораздо больше возможностей, чем описано в статье. Важно то, что лучше начать контроль версий уже сейчас, даже если вы никогда не использовали VCS, ведь потом это может сэкономить ваши время и силы.
 
-[Linux](https://admins.su/tags/linux/)  [Debian](https://admins.su/tags/debian/)  [Tutorial](https://admins.su/tags/tutorial/)
-
-* * *
-
-  * [__](//twitter.com/share?url=https%3a%2f%2fadmins.su%2fetckeeper-tutorial%2f&text=%d0%a3%d0%bf%d1%80%d0%be%d1%89%d0%b0%d0%b5%d0%bc%20%d0%b0%d0%b4%d0%bc%d0%b8%d0%bd%d0%b8%d1%81%d1%82%d1%80%d0%b8%d1%80%d0%be%d0%b2%d0%b0%d0%bd%d0%b8%d0%b5%20%d1%81%20etckeeper.%20%d0%9d%d0%b0%d1%81%d1%82%d1%80%d0%be%d0%b9%d0%ba%d0%b0%20%d0%ba%d0%be%d0%bd%d1%82%d1%80%d0%be%d0%bb%d1%8f%20%d0%b2%d0%b5%d1%80%d1%81%d0%b8%d0%b9%20%d0%ba%d0%be%d0%bd%d1%84%d0%b8%d0%b3%d0%be%d0%b2%20%d0%b2%20%2fetc.&via= "Share on Twitter")
-  * [__](//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fadmins.su%2fetckeeper-tutorial%2f "Share on Facebook")
-  * [__](//reddit.com/submit?url=https%3a%2f%2fadmins.su%2fetckeeper-tutorial%2f&title=%d0%a3%d0%bf%d1%80%d0%be%d1%89%d0%b0%d0%b5%d0%bc%20%d0%b0%d0%b4%d0%bc%d0%b8%d0%bd%d0%b8%d1%81%d1%82%d1%80%d0%b8%d1%80%d0%be%d0%b2%d0%b0%d0%bd%d0%b8%d0%b5%20%d1%81%20etckeeper.%20%d0%9d%d0%b0%d1%81%d1%82%d1%80%d0%be%d0%b9%d0%ba%d0%b0%20%d0%ba%d0%be%d0%bd%d1%82%d1%80%d0%be%d0%bb%d1%8f%20%d0%b2%d0%b5%d1%80%d1%81%d0%b8%d0%b9%20%d0%ba%d0%be%d0%bd%d1%84%d0%b8%d0%b3%d0%be%d0%b2%20%d0%b2%20%2fetc. "Share on Reddit")
-  * [__](//www.linkedin.com/shareArticle?url=https%3a%2f%2fadmins.su%2fetckeeper-tutorial%2f&title=%d0%a3%d0%bf%d1%80%d0%be%d1%89%d0%b0%d0%b5%d0%bc%20%d0%b0%d0%b4%d0%bc%d0%b8%d0%bd%d0%b8%d1%81%d1%82%d1%80%d0%b8%d1%80%d0%be%d0%b2%d0%b0%d0%bd%d0%b8%d0%b5%20%d1%81%20etckeeper.%20%d0%9d%d0%b0%d1%81%d1%82%d1%80%d0%be%d0%b9%d0%ba%d0%b0%20%d0%ba%d0%be%d0%bd%d1%82%d1%80%d0%be%d0%bb%d1%8f%20%d0%b2%d0%b5%d1%80%d1%81%d0%b8%d0%b9%20%d0%ba%d0%be%d0%bd%d1%84%d0%b8%d0%b3%d0%be%d0%b2%20%d0%b2%20%2fetc. "Share on LinkedIn")
-  * [__](//www.stumbleupon.com/submit?url=https%3a%2f%2fadmins.su%2fetckeeper-tutorial%2f&title=%d0%a3%d0%bf%d1%80%d0%be%d1%89%d0%b0%d0%b5%d0%bc%20%d0%b0%d0%b4%d0%bc%d0%b8%d0%bd%d0%b8%d1%81%d1%82%d1%80%d0%b8%d1%80%d0%be%d0%b2%d0%b0%d0%bd%d0%b8%d0%b5%20%d1%81%20etckeeper.%20%d0%9d%d0%b0%d1%81%d1%82%d1%80%d0%be%d0%b9%d0%ba%d0%b0%20%d0%ba%d0%be%d0%bd%d1%82%d1%80%d0%be%d0%bb%d1%8f%20%d0%b2%d0%b5%d1%80%d1%81%d0%b8%d0%b9%20%d0%ba%d0%be%d0%bd%d1%84%d0%b8%d0%b3%d0%be%d0%b2%20%d0%b2%20%2fetc. "Share on StumbleUpon")
-  * [__](//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fadmins.su%2fetckeeper-tutorial%2f&description=%d0%a3%d0%bf%d1%80%d0%be%d1%89%d0%b0%d0%b5%d0%bc%20%d0%b0%d0%b4%d0%bc%d0%b8%d0%bd%d0%b8%d1%81%d1%82%d1%80%d0%b8%d1%80%d0%be%d0%b2%d0%b0%d0%bd%d0%b8%d0%b5%20%d1%81%20etckeeper.%20%d0%9d%d0%b0%d1%81%d1%82%d1%80%d0%be%d0%b9%d0%ba%d0%b0%20%d0%ba%d0%be%d0%bd%d1%82%d1%80%d0%be%d0%bb%d1%8f%20%d0%b2%d0%b5%d1%80%d1%81%d0%b8%d0%b9%20%d0%ba%d0%be%d0%bd%d1%84%d0%b8%d0%b3%d0%be%d0%b2%20%d0%b2%20%2fetc. "Share on Pinterest")
-
-#### Смотрите также
-
-  * [Как добавить постоянные статические маршруты (persistent static routes) в Mac OS X.](/kak-dobavit-postoyannye-staticheskie-marshruty-persistent-static-routes-v-mac-os-x/)
-  * [Знакомство с CMake. Часть 3. CMakeCache, модули CMake, зависимости сборки.](/znakomstvo-s-cmake-chast-3-cmakecache-moduli-cmake-zavisimosti-sborki/)
-  * [maybe? Интересная песочница для отладки операций с файлами в скриптах Linux.](/maybe-interesnaya-pesochnica-dlya-otladki-operacij-s-fajlami-v-skriptax-linux/)
-  * [Знакомство с CMake. Часть 2. Переменные, условия, сообщения, опции.](/znakomstvo-s-cmake-chast-2/)
-  * [Знакомство с CMake. Часть 1. Установка, CMakeLists.txt, сборка.](/znakomstvo-s-cmake-2/)
-
 **********
 
 [аудит](/tags/audit.md)

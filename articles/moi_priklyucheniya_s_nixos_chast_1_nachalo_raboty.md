@@ -107,8 +107,6 @@ NixOS - весьма перспективная система, но в данн
 
 UPD: залил свой конфиг на [GitHub](https://github.com/SeTSeR/dotfiles/blob/master/configuration.nix). Также добавил в статью пример [оверлея](https://github.com/SeTSeR/nixpkgs-overlays).
 
-Please enable JavaScript to view the [comments powered by Disqus.](https://disqus.com/?ref_noscript)
-
 **********
 
 [nix](/tags/nix.md)

@@ -2,34 +2,6 @@
 
 Источник: [Служба доменных имен (DNS)](https://www.opennet.ru/docs/RUS/tcp_conf/tcp07.html)
 
-Профиль: **[_Аноним_](/~ "/~ - сводная страница участника")** ([вход](https://www.opennet.ru/cgi-bin/openforum/vsluhboard.cgi?az=login) | [регистрация](https://www.opennet.ru/cgi-bin/openforum/vsluhboard.cgi?az=user_register))
-
-[![The OpenNET Project](/images/e1a515106668a92791d29221fbb2848e.png)](/)
-|  |  |  [**НОВОСТИ**](https://www.opennet.ru/opennews/) ([+](https://www.opennet.ru/news/opennet.shtml)) |  [**КОНТЕНТ**](https://www.opennet.ru/mp/) |  [**WIKI**](http://wiki.opennet.ru) |  [**MAN'ы**](https://www.opennet.ru/man.shtml) |  [**ФОРУМ**](https://www.opennet.ru/forum/) |  [Поиск](https://www.opennet.ru/search.shtml) ([теги](https://www.opennet.ru/keywords/))
----|---|---|---|---|---
-
-```text
- [![The OpenNET Project / Index page](/images/7770190de145a54374b895b1c51a0a08.png)](/)
-```
-
-[ [новости](/opennews/) /[+++](/opennews/?full_lines=15&lines=15&mid_lines=00) | [форум](/forum/) | [теги](/keywords/) |  ]
-|  |  **[Каталог документации](https://www.opennet.ru/docs/) / [Раздел "Сети, протоколы, сервисы"](https://www.opennet.ru/docs/122.shtml) / [Оглавление документа](https://www.opennet.ru/docs/RUS/tcp_conf/) **
----
-
-[ ](http://www.mgul.ac.ru/) |  141001 г.Мытищи МО
-[Ул.Институтская д:1 ком:101](http://www.mgul.ac.ru)
-(095) 588-32-09, 588-55-62
-E-mail: [ lscs@mgul.ac.ru](mailto:lscs@mgul.ac.ru?Subject='From page topic LSCS-FORUM') |  **Московский Государственный Университет Леса**
-**_Сервер Лаб. Космической информатики каф.ВТ_**
-
-* * *
-
-  [**_Оглавление._**](tcp00.html#tos10)
-
-* * *
-
-# Служба доменных имен (DNS)
-
 > \- файл `host.conf`.
 >  \- Файл `/etc/resolv.conf`.
 >  \- Организация собственного сервера имен: демон `named`.
@@ -91,25 +63,6 @@ nameserver 204.199.77.2
 ```
 
 * * *
-
-[**_Оглавление._**](tcp00.html#tos10)
-
-* * *
-
-Партнёры:
-
-[![PostgresPro](/images/28c5833ad232d45b2fa54144c2c7a8f4.png)](https://www.postgrespro.ru)
-
-[ ![Inferno Solutions](/images/2761c2bccf9362c9a71870c61d1c0962.png)](https://ishosting.com/ru)
-
-[![Hosting by Hoster.ru](/images/d9d6c2cd400aa09f5d9c235dfb122ba0.png)](http://hoster.ru/?utm_source=site&utm_medium=banner&utm_campaign=opennet)
-
-Хостинг:
-
-[Закладки на сайте](/cgi-bin/opennet/bookmark.cgi)
-[Проследить за страницей](/cgi-bin/opennet/bookmark.cgi?submit=add) |  Created 1996-2026 by **[Maxim Chirkov](/contact.shtml "email maxim.chirkov@gmail.com")**
-[Добавить](https://www.opennet.ru/add.shtml), [Поддержать](https://www.opennet.ru/donate.shtml), [Вебмастеру](https://www.opennet.ru/banners2.shtml)
----|---|---|---
 
 **********
 

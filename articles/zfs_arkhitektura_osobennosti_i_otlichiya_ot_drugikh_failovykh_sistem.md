@@ -246,18 +246,6 @@ dRAID решает проблему одновременного восстан�
 
   * [Неофициальный telegram-чат сообщества OpenZFS на русском](https://t.me/ru_zfs).
 
-Также, как я уже говорил, в основном блочном и объектном хранилище Mail.ru Cloud Solutions, которое разрабатывают коллеги в моей команде, хранение устроено по-другому, об объектном хранилище недавно подробно рассказал наш архитектор Монс Андерсон: [Архитектура S3. 3 года эволюции Mail.ru Cloud Storage](https://habr.com/ru/company/mailru/blog/513356/).
-
-Коллеги пишут про хранение данных:
-
-  1. [Главные принципы организации объектных хранилищ](https://mcs.mail.ru/blog/glavnye-printsipy-organizatsii-obektnyh-hranilisch).
-
-  2. [Как использовать объектное S3-хранилище Mail.ru Cloud Solutions для хранения бэкапов Veeam](https://mcs.mail.ru/blog/obektnoe-s3-hranilische-dlya-hraneniya-bekapov-veeam).
-
-  3. [Наш Телеграм-канал с новостями об обновлениях S3-хранилища и других продуктов](https://t.me/mcsnews).
-
-P.S. Наш проект ищет разработчиков на Go в команду [Identity Access Management](https://team.mail.ru/vacancy/13453/). Из интересного — разработка на open source, highload, Kubernetes, распределенные системы. А полный список наших вакансий — [здесь](https://mcs.mail.ru/career/).
-
 **********
 
 [Linux](/tags/linux.md)

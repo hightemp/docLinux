@@ -630,8 +630,6 @@ Normalized form: Mon *-05~03 00:00:00      
 
 **Чем пользуетесь вы? Таймерами systemd или заданиями cron?**
 
-[![](/images/d76a7233aae636ac527161ac39ad5f6a.png)](http://ruvds.com/ru-rub?utm_source=habr&utm_medium=perevod&utm_campaign=taimersystemd)
-
 **********
 
 [Linux](/tags/linux.md)

@@ -2,11 +2,6 @@
 
 Источник: [Проблема в Linux io_uring ведет к скрытым атакам руткитов](https://xakep.ru/2025/04/25/io_uring-rootkits/)
 
-Рекомендуем почитать: [![](/images/1d20dbffa59c482d30b64ec7c4bfa2f1.png)](/issues/xa/327)### [Хакер #327. Doom.ttf](/issues/xa/327)
-
-  * [Содержание выпуска](/issues/xa/327)
-  * [Подписка на «Хакер»](/about)-40%
-
 Проблема в среде выполнения Linux связана с интерфейсом io_uring и позволяет руткитам оставаться незамеченными, обходя современные средства корпоративной безопасности. Эта особенность была [обнаружена](https://www.armosec.io/blog/io_uring-rootkit-bypasses-linux-security/) исследователями из компании ARMO, которые создали proof-of-concept руткит Curing, демонстрирующий атаки с применением io_uring.
 
 io_uring представляет собой интерфейс ядра Linux для асинхронных операций ввода-вывода. Он был [представлен](https://blogs.oracle.com/linux/post/an-introduction-to-the-io-uring-asynchronous-io-framework) в 2019 году в Linux 5.1 для решения проблем производительности и масштабируемости в традиционной системе ввода/вывода.
@@ -28,8 +23,6 @@ io_uring представляет собой интерфейс ядра Linux �
 Для тех, кто хочет проверить свои среды на устойчивость перед такими угрозами, ARMO уже разместила [Curing на GitHub](https://github.com/armosec/curing).
 
 Исследователи полагают, что решить проблему можно при помощи Kernel Runtime Security Instrumentation (KRSI), что позволит привязывать программы eBPF к событиям ядра, связанным с безопасностью.
-
-Теги:[io_uring](https://xakep.ru/tag/io_uring/)[Linux](https://xakep.ru/tag/linux/)[Malware](https://xakep.ru/tag/malware/)[Новости](https://xakep.ru/tag/news/)[Руткит](https://xakep.ru/tag/rutkit/)[Уязвимости](https://xakep.ru/tag/uyazvimosti/)
 
 **********
 

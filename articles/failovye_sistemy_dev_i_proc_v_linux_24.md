@@ -2,43 +2,6 @@
 
 Источник: [Файловые системы /dev и /proc в Linux 2.4](https://www.nixp.ru/articles/38.html)
 
-[RSS](https://feeds2.feedburner.com/nixpru)
-
-[Telegram](https://teleg.run/nixp_ru)
-
-[Facebook](https://www.facebook.com/nixp.ru)
-
-[Twitter](https://twitter.com/nixp_ru)
-
-[Яндекс](https://www.yandex.ru/?add=32759 "Яндекс.Виджет")
-
-  * [Новости](/)
-  * [Форум](/forum)
-  * [Софт](/soft)
-  * [Статьи](/articles)
-  * [Рецепты](/recipes)
-  * [Ссылки](/links)
-  * [Проект](/about)
-  * [Реклама](/advertise)
-
-[_Войти_](javascript:void\(0\); "Профиль") [_Постучаться_](/profile/new) ; "Выйти")
-
- "Epic fail") "Так себе") "Хорошо") "Вау!")
-
-0
-
-#  Файловые системы /dev и /proc в Linux 2.4 0
-
-### [Новичкам](/articles/newbies "Категория статей Новичкам")
-
-Автор: [Дмитрий Шурупов](https://www.nixp.ru/user/Dmitry-Shurupov "Похоже, ссылка ведет на профиль.")
-
-Статья была опубликована 1 февраля 2010 года в 00:00, а последний раз правилась 4 февраля 2010 года в 00:05.
-
-Постоянная ссылка: <https://www.nixp.ru/articles/38.html>
-
-В Linux есть две файловые системы, которые абсолютно непоняты новым пользователям. У этих двух каталогов, /proc и /dev, нет аналогов в Windows. Тем не менее, они очень важны для понимания и использования Linux.
-
 Автор [оригинала](http://www.nixp.ru/pub/articles/dev_proc_linux.html): [Matt Butcher](mailto:mbutcher@paddlekrumland.com).
 
 В Linux есть две файловые системы, которые абсолютно непоняты новым пользователям. У этих двух каталогов, /proc и /dev, нет аналогов в Windows. Тем не менее, они очень важны для понимания и использования Linux.
@@ -274,79 +237,6 @@ echo 1 > /proc/sys/net/khttpd/start
 **Вывод**
 
 /proc и /dev представляют интерфейсы к внутренностям Linux’а с помощью файлов. Они способствуют настройке и получению сведений об устройствах и процессах системы. Благодаря ним, можно с легкостью обновлять, изучать, запускать систему и устранять разнообразные неполадки. Понимание и применение знаний этих двух файловых систем являются ключом к созданию «более вашей» Linux-системы.
-
-[Linux](/find/%D0%A1%D1%82%D0%B0%D1%82%D1%8C%D0%B8%20%D1%81%20%D1%82%D0%B5%D0%B3%D0%BE%D0%BC%20Linux "Статьи с тегом Linux") [файловые системы](/find/%D0%A1%D1%82%D0%B0%D1%82%D1%8C%D0%B8%20%D1%81%20%D1%82%D0%B5%D0%B3%D0%BE%D0%BC%20%D1%84%D0%B0%D0%B9%D0%BB%D0%BE%D0%B2%D1%8B%D0%B5%20%D1%81%D0%B8%D1%81%D1%82%D0%B5%D0%BC%D1%8B "Статьи с тегом файловые системы")
-
-Популярные в этом разделе:
-  * «[OpenBSD как десктоп: реально? Вполне!](/articles/OpenBSD-%D0%BA%D0%B0%D0%BA-%D0%B4%D0%B5%D1%81%D0%BA%D1%82%D0%BE%D0%BF-%D1%80%D0%B5%D0%B0%D0%BB%D1%8C%D0%BD%D0%BE-%D0%92%D0%BF%D0%BE%D0%BB%D0%BD%D0%B5.html)»,
-  * «[Советы по первичной настройке FreeBSD для новичков](/articles/%D0%A1%D0%BE%D0%B2%D0%B5%D1%82%D1%8B-%D0%BF%D0%BE-%D0%BF%D0%B5%D1%80%D0%B2%D0%B8%D1%87%D0%BD%D0%BE%D0%B9-%D0%BD%D0%B0%D1%81%D1%82%D1%80%D0%BE%D0%B9%D0%BA%D0%B5-FreeBSD-%D0%B4%D0%BB%D1%8F-%D0%BD%D0%BE%D0%B2%D0%B8%D1%87%D0%BA%D0%BE%D0%B2.html)»,
-  * «[Файловые системы /dev и /proc в Linux 2.4](/articles/%D0%A4%D0%B0%D0%B9%D0%BB%D0%BE%D0%B2%D1%8B%D0%B5-%D1%81%D0%B8%D1%81%D1%82%D0%B5%D0%BC%D1%8B-dev-%D0%B8-proc-%D0%B2-Linux-2-4.html)».
-
-[ Комментировать! ](javascript:void\(0\) "Добавить комментарий") (**[1](javascript:void\(0\); "Перейти к комментариям")**)
-
-) )
-
-или [отменить](javascript:void\(0\))
-
-) )
-
-[![param0n](/images/1158daf818ced735315bf6b254cc2b7a.png)](https://www.nixp.ru/user/param0n)
-
-1
-
-param0n 00:05, 4 февраля 2010
-
-0
-
-Спасибо вам за статью! Очень много нового узнал.
-
-[ Ответить ](javascript:void\(0\)) [ Цитировать ](javascript:void\(0\)) [ Редактировать ](javascript:void\(0\)) [ Удалить ](javascript:void\(0\)) [ Вы уверены? ](javascript:void\(0\)) [ Вы уверены? ](javascript:void\(0\)) или [отменить](javascript:void\(0\))
-
-[ ]()
-
-Рейтинг: ****
-
-Сообщения: ****
-
-0
-
-  * [Что новенького?](/my)_()_
-  * [Управлять](/profile/dominate) -> [**Добавить статью**](/articles/action/create)
-  * [Редактировать профиль](/profile/edit)
-  * [Быстрые опции](/changepreference/showPreferences/true) [Быстрые опции](/changepreference/showPreferences/false)
-
-```text
-* [Включить визуальные эффекты](/changepreference/showVisualEffects/true)
-* [Выключить визуальные эффекты](/changepreference/showVisualEffects/false)
-```
-
-Последние комментарии
-
-  * _OlegL_ , 17 декабря 2023 года в 15:00 -> [Перекличка](https://www.nixp.ru/forum/just_for_fun/11275.html#ForumTopicCommentary:101315) [21](https://www.nixp.ru/forum/just_for_fun/11275.html#ForumTopicCommentary:101315)
-  * _REDkiy_ , 8 июня 2023 года в 9:09 -> [Как «замокать» файл для юниттеста в Python?](https://www.nixp.ru/forum/development/11237.html#ForumTopicCommentary:101303) [2](https://www.nixp.ru/forum/development/11237.html#ForumTopicCommentary:101303)
-  * _fhunter_ , 29 ноября 2022 года в 2:09 -> [Проблема с NO_PUBKEY: как получить GPG-ключ и добавить его в базу apt?](https://www.nixp.ru/recipes/4.html#RecipeCommentary:187) [6](https://www.nixp.ru/recipes/4.html#RecipeCommentary:187)
-  * _Иванн_ , 9 апреля 2022 года в 8:31 -> [Ассоциация РАСПО провела первое учредительное собрание](https://www.nixp.ru/news/9708.html#NewsCommentary:82031) [1](https://www.nixp.ru/news/9708.html#NewsCommentary:82031)
-  * _Kiri11.ADV1_ , 7 марта 2021 года в 12:01 -> [Логи catalina.out в TomCat 9 в формате JSON](https://www.nixp.ru/forum/software/11247.html#ForumTopicCommentary:101221) [1](https://www.nixp.ru/forum/software/11247.html#ForumTopicCommentary:101221)
-
-[DevOps as a Service from Palark](https://palark.com/)
-
-24/7 SRE & DevOps service to cover all your Kubernetes needs.
-
-Новичкам
-
-[BSD](/find/%D0%A1%D1%82%D0%B0%D1%82%D1%8C%D0%B8%20%D0%B8%D0%B7%20%D0%BA%D0%B0%D1%82%D0%B5%D0%B3%D0%BE%D1%80%D0%B8%D0%B8%20%22%D0%9D%D0%BE%D0%B2%D0%B8%D1%87%D0%BA%D0%B0%D0%BC%22%20%D1%81%20%D1%82%D0%B5%D0%B3%D0%BE%D0%BC%20BSD "Статьи из категории "Новичкам" с тегом BSD") [FAQ](/find/%D0%A1%D1%82%D0%B0%D1%82%D1%8C%D0%B8%20%D0%B8%D0%B7%20%D0%BA%D0%B0%D1%82%D0%B5%D0%B3%D0%BE%D1%80%D0%B8%D0%B8%20%22%D0%9D%D0%BE%D0%B2%D0%B8%D1%87%D0%BA%D0%B0%D0%BC%22%20%D1%81%20%D1%82%D0%B5%D0%B3%D0%BE%D0%BC%20FAQ "Статьи из категории "Новичкам" с тегом FAQ") [FreeBSD](/find/%D0%A1%D1%82%D0%B0%D1%82%D1%8C%D0%B8%20%D0%B8%D0%B7%20%D0%BA%D0%B0%D1%82%D0%B5%D0%B3%D0%BE%D1%80%D0%B8%D0%B8%20%22%D0%9D%D0%BE%D0%B2%D0%B8%D1%87%D0%BA%D0%B0%D0%BC%22%20%D1%81%20%D1%82%D0%B5%D0%B3%D0%BE%D0%BC%20FreeBSD "Статьи из категории "Новичкам" с тегом FreeBSD") [Linux](/find/%D0%A1%D1%82%D0%B0%D1%82%D1%8C%D0%B8%20%D0%B8%D0%B7%20%D0%BA%D0%B0%D1%82%D0%B5%D0%B3%D0%BE%D1%80%D0%B8%D0%B8%20%22%D0%9D%D0%BE%D0%B2%D0%B8%D1%87%D0%BA%D0%B0%D0%BC%22%20%D1%81%20%D1%82%D0%B5%D0%B3%D0%BE%D0%BC%20Linux "Статьи из категории "Новичкам" с тегом Linux") [OpenBSD](/find/%D0%A1%D1%82%D0%B0%D1%82%D1%8C%D0%B8%20%D0%B8%D0%B7%20%D0%BA%D0%B0%D1%82%D0%B5%D0%B3%D0%BE%D1%80%D0%B8%D0%B8%20%22%D0%9D%D0%BE%D0%B2%D0%B8%D1%87%D0%BA%D0%B0%D0%BC%22%20%D1%81%20%D1%82%D0%B5%D0%B3%D0%BE%D0%BC%20OpenBSD "Статьи из категории "Новичкам" с тегом OpenBSD") [десктопы](/find/%D0%A1%D1%82%D0%B0%D1%82%D1%8C%D0%B8%20%D0%B8%D0%B7%20%D0%BA%D0%B0%D1%82%D0%B5%D0%B3%D0%BE%D1%80%D0%B8%D0%B8%20%22%D0%9D%D0%BE%D0%B2%D0%B8%D1%87%D0%BA%D0%B0%D0%BC%22%20%D1%81%20%D1%82%D0%B5%D0%B3%D0%BE%D0%BC%20%D0%B4%D0%B5%D1%81%D0%BA%D1%82%D0%BE%D0%BF%D1%8B "Статьи из категории "Новичкам" с тегом десктопы") [новичкам](/find/%D0%A1%D1%82%D0%B0%D1%82%D1%8C%D0%B8%20%D0%B8%D0%B7%20%D0%BA%D0%B0%D1%82%D0%B5%D0%B3%D0%BE%D1%80%D0%B8%D0%B8%20%22%D0%9D%D0%BE%D0%B2%D0%B8%D1%87%D0%BA%D0%B0%D0%BC%22%20%D1%81%20%D1%82%D0%B5%D0%B3%D0%BE%D0%BC%20%D0%BD%D0%BE%D0%B2%D0%B8%D1%87%D0%BA%D0%B0%D0%BC "Статьи из категории "Новичкам" с тегом новичкам") [файловые системы](/find/%D0%A1%D1%82%D0%B0%D1%82%D1%8C%D0%B8%20%D0%B8%D0%B7%20%D0%BA%D0%B0%D1%82%D0%B5%D0%B3%D0%BE%D1%80%D0%B8%D0%B8%20%22%D0%9D%D0%BE%D0%B2%D0%B8%D1%87%D0%BA%D0%B0%D0%BC%22%20%D1%81%20%D1%82%D0%B5%D0%B3%D0%BE%D0%BC%20%D1%84%D0%B0%D0%B9%D0%BB%D0%BE%D0%B2%D1%8B%D0%B5%20%D1%81%D0%B8%D1%81%D1%82%D0%B5%D0%BC%D1%8B "Статьи из категории "Новичкам" с тегом файловые системы")
-
-© 2001—2026 [АО «Флант»](http://flant.ru/ "Флант: администрирование Linux")
-
-При полном или частичном использовании любых материалов с сайта вы обязаны явным образом указывать гиперссылку на сайт [www.nixp.ru](https://www.nixp.ru/) в качестве источника.
-
-  * [Добавить статью](/articles/action/create)
-  * [Мои статьи](/articles/action/list)
-  * [Правила публикации](/about/rules)
-  * [Обратная связь](/feedback)
-
-  * Разработано в компании [](http://flant.ru/)
-  * Идея и поддержка проекта — [Дмитрий Шурупов](http://www.shurupov.ru/)
 
 **********
 

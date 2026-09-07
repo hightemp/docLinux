@@ -381,7 +381,6 @@
     - BPF и eBPF
       - [BPF для самых маленьких, часть нулевая: classic BPF](/articles/bpf_dlya_samykh_malenkikh_chast_nulevaya_classic_bpf.md)
     - RDMA
-      - [Infiniband](/articles/infiniband.md)
       - [Глубокое понимание механизма взаимодействия RDMA между программным и аппаратным обеспечением](/articles/an_in-depth_understanding_of_rdma_interaction_mechanism.md)
   - IP-адресация
     - Выбор адреса по умолчанию

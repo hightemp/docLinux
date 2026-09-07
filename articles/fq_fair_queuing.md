@@ -2,10 +2,6 @@
 
 Источник: [FQ - Fair Queuing](https://linkmeup.gitbook.io/sdsm/15.-qos/6.-upravlenie-peregruzkami-congestion-management/2-fq-fair-queuing)
 
-  2. [6\. Управление перегрузками](/sdsm/15.-qos/6.-upravlenie-peregruzkami-congestion-management)
-
-# FQ - Fair Queuing
-
 Следующий претендент на роль идеального диспетчера — **механизмы честных очередей**.
 
 ## FQ — Fair Queuing
@@ -63,10 +59,6 @@ Weight в CBWFQ приобрел уже другой смысл. Вес назн
 ![](/images/08e310ef83931d9f9dfd22a0de1dba60.png)
 
 Вот так и овцы сыты и волки целы.
-
-[PreviousPQ — Priority Queuing](/sdsm/15.-qos/6.-upravlenie-peregruzkami-congestion-management/1-pq-priority-queuing)[NextRR — Round-Robin](/sdsm/15.-qos/6.-upravlenie-peregruzkami-congestion-management/3-rr-round-robin)
-
-Last updated 7 years ago
 
 **********
 

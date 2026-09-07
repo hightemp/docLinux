@@ -10,7 +10,6 @@
 * [Epoll фундаментально сломан — часть 2](/articles/epoll_is_fundamentally_broken_2.md)
 * [FHS (Filesystem Hierarchy Standard); стандарт иерархии файловой системы](/articles/fhs_filesystem_hierarchy_standard_standart_ierarkhii_failovoi_sistemy.md)
 * [FQ - Fair Queuing](/articles/fq_fair_queuing.md)
-* [Infiniband](/articles/infiniband.md)
 * [Linux 6.4: новые возможности ядра — что изменилось в релизе](/articles/linux_64_novye_vozmozhnosti_yadra_chto_izmenilos_v_relize.md)
 * [Linux Kernel 6.0: что нового «выросло» в ядре?](/articles/linux_kernel_60_chto_novogo_vyroslo_v_yadre.md)
 * [Linux Kernel Labs: сетевая подсистема](/articles/linux_kernel_labs_networking_lab.md)

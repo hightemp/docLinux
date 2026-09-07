@@ -2,37 +2,6 @@
 
 Источник: [Лишение пользователя root привилегий](https://rus-linux.net/MyLDP/admin/making_root_unprivileged.html)
 
-![](/images/ce56e545ff744e63854d2870b73ba2cc.png)
-[**UnixForum**](http://unixforum.org)
-
-[ ![](/images/32c3e7973dab363bf47891d290218d6a.png)
-**LinuxCenter**](http://linuxcenter.ru/?good=1100&sid=AaYnrHeK)
-
-[
-Канарейкино](http://kanareikino.rus-linux.net)
-
-* * *
-
-**Мои книги**
-
-[![](/images/66688b4af64dc20d69aa449816afdd65.png)
-"Linux для пользователя"](/kos.php?name=/book1/book1.html)
-
-[![](/images/53c0b5c7aa62fe97c558a48cb89ebe57.png)
-"OpenOffice.org - открытый офис для Linux и Windows" ](/kos.php?name=/inc/kos.html)
-
-[![](/images/b2934b889f259ed4e44d4c934e995c00.png)
-"Свободная система для свободных людей (обзор истории операционной системы Linux)" ](/kos.php?name=/papers/history/lh-00.html)
-
-[ ![](/images/8be75dcb646e6460bcd7aad4b48a67e2.png)
-"Система виртуальных машин фирмы VMWARE"](https://linuxcenter.ru/react/reader/6016259c-093a-11eb-8831-ac1f6bbd4340)
-
-* * *
-
-**Библиотека сайта rus-linux.net**
-
-# Лишение пользователя root привилегий
-
 Оригинал: [Making Root Unprivileged](http://www.linuxjournal.com/magazine/making-root-unprivileged?page=0,0)
 Автор: Serge Hallyn
 Дата публикации: 1 августа 2009 г.

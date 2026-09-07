@@ -290,26 +290,6 @@ Jul  3 15:08:08 ubuntu-xenial dnsmasq[15697]: time 1530630488
 
 * * *
 
-_**Если вам это нравится, возможно, вам понравится одна из моих книг:**_
-
-_**[Learn Git the Hard Way](https://leanpub.com/learngitthehardway?p=4369)**_
-
-_**[Learn Terraform the Hard Way](https://leanpub.com/learnterraformthehardway)**_
-
-_**[Learn Bash the Hard Way](https://leanpub.com/learnbashthehardway?p=4369)**_
-
-[![learngitthehardway](/images/b8a7ce09f10deb06d48b43fb6b7dbda8.png)](https://leanpub.com/learngitthehardway)
-
-[![hero](/images/8cb5f4cd50f8a4520f0f43151fef159c.png)](https://leanpub.com/learnbashthehardway)
-
-* * *
-
-Если вам понравилось, подумайте о том, чтобы [купить мне кофе](https://www.buymeacoffee.com/zwischenzugs) — это мотивирует меня делать больше.
-
-* * *
-
-**_[Скидка 39% на Docker in Practice по коду: 39miell2](https://www.manning.com/books/docker-in-practice-second-edition?a_aid=zwischenzugs&a_bid=550032fc)_**
-
 **********
 
 [dns](/tags/dns.md)

@@ -151,25 +151,11 @@ If you want to analyze the logs events captured by `auditd`, use `autdisp. `It t
 
 Finally, to return information needed for analysis, aulast can be used to print a list of the last logged-in users. Itsearches through the audit logs and displays a list of all users logged in (and out). Meanwhile, there is also `aulastlog` thatreturns the latest login details of all machine users by printing the login name, port, and last login time. The port and time fields will show “Never logged in” if a user has never logged in.
 
-## Sematext and auditd
-
-Serious usage of auditd – even on just a few hosts – can generate lots of events. With standard tools like `ausearch`, it might be difficult to sift through all this data and even more complicated to set up alerts and automate responses. This is where [Sematext Logs](https://sematext.com/logsene/) comes in: with a lightweight tool such as AuditBeat or a [log shipper](https://sematext.com/blog/logstash-alternatives/), you can [aggregate](https://sematext.com/blog/log-aggregation/) audit logs across all hosts of your infrastructure. Once data is in, you can slice and dice it through customizable [dashboards](https://sematext.com/docs/dashboards/) or the API, create [alerts](https://sematext.com/docs/alerts/), or rely on [anomaly detection](https://sematext.com/glossary/anomaly-detection/) – so you can react to anything suspicious in a timely manner.
-
-Watch the video below to learn more about Sematext Logs or try the [14-day free trial](https://apps.sematext.com/ui/registration) to test it out yourself.
-
 ### Frequently Asked Questions
 
 What is the difference between Syslog and Auditd?
 
 Syslog is a standard for computer message logging, allowing various devices and applications to generate and collect log messages. On the other hand, Auditd is a Linux security feature that provides a framework for monitoring and logging security-related events, such as file access and user authentication, for the purpose of enhancing system security and auditing. While syslog is a general-purpose logging mechanism, auditd specifically focuses on security-related events
-
-[Start Free Trial](https://apps.sematext.com/ui/registration)
-
-* * *
-
-No related posts.
-
-### [API Response TimeDefinition: What Is API Response Time? API response time is...](https://sematext.com/glossary/api-response-time/)### [Anomaly DetectionWhat Are Anomalies? Anomalies mean outliers or inconsistent data points,...](https://sematext.com/glossary/anomaly-detection/)### [AIOpsDefinition: What Is AIOps? Artificial Intelligence for IT Operations (AIOps)...](https://sematext.com/glossary/aiops/)
 
 **********
 
