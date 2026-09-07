@@ -1,6 +1,6 @@
 # Cache Aware Scheduling: анонс v3-серии из 21 патча
 
-Источник: [Cache Aware Scheduling — анонс v3 серии из 21 патча для cache-aware балансировки нагрузки в планировщике Linux: потоки одного процесса группируются в общем LLC-домене для снижения cache bouncing и cache misses; приведены результаты тестов на Intel Sapphire Rapids и AMD Genoa.](https://lwn.net/Articles/1058288/)
+Источник: [PATCH v3 00/21: sched/fair: Introduce Cache Aware Scheduling](https://lwn.net/Articles/1058288/)
 
 **From** : |  | Tim Chen <tim.c.chen-AT-linux.intel.com>
 ---|---|---
@@ -229,8 +229,8 @@ Tim Chen (10):
  14 files changed, 1598 insertions(+), 28 deletions(-)
 ```
 
-**********
+---
 
-[kernel](/tags/kernel.md)
+[ядро](/tags/kernel.md)
 [linux](/tags/linux.md)
 [cpu](/tags/cpu.md)

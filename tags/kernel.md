@@ -1,5 +1,5 @@
 * [ASLR в деталях](/articles/aslr_in_depth.md)
-* [Cache Aware Scheduling: анонс v3-серии из 21 патча](/articles/cache_aware_scheduling_anons_v3_serii_iz_21_patcha_dlya_cache-aware_balansirovki_n.md)
+* [Cache Aware Scheduling: анонс v3-серии из 21 патча](/articles/cache_aware_scheduling_anons_v3_serii_iz_21_patcha_dlya_cache_aware_balansirovki_n.md)
 * [DFS (динамический выбор частоты)](/articles/dfs_dynamic_frequency_selection.md)
 * [Linux Kernel Labs: сетевая подсистема](/articles/linux_kernel_labs_networking_lab.md)
 * [Linux TCP SO_REUSEPORT: использование и реализация](/articles/linux_tcp_so_reuseport_usage_and_implementation.md)
@@ -35,5 +35,5 @@
 * [Стремительный рост io_uring](/articles/the_rapid_growth_of_io_uring.md)
 * [Файловые дескрипторы](/articles/file_descriptors.md)
 * [Файлы и файловые системы](/articles/files_and_filesystems.md)
-* [Характеризация Cache-Aware Scheduling в Linux](/articles/characterization_of_cache_aware_scheduling_on_linux_issledovanie_eevdf_i_ebpf-pl.md)
+* [Характеризация Cache-Aware Scheduling в Linux](/articles/characterization_of_cache_aware_scheduling_on_linux_issledovanie_eevdf_i_ebpf_pl.md)
 * [Что такое linux-vdso.so.1](/articles/understanding_linux-vdsoso1.md)

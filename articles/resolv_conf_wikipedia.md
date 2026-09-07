@@ -1,6 +1,6 @@
 # resolv.conf
 
-Источник: [resolv_conf_wikipedia](https://en.wikipedia.org/wiki/Resolv.conf)
+Источник: [resolv.conf](https://en.wikipedia.org/wiki/Resolv.conf)
 
 Из Википедии, свободной энциклопедии
 
@@ -45,7 +45,7 @@ _resolv.conf_ обычно располагается в каталоге [/etc]
 *   `resolv.conf(5)` — [FreeBSD](https://en.wikipedia.org/wiki/FreeBSD "FreeBSD") File Formats [Manual](https://en.wikipedia.org/wiki/Man_page "Man page")
 *   `resolv.conf(5)` — [OpenBSD](https://en.wikipedia.org/wiki/OpenBSD "OpenBSD") File Formats [Manual](https://en.wikipedia.org/wiki/Man_page "Man page")
 
-**********
+---
 
 [dns](/tags/dns.md)
 [linux](/tags/linux.md)

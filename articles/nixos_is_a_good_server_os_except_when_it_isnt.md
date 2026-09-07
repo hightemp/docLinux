@@ -1,6 +1,6 @@
 # NixOS — хорошая серверная ОС, кроме случаев, когда это не так
 
-Источник: [nixos_is_a_good_server_os_except_when_it_isnt](https://sidhion.com/blog/posts/nixos_server_issues/)
+Источник: [NixOS is a good server OS, except when it isn't](https://sidhion.com/blog/posts/nixos_server_issues/)
 
 Опубликовано: 27 марта 2024 · Обновлено: 1 января 2025
 
@@ -283,7 +283,7 @@ nixpkgs.overlays = [(
 
 3. Если вы хотите посмотреть на тот же CSV, что использовал я, вы можете его [скачать](https://sidhion.com/nixos_bare_starting.csv), но вы не сможете исследовать пути хранилища, если только не соберёте ту же конфигурацию с той же версией Nixpkgs. [↩](https://sidhion.com/blog/posts/nixos_server_issues/#user-content-fnref-3)
 
-**********
+---
 
 [nixos](/tags/nixos.md)
 [nix](/tags/nix.md)

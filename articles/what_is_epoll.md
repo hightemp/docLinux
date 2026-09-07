@@ -1,6 +1,6 @@
 # Что такое epoll
 
-Источник: [what_is_epoll](https://medium.com/@avocadi/what-is-epoll-9bbc74272f7c)
+Источник: [What is epoll?](https://medium.com/@avocadi/what-is-epoll-9bbc74272f7c)
 
 yongjoon · 29 мая 2022 · 8 мин чтения
 
@@ -135,7 +135,7 @@ Level-triggered означает, что условие всегда истин�
 
 Думаю, мне следует реализовать простую серверную программу с использованием epoll, чтобы узнать больше. Спасибо за чтение моего поста!
 
-**********
+---
 
 [epoll](/tags/epoll.md)
 [linux](/tags/linux.md)

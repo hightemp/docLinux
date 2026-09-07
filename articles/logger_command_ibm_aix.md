@@ -73,8 +73,8 @@ logger -pdaemon.crit
 *   [Команда syslogd](https://www.ibm.com/docs/en/ssw_aix_72/s_commands/syslogd.html)
 *   [Команда syslog](https://www.ibm.com/docs/en/ssw_aix_72/s_bostechref/syslog.html)
 
-**********
+---
 
 [logger](/tags/logger.md)
-[logs](/tags/logs.md)
+[логи](/tags/logs.md)
 [unix](/tags/unix.md)

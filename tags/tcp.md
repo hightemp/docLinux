@@ -1,5 +1,4 @@
 * [FQ - Fair Queuing](/articles/fq_fair_queuing.md)
-* [Linux TCP SO_REUSEPORT: использование и реализация](/articles/flipkart_linux_tcp_so_reuseport.md)
 * [TCP BBR: быстрый и простой способ ускорения загрузки страниц. Доклад Яндекса](/articles/tcp_bbr_bystryi_i_prostoi_sposob_uskoreniya_zagruzki_stranits_doklad_y.md)
 * [TCP Congestion Control или Почему скорость прыгает](/articles/tcp_congestion_control_ili_pochemu_skorost_prygaet.md)
 * [bash_tcp_udp_sockets](/articles/bash_tcp_udp_sockets.md)

@@ -1,6 +1,6 @@
 # systemd и cgroup
 
-Источник: [systemd_and_cgroup](https://medium.com/@charles.vissol/systemd-and-cgroup-7eb80a08234d)
+Источник: [systemd and cgroup](https://medium.com/@charles.vissol/systemd-and-cgroup-7eb80a08234d)
 
 Автор: Charles Vissol · 16 декабря 2023 · 8 мин чтения
 
@@ -353,8 +353,8 @@ Linux также предоставляет `systemctl` для получени�
 * Вносить устройства в белый или чёрный список.
 * Настраивать формирование сетевого трафика (traffic shaping).
 
-**********
+---
 
 [systemd](/tags/systemd.md)
-[cgroup](/tags/cgroups.md)
+[cgroups](/tags/cgroups.md)
 [linux](/tags/linux.md)

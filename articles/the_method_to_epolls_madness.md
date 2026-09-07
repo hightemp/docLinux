@@ -1,6 +1,6 @@
 # Метод безумия epoll
 
-Источник: [the_method_to_epolls_madness](https://medium.com/@copyconstruct/the-method-to-epolls-madness-d9d2d6378642)
+Источник: [The method to epoll's madness](https://medium.com/@copyconstruct/the-method-to-epolls-madness-d9d2d6378642)
 
 Синди Шридхаран · 30 октября 2017 · 16 мин чтения
 
@@ -293,7 +293,7 @@ end
 
 Этот пост стремился отразить «метод». Чтобы понять «безумие», которое порождают эти семантики epoll, хорошей ссылкой будут следующие два поста в блоге: epoll is fundamentally broken — части 1 и 2.
 
-**********
+---
 
 [epoll](/tags/epoll.md)
 [linux](/tags/linux.md)

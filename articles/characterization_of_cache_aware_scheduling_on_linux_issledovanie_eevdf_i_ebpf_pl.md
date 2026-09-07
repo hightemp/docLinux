@@ -1,6 +1,6 @@
 # Характеризация Cache-Aware Scheduling в Linux
 
-Источник: [Characterization of Cache Aware Scheduling on Linux — исследование EEVDF и eBPF-планировщика SCX_LAVD на двухсокетном Intel Sapphire Rapids с `perf`/PMU, SPEC CPU2017 и DCPerf; показывает влияние межсокетного размещения потоков, L3 RFO misses и миграций на производительность workloads с общими данными.](https://screamingpigeon.net/projects/cas/)
+Источник: [Characterization of Cache Aware Scheduling on Linux](https://screamingpigeon.net/projects/cas/)
 
 Опубликовано 2 июня 2026 · 6533 слова · 31 минута чтения
 
@@ -328,8 +328,8 @@ The kernel development community. b. *EEVDF Scheduler — The Linux Kernel docum
 
 Zijlstra, Peter. 2023. “[PATCH 00/10] Sched: EEVDF Using Latency-Nice.” Linux Kernel Mailing List, March. <https://lwn.net/ml/linux-kernel/20230306132521.968182689@infradead.org/>.
 
-**********
+---
 
-[kernel](/tags/kernel.md)
+[ядро](/tags/kernel.md)
 [linux](/tags/linux.md)
 [cpu](/tags/cpu.md)

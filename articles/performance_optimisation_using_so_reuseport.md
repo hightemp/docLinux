@@ -1,6 +1,6 @@
 # Оптимизация производительности с SO_REUSEPORT
 
-Источник: [performance_optimisation_using_so_reuseport](https://medium.com/high-performance-network-programming/performance-optimisation-using-so-reuseport-2b7ba0879d43)
+Источник: [Performance optimisation using SO_REUSEPORT](https://medium.com/high-performance-network-programming/performance-optimisation-using-so-reuseport-2b7ba0879d43)
 
 Мартен Гартнер (Marten Gartner) · 17 марта 2022 · 5 мин чтения
 
@@ -51,7 +51,7 @@ if err != nil {
 
 Мартен
 
-**********
+---
 
 [tcp](/tags/tcp.md)
 [sockets](/tags/sockets.md)

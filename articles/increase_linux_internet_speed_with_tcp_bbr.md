@@ -1,6 +1,6 @@
 # Увеличение скорости интернета в Linux с TCP BBR
 
-Источник: [increase_linux_internet_speed_with_tcp_bbr](https://www.cyberciti.biz/cloud-computing/increase-your-linux-server-internet-speed-with-tcp-bbr-congestion-control/)
+Источник: [Increase your Linux server Internet speed with TCP BBR congestion control](https://www.cyberciti.biz/cloud-computing/increase-your-linux-server-internet-speed-with-tcp-bbr-congestion-control/)
 
 Вивек Гите (Vivek Gite), nixCraft
 
@@ -212,8 +212,8 @@ $ man sysctl
 $ man iperf
 ```
 
-**********
+---
 
 [tcp](/tags/tcp.md)
 [linux](/tags/linux.md)
-[networking](/tags/networking.md)
+[сеть](/tags/networking.md)

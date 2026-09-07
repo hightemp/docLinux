@@ -41,6 +41,8 @@
       - epoll
         - [Epoll принципиально сломан 1/2](/articles/epoll_is_fundamentally_broken_12.md)
         - [Epoll фундаментально сломан — часть 2](/articles/epoll_is_fundamentally_broken_2.md)
+        - [Что такое epoll](/articles/what_is_epoll.md)
+        - [Метод безумия epoll](/articles/the_method_to_epolls_madness.md)
         - [epoll(7) — справочная страница Linux](/articles/epoll7_linux_manual_page.md)
         - [epoll: API, на котором работает современный интернет](/articles/epoll_the_api_that_powers_the_modern_internet.md)
       - select
@@ -52,12 +54,16 @@
     - [Linux 6.4: новые возможности ядра — что изменилось в релизе](/articles/linux_64_novye_vozmozhnosti_yadra_chto_izmenilos_v_relize.md)
     - [Linux Kernel 6.0: что нового «выросло» в ядре?](/articles/linux_kernel_60_chto_novogo_vyroslo_v_yadre.md)
     - [Релиз Linux 6.13](/articles/reliz_linux_613.md)
+    - [Релиз Linux 7.2](/articles/reliz_linux_72.md)
   - Разработка ядра
     - Модули и драйверы
       - [Внутренности ядра и разработка модулей ядра в Fedora Linux](/articles/kernel_internals_and_kernel_module_development_in_fedora_linux.md)
       - [План обучения написанию драйверов устройств для Linux](/articles/roadmap_to_learning_linux_device_drivers.md)
     - Сборка ядра
       - [Собираем и запускаем минимальное ядро Linux](/articles/sobiraem_i_zapuskaem_minimalnoe_yadro_linux.md)
+    - Планировщик CPU
+      - [Cache Aware Scheduling: анонс v3-серии из 21 патча](/articles/cache_aware_scheduling_anons_v3_serii_iz_21_patcha_dlya_cache_aware_balansirovki_n.md)
+      - [Характеризация Cache-Aware Scheduling в Linux](/articles/characterization_of_cache_aware_scheduling_on_linux_issledovanie_eevdf_i_ebpf_pl.md)
     - Практикумы
       - [Linux Kernel Labs: сетевая подсистема](/articles/linux_kernel_labs_networking_lab.md)
   - Сопровождение ядра
@@ -66,6 +72,7 @@
 - Процессы, память и IPC
   - Управление ресурсами
     - [Linux cgroup с нуля](/articles/linux_cgroup_from_first_principles.md)
+    - [Практика cgroup v2](/articles/practicing_cgroup_v2.md)
     - [Ограничение использования процессора с помощью nice, cpulimit и cgroups](/articles/limit_cpu_with_nice_cpulimit_cgroups.md)
     - [Как ограничить использование процессора и памяти с помощью групп в Debian/Ubuntu](/articles/cgroups_resource_limits_debian_ubuntu.md)
     - [Механизмы контейнеризации: cgroups](/articles/containerization_with_cgroups.md)
@@ -169,6 +176,8 @@
     - Основы
       - [Systemd для начинающих: разбор юнитов и их функций](/articles/systemd_dlya_nachinayushchikh_razbor_yunitov_i_ikh_funktsii.md)
       - [systemd десять лет спустя. Историческая и техническая ретроспектива](/articles/systemd_desyat_let_spustya_istoricheskaya_i_tekhnicheskaya_retrospekti.md)
+      - [systemd и cgroup](/articles/systemd_and_cgroup.md)
+      - [Как просмотреть статус службы с помощью systemctl](/articles/how_to_view_status_of_a_service_using_systemctl.md)
       - [systemd: хорошие части](/articles/systemd_the_good_parts.md)
     - Службы
       - [Systemd за пять минут](/articles/systemd_in_five_minutes.md)
@@ -217,6 +226,7 @@
     - logger
       - [Команда logger: опции, ключи и примеры использования](/articles/komanda_logger_optsii_klyuchi_i_primery_ispolzovaniya_russkoyazychnaya.md)
       - [Команда logger в Linux: подробное руководство](/articles/master_the_linux_logger_command.md)
+      - [Команда logger (IBM AIX)](/articles/logger_command_ibm_aix.md)
       - [Команда logger: руководство по системному администрированию Linux](/articles/the_logger_command_linux_system_administration_guide.md)
     - syslog
       - [Как настроить централизованное логирование в Linux с помощью Rsyslog](/articles/how_to_set_up_centralized_logging_on_linux_with_rsyslog.md)
@@ -237,6 +247,8 @@
     - journald
       - [Journalctl — анализ логов Linux](/articles/journalctl_analiz_logov_linux.md)
       - [Использование journalctl для просмотра и анализа логов: подробный гайд](/articles/ispolzovanie_journalctl_dlya_prosmotra_i_analiza_logov_podrobnyi_gaid.md)
+      - [Мини-руководство по journalctl](/articles/a_journalctl_mini_tutorial.md)
+      - [Как использовать journalctl для просмотра логов сервера](/articles/how_to_use_journalctl_to_consult_server_logs.md)
       - [Как использовать journalctl для просмотра и обработки журналов systemd](/articles/how_to_use_journalctl_to_view_and_manipulate_systemd_logs.md)
     - auditd
       - [auditd](/articles/auditd.md)
@@ -294,6 +306,7 @@
     - [Как создать песочницу и опакетить программу в NixOS?](/articles/kak_sozdat_pesochnitsu_i_opaketit_programmu_v_nixos.md)
     - [Мои приключения с NixOS, часть 1: начало работы](/articles/moi_priklyucheniya_s_nixos_chast_1_nachalo_raboty.md)
     - [Немного о NixOS. Часть 1. Общая информация и установка](/articles/nemnogo_o_nixos_chast_1_obshchaya_informatsiya_i_ustanovka.md)
+    - [NixOS — хорошая серверная ОС, кроме случаев, когда это не так](/articles/nixos_is_a_good_server_os_except_when_it_isnt.md)
     - [Сборка пакета для Nix](/articles/sborka_paketa_dlya_nix.md)
     - [Запуск и автообновление Docker-контейнеров на NixOS](/articles/run_and_auto-update_docker_containers_on_nixos.md)
     - [Дешёвые Docker-образы с Nix](/articles/cheap_docker_images_with_nix.md)
@@ -335,6 +348,7 @@
       - [Увеличиваем производительность с помощью SO_REUSEPORT в NGINX 1.9.1](/articles/uvelichivaem_proizvoditelnost_s_pomoshchyu_so_reuseport_v_nginx_191.md)
       - [Linux TCP SO_REUSEPORT: использование и реализация](/articles/linux_tcp_so_reuseport_usage_and_implementation.md)
       - [Балансировка TCP-соединений в ядре Linux](/articles/loadbalancing_tcp_connections_in_the_linux_kernel.md)
+      - [Оптимизация производительности с SO_REUSEPORT](/articles/performance_optimisation_using_so_reuseport.md)
       - [Идеальная локальность и три эпичных SystemTap-скрипта](/articles/perfect_locality_and_three_epic_systemtap_scripts.md)
       - [Квантовое состояние TCP-порта](/articles/the_quantum_state_of_a_tcp_port.md)
     - Поиск сокетов в ядре
@@ -347,6 +361,7 @@
       - [TCP Congestion Control или Почему скорость прыгает](/articles/tcp_congestion_control_ili_pochemu_skorost_prygaet.md)
       - [Как работает TCP congestion control: Reno, Cubic, BBR простыми словами](/articles/kak_rabotaet_tcp_congestion_control_reno_cubic_bbr_prostymi_slovami.md)
       - [TCP BBR: быстрый и простой способ ускорения загрузки страниц. Доклад Яндекса](/articles/tcp_bbr_bystryi_i_prostoi_sposob_uskoreniya_zagruzki_stranits_doklad_y.md)
+      - [Увеличение скорости интернета в Linux с TCP BBR](/articles/increase_linux_internet_speed_with_tcp_bbr.md)
       - [Как включить и настроить TCP BBR в Linux](/articles/how_to_enable_and_configure_tcp_bbr_on_linux.md)
     - Планирование и пейсинг пакетов
       - [FQ - Fair Queuing](/articles/fq_fair_queuing.md)
@@ -379,6 +394,8 @@
       - [Какие правила добавить в /etc/gai.conf](/articles/finding_out_what_rules_to_add_to_etcgaiconf_prakticheskiy_razbor_nastroyki_etcgai.md)
       - [Resolv.conf](/articles/resolvconf.md)
       - [Взаимоотношения dhcpclient и resolv.conf'а в Linux](/articles/vzaimootnosheniya_dhcpclient_i_resolvconfa_v_linux.md)
+      - [resolv.conf](/articles/resolv_conf_wikipedia.md)
+      - [Настройка хоста для применения сервера имен](/articles/nastroika_hosta_dlya_primeneniya_servera_imen.md)
     - Разрешение имён
       - [Resolve IP адресов в Linux: понятное и детальное описание](/articles/resolve_ip_adresov_v_linux_ponyatnoe_i_detalnoe_opisanie.md)
       - [Анатомия DNS-запроса в Linux — часть IV](/articles/anatomy_of_a_linux_dns_lookup_part_iv.md)
@@ -407,6 +424,7 @@
         - [Как использовать файл конфигурации SSH](/articles/how_to_use_the_ssh_config_file.md)
       - Туннели и прокси
         - [SSH: локальная переадресация портов](/articles/ssh_local_port_forwarding.md)
+        - [SSH port forwarding для начинающих](/articles/ssh_port_forwarding_for_beginners.md)
         - [Наглядное руководство по SSH-туннелям: локальная и удалённая переадресация портов](/articles/a_visual_guide_to_ssh_tunnels_local_and_remote_port_forwarding.md)
         - [Прокси через SSH-туннель](/articles/ssh_tunnel_proxy.md)
         - [Как надежно поддерживать открытый туннель SSH?](/articles/persistent_ssh_tunnel.md)
@@ -579,3 +597,11 @@
 [getent](/tags/getent.md)
 [dig](/tags/dig.md)
 [Flatpak](/tags/flatpak.md)
+[linux](/tags/linux.md)
+[epoll](/tags/epoll.md)
+[unix](/tags/unix.md)
+[journald](/tags/journald.md)
+[nixos](/tags/nixos.md)
+[nix](/tags/nix.md)
+[sockets](/tags/sockets.md)
+[dns](/tags/dns.md)

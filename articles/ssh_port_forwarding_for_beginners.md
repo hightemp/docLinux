@@ -1,6 +1,6 @@
 # SSH port forwarding для начинающих
 
-Источник: [ssh_port_forwarding_for_beginners](https://nirali0.medium.com/ssh-port-forwarding-for-beginners-228d9a1d5622)
+Источник: [SSH port forwarding for beginners](https://nirali0.medium.com/ssh-port-forwarding-for-beginners-228d9a1d5622)
 
 Нирали (Nirali) · 24 января 2021 · 13 мин чтения
 
@@ -117,7 +117,7 @@ docker-compose up --build --remove-orphans --force-recreate
 
 ![](/images/966ee4d14a64a9b000c00eefa0589810.png)
 
-Источник: http://manpages.ubuntu.com/manpages/xenial/man1/ssh.1.html
+Справочная страница: [ssh(1)](http://manpages.ubuntu.com/manpages/xenial/man1/ssh.1.html)
 
 ### Дизайн
 
@@ -277,7 +277,7 @@ ssh -L <local_listener_options>:<remote_service_options> -f <user>@bastion sleep
 
 ![](/images/9fdaa0a1e0e2107edff5b29533257844.png)
 
-Источник: http://manpages.ubuntu.com/manpages/xenial/man1/ssh.1.html
+Справочная страница: [ssh(1)](http://manpages.ubuntu.com/manpages/xenial/man1/ssh.1.html)
 
 ### Дизайн
 
@@ -521,7 +521,7 @@ ssh -J bastion -R /tmp/listener.sock:/var/run/mysock.sock server
 
 https://docstore.mik.ua/orelly/networking_2ndEd/ssh/ch09_02.htm
 
-**********
+---
 
 [ssh](/tags/ssh.md)
-[networking](/tags/networking.md)
+[сеть](/tags/networking.md)

@@ -1,6 +1,6 @@
 # Как использовать journalctl для просмотра логов сервера
 
-Источник: [how_to_use_journalctl_to_consult_server_logs](https://alibaba-cloud.medium.com/how-to-use-journalctl-to-consult-server-logs-4b07311b0ab4)
+Источник: [How to Use Journalctl to Consult Server Logs](https://alibaba-cloud.medium.com/how-to-use-journalctl-to-consult-server-logs-4b07311b0ab4)
 
 Автор: Alexandru Andrei · Alibaba Cloud Tech Share · 16 октября 2018 · 9 мин чтения
 
@@ -321,8 +321,8 @@ journalctl --vacuum-size=2G
 
 Ссылка: [https://www.alibabacloud.com/blog/how-to-use-journalctl-to-consult-server-logs_594043?spm=a2c41.12123057.0.0](https://www.alibabacloud.com/blog/how-to-use-journalctl-to-consult-server-logs_594043?spm=a2c41.12123057.0.0)
 
-**********
+---
 
 [journald](/tags/journald.md)
-[logs](/tags/logs.md)
+[логи](/tags/logs.md)
 [systemd](/tags/systemd.md)

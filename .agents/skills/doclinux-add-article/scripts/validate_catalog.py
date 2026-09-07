@@ -32,6 +32,23 @@ def error(errors: list[str], message: str) -> None:
     errors.append(message)
 
 
+def lines_outside_fences(lines: list[str]) -> list[tuple[int, str]]:
+    result: list[tuple[int, str]] = []
+    fence_character: str | None = None
+    for index, line in enumerate(lines, 1):
+        fence = re.match(r"^\s*(`{3,}|~{3,})", line)
+        if fence:
+            character = fence.group(1)[0]
+            if fence_character is None:
+                fence_character = character
+            elif fence_character == character:
+                fence_character = None
+            continue
+        if fence_character is None:
+            result.append((index, line))
+    return result
+
+
 def parse_catalog(readme: Path, errors: list[str]) -> tuple[Node, list[Node], str]:
     text = readme.read_text(encoding="utf-8")
     article_part, separator, tag_part = text.partition("\n---\n")
@@ -130,15 +147,17 @@ def validate_article(
         return
 
     lines = text.splitlines()
-    h1 = [line[2:].strip() for line in lines if line.startswith("# ")]
+    prose_lines = lines_outside_fences(lines)
+    h1 = [line[2:].strip() for _, line in prose_lines if line.startswith("# ")]
     if len(h1) != 1:
         error(errors, f"{normalized}: ожидается ровно один заголовок H1")
         title = None
     else:
         title = h1[0]
 
-    sources = [index for index, line in enumerate(lines, 1) if SOURCE_RE.fullmatch(line)]
-    if len(sources) != 1:
+    source_lines = [(index, line) for index, line in prose_lines if line.startswith("Источник:")]
+    sources = [index for index, line in source_lines if SOURCE_RE.fullmatch(line)]
+    if len(source_lines) != 1 or len(sources) != 1:
         error(errors, f"{normalized}: ожидается ровно одна корректная строка «Источник»")
     elif sources[0] > 12:
         error(errors, f"{normalized}:{sources[0]}: источник должен быть в начале статьи")

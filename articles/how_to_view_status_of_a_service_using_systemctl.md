@@ -1,6 +1,6 @@
 # Как просмотреть статус службы с помощью systemctl
 
-Источник: [Stop dance for nginx](https://www.cyberciti.biz/faq/systemd-systemctl-view-status-of-a-service-on-linux/)
+Источник: [How to view status of a service using systemctl](https://www.cyberciti.biz/faq/systemd-systemctl-view-status-of-a-service-on-linux/)
 
 Автор: Vivek Gite
 
@@ -284,7 +284,7 @@ $ sudo systemctl cat nginx.service
 Description=A high performance web server and a reverse proxy server
 Documentation=man:nginx(8)
 After=network.target
- 
+
 [Service]
 Type=forking
 PIDFile=/run/nginx.pid
@@ -294,7 +294,7 @@ ExecReload=/usr/sbin/nginx -g 'daemon on; master_process on;' -s reload
 ExecStop=-/sbin/start-stop-daemon --quiet --stop --retry QUIT/5 --pidfile /run/nginx.pid
 TimeoutStopSec=5
 KillMode=mixed
- 
+
 [Install]
 WantedBy=multi-user.target
 ```
@@ -308,8 +308,8 @@ $ man systemctl
 $ systemctl --help
 ```
 
-**********
+---
 
 [systemd](/tags/systemd.md)
 [linux](/tags/linux.md)
-[logs](/tags/logs.md)
+[логи](/tags/logs.md)

@@ -1,6 +1,6 @@
 # Практика cgroup v2
 
-Источник: [practicing_cgroup_v2](https://medium.com/@charles.vissol/practicing-cgroup-v2-cad6743bba0c)
+Источник: [Practicing cgroup v2](https://medium.com/@charles.vissol/practicing-cgroup-v2-cad6743bba0c)
 
 Шарль Виссол (Charles Vissol) · 4 февраля 2024 · 14 мин чтения
 
@@ -583,7 +583,7 @@ vissol@debian:~$ dd if=/dev/zero of=afile bs=1M count=11
 File size limit exceeded (core dumped)
 ```
 
-**********
+---
 
-[cgroup](/tags/cgroup.md)
+[cgroups](/tags/cgroups.md)
 [linux](/tags/linux.md)

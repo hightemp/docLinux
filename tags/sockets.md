@@ -1,6 +1,5 @@
 * [Epoll принципиально сломан 1/2](/articles/epoll_is_fundamentally_broken_12.md)
 * [Linux Kernel Labs: сетевая подсистема](/articles/linux_kernel_labs_networking_lab.md)
-* [Linux TCP SO_REUSEPORT: использование и реализация](/articles/flipkart_linux_tcp_so_reuseport.md)
 * [Linux TCP SO_REUSEPORT: использование и реализация](/articles/linux_tcp_so_reuseport_usage_and_implementation.md)
 * [Unix domain sockets: локальный IPC через AF_UNIX](/articles/unix_domain_sockets_razbor_lokalnogo_ipc_cherez_af_unix_sock_streamsock_dgramsoc.md)
 * [epoll(7) — справочная страница Linux](/articles/epoll7_linux_manual_page.md)

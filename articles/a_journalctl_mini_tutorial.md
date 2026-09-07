@@ -1,6 +1,6 @@
 # Мини-руководство по journalctl
 
-Источник: [without the -o cat, journalctl will print an extra line](https://smarketshq.com/a-journalctl-mini-tutorial-8675a5daa072)
+Источник: [A journalctl mini-tutorial](https://smarketshq.com/a-journalctl-mini-tutorial-8675a5daa072)
 
 ## И почему его можно использовать вместо less /var/log/…
 
@@ -275,8 +275,8 @@ systemd-cat -p info echo 'something informational happened'
 * Как и systemd в целом, journalctl отвергает unix-мантру «делай одну вещь хорошо, с минимальной реализацией» в пользу предложения mishmash-функциональности (включая tail -f, grep, sed, awk, tac и т.д.). Часть этого можно оправдать как способ избежать проблем с [буферизацией](http://www.pixelbeat.org/programming/stdio_buffering/) и производительностью.
 * Качество реализации исторически было неравномерным. Я видел, как старые версии journalctl часто падали при выходе, оставляя терминал в испорченном состоянии (выполните `reset`, если это случится с вами). Другой пример: если вы ищете в пустом диапазоне (например, `-p err --since … --until…` и нет ошибок), journalctl может выдать вам фиктивное сообщение об ошибке (_No journal files were found. Failed to determine timestamp: Cannot assign requested address_). К счастьцу, эти проблемы, похоже, исчезли с Ubuntu 18.04 и новее.
 
-**********
+---
 
 [systemd](/tags/systemd.md)
 [journald](/tags/journald.md)
-[logs](/tags/logs.md)
+[логи](/tags/logs.md)
