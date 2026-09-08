@@ -183,3 +183,4 @@
 * [Шаг в будущее управления конфигурацией и инфраструктурой с Nix](/articles/a_step_towards_the_future_of_configuration_and_infrastructure_management_with_ni.md)
 * [Шпаргалка по поиску узких мест в Linux: топ утилит на все случаи жизни](/articles/shpargalka_po_poisku_uzkikh_mest_v_linux_top_utilit_na_vse_sluchai_zhi.md)
 * [Эволюция формата объектных файлов ELF](/articles/evolution_of_the_elf_object_file_format.md)
+* [nftables](/articles/nftables.md)

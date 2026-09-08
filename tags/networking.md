@@ -36,3 +36,4 @@
 * [Трассировка разрешения имён хостов в Linux](/articles/tracing_linux_hostname_resolution.md)
 * [Увеличение скорости интернета в Linux с TCP BBR](/articles/increase_linux_internet_speed_with_tcp_bbr.md)
 * [Что ограничивает максимальное число соединений на Linux-сервере?](/articles/what_limits_max_connections_on_linux_server.md)
+* [nftables](/articles/nftables.md)

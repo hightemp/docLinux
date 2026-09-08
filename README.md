@@ -463,6 +463,7 @@
   - Защита сетевого доступа
     - [fail2ban ssh i bruteforce attack](/articles/fail2ban_ssh_i_bruteforce_attack.md)
     - [Как настроить файрвол с UFW в Ubuntu](/articles/kak_nastroit_fairvol_s_ufw_v_ubuntu.md)
+    - [nftables](/articles/nftables.md)
   - Криптография и сертификаты
     - [v1.24_ЕСИА и ГОСТ Р 34.10-2012 сертификаты](/articles/v124_esia_i_gost_r_3410_2012_sertifikaty.md)
   - Привилегии и capabilities
@@ -493,7 +494,6 @@
       - [mysqld_multi: как запустить несколько экземпляров MySQL](/articles/mysqld_multi_instances.md)
       - [Можно ли ограничить ресурсы MySQL, такие как память и процессор, на пользователя?](/articles/mysql_user_resource_limits.md)
       - [Оптимизация настроек Mysql с помощью Mysqltuner](/articles/mysql_optimization_with_mysqltuner.md)
-
 ---
 [LVM](/tags/lvm.md)
 [root](/tags/root.md)
@@ -575,6 +575,8 @@
 [ssh](/tags/ssh.md)
 [ncat](/tags/ncat.md)
 [AAA](/tags/aaa.md)
+[firewall](/tags/firewall.md)
+[nftables](/tags/nftables.md)
 [jpegoptim](/tags/jpegoptim.md)
 [OptiPNG](/tags/optipng.md)
 [epel](/tags/epel.md)
