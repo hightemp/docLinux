@@ -11,3 +11,4 @@
 * [Стандартные каталоги Linux](/articles/linux_standard_directories.md)
 * [Файлы и файловые системы](/articles/files_and_filesystems.md)
 * [Хаки при работе с большим числом мелких файлов](/articles/handling_many_small_files.md)
+* [The Linux System Administrator's Guide (TLDP)](/articles/the_linux_system_administrators_guide.md)

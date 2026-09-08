@@ -184,3 +184,4 @@
 * [Шпаргалка по поиску узких мест в Linux: топ утилит на все случаи жизни](/articles/shpargalka_po_poisku_uzkikh_mest_v_linux_top_utilit_na_vse_sluchai_zhi.md)
 * [Эволюция формата объектных файлов ELF](/articles/evolution_of_the_elf_object_file_format.md)
 * [nftables](/articles/nftables.md)
+* [The Linux System Administrator's Guide (TLDP)](/articles/the_linux_system_administrators_guide.md)

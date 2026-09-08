@@ -23,6 +23,7 @@
   - Основы Linux
     - [Основы Linux: пользовательское пространство, пространство ядра и системные вызовы](/articles/linux_fundamentals_user_kernel_space.md)
     - [Режим сна Linux](/articles/linux_bedtime_routine.md)
+    - [The Linux System Administrator's Guide (TLDP)](/articles/the_linux_system_administrators_guide.md)
   - Архитектура ядра
     - Namespaces
       - [Глубокое погружение в Linux namespaces](/articles/glubokoe_pogruzhenie_v_linux_namespaces.md)
