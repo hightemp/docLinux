@@ -60,6 +60,7 @@
     - Модули и драйверы
       - [Внутренности ядра и разработка модулей ядра в Fedora Linux](/articles/kernel_internals_and_kernel_module_development_in_fedora_linux.md)
       - [План обучения написанию драйверов устройств для Linux](/articles/roadmap_to_learning_linux_device_drivers.md)
+      - [The Linux Kernel Module Programming Guide (TLDP, 2.6)](/articles/the_linux_kernel_module_programming_guide.md)
     - Сборка ядра
       - [Собираем и запускаем минимальное ядро Linux](/articles/sobiraem_i_zapuskaem_minimalnoe_yadro_linux.md)
     - Планировщик CPU

@@ -185,3 +185,4 @@
 * [Эволюция формата объектных файлов ELF](/articles/evolution_of_the_elf_object_file_format.md)
 * [nftables](/articles/nftables.md)
 * [The Linux System Administrator's Guide (TLDP)](/articles/the_linux_system_administrators_guide.md)
+* [The Linux Kernel Module Programming Guide (TLDP, 2.6)](/articles/the_linux_kernel_module_programming_guide.md)

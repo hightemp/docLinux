@@ -37,3 +37,4 @@
 * [Файлы и файловые системы](/articles/files_and_filesystems.md)
 * [Характеризация Cache-Aware Scheduling в Linux](/articles/characterization_of_cache_aware_scheduling_on_linux_issledovanie_eevdf_i_ebpf_pl.md)
 * [Что такое linux-vdso.so.1](/articles/understanding_linux-vdsoso1.md)
+* [The Linux Kernel Module Programming Guide (TLDP, 2.6)](/articles/the_linux_kernel_module_programming_guide.md)
